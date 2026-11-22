@@ -1,0 +1,17 @@
+# 역할 → fal 모델 ID. 게임 프로젝트의 .gf/config.toml 이 이 값을 덮어쓴다.
+# 2026-11-22 에 fal 모델 검색 API로 존재를 확인한 ID다.
+[roles]
+"image.concept" = "fal-ai/nano-banana-2"
+"image.edit" = "fal-ai/nano-banana-2/edit"
+"image.rembg" = "fal-ai/birefnet/v2"
+"video.look" = "bytedance/seedance-2.5/image-to-video"
+"video.sprite" = "fal-ai/kling-video/v3/turbo/standard/image-to-video"
+"model3d.gen" = "tripo3d/p2/image-to-3d"
+"model3d.rig" = "fal-ai/meshy/rigging"
+"audio.sfx" = "elevenlabs/sound-effects/v3"
+"audio.tts" = "fal-ai/elevenlabs/tts/eleven-v3"
+"audio.music" = "elevenlabs/music/v2.5"
+
+[budget]
+# 한 번의 생성 호출이 넘으면 안 되는 추정 비용(USD). 명령의 --max-usd 가 우선한다.
+max_usd_per_call = 3.0

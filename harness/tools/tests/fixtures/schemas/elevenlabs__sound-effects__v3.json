@@ -1,0 +1,72 @@
+{
+ "endpoint": "elevenlabs/sound-effects/v3",
+ "role": "audio.sfx",
+ "input": {
+  "prompt_influence": {
+   "required": false,
+   "type": "number",
+   "default": 0.3,
+   "description": "How closely to follow the prompt (0-1). Higher values mean less variation.",
+   "minimum": 0,
+   "maximum": 1
+  },
+  "output_format": {
+   "required": false,
+   "type": "string",
+   "enum": [
+    "mp3_22050_32",
+    "mp3_44100_32",
+    "mp3_44100_64",
+    "mp3_44100_96",
+    "mp3_44100_128",
+    "mp3_44100_192",
+    "pcm_8000",
+    "pcm_16000",
+    "pcm_22050",
+    "pcm_24000",
+    "pcm_44100",
+    "pcm_48000",
+    "ulaw_8000",
+    "alaw_8000",
+    "opus_48000_32",
+    "opus_48000_64",
+    "opus_48000_96",
+    "opus_48000_128",
+    "opus_48000_192"
+   ],
+   "default": "mp3_44100_128",
+   "description": "Output format of the generated audio. Formatted as codec_sample_rate_bitrate."
+  },
+  "enable_safety_checker": {
+   "required": false,
+   "type": "boolean",
+   "default": true,
+   "description": "Check input content for safety. Disabling requires account authorization."
+  },
+  "duration_seconds": {
+   "required": false,
+   "description": "Duration in seconds (0.5-30). If None, optimal duration will be determined from prompt.",
+   "anyOf": [
+    "number",
+    "null"
+   ]
+  },
+  "loop": {
+   "required": false,
+   "type": "boolean",
+   "default": false,
+   "description": "Whether to create a sound effect that loops smoothly."
+  },
+  "text": {
+   "required": true,
+   "type": "string",
+   "description": "The text describing the sound effect to generate"
+  }
+ },
+ "price": {
+  "endpoint_id": "elevenlabs/sound-effects/v3",
+  "unit_price": 0.002,
+  "unit": "seconds",
+  "currency": "USD"
+ }
+}

@@ -1,0 +1,10 @@
+{
+  "name": "gameforge",
+  "displayName": "gameforge",
+  "version": "0.1.0",
+  "description": "혼자서 AI로 게임을 만드는 단계별 하네스. 기획, 룩 고정, 그레이박스, 에셋(픽셀·2D·3D·UI·오디오), 폴리시, 공개까지 단계마다 결과물을 보여 주고 승인을 받는다. 엔진은 Godot 과 three.js/웹.",
+  "author": {
+    "name": "gameforge"
+  },
+  "keywords": ["game", "godot", "threejs", "pixel-art", "fal"]
+}

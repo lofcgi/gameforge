@@ -1,0 +1,20 @@
+{
+  "name": "cat-angler",
+  "engine": "godot",
+  "dim": "2d",
+  "style": "pixel",
+  "stage": "graybox",
+  "approvals": [
+    {
+      "stage": "plan",
+      "at": "2026-11-22T15:19:37+00:00",
+      "note": "사용자 승인: 설계 브리프"
+    },
+    {
+      "stage": "look",
+      "at": "2026-11-22T15:34:58+00:00",
+      "note": "사용자 승인: 기준 화면, 아트 디렉션, 넓은 바다 구조로 고친 브리프"
+    }
+  ],
+  "created": "2026-11-22T15:06:11+00:00"
+}

@@ -1,0 +1,38 @@
+{
+  "count": 16,
+  "colors": [
+    "#0B1226",
+    "#1F223A",
+    "#394158",
+    "#2B7231",
+    "#894B1F",
+    "#0C8B8B",
+    "#C15E1D",
+    "#747780",
+    "#5AB043",
+    "#09CBBB",
+    "#E77C23",
+    "#A1BABD",
+    "#E8AE5F",
+    "#D5D0B9",
+    "#F7DC25",
+    "#F1F1F2"
+  ],
+  "sources": [
+    "assets/raw/pixel2/player2.png",
+    "assets/raw/pixel/player2-walk/frame_0000.png",
+    "assets/raw/pixel/player2-walk/frame_0001.png",
+    "assets/raw/pixel/player2-walk/frame_0002.png",
+    "assets/raw/pixel/player2-walk/frame_0003.png",
+    "assets/raw/pixel/player2-walk/frame_0004.png",
+    "assets/raw/pixel/player2-walk/frame_0005.png",
+    "assets/raw/pixel/player2-walk/frame_0006.png",
+    "assets/raw/pixel/player2-walk/frame_0007.png",
+    "assets/raw/pixel/player2-walk/frame_0008.png",
+    "assets/raw/pixel/player2-walk/frame_0009.png",
+    "assets/raw/pixel/player2-walk/frame_0010.png",
+    "assets/raw/pixel/cactus.png",
+    "assets/raw/pixel/flag.png",
+    "assets/raw/pixel/ground.png"
+  ]
+}

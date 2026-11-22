@@ -1,0 +1,31 @@
+[project]
+name = "gf"
+version = "0.1.0"
+description = "gameforge: AI 1인 게임 제작 하네스 도구"
+requires-python = ">=3.12"
+dependencies = [
+  "fal-client>=0.5",
+  "httpx>=0.27",
+  "python-dotenv>=1.0",
+  "pillow>=10",
+  "numpy>=1.26",
+  "trimesh>=4",
+  "playwright>=1.45",
+  "tomli-w>=1.0",
+]
+
+[project.scripts]
+gf = "gf.cli:main"
+
+[dependency-groups]
+dev = ["pytest>=8", "ruff>=0.6"]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["gf"]
+
+[tool.ruff]
+line-length = 100

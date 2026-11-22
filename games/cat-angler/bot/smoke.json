@@ -1,0 +1,273 @@
+{
+ "seed": 3,
+ "actions": [
+  {
+   "t": 0.2,
+   "tap": "cancel"
+  },
+  {
+   "t": 0.5,
+   "tap": "action"
+  },
+  {
+   "t": 0.9,
+   "press": "right"
+  },
+  {
+   "t": 8.2,
+   "release": "right"
+  },
+  {
+   "t": 8.5,
+   "tap": "action"
+  },
+  {
+   "t": 8.9,
+   "press": "right"
+  },
+  {
+   "t": 14.0,
+   "release": "right"
+  },
+  {
+   "t": 15.6,
+   "tap": "action"
+  },
+  {
+   "t": 16.2,
+   "tap": "down",
+   "hold": 0.38
+  },
+  {
+   "t": 17.0,
+   "tap": "action",
+   "hold": 0.45
+  },
+  {
+   "t": 17.6,
+   "tap": "action",
+   "hold": 0.45
+  },
+  {
+   "t": 18.2,
+   "tap": "action",
+   "hold": 0.45
+  },
+  {
+   "t": 18.8,
+   "tap": "action",
+   "hold": 0.45
+  },
+  {
+   "t": 19.4,
+   "tap": "action",
+   "hold": 0.45
+  },
+  {
+   "t": 20.0,
+   "tap": "action",
+   "hold": 0.45
+  },
+  {
+   "t": 20.6,
+   "tap": "action",
+   "hold": 0.45
+  },
+  {
+   "t": 21.2,
+   "tap": "action",
+   "hold": 0.45
+  },
+  {
+   "t": 21.8,
+   "tap": "action",
+   "hold": 0.45
+  },
+  {
+   "t": 22.4,
+   "tap": "action",
+   "hold": 0.45
+  },
+  {
+   "t": 23.0,
+   "tap": "action",
+   "hold": 0.45
+  },
+  {
+   "t": 23.6,
+   "tap": "action",
+   "hold": 0.45
+  },
+  {
+   "t": 24.2,
+   "tap": "action",
+   "hold": 0.45
+  },
+  {
+   "t": 24.8,
+   "tap": "action",
+   "hold": 0.45
+  },
+  {
+   "t": 25.4,
+   "tap": "action",
+   "hold": 0.45
+  },
+  {
+   "t": 26.0,
+   "tap": "action",
+   "hold": 0.45
+  },
+  {
+   "t": 26.6,
+   "tap": "action",
+   "hold": 0.45
+  },
+  {
+   "t": 27.2,
+   "tap": "action",
+   "hold": 0.45
+  },
+  {
+   "t": 27.8,
+   "tap": "action",
+   "hold": 0.45
+  },
+  {
+   "t": 28.4,
+   "tap": "action",
+   "hold": 0.45
+  },
+  {
+   "t": 29.0,
+   "tap": "action",
+   "hold": 0.45
+  },
+  {
+   "t": 29.6,
+   "tap": "action",
+   "hold": 0.45
+  },
+  {
+   "t": 30.2,
+   "tap": "action",
+   "hold": 0.45
+  },
+  {
+   "t": 30.8,
+   "tap": "action",
+   "hold": 0.45
+  },
+  {
+   "t": 31.4,
+   "tap": "action",
+   "hold": 0.45
+  },
+  {
+   "t": 32.0,
+   "tap": "action",
+   "hold": 0.45
+  },
+  {
+   "t": 32.6,
+   "tap": "action",
+   "hold": 0.45
+  },
+  {
+   "t": 33.2,
+   "tap": "action",
+   "hold": 0.45
+  },
+  {
+   "t": 33.8,
+   "tap": "action",
+   "hold": 0.45
+  },
+  {
+   "t": 34.4,
+   "tap": "action",
+   "hold": 0.45
+  },
+  {
+   "t": 35.0,
+   "tap": "action",
+   "hold": 0.45
+  },
+  {
+   "t": 35.6,
+   "tap": "action",
+   "hold": 0.45
+  },
+  {
+   "t": 36.2,
+   "tap": "action",
+   "hold": 0.45
+  },
+  {
+   "t": 36.8,
+   "tap": "action",
+   "hold": 0.45
+  },
+  {
+   "t": 37.4,
+   "tap": "action",
+   "hold": 0.45
+  },
+  {
+   "t": 38.0,
+   "tap": "action",
+   "hold": 0.45
+  },
+  {
+   "t": 38.6,
+   "tap": "action",
+   "hold": 0.45
+  },
+  {
+   "t": 39.2,
+   "tap": "action",
+   "hold": 0.45
+  },
+  {
+   "t": 39.8,
+   "tap": "action",
+   "hold": 0.45
+  },
+  {
+   "t": 41.0,
+   "tap": "cancel"
+  },
+  {
+   "t": 41.5,
+   "press": "left"
+  },
+  {
+   "t": 52.0,
+   "release": "left"
+  },
+  {
+   "t": 52.3,
+   "tap": "action"
+  },
+  {
+   "t": 52.8,
+   "press": "left"
+  },
+  {
+   "t": 56.4,
+   "release": "left"
+  },
+  {
+   "t": 56.8,
+   "tap": "action"
+  },
+  {
+   "t": 57.4,
+   "tap": "action"
+  },
+  {
+   "t": 58.0,
+   "tap": "cancel"
+  }
+ ]
+}

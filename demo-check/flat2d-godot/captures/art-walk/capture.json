@@ -1,0 +1,307 @@
+{
+  "header": {
+    "engine": "godot",
+    "info": {
+      "actions": {
+        "jump": {},
+        "left": {
+          "move": [
+            -1,
+            0
+          ]
+        },
+        "right": {
+          "move": [
+            1,
+            0
+          ]
+        }
+      },
+      "dim": "2d",
+      "probe": [
+        "right",
+        "left",
+        "jump"
+      ]
+    },
+    "seed": 0,
+    "size": [
+      1280,
+      720
+    ],
+    "tick_rate": 60,
+    "type": "header",
+    "version": 1
+  },
+  "shots": [
+    {
+      "t": 0.5,
+      "tick": 30,
+      "file": "captures/art-walk/shot_01_t0.50.png",
+      "state": {
+        "deaths": 0,
+        "fps": 1.0,
+        "goal": {
+          "pos": [
+            606.0,
+            140.0
+          ],
+          "reached": false
+        },
+        "level": "graybox-1",
+        "player": {
+          "on_floor": true,
+          "pos": [
+            51.0,
+            148.996856689453
+          ],
+          "vel": [
+            90.0,
+            0.0
+          ]
+        },
+        "sounds_goal": 0,
+        "sounds_jump": 0,
+        "t": 0.5,
+        "tick": 30
+      }
+    },
+    {
+      "t": 0.583333333333333,
+      "tick": 35,
+      "file": "captures/art-walk/shot_02_t0.58.png",
+      "state": {
+        "deaths": 0,
+        "fps": 1.0,
+        "goal": {
+          "pos": [
+            606.0,
+            140.0
+          ],
+          "reached": false
+        },
+        "level": "graybox-1",
+        "player": {
+          "on_floor": true,
+          "pos": [
+            58.5,
+            148.996856689453
+          ],
+          "vel": [
+            90.0,
+            0.0
+          ]
+        },
+        "sounds_goal": 0,
+        "sounds_jump": 0,
+        "t": 0.583333333333333,
+        "tick": 35
+      }
+    },
+    {
+      "t": 0.666666666666667,
+      "tick": 40,
+      "file": "captures/art-walk/shot_03_t0.67.png",
+      "state": {
+        "deaths": 0,
+        "fps": 1.0,
+        "goal": {
+          "pos": [
+            606.0,
+            140.0
+          ],
+          "reached": false
+        },
+        "level": "graybox-1",
+        "player": {
+          "on_floor": true,
+          "pos": [
+            66.0,
+            148.996856689453
+          ],
+          "vel": [
+            90.0,
+            0.0
+          ]
+        },
+        "sounds_goal": 0,
+        "sounds_jump": 0,
+        "t": 0.666666666666667,
+        "tick": 40
+      }
+    },
+    {
+      "t": 0.75,
+      "tick": 45,
+      "file": "captures/art-walk/shot_04_t0.75.png",
+      "state": {
+        "deaths": 0,
+        "fps": 1.0,
+        "goal": {
+          "pos": [
+            606.0,
+            140.0
+          ],
+          "reached": false
+        },
+        "level": "graybox-1",
+        "player": {
+          "on_floor": true,
+          "pos": [
+            73.5,
+            148.996856689453
+          ],
+          "vel": [
+            90.0,
+            0.0
+          ]
+        },
+        "sounds_goal": 0,
+        "sounds_jump": 0,
+        "t": 0.75,
+        "tick": 45
+      }
+    },
+    {
+      "t": 0.833333333333333,
+      "tick": 50,
+      "file": "captures/art-walk/shot_05_t0.83.png",
+      "state": {
+        "deaths": 0,
+        "fps": 1.0,
+        "goal": {
+          "pos": [
+            606.0,
+            140.0
+          ],
+          "reached": false
+        },
+        "level": "graybox-1",
+        "player": {
+          "on_floor": true,
+          "pos": [
+            81.0,
+            148.996856689453
+          ],
+          "vel": [
+            90.0,
+            0.0
+          ]
+        },
+        "sounds_goal": 0,
+        "sounds_jump": 0,
+        "t": 0.833333333333333,
+        "tick": 50
+      }
+    },
+    {
+      "t": 1.4,
+      "tick": 84,
+      "file": "captures/art-walk/shot_06_t1.40.png",
+      "state": {
+        "deaths": 0,
+        "fps": 83.0,
+        "goal": {
+          "pos": [
+            606.0,
+            140.0
+          ],
+          "reached": false
+        },
+        "level": "graybox-1",
+        "player": {
+          "on_floor": true,
+          "pos": [
+            114.0,
+            148.996856689453
+          ],
+          "vel": [
+            0.0,
+            0.0
+          ]
+        },
+        "sounds_goal": 0,
+        "sounds_jump": 0,
+        "t": 1.4,
+        "tick": 84
+      }
+    },
+    {
+      "t": 1.9,
+      "tick": 114,
+      "file": "captures/art-walk/shot_07_t1.90.png",
+      "state": {
+        "deaths": 0,
+        "fps": 83.0,
+        "goal": {
+          "pos": [
+            606.0,
+            140.0
+          ],
+          "reached": false
+        },
+        "level": "graybox-1",
+        "player": {
+          "on_floor": true,
+          "pos": [
+            78.0,
+            148.996856689453
+          ],
+          "vel": [
+            -90.0,
+            0.0
+          ]
+        },
+        "sounds_goal": 0,
+        "sounds_jump": 0,
+        "t": 1.9,
+        "tick": 114
+      }
+    },
+    {
+      "t": 2.6,
+      "tick": 156,
+      "file": "captures/art-walk/shot_08_t2.60.png",
+      "state": {
+        "deaths": 0,
+        "fps": 83.0,
+        "goal": {
+          "pos": [
+            606.0,
+            140.0
+          ],
+          "reached": false
+        },
+        "level": "graybox-1",
+        "player": {
+          "on_floor": true,
+          "pos": [
+            51.0,
+            148.996856689453
+          ],
+          "vel": [
+            0.0,
+            0.0
+          ]
+        },
+        "sounds_goal": 0,
+        "sounds_jump": 0,
+        "t": 2.6,
+        "tick": 156
+      }
+    }
+  ],
+  "inputs": {
+    "pressed": 2,
+    "responded": 2,
+    "unmapped": 0,
+    "unverified": 0,
+    "unresponsive": []
+  },
+  "liveness": {
+    "verified": true,
+    "first_input_t": 0.2,
+    "diverged_t": 0.25
+  },
+  "logs": []
+}

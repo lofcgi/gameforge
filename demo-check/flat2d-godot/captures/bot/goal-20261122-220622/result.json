@@ -1,0 +1,286 @@
+{
+  "policy": "goal",
+  "seed": 0,
+  "reached_goal": true,
+  "time_s": 12.65,
+  "deaths": 2,
+  "liveness": {
+    "verified": true,
+    "first_input_t": 0.0,
+    "diverged_t": 0.05
+  },
+  "inputs": {
+    "pressed": 6,
+    "responded": 6,
+    "unmapped": 0,
+    "unverified": 0,
+    "unresponsive": []
+  },
+  "final_state": {
+    "deaths": 2,
+    "fps": 48.0,
+    "goal": {
+      "pos": [
+        606.0,
+        140.0
+      ],
+      "reached": true
+    },
+    "level": "graybox-1",
+    "player": {
+      "on_floor": true,
+      "pos": [
+        597.425231933594,
+        148.925216674805
+      ],
+      "vel": [
+        90.0,
+        0.0
+      ]
+    },
+    "sounds_goal": 1,
+    "sounds_jump": 5,
+    "t": 12.65,
+    "tick": 759
+  },
+  "shots": [
+    {
+      "t": 2.0,
+      "tick": 120,
+      "file": "captures/bot/goal-20261122-220622/shot_001.png",
+      "state": {
+        "deaths": 0,
+        "fps": 48.0,
+        "goal": {
+          "pos": [
+            606.0,
+            140.0
+          ],
+          "reached": false
+        },
+        "level": "graybox-1",
+        "player": {
+          "on_floor": true,
+          "pos": [
+            204.0,
+            148.925216674805
+          ],
+          "vel": [
+            90.0,
+            0.0
+          ]
+        },
+        "sounds_goal": 0,
+        "sounds_jump": 0,
+        "t": 2.0,
+        "tick": 120
+      }
+    },
+    {
+      "t": 4.0,
+      "tick": 240,
+      "file": "captures/bot/goal-20261122-220622/shot_002.png",
+      "state": {
+        "deaths": 1,
+        "fps": 48.0,
+        "goal": {
+          "pos": [
+            606.0,
+            140.0
+          ],
+          "reached": false
+        },
+        "level": "graybox-1",
+        "player": {
+          "on_floor": true,
+          "pos": [
+            160.5,
+            148.925216674805
+          ],
+          "vel": [
+            90.0,
+            0.0
+          ]
+        },
+        "sounds_goal": 0,
+        "sounds_jump": 0,
+        "t": 4.0,
+        "tick": 240
+      }
+    },
+    {
+      "t": 6.0,
+      "tick": 360,
+      "file": "captures/bot/goal-20261122-220622/shot_003.png",
+      "state": {
+        "deaths": 2,
+        "fps": 48.0,
+        "goal": {
+          "pos": [
+            606.0,
+            140.0
+          ],
+          "reached": false
+        },
+        "level": "graybox-1",
+        "player": {
+          "on_floor": false,
+          "pos": [
+            54.0,
+            100.277801513672
+          ],
+          "vel": [
+            90.0,
+            -8.33330631256104
+          ]
+        },
+        "sounds_goal": 0,
+        "sounds_jump": 2,
+        "t": 6.0,
+        "tick": 360
+      }
+    },
+    {
+      "t": 8.0,
+      "tick": 480,
+      "file": "captures/bot/goal-20261122-220622/shot_004.png",
+      "state": {
+        "deaths": 2,
+        "fps": 48.0,
+        "goal": {
+          "pos": [
+            606.0,
+            140.0
+          ],
+          "reached": false
+        },
+        "level": "graybox-1",
+        "player": {
+          "on_floor": false,
+          "pos": [
+            234.000427246094,
+            116.701965332031
+          ],
+          "vel": [
+            90.0,
+            96.6666870117188
+          ]
+        },
+        "sounds_goal": 0,
+        "sounds_jump": 3,
+        "t": 8.0,
+        "tick": 480
+      }
+    },
+    {
+      "t": 10.0,
+      "tick": 600,
+      "file": "captures/bot/goal-20261122-220622/shot_005.png",
+      "state": {
+        "deaths": 2,
+        "fps": 48.0,
+        "goal": {
+          "pos": [
+            606.0,
+            140.0
+          ],
+          "reached": false
+        },
+        "level": "graybox-1",
+        "player": {
+          "on_floor": true,
+          "pos": [
+            394.998901367188,
+            148.998245239258
+          ],
+          "vel": [
+            0.0,
+            0.0
+          ]
+        },
+        "sounds_goal": 0,
+        "sounds_jump": 4,
+        "t": 10.0,
+        "tick": 600
+      }
+    },
+    {
+      "t": 12.0,
+      "tick": 720,
+      "file": "captures/bot/goal-20261122-220622/shot_006.png",
+      "state": {
+        "deaths": 2,
+        "fps": 48.0,
+        "goal": {
+          "pos": [
+            606.0,
+            140.0
+          ],
+          "reached": false
+        },
+        "level": "graybox-1",
+        "player": {
+          "on_floor": true,
+          "pos": [
+            538.925231933594,
+            148.925216674805
+          ],
+          "vel": [
+            90.0,
+            0.0
+          ]
+        },
+        "sounds_goal": 0,
+        "sounds_jump": 5,
+        "t": 12.0,
+        "tick": 720
+      }
+    },
+    {
+      "t": 12.65,
+      "tick": 759,
+      "file": "captures/bot/goal-20261122-220622/final.png",
+      "state": {
+        "deaths": 2,
+        "fps": 48.0,
+        "goal": {
+          "pos": [
+            606.0,
+            140.0
+          ],
+          "reached": true
+        },
+        "level": "graybox-1",
+        "player": {
+          "on_floor": true,
+          "pos": [
+            597.425231933594,
+            148.925216674805
+          ],
+          "vel": [
+            90.0,
+            0.0
+          ]
+        },
+        "sounds_goal": 1,
+        "sounds_jump": 5,
+        "t": 12.65,
+        "tick": 759
+      }
+    }
+  ],
+  "logs": [
+    {
+      "level": "warning",
+      "text": "WARNING: GfBridge: 눌러 둔 키 Right 가 밖에서 풀려 다시 눌렀다 (tick 76) at: push_warning (core/variant/variant_utility.cpp:1033)"
+    },
+    {
+      "level": "warning",
+      "text": "WARNING: 6 ObjectDB instances were leaked at exit (run with `--verbose` for details). at: cleanup (core/object/object.cpp:2536)"
+    },
+    {
+      "level": "warning",
+      "text": "ERROR: 3 resources still in use at exit (run with --verbose for details). at: clear (core/io/resource.cpp:822)"
+    }
+  ]
+}

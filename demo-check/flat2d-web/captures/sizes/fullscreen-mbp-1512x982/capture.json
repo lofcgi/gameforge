@@ -1,0 +1,95 @@
+{
+  "header": {
+    "type": "header",
+    "version": 1,
+    "engine": "web",
+    "tick_rate": 60,
+    "seed": 0,
+    "size": [
+      1512,
+      982
+    ],
+    "info": {
+      "dim": "2d",
+      "actions": {
+        "left": {
+          "keys": [
+            "ArrowLeft",
+            "KeyA"
+          ],
+          "move": [
+            -1,
+            0
+          ]
+        },
+        "right": {
+          "keys": [
+            "ArrowRight",
+            "KeyD"
+          ],
+          "move": [
+            1,
+            0
+          ]
+        },
+        "jump": {
+          "keys": [
+            "Space",
+            "ArrowUp"
+          ]
+        }
+      },
+      "probe": [
+        "right",
+        "left",
+        "jump"
+      ]
+    }
+  },
+  "shots": [
+    {
+      "t": 2.3,
+      "tick": 138,
+      "file": "captures/sizes/fullscreen-mbp-1512x982/shot_01_t2.30.png",
+      "state": {
+        "level": "graybox-1",
+        "player": {
+          "pos": [
+            213,
+            111.91666666666664
+          ],
+          "vel": [
+            90,
+            -66.66666666666671
+          ],
+          "on_floor": false
+        },
+        "goal": {
+          "pos": [
+            606,
+            140
+          ],
+          "reached": false
+        },
+        "deaths": 0,
+        "jumps": 1,
+        "tick": 138,
+        "t": 2.3,
+        "fps": 60
+      }
+    }
+  ],
+  "inputs": {
+    "pressed": 4,
+    "responded": 4,
+    "unmapped": 0,
+    "unverified": 0,
+    "unresponsive": []
+  },
+  "liveness": {
+    "verified": true,
+    "first_input_t": 0.2,
+    "diverged_t": 0.25
+  },
+  "logs": []
+}

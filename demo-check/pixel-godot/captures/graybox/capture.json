@@ -1,0 +1,171 @@
+{
+  "header": {
+    "engine": "godot",
+    "info": {
+      "actions": {
+        "jump": {},
+        "left": {
+          "move": [
+            -1,
+            0
+          ]
+        },
+        "right": {
+          "move": [
+            1,
+            0
+          ]
+        }
+      },
+      "dim": "2d",
+      "probe": [
+        "right",
+        "left",
+        "jump"
+      ]
+    },
+    "seed": 0,
+    "size": [
+      1280,
+      720
+    ],
+    "tick_rate": 60,
+    "type": "header",
+    "version": 1
+  },
+  "shots": [
+    {
+      "t": 1.0,
+      "tick": 60,
+      "file": "captures/graybox/shot_01_t1.00.png",
+      "state": {
+        "deaths": 0,
+        "fps": 1.0,
+        "goal": {
+          "pos": [
+            606.0,
+            140.0
+          ],
+          "reached": false
+        },
+        "level": "graybox-1",
+        "player": {
+          "on_floor": true,
+          "pos": [
+            96.0,
+            148.996856689453
+          ],
+          "vel": [
+            90.0,
+            0.0
+          ]
+        },
+        "t": 1.0,
+        "tick": 60
+      }
+    },
+    {
+      "t": 2.3,
+      "tick": 138,
+      "file": "captures/graybox/shot_02_t2.30.png",
+      "state": {
+        "deaths": 0,
+        "fps": 66.0,
+        "goal": {
+          "pos": [
+            606.0,
+            140.0
+          ],
+          "reached": false
+        },
+        "level": "graybox-1",
+        "player": {
+          "on_floor": false,
+          "pos": [
+            213.024307250977,
+            112.962509155273
+          ],
+          "vel": [
+            90.0,
+            -78.3333053588867
+          ]
+        },
+        "t": 2.3,
+        "tick": 138
+      }
+    },
+    {
+      "t": 3.5,
+      "tick": 210,
+      "file": "captures/graybox/shot_03_t3.50.png",
+      "state": {
+        "deaths": 0,
+        "fps": 66.0,
+        "goal": {
+          "pos": [
+            606.0,
+            140.0
+          ],
+          "reached": false
+        },
+        "level": "graybox-1",
+        "player": {
+          "on_floor": false,
+          "pos": [
+            321.024749755859,
+            110.201965332031
+          ],
+          "vel": [
+            90.0,
+            -43.3333053588867
+          ]
+        },
+        "t": 3.5,
+        "tick": 210
+      }
+    },
+    {
+      "t": 6.0,
+      "tick": 360,
+      "file": "captures/graybox/shot_04_t6.00.png",
+      "state": {
+        "deaths": 0,
+        "fps": 149.0,
+        "goal": {
+          "pos": [
+            606.0,
+            140.0
+          ],
+          "reached": false
+        },
+        "level": "graybox-1",
+        "player": {
+          "on_floor": true,
+          "pos": [
+            543.425231933594,
+            148.925216674805
+          ],
+          "vel": [
+            90.0,
+            0.0
+          ]
+        },
+        "t": 6.0,
+        "tick": 360
+      }
+    }
+  ],
+  "inputs": {
+    "pressed": 4,
+    "responded": 4,
+    "unmapped": 0,
+    "unverified": 0,
+    "unresponsive": []
+  },
+  "liveness": {
+    "verified": true,
+    "first_input_t": 0.2,
+    "diverged_t": 0.25
+  },
+  "logs": []
+}

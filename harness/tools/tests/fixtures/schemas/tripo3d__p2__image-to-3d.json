@@ -1,0 +1,111 @@
+{
+ "endpoint": "tripo3d/p2/image-to-3d",
+ "role": "model3d.gen",
+ "input": {
+  "texture_seed": {
+   "required": false,
+   "description": "Seed for texture generation reproducibility.",
+   "anyOf": [
+    "integer",
+    "null"
+   ]
+  },
+  "texture": {
+   "required": false,
+   "type": "boolean",
+   "default": true,
+   "description": "Whether to generate textures for the model."
+  },
+  "quad": {
+   "required": false,
+   "type": "boolean",
+   "default": false,
+   "description": "Generate quad mesh topology instead of triangles."
+  },
+  "export_uv": {
+   "required": false,
+   "type": "boolean",
+   "default": true,
+   "description": "Whether to generate UV coordinates for the model."
+  },
+  "delight": {
+   "required": false,
+   "type": "boolean",
+   "default": true,
+   "description": "Remove baked-in lighting before texturing with v3.5-20260815."
+  },
+  "texture_version": {
+   "required": false,
+   "description": "Texture model version. The fast quality requires v3.5-20260815.",
+   "anyOf": [
+    "string",
+    "null"
+   ]
+  },
+  "model_seed": {
+   "required": false,
+   "description": "Seed for geometry generation reproducibility.",
+   "anyOf": [
+    "integer",
+    "null"
+   ]
+  },
+  "auto_size": {
+   "required": false,
+   "type": "boolean",
+   "default": false,
+   "description": "Auto-scale the model to real-world dimensions in meters."
+  },
+  "enable_safety_checker": {
+   "required": false,
+   "type": "boolean",
+   "default": true,
+   "description": "Authorized callers may set false to request relaxed screening."
+  },
+  "export_orientation": {
+   "required": false,
+   "description": "Optional forward axis for the exported model.",
+   "anyOf": [
+    "string",
+    "null"
+   ]
+  },
+  "pbr": {
+   "required": false,
+   "type": "boolean",
+   "default": true,
+   "description": "Whether to generate PBR material maps. Enabling PBR also enables textures."
+  },
+  "face_limit": {
+   "required": false,
+   "description": "Maximum number of faces for the generated mesh. Quad meshes support up to 25,000 faces.",
+   "anyOf": [
+    "integer",
+    "null"
+   ]
+  },
+  "texture_quality": {
+   "required": false,
+   "type": "string",
+   "enum": [
+    "fast",
+    "standard",
+    "detailed",
+    "extreme"
+   ],
+   "default": "standard",
+   "description": "Texture quality level."
+  },
+  "image_url": {
+   "required": true,
+   "type": "string",
+   "description": "URL of the input image for 3D model creation."
+  }
+ },
+ "price": {
+  "endpoint_id": "tripo3d/p2/image-to-3d",
+  "unit_price": 0.01,
+  "unit": "credits",
+  "currency": "USD"
+ }
+}

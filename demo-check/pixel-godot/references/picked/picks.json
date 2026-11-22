@@ -1,0 +1,39 @@
+{
+  "updated": "2026-11-22T11:36:20+00:00",
+  "reference": 2,
+  "anti": 1,
+  "warnings": [],
+  "picks": [
+    {
+      "file": "steam-4c4b746d3251.jpg",
+      "kind": "reference",
+      "note": "색 온도와 화면 밀도만",
+      "tags": [],
+      "title": "Stardew Valley",
+      "source_url": "https://store.steampowered.com/app/413150/",
+      "origin": "steam"
+    },
+    {
+      "file": "manual-697faf7c36f2.png",
+      "kind": "reference",
+      "note": "팔레트",
+      "tags": [
+        "local"
+      ],
+      "title": null,
+      "source_url": null,
+      "origin": "manual"
+    },
+    {
+      "file": "manual-9bf386b8e12f.png",
+      "kind": "anti",
+      "note": "3D 렌더 질감은 아님",
+      "tags": [
+        "local"
+      ],
+      "title": null,
+      "source_url": null,
+      "origin": "manual"
+    }
+  ]
+}

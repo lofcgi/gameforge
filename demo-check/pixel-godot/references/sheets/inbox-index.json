@@ -1,0 +1,54 @@
+{
+  "set": "inbox",
+  "generated": "2026-11-22T11:36:13+00:00",
+  "pages": [
+    "references/sheets/inbox-01.png"
+  ],
+  "items": [
+    {
+      "n": 1,
+      "file": "steam-4c4b746d3251.jpg",
+      "page": 1,
+      "kind": "reference",
+      "picked": false,
+      "title": "Stardew Valley",
+      "note": ""
+    },
+    {
+      "n": 2,
+      "file": "steam-16f2832912b9.jpg",
+      "page": 1,
+      "kind": "reference",
+      "picked": false,
+      "title": "Stardew Valley",
+      "note": ""
+    },
+    {
+      "n": 3,
+      "file": "steam-65643f247f7e.jpg",
+      "page": 1,
+      "kind": "reference",
+      "picked": false,
+      "title": "Stardew Valley",
+      "note": ""
+    },
+    {
+      "n": 4,
+      "file": "manual-697faf7c36f2.png",
+      "page": 1,
+      "kind": "reference",
+      "picked": false,
+      "title": "ground.png",
+      "note": "이끼 타일의 초록·청록 팔레트"
+    },
+    {
+      "n": 5,
+      "file": "manual-9bf386b8e12f.png",
+      "page": 1,
+      "kind": "reference",
+      "picked": false,
+      "title": "scout.png",
+      "note": "이끼 타일의 초록·청록 팔레트"
+    }
+  ]
+}

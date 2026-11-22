@@ -1,0 +1,105 @@
+{
+  "header": {
+    "engine": "godot",
+    "info": {
+      "actions": {
+        "jump": {
+          "keys": [
+            "Space",
+            "Up"
+          ]
+        },
+        "left": {
+          "keys": [
+            "Left",
+            "A"
+          ],
+          "move": [
+            -1,
+            0
+          ]
+        },
+        "right": {
+          "keys": [
+            "Right",
+            "D"
+          ],
+          "move": [
+            1,
+            0
+          ]
+        }
+      },
+      "dim": "2d",
+      "probe": [
+        "right",
+        "left",
+        "jump"
+      ]
+    },
+    "seed": 0,
+    "size": [
+      1024,
+      768
+    ],
+    "tick_rate": 60,
+    "type": "header",
+    "version": 1
+  },
+  "shots": [
+    {
+      "t": 2.3,
+      "tick": 138,
+      "file": "captures/sizes/4x3-1024x768/shot_01_t2.30.png",
+      "state": {
+        "deaths": 0,
+        "fps": 52.0,
+        "goal": {
+          "pos": [
+            606.0,
+            140.0
+          ],
+          "reached": false
+        },
+        "level": "graybox-1",
+        "player": {
+          "on_floor": false,
+          "pos": [
+            213.024307250977,
+            111.85139465332
+          ],
+          "vel": [
+            90.0,
+            -66.6666412353516
+          ]
+        },
+        "sounds_goal": 0,
+        "sounds_jump": 1,
+        "t": 2.3,
+        "tick": 138
+      }
+    }
+  ],
+  "inputs": {
+    "pressed": 4,
+    "responded": 4,
+    "unmapped": 0,
+    "unverified": 0,
+    "unresponsive": []
+  },
+  "liveness": {
+    "verified": true,
+    "first_input_t": 0.2,
+    "diverged_t": 0.25
+  },
+  "logs": [
+    {
+      "level": "warning",
+      "text": "WARNING: 4 ObjectDB instances were leaked at exit (run with `--verbose` for details). at: cleanup (core/object/object.cpp:2536)"
+    },
+    {
+      "level": "warning",
+      "text": "ERROR: 2 resources still in use at exit (run with --verbose for details). at: clear (core/io/resource.cpp:822)"
+    }
+  ]
+}

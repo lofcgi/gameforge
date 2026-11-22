@@ -1,0 +1,188 @@
+{
+  "header": {
+    "engine": "godot",
+    "info": {
+      "actions": {
+        "jump": {},
+        "left": {
+          "move": [
+            -1,
+            0
+          ]
+        },
+        "right": {
+          "move": [
+            1,
+            0
+          ]
+        }
+      },
+      "dim": "2d",
+      "probe": [
+        "right",
+        "left",
+        "jump"
+      ]
+    },
+    "seed": 0,
+    "size": [
+      1280,
+      720
+    ],
+    "tick_rate": 60,
+    "type": "header",
+    "version": 1
+  },
+  "shots": [
+    {
+      "t": 0.5,
+      "tick": 30,
+      "file": "captures/art-walk/shot_01_t0.50.png",
+      "state": {
+        "deaths": 0,
+        "fps": 1.0,
+        "goal": {
+          "pos": [
+            606.0,
+            140.0
+          ],
+          "reached": false
+        },
+        "level": "graybox-1",
+        "player": {
+          "on_floor": true,
+          "pos": [
+            51.0,
+            148.996856689453
+          ],
+          "vel": [
+            90.0,
+            0.0
+          ]
+        },
+        "sounds_goal": 0,
+        "sounds_jump": 0,
+        "t": 0.5,
+        "tick": 30
+      }
+    },
+    {
+      "t": 0.666666666666667,
+      "tick": 40,
+      "file": "captures/art-walk/shot_02_t0.67.png",
+      "state": {
+        "deaths": 0,
+        "fps": 1.0,
+        "goal": {
+          "pos": [
+            606.0,
+            140.0
+          ],
+          "reached": false
+        },
+        "level": "graybox-1",
+        "player": {
+          "on_floor": true,
+          "pos": [
+            66.0,
+            148.996856689453
+          ],
+          "vel": [
+            90.0,
+            0.0
+          ]
+        },
+        "sounds_goal": 0,
+        "sounds_jump": 0,
+        "t": 0.666666666666667,
+        "tick": 40
+      }
+    },
+    {
+      "t": 0.833333333333333,
+      "tick": 50,
+      "file": "captures/art-walk/shot_03_t0.83.png",
+      "state": {
+        "deaths": 0,
+        "fps": 1.0,
+        "goal": {
+          "pos": [
+            606.0,
+            140.0
+          ],
+          "reached": false
+        },
+        "level": "graybox-1",
+        "player": {
+          "on_floor": true,
+          "pos": [
+            81.0,
+            148.996856689453
+          ],
+          "vel": [
+            90.0,
+            0.0
+          ]
+        },
+        "sounds_goal": 0,
+        "sounds_jump": 0,
+        "t": 0.833333333333333,
+        "tick": 50
+      }
+    },
+    {
+      "t": 1.0,
+      "tick": 60,
+      "file": "captures/art-walk/shot_04_t1.00.png",
+      "state": {
+        "deaths": 0,
+        "fps": 1.0,
+        "goal": {
+          "pos": [
+            606.0,
+            140.0
+          ],
+          "reached": false
+        },
+        "level": "graybox-1",
+        "player": {
+          "on_floor": true,
+          "pos": [
+            96.0,
+            148.996856689453
+          ],
+          "vel": [
+            90.0,
+            0.0
+          ]
+        },
+        "sounds_goal": 0,
+        "sounds_jump": 0,
+        "t": 1.0,
+        "tick": 60
+      }
+    }
+  ],
+  "inputs": {
+    "pressed": 4,
+    "responded": 4,
+    "unmapped": 0,
+    "unverified": 0,
+    "unresponsive": []
+  },
+  "liveness": {
+    "verified": true,
+    "first_input_t": 0.2,
+    "diverged_t": 0.25
+  },
+  "logs": [
+    {
+      "level": "warning",
+      "text": "WARNING: 4 ObjectDB instances were leaked at exit (run with `--verbose` for details). at: cleanup (core/object/object.cpp:2536)"
+    },
+    {
+      "level": "error",
+      "text": "ERROR: 2 resources still in use at exit (run with --verbose for details). at: clear (core/io/resource.cpp:822)"
+    }
+  ]
+}

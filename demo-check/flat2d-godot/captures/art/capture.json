@@ -1,0 +1,252 @@
+{
+  "header": {
+    "engine": "godot",
+    "info": {
+      "actions": {
+        "jump": {},
+        "left": {
+          "move": [
+            -1,
+            0
+          ]
+        },
+        "right": {
+          "move": [
+            1,
+            0
+          ]
+        }
+      },
+      "dim": "2d",
+      "probe": [
+        "right",
+        "left",
+        "jump"
+      ]
+    },
+    "seed": 0,
+    "size": [
+      1280,
+      720
+    ],
+    "tick_rate": 60,
+    "type": "header",
+    "version": 1
+  },
+  "shots": [
+    {
+      "t": 0.1,
+      "tick": 6,
+      "file": "captures/art/shot_01_t0.10.png",
+      "state": {
+        "deaths": 0,
+        "fps": 1.0,
+        "goal": {
+          "pos": [
+            606.0,
+            140.0
+          ],
+          "reached": false
+        },
+        "level": "graybox-1",
+        "player": {
+          "on_floor": false,
+          "pos": [
+            24.0,
+            144.08332824707
+          ],
+          "vel": [
+            0.0,
+            70.0
+          ]
+        },
+        "sounds_goal": 0,
+        "sounds_jump": 0,
+        "t": 0.1,
+        "tick": 6
+      }
+    },
+    {
+      "t": 1.0,
+      "tick": 60,
+      "file": "captures/art/shot_02_t1.00.png",
+      "state": {
+        "deaths": 0,
+        "fps": 1.0,
+        "goal": {
+          "pos": [
+            606.0,
+            140.0
+          ],
+          "reached": false
+        },
+        "level": "graybox-1",
+        "player": {
+          "on_floor": true,
+          "pos": [
+            96.0,
+            148.996856689453
+          ],
+          "vel": [
+            90.0,
+            0.0
+          ]
+        },
+        "sounds_goal": 0,
+        "sounds_jump": 0,
+        "t": 1.0,
+        "tick": 60
+      }
+    },
+    {
+      "t": 2.3,
+      "tick": 138,
+      "file": "captures/art/shot_03_t2.30.png",
+      "state": {
+        "deaths": 0,
+        "fps": 90.0,
+        "goal": {
+          "pos": [
+            606.0,
+            140.0
+          ],
+          "reached": false
+        },
+        "level": "graybox-1",
+        "player": {
+          "on_floor": false,
+          "pos": [
+            213.024307250977,
+            112.962509155273
+          ],
+          "vel": [
+            90.0,
+            -78.3333053588867
+          ]
+        },
+        "sounds_goal": 0,
+        "sounds_jump": 1,
+        "t": 2.3,
+        "tick": 138
+      }
+    },
+    {
+      "t": 3.1,
+      "tick": 186,
+      "file": "captures/art/shot_04_t3.10.png",
+      "state": {
+        "deaths": 0,
+        "fps": 90.0,
+        "goal": {
+          "pos": [
+            606.0,
+            140.0
+          ],
+          "reached": false
+        },
+        "level": "graybox-1",
+        "player": {
+          "on_floor": true,
+          "pos": [
+            285.024322509766,
+            148.925262451172
+          ],
+          "vel": [
+            90.0,
+            0.0
+          ]
+        },
+        "sounds_goal": 0,
+        "sounds_jump": 1,
+        "t": 3.1,
+        "tick": 186
+      }
+    },
+    {
+      "t": 3.5,
+      "tick": 210,
+      "file": "captures/art/shot_05_t3.50.png",
+      "state": {
+        "deaths": 0,
+        "fps": 90.0,
+        "goal": {
+          "pos": [
+            606.0,
+            140.0
+          ],
+          "reached": false
+        },
+        "level": "graybox-1",
+        "player": {
+          "on_floor": false,
+          "pos": [
+            321.024749755859,
+            110.201965332031
+          ],
+          "vel": [
+            90.0,
+            -43.3333053588867
+          ]
+        },
+        "sounds_goal": 0,
+        "sounds_jump": 2,
+        "t": 3.5,
+        "tick": 210
+      }
+    },
+    {
+      "t": 7.2,
+      "tick": 432,
+      "file": "captures/art/shot_06_t7.20.png",
+      "state": {
+        "deaths": 0,
+        "fps": 180.0,
+        "goal": {
+          "pos": [
+            606.0,
+            140.0
+          ],
+          "reached": true
+        },
+        "level": "graybox-1",
+        "player": {
+          "on_floor": true,
+          "pos": [
+            619.925231933594,
+            148.925216674805
+          ],
+          "vel": [
+            0.0,
+            0.0
+          ]
+        },
+        "sounds_goal": 1,
+        "sounds_jump": 3,
+        "t": 7.2,
+        "tick": 432
+      }
+    }
+  ],
+  "inputs": {
+    "pressed": 4,
+    "responded": 4,
+    "unmapped": 0,
+    "unverified": 0,
+    "unresponsive": []
+  },
+  "liveness": {
+    "verified": true,
+    "first_input_t": 0.2,
+    "diverged_t": 0.25
+  },
+  "logs": [
+    {
+      "level": "warning",
+      "text": "WARNING: 4 ObjectDB instances were leaked at exit (run with `--verbose` for details). at: cleanup (core/object/object.cpp:2536)"
+    },
+    {
+      "level": "warning",
+      "text": "ERROR: 2 resources still in use at exit (run with --verbose for details). at: clear (core/io/resource.cpp:822)"
+    }
+  ]
+}

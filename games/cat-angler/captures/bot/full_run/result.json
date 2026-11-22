@@ -1,0 +1,3923 @@
+{
+  "policy": "bot/full_run.py",
+  "seed": 0,
+  "reached_goal": true,
+  "time_s": 1613.9,
+  "deaths": 0,
+  "liveness": {
+    "verified": true,
+    "first_input_t": 0.05,
+    "diverged_t": 0.1
+  },
+  "inputs": {
+    "pressed": 1309,
+    "responded": 1309,
+    "unmapped": 0,
+    "unverified": 0,
+    "unresponsive": []
+  },
+  "final_state": {
+    "area": "port",
+    "bait": "herb",
+    "baits": {
+      "berry": 44,
+      "bug": 38,
+      "herb": 32,
+      "legend": 0
+    },
+    "bed": 6.0,
+    "boat": {
+      "at_island": false,
+      "at_pier": true,
+      "durability": 80.0,
+      "m": 317.9,
+      "tier": 3,
+      "x": 635.8
+    },
+    "card": -1,
+    "card_kind": "",
+    "catches": 76,
+    "caught": 12,
+    "caught_ids": [
+      "flounder",
+      "scad",
+      "anchovy",
+      "moray",
+      "rockfish",
+      "amberjack",
+      "wrasse",
+      "bream",
+      "mackerel",
+      "angler",
+      "hairtail",
+      "legend"
+    ],
+    "coins": 858,
+    "cursor": 2,
+    "deaths": 0,
+    "denied": 0,
+    "depth": 0.0,
+    "flotsam": [
+      4780.0,
+      4720.94988701667,
+      4032.93013262295,
+      4203.9657343903,
+      2086.80295361292,
+      1780.58390864671,
+      1205.42503019254
+    ],
+    "fps": 303.0,
+    "goal": {
+      "pos": [
+        4500.0,
+        528.0
+      ],
+      "reached": true
+    },
+    "hold": [],
+    "hold_cap": 14,
+    "hold_used": 0,
+    "hooked": "",
+    "hops": 0,
+    "interest": "",
+    "items_ok": [],
+    "jigs": 421,
+    "level": "port",
+    "limit_hits": 0,
+    "mats": {
+      "berry": 0,
+      "bug": 4,
+      "flower": 0,
+      "herb": 0
+    },
+    "mode": "land",
+    "near": "pier",
+    "nudges": 0,
+    "off": 0.0,
+    "panel": "",
+    "pending": "",
+    "phase": "",
+    "picked": 69,
+    "player": {
+      "pos": [
+        588.0,
+        0.0
+      ],
+      "vel": [
+        0.0,
+        0.0
+      ]
+    },
+    "reach": 150,
+    "reeling": false,
+    "rod": 3,
+    "schools": [
+      {
+        "sp": "mackerel",
+        "x": 3060.94354518885
+      },
+      {
+        "sp": "scad",
+        "x": 800.081397109232
+      },
+      {
+        "sp": "hairtail",
+        "x": 4780.0
+      },
+      {
+        "sp": "hairtail",
+        "x": 4540.15191912357
+      },
+      {
+        "sp": "amberjack",
+        "x": 2562.69163151067
+      },
+      {
+        "sp": "flounder",
+        "x": 1460.204921379
+      },
+      {
+        "sp": "oarfish",
+        "x": 3741.0581597407
+      }
+    ],
+    "shrugs": 0,
+    "slips": 0,
+    "snaps": 0,
+    "stamina": 1.0,
+    "stock": {
+      "berry": 4,
+      "bug": 4,
+      "flower": 1,
+      "herb": 4
+    },
+    "t": 1613.9,
+    "tension": 0.0,
+    "tick": 96834
+  },
+  "shots": [
+    {
+      "t": 60.0,
+      "tick": 3600,
+      "file": "captures/bot/full_run/shot_001.png",
+      "state": {
+        "area": "sea",
+        "bait": "berry",
+        "baits": {
+          "berry": 1,
+          "bug": 3,
+          "herb": 7,
+          "legend": 0
+        },
+        "bed": 30.0,
+        "boat": {
+          "at_island": false,
+          "at_pier": false,
+          "durability": 30.0,
+          "m": 520.7,
+          "tier": 1,
+          "x": 1041.4
+        },
+        "card": -1,
+        "card_kind": "",
+        "catches": 2,
+        "caught": 1,
+        "caught_ids": [
+          "flounder"
+        ],
+        "coins": 12,
+        "cursor": 2,
+        "deaths": 0,
+        "denied": 0,
+        "depth": 25.5,
+        "flotsam": [
+          3641.79612722092,
+          4780.0,
+          3136.52243277041,
+          4720.94988701667,
+          1269.00643146964,
+          1221.26279059084,
+          3921.58470133056
+        ],
+        "fps": 150.0,
+        "goal": {
+          "pos": [
+            4500.0,
+            528.0
+          ],
+          "reached": false
+        },
+        "hold": [
+          "flounder",
+          "flounder"
+        ],
+        "hold_cap": 6,
+        "hold_used": 4,
+        "hooked": "",
+        "hops": 0,
+        "interest": "approach",
+        "items_ok": [],
+        "jigs": 19,
+        "level": "shallow",
+        "limit_hits": 0,
+        "mats": {
+          "berry": 1,
+          "bug": 1,
+          "flower": 0,
+          "herb": 1
+        },
+        "mode": "fish",
+        "near": "",
+        "nudges": 0,
+        "off": 0.0,
+        "panel": "",
+        "pending": "",
+        "phase": "",
+        "picked": 2,
+        "player": {
+          "pos": [
+            1041.40370189626,
+            102.2
+          ],
+          "vel": [
+            2.89624515160293,
+            0.0
+          ]
+        },
+        "reach": 30,
+        "reeling": false,
+        "rod": 1,
+        "schools": [
+          {
+            "sp": "anchovy",
+            "x": 1331.5620344581
+          },
+          {
+            "sp": "scad",
+            "x": 1773.13335133869
+          },
+          {
+            "sp": "amberjack",
+            "x": 2087.21551915108
+          },
+          {
+            "sp": "bream",
+            "x": 2738.0827457872
+          },
+          {
+            "sp": "hairtail",
+            "x": 3996.7097741768
+          },
+          {
+            "sp": "oarfish",
+            "x": 4249.06555301799
+          },
+          {
+            "sp": "anchovy",
+            "x": 682.0
+          }
+        ],
+        "shrugs": 0,
+        "slips": 0,
+        "snaps": 0,
+        "stamina": 1.0,
+        "stock": {
+          "berry": 0,
+          "bug": 0,
+          "flower": 1,
+          "herb": 0
+        },
+        "t": 60.0,
+        "tension": 0.0,
+        "tick": 3600
+      }
+    },
+    {
+      "t": 120.0,
+      "tick": 7200,
+      "file": "captures/bot/full_run/shot_002.png",
+      "state": {
+        "area": "sea",
+        "bait": "bug",
+        "baits": {
+          "berry": 4,
+          "bug": 4,
+          "herb": 11,
+          "legend": 0
+        },
+        "bed": 30.0,
+        "boat": {
+          "at_island": false,
+          "at_pier": false,
+          "durability": 30.0,
+          "m": 520.8,
+          "tier": 1,
+          "x": 1041.5
+        },
+        "card": -1,
+        "card_kind": "",
+        "catches": 6,
+        "caught": 2,
+        "caught_ids": [
+          "flounder",
+          "scad"
+        ],
+        "coins": 84,
+        "cursor": 2,
+        "deaths": 0,
+        "denied": 0,
+        "depth": 13.6,
+        "flotsam": [
+          3641.79612722092,
+          4780.0,
+          3136.52243277041,
+          4720.94988701667,
+          1269.00643146964,
+          1221.26279059084,
+          3921.58470133056,
+          1783.33891017265,
+          4387.93996454978
+        ],
+        "fps": 150.0,
+        "goal": {
+          "pos": [
+            4500.0,
+            528.0
+          ],
+          "reached": false
+        },
+        "hold": [
+          "scad",
+          "scad",
+          "scad"
+        ],
+        "hold_cap": 6,
+        "hold_used": 3,
+        "hooked": "",
+        "hops": 0,
+        "interest": "sniff",
+        "items_ok": [],
+        "jigs": 29,
+        "level": "shallow",
+        "limit_hits": 0,
+        "mats": {
+          "berry": 1,
+          "bug": 1,
+          "flower": 0,
+          "herb": 1
+        },
+        "mode": "fish",
+        "near": "",
+        "nudges": 0,
+        "off": 0.0,
+        "panel": "",
+        "pending": "",
+        "phase": "",
+        "picked": 2,
+        "player": {
+          "pos": [
+            1041.50745618135,
+            54.5
+          ],
+          "vel": [
+            2.90732356355472,
+            0.0
+          ]
+        },
+        "reach": 30,
+        "reeling": false,
+        "rod": 1,
+        "schools": [
+          {
+            "sp": "anchovy",
+            "x": 682.0
+          },
+          {
+            "sp": "scad",
+            "x": 1115.1204091187
+          },
+          {
+            "sp": "angler",
+            "x": 4288.16793464128
+          },
+          {
+            "sp": "amberjack",
+            "x": 2160.52856275813
+          },
+          {
+            "sp": "flounder",
+            "x": 1406.60956487626
+          },
+          {
+            "sp": "amberjack",
+            "x": 2594.57328584737
+          }
+        ],
+        "shrugs": 0,
+        "slips": 0,
+        "snaps": 0,
+        "stamina": 1.0,
+        "stock": {
+          "berry": 0,
+          "bug": 0,
+          "flower": 1,
+          "herb": 0
+        },
+        "t": 120.0,
+        "tension": 0.0,
+        "tick": 7200
+      }
+    },
+    {
+      "t": 180.0,
+      "tick": 10800,
+      "file": "captures/bot/full_run/shot_003.png",
+      "state": {
+        "area": "sea",
+        "bait": "herb",
+        "baits": {
+          "berry": 8,
+          "bug": 6,
+          "herb": 14,
+          "legend": 0
+        },
+        "bed": 4.5,
+        "boat": {
+          "at_island": false,
+          "at_pier": true,
+          "durability": 30.0,
+          "m": 314.0,
+          "tier": 1,
+          "x": 627.9
+        },
+        "card": -1,
+        "card_kind": "",
+        "catches": 9,
+        "caught": 3,
+        "caught_ids": [
+          "flounder",
+          "scad",
+          "anchovy"
+        ],
+        "coins": 39,
+        "cursor": 0,
+        "deaths": 0,
+        "denied": 0,
+        "depth": 0.0,
+        "flotsam": [
+          3641.79612722092,
+          4780.0,
+          3136.52243277041,
+          4720.94988701667,
+          1269.00643146964,
+          1221.26279059084,
+          3921.58470133056,
+          1783.33891017265,
+          4387.93996454978
+        ],
+        "fps": 150.0,
+        "goal": {
+          "pos": [
+            4500.0,
+            528.0
+          ],
+          "reached": false
+        },
+        "hold": [],
+        "hold_cap": 6,
+        "hold_used": 0,
+        "hooked": "",
+        "hops": 0,
+        "interest": "",
+        "items_ok": [],
+        "jigs": 49,
+        "level": "shallow",
+        "limit_hits": 0,
+        "mats": {
+          "berry": 1,
+          "bug": 1,
+          "flower": 0,
+          "herb": 1
+        },
+        "mode": "sail",
+        "near": "",
+        "nudges": 0,
+        "off": 0.0,
+        "panel": "",
+        "pending": "",
+        "phase": "",
+        "picked": 2,
+        "player": {
+          "pos": [
+            627.933328511964,
+            0.0
+          ],
+          "vel": [
+            52.3129747620172,
+            0.0
+          ]
+        },
+        "reach": 80,
+        "reeling": false,
+        "rod": 2,
+        "schools": [
+          {
+            "sp": "amberjack",
+            "x": 2160.52856275813
+          },
+          {
+            "sp": "amberjack",
+            "x": 2594.57328584737
+          },
+          {
+            "sp": "flounder",
+            "x": 682.0
+          },
+          {
+            "sp": "amberjack",
+            "x": 3229.70236170324
+          },
+          {
+            "sp": "oarfish",
+            "x": 4780.0
+          },
+          {
+            "sp": "mackerel",
+            "x": 2182.14429020685
+          }
+        ],
+        "shrugs": 0,
+        "slips": 0,
+        "snaps": 0,
+        "stamina": 1.0,
+        "stock": {
+          "berry": 0,
+          "bug": 0,
+          "flower": 1,
+          "herb": 0
+        },
+        "t": 180.0,
+        "tension": 0.0,
+        "tick": 10800
+      }
+    },
+    {
+      "t": 240.0,
+      "tick": 14400,
+      "file": "captures/bot/full_run/shot_004.png",
+      "state": {
+        "area": "sea",
+        "bait": "bug",
+        "baits": {
+          "berry": 6,
+          "bug": 6,
+          "herb": 14,
+          "legend": 0
+        },
+        "bed": 30.0,
+        "boat": {
+          "at_island": false,
+          "at_pier": false,
+          "durability": 30.0,
+          "m": 519.9,
+          "tier": 1,
+          "x": 1039.7
+        },
+        "card": -1,
+        "card_kind": "",
+        "catches": 11,
+        "caught": 3,
+        "caught_ids": [
+          "flounder",
+          "scad",
+          "anchovy"
+        ],
+        "coins": 39,
+        "cursor": 0,
+        "deaths": 0,
+        "denied": 0,
+        "depth": 15.1,
+        "flotsam": [
+          3641.79612722092,
+          4780.0,
+          3136.52243277041,
+          4720.94988701667,
+          1269.00643146964,
+          1221.26279059084,
+          3921.58470133056,
+          1783.33891017265,
+          4387.93996454978,
+          814.18544685893,
+          2166.83818868493
+        ],
+        "fps": 150.0,
+        "goal": {
+          "pos": [
+            4500.0,
+            528.0
+          ],
+          "reached": false
+        },
+        "hold": [
+          "flounder",
+          "flounder"
+        ],
+        "hold_cap": 6,
+        "hold_used": 4,
+        "hooked": "",
+        "hops": 0,
+        "interest": "",
+        "items_ok": [],
+        "jigs": 79,
+        "level": "shallow",
+        "limit_hits": 0,
+        "mats": {
+          "berry": 1,
+          "bug": 1,
+          "flower": 0,
+          "herb": 1
+        },
+        "mode": "fish",
+        "near": "",
+        "nudges": 0,
+        "off": 0.0,
+        "panel": "",
+        "pending": "",
+        "phase": "",
+        "picked": 2,
+        "player": {
+          "pos": [
+            1039.73167633013,
+            60.5
+          ],
+          "vel": [
+            3.05400207383038,
+            0.0
+          ]
+        },
+        "reach": 80,
+        "reeling": false,
+        "rod": 2,
+        "schools": [
+          {
+            "sp": "bream",
+            "x": 2651.17524545773
+          },
+          {
+            "sp": "flounder",
+            "x": 747.091434569061
+          },
+          {
+            "sp": "mackerel",
+            "x": 2315.73825432393
+          },
+          {
+            "sp": "angler",
+            "x": 3757.55867002524
+          },
+          {
+            "sp": "angler",
+            "x": 4383.22703113386
+          },
+          {
+            "sp": "mackerel",
+            "x": 2968.02355117868
+          }
+        ],
+        "shrugs": 0,
+        "slips": 0,
+        "snaps": 0,
+        "stamina": 1.0,
+        "stock": {
+          "berry": 0,
+          "bug": 0,
+          "flower": 1,
+          "herb": 0
+        },
+        "t": 240.0,
+        "tension": 0.0,
+        "tick": 14400
+      }
+    },
+    {
+      "t": 300.0,
+      "tick": 18000,
+      "file": "captures/bot/full_run/shot_005.png",
+      "state": {
+        "area": "sea",
+        "bait": "berry",
+        "baits": {
+          "berry": 10,
+          "bug": 10,
+          "herb": 16,
+          "legend": 0
+        },
+        "bed": 30.0,
+        "boat": {
+          "at_island": false,
+          "at_pier": false,
+          "durability": 30.0,
+          "m": 520.5,
+          "tier": 1,
+          "x": 1041.0
+        },
+        "card": -1,
+        "card_kind": "",
+        "catches": 13,
+        "caught": 3,
+        "caught_ids": [
+          "flounder",
+          "scad",
+          "anchovy"
+        ],
+        "coins": 103,
+        "cursor": 2,
+        "deaths": 0,
+        "denied": 0,
+        "depth": 25.5,
+        "flotsam": [
+          3641.79612722092,
+          4780.0,
+          3136.52243277041,
+          4720.94988701667,
+          1269.00643146964,
+          1221.26279059084,
+          3921.58470133056,
+          1783.33891017265,
+          4387.93996454978,
+          2166.83818868493
+        ],
+        "fps": 150.0,
+        "goal": {
+          "pos": [
+            4500.0,
+            528.0
+          ],
+          "reached": false
+        },
+        "hold": [],
+        "hold_cap": 6,
+        "hold_used": 0,
+        "hooked": "",
+        "hops": 0,
+        "interest": "",
+        "items_ok": [],
+        "jigs": 97,
+        "level": "shallow",
+        "limit_hits": 0,
+        "mats": {
+          "berry": 1,
+          "bug": 1,
+          "flower": 0,
+          "herb": 1
+        },
+        "mode": "fish",
+        "near": "",
+        "nudges": 0,
+        "off": 0.0,
+        "panel": "",
+        "pending": "",
+        "phase": "",
+        "picked": 4,
+        "player": {
+          "pos": [
+            1041.02745223408,
+            102.2
+          ],
+          "vel": [
+            2.7757192661795,
+            0.0
+          ]
+        },
+        "reach": 80,
+        "reeling": false,
+        "rod": 2,
+        "schools": [
+          {
+            "sp": "angler",
+            "x": 4383.22703113386
+          },
+          {
+            "sp": "mackerel",
+            "x": 2968.02355117868
+          },
+          {
+            "sp": "mackerel",
+            "x": 2559.41287609232
+          },
+          {
+            "sp": "oarfish",
+            "x": 4381.55204515258
+          },
+          {
+            "sp": "amberjack",
+            "x": 2952.6181249559
+          },
+          {
+            "sp": "scad",
+            "x": 682.0
+          }
+        ],
+        "shrugs": 0,
+        "slips": 0,
+        "snaps": 0,
+        "stamina": 1.0,
+        "stock": {
+          "berry": 0,
+          "bug": 0,
+          "flower": 1,
+          "herb": 0
+        },
+        "t": 300.0,
+        "tension": 0.0,
+        "tick": 18000
+      }
+    },
+    {
+      "t": 360.0,
+      "tick": 21600,
+      "file": "captures/bot/full_run/shot_006.png",
+      "state": {
+        "area": "sea",
+        "bait": "herb",
+        "baits": {
+          "berry": 10,
+          "bug": 10,
+          "herb": 12,
+          "legend": 0
+        },
+        "bed": 30.0,
+        "boat": {
+          "at_island": false,
+          "at_pier": false,
+          "durability": 30.0,
+          "m": 520.5,
+          "tier": 1,
+          "x": 1041.0
+        },
+        "card": -1,
+        "card_kind": "",
+        "catches": 17,
+        "caught": 3,
+        "caught_ids": [
+          "flounder",
+          "scad",
+          "anchovy"
+        ],
+        "coins": 103,
+        "cursor": 2,
+        "deaths": 0,
+        "denied": 0,
+        "depth": 5.4,
+        "flotsam": [
+          3641.79612722092,
+          4780.0,
+          3136.52243277041,
+          4720.94988701667,
+          1269.00643146964,
+          1221.26279059084,
+          3921.58470133056,
+          1783.33891017265,
+          4387.93996454978,
+          2166.83818868493
+        ],
+        "fps": 150.0,
+        "goal": {
+          "pos": [
+            4500.0,
+            528.0
+          ],
+          "reached": false
+        },
+        "hold": [
+          "anchovy",
+          "anchovy",
+          "anchovy",
+          "anchovy"
+        ],
+        "hold_cap": 6,
+        "hold_used": 4,
+        "hooked": "",
+        "hops": 0,
+        "interest": "approach",
+        "items_ok": [],
+        "jigs": 135,
+        "level": "shallow",
+        "limit_hits": 0,
+        "mats": {
+          "berry": 1,
+          "bug": 1,
+          "flower": 0,
+          "herb": 1
+        },
+        "mode": "fish",
+        "near": "",
+        "nudges": 0,
+        "off": 0.0,
+        "panel": "",
+        "pending": "",
+        "phase": "",
+        "picked": 4,
+        "player": {
+          "pos": [
+            1041.02745223408,
+            21.5
+          ],
+          "vel": [
+            2.7757192661795,
+            0.0
+          ]
+        },
+        "reach": 80,
+        "reeling": false,
+        "rod": 2,
+        "schools": [
+          {
+            "sp": "amberjack",
+            "x": 2952.6181249559
+          },
+          {
+            "sp": "anchovy",
+            "x": 773.208380412576
+          },
+          {
+            "sp": "anchovy",
+            "x": 1751.00835299783
+          },
+          {
+            "sp": "bream",
+            "x": 2713.82793205986
+          },
+          {
+            "sp": "mackerel",
+            "x": 3590.65572122311
+          },
+          {
+            "sp": "bream",
+            "x": 3255.20897256374
+          }
+        ],
+        "shrugs": 0,
+        "slips": 0,
+        "snaps": 0,
+        "stamina": 1.0,
+        "stock": {
+          "berry": 0,
+          "bug": 0,
+          "flower": 1,
+          "herb": 0
+        },
+        "t": 360.0,
+        "tension": 0.0,
+        "tick": 21600
+      }
+    },
+    {
+      "t": 420.0,
+      "tick": 25200,
+      "file": "captures/bot/full_run/shot_007.png",
+      "state": {
+        "area": "sea",
+        "bait": "berry",
+        "baits": {
+          "berry": 14,
+          "bug": 14,
+          "herb": 14,
+          "legend": 0
+        },
+        "bed": 30.0,
+        "boat": {
+          "at_island": false,
+          "at_pier": false,
+          "durability": 30.0,
+          "m": 520.7,
+          "tier": 1,
+          "x": 1041.3
+        },
+        "card": -1,
+        "card_kind": "",
+        "catches": 19,
+        "caught": 3,
+        "caught_ids": [
+          "flounder",
+          "scad",
+          "anchovy"
+        ],
+        "coins": 133,
+        "cursor": 2,
+        "deaths": 0,
+        "denied": 0,
+        "depth": 25.5,
+        "flotsam": [
+          3641.79612722092,
+          4780.0,
+          3136.52243277041,
+          4720.94988701667,
+          1269.00643146964,
+          1221.26279059084,
+          3921.58470133056,
+          1783.33891017265,
+          4387.93996454978,
+          2166.83818868493,
+          2822.81194282163,
+          682.0
+        ],
+        "fps": 150.0,
+        "goal": {
+          "pos": [
+            4500.0,
+            528.0
+          ],
+          "reached": false
+        },
+        "hold": [],
+        "hold_cap": 6,
+        "hold_used": 0,
+        "hooked": "",
+        "hops": 0,
+        "interest": "",
+        "items_ok": [],
+        "jigs": 152,
+        "level": "shallow",
+        "limit_hits": 0,
+        "mats": {
+          "berry": 1,
+          "bug": 1,
+          "flower": 0,
+          "herb": 1
+        },
+        "mode": "fish",
+        "near": "",
+        "nudges": 0,
+        "off": 0.0,
+        "panel": "",
+        "pending": "",
+        "phase": "",
+        "picked": 4,
+        "player": {
+          "pos": [
+            1041.30566083572,
+            102.2
+          ],
+          "vel": [
+            2.90691041428804,
+            0.0
+          ]
+        },
+        "reach": 80,
+        "reeling": false,
+        "rod": 2,
+        "schools": [
+          {
+            "sp": "mackerel",
+            "x": 3590.65572122311
+          },
+          {
+            "sp": "bream",
+            "x": 3255.20897256374
+          },
+          {
+            "sp": "scad",
+            "x": 1057.40782444621
+          },
+          {
+            "sp": "flounder",
+            "x": 1667.0588165637
+          },
+          {
+            "sp": "bream",
+            "x": 3443.54550924843
+          },
+          {
+            "sp": "amberjack",
+            "x": 2656.54562586901
+          }
+        ],
+        "shrugs": 0,
+        "slips": 0,
+        "snaps": 0,
+        "stamina": 1.0,
+        "stock": {
+          "berry": 0,
+          "bug": 0,
+          "flower": 1,
+          "herb": 0
+        },
+        "t": 420.0,
+        "tension": 0.0,
+        "tick": 25200
+      }
+    },
+    {
+      "t": 480.0,
+      "tick": 28800,
+      "file": "captures/bot/full_run/shot_008.png",
+      "state": {
+        "area": "sea",
+        "bait": "herb",
+        "baits": {
+          "berry": 14,
+          "bug": 11,
+          "herb": 11,
+          "legend": 0
+        },
+        "bed": 7.5,
+        "boat": {
+          "at_island": false,
+          "at_pier": false,
+          "durability": 30.0,
+          "m": 321.3,
+          "tier": 1,
+          "x": 642.6
+        },
+        "card": -1,
+        "card_kind": "",
+        "catches": 25,
+        "caught": 3,
+        "caught_ids": [
+          "flounder",
+          "scad",
+          "anchovy"
+        ],
+        "coins": 133,
+        "cursor": 2,
+        "deaths": 0,
+        "denied": 0,
+        "depth": 0.0,
+        "flotsam": [
+          3641.79612722092,
+          4780.0,
+          3136.52243277041,
+          4720.94988701667,
+          1269.00643146964,
+          1221.26279059084,
+          3921.58470133056,
+          1783.33891017265,
+          4387.93996454978,
+          2166.83818868493,
+          2822.81194282163
+        ],
+        "fps": 150.0,
+        "goal": {
+          "pos": [
+            4500.0,
+            528.0
+          ],
+          "reached": false
+        },
+        "hold": [
+          "scad",
+          "scad",
+          "scad",
+          "anchovy",
+          "anchovy",
+          "anchovy"
+        ],
+        "hold_cap": 6,
+        "hold_used": 6,
+        "hooked": "",
+        "hops": 0,
+        "interest": "",
+        "items_ok": [],
+        "jigs": 181,
+        "level": "shallow",
+        "limit_hits": 0,
+        "mats": {
+          "berry": 3,
+          "bug": 1,
+          "flower": 0,
+          "herb": 1
+        },
+        "mode": "sail",
+        "near": "",
+        "nudges": 0,
+        "off": 0.0,
+        "panel": "",
+        "pending": "",
+        "phase": "",
+        "picked": 5,
+        "player": {
+          "pos": [
+            642.573082369022,
+            0.0
+          ],
+          "vel": [
+            -62.0,
+            0.0
+          ]
+        },
+        "reach": 80,
+        "reeling": false,
+        "rod": 2,
+        "schools": [
+          {
+            "sp": "bream",
+            "x": 3443.54550924843
+          },
+          {
+            "sp": "amberjack",
+            "x": 2656.54562586901
+          },
+          {
+            "sp": "anchovy",
+            "x": 1187.79079983002
+          },
+          {
+            "sp": "amberjack",
+            "x": 2360.55673793363
+          },
+          {
+            "sp": "bream",
+            "x": 3295.74614226768
+          },
+          {
+            "sp": "oarfish",
+            "x": 4032.18809689603
+          }
+        ],
+        "shrugs": 0,
+        "slips": 0,
+        "snaps": 0,
+        "stamina": 1.0,
+        "stock": {
+          "berry": 0,
+          "bug": 0,
+          "flower": 1,
+          "herb": 0
+        },
+        "t": 480.0,
+        "tension": 0.0,
+        "tick": 28800
+      }
+    },
+    {
+      "t": 540.0,
+      "tick": 32400,
+      "file": "captures/bot/full_run/shot_009.png",
+      "state": {
+        "area": "sea",
+        "bait": "bug",
+        "baits": {
+          "berry": 20,
+          "bug": 15,
+          "herb": 15,
+          "legend": 0
+        },
+        "bed": 30.0,
+        "boat": {
+          "at_island": false,
+          "at_pier": false,
+          "durability": 30.0,
+          "m": 520.5,
+          "tier": 1,
+          "x": 1040.9
+        },
+        "card": -1,
+        "card_kind": "",
+        "catches": 25,
+        "caught": 3,
+        "caught_ids": [
+          "flounder",
+          "scad",
+          "anchovy"
+        ],
+        "coins": 178,
+        "cursor": 2,
+        "deaths": 0,
+        "denied": 0,
+        "depth": 15.1,
+        "flotsam": [
+          3641.79612722092,
+          4780.0,
+          3136.52243277041,
+          4720.94988701667,
+          1269.00643146964,
+          1221.26279059084,
+          3921.58470133056,
+          1783.33891017265,
+          4387.93996454978,
+          2166.83818868493,
+          2822.81194282163,
+          739.134776666505
+        ],
+        "fps": 154.0,
+        "goal": {
+          "pos": [
+            4500.0,
+            528.0
+          ],
+          "reached": false
+        },
+        "hold": [],
+        "hold_cap": 6,
+        "hold_used": 0,
+        "hooked": "",
+        "hops": 0,
+        "interest": "",
+        "items_ok": [],
+        "jigs": 204,
+        "level": "shallow",
+        "limit_hits": 0,
+        "mats": {
+          "berry": 1,
+          "bug": 3,
+          "flower": 0,
+          "herb": 1
+        },
+        "mode": "fish",
+        "near": "",
+        "nudges": 0,
+        "off": 0.0,
+        "panel": "",
+        "pending": "",
+        "phase": "",
+        "picked": 6,
+        "player": {
+          "pos": [
+            1040.93957497307,
+            60.5
+          ],
+          "vel": [
+            2.77182887062487,
+            0.0
+          ]
+        },
+        "reach": 80,
+        "reeling": false,
+        "rod": 2,
+        "schools": [
+          {
+            "sp": "bream",
+            "x": 3208.33784426102
+          },
+          {
+            "sp": "amberjack",
+            "x": 2043.28451833089
+          },
+          {
+            "sp": "bream",
+            "x": 3554.58787213111
+          },
+          {
+            "sp": "bream",
+            "x": 3396.37271819256
+          },
+          {
+            "sp": "amberjack",
+            "x": 3563.83182253931
+          },
+          {
+            "sp": "anchovy",
+            "x": 961.466270122025
+          }
+        ],
+        "shrugs": 0,
+        "slips": 0,
+        "snaps": 0,
+        "stamina": 1.0,
+        "stock": {
+          "berry": 0,
+          "bug": 0,
+          "flower": 1,
+          "herb": 0
+        },
+        "t": 540.0,
+        "tension": 0.0,
+        "tick": 32400
+      }
+    },
+    {
+      "t": 600.0,
+      "tick": 36000,
+      "file": "captures/bot/full_run/shot_010.png",
+      "state": {
+        "area": "sea",
+        "bait": "herb",
+        "baits": {
+          "berry": 24,
+          "bug": 21,
+          "herb": 13,
+          "legend": 0
+        },
+        "bed": 2.5,
+        "boat": {
+          "at_island": false,
+          "at_pier": true,
+          "durability": 50.0,
+          "m": 308.1,
+          "tier": 2,
+          "x": 616.2
+        },
+        "card": -1,
+        "card_kind": "",
+        "catches": 31,
+        "caught": 3,
+        "caught_ids": [
+          "flounder",
+          "scad",
+          "anchovy"
+        ],
+        "coins": 37,
+        "cursor": 1,
+        "deaths": 0,
+        "denied": 0,
+        "depth": 0.0,
+        "flotsam": [
+          3641.79612722092,
+          4780.0,
+          3136.52243277041,
+          4720.94988701667,
+          1269.00643146964,
+          1221.26279059084,
+          3921.58470133056,
+          1783.33891017265,
+          4387.93996454978,
+          2166.83818868493,
+          2822.81194282163,
+          881.151995612832
+        ],
+        "fps": 150.0,
+        "goal": {
+          "pos": [
+            4500.0,
+            528.0
+          ],
+          "reached": false
+        },
+        "hold": [],
+        "hold_cap": 10,
+        "hold_used": 0,
+        "hooked": "",
+        "hops": 0,
+        "interest": "",
+        "items_ok": [],
+        "jigs": 225,
+        "level": "shallow",
+        "limit_hits": 0,
+        "mats": {
+          "berry": 1,
+          "bug": 1,
+          "flower": 0,
+          "herb": 1
+        },
+        "mode": "sail",
+        "near": "",
+        "nudges": 0,
+        "off": 0.0,
+        "panel": "",
+        "pending": "",
+        "phase": "",
+        "picked": 7,
+        "player": {
+          "pos": [
+            616.165414154872,
+            0.0
+          ],
+          "vel": [
+            29.9876474455877,
+            0.0
+          ]
+        },
+        "reach": 80,
+        "reeling": false,
+        "rod": 2,
+        "schools": [
+          {
+            "sp": "amberjack",
+            "x": 3563.83182253931
+          },
+          {
+            "sp": "anchovy",
+            "x": 961.466270122025
+          },
+          {
+            "sp": "mackerel",
+            "x": 2570.98911022134
+          },
+          {
+            "sp": "bream",
+            "x": 2648.74151974074
+          },
+          {
+            "sp": "anchovy",
+            "x": 1703.50219915768
+          },
+          {
+            "sp": "bream",
+            "x": 3255.73839196289
+          }
+        ],
+        "shrugs": 0,
+        "slips": 0,
+        "snaps": 0,
+        "stamina": 1.0,
+        "stock": {
+          "berry": 0,
+          "bug": 0,
+          "flower": 1,
+          "herb": 0
+        },
+        "t": 600.0,
+        "tension": 0.0,
+        "tick": 36000
+      }
+    },
+    {
+      "t": 660.0,
+      "tick": 39600,
+      "file": "captures/bot/full_run/shot_011.png",
+      "state": {
+        "area": "sea",
+        "bait": "bug",
+        "baits": {
+          "berry": 24,
+          "bug": 20,
+          "herb": 13,
+          "legend": 0
+        },
+        "bed": 80.0,
+        "boat": {
+          "at_island": false,
+          "at_pier": false,
+          "durability": 50.0,
+          "m": 1659.2,
+          "tier": 2,
+          "x": 3318.4
+        },
+        "card": -1,
+        "card_kind": "",
+        "catches": 31,
+        "caught": 3,
+        "caught_ids": [
+          "flounder",
+          "scad",
+          "anchovy"
+        ],
+        "coins": 59,
+        "cursor": 1,
+        "deaths": 0,
+        "denied": 0,
+        "depth": 18.0,
+        "flotsam": [
+          3641.79612722092,
+          4780.0,
+          4720.94988701667,
+          3921.58470133056,
+          4387.93996454978,
+          682.0,
+          1906.6725556117,
+          1108.43877252299
+        ],
+        "fps": 150.0,
+        "goal": {
+          "pos": [
+            4500.0,
+            528.0
+          ],
+          "reached": false
+        },
+        "hold": [],
+        "hold_cap": 10,
+        "hold_used": 0,
+        "hooked": "moray",
+        "hops": 0,
+        "interest": "hooked",
+        "items_ok": [],
+        "jigs": 227,
+        "level": "open",
+        "limit_hits": 0,
+        "mats": {
+          "berry": 3,
+          "bug": 3,
+          "flower": 1,
+          "herb": 3
+        },
+        "mode": "fish",
+        "near": "",
+        "nudges": 0,
+        "off": -0.6,
+        "panel": "",
+        "pending": "",
+        "phase": "spent",
+        "picked": 14,
+        "player": {
+          "pos": [
+            3318.44618650466,
+            71.9
+          ],
+          "vel": [
+            3.01235761995482,
+            0.0
+          ]
+        },
+        "reach": 80,
+        "reeling": true,
+        "rod": 2,
+        "schools": [
+          {
+            "sp": "bream",
+            "x": 3255.73839196289
+          },
+          {
+            "sp": "flounder",
+            "x": 1539.75045518473
+          },
+          {
+            "sp": "angler",
+            "x": 4780.0
+          },
+          {
+            "sp": "scad",
+            "x": 1672.25062922184
+          },
+          {
+            "sp": "mackerel",
+            "x": 2550.44822098494
+          },
+          {
+            "sp": "hairtail",
+            "x": 4780.0
+          }
+        ],
+        "shrugs": 0,
+        "slips": 0,
+        "snaps": 0,
+        "stamina": 0.0,
+        "stock": {
+          "berry": 0,
+          "bug": 0,
+          "flower": 0,
+          "herb": 0
+        },
+        "t": 660.0,
+        "tension": 0.742,
+        "tick": 39600
+      }
+    },
+    {
+      "t": 720.0,
+      "tick": 43200,
+      "file": "captures/bot/full_run/shot_012.png",
+      "state": {
+        "area": "sea",
+        "bait": "bug",
+        "baits": {
+          "berry": 24,
+          "bug": 18,
+          "herb": 13,
+          "legend": 0
+        },
+        "bed": 80.0,
+        "boat": {
+          "at_island": false,
+          "at_pier": false,
+          "durability": 50.0,
+          "m": 1480.0,
+          "tier": 2,
+          "x": 2959.9
+        },
+        "card": -1,
+        "card_kind": "",
+        "catches": 34,
+        "caught": 4,
+        "caught_ids": [
+          "flounder",
+          "scad",
+          "anchovy",
+          "moray"
+        ],
+        "coins": 59,
+        "cursor": 1,
+        "deaths": 0,
+        "denied": 0,
+        "depth": 0.0,
+        "flotsam": [
+          3641.79612722092,
+          4780.0,
+          4720.94988701667,
+          3921.58470133056,
+          4387.93996454978,
+          682.0,
+          1906.6725556117,
+          1108.43877252299
+        ],
+        "fps": 152.0,
+        "goal": {
+          "pos": [
+            4500.0,
+            528.0
+          ],
+          "reached": false
+        },
+        "hold": [
+          "moray",
+          "moray",
+          "moray"
+        ],
+        "hold_cap": 10,
+        "hold_used": 9,
+        "hooked": "",
+        "hops": 0,
+        "interest": "",
+        "items_ok": [],
+        "jigs": 236,
+        "level": "open",
+        "limit_hits": 0,
+        "mats": {
+          "berry": 3,
+          "bug": 3,
+          "flower": 1,
+          "herb": 3
+        },
+        "mode": "sail",
+        "near": "",
+        "nudges": 0,
+        "off": 0.0,
+        "panel": "",
+        "pending": "",
+        "phase": "",
+        "picked": 14,
+        "player": {
+          "pos": [
+            2959.9213466329,
+            0.0
+          ],
+          "vel": [
+            -84.0,
+            0.0
+          ]
+        },
+        "reach": 80,
+        "reeling": false,
+        "rod": 2,
+        "schools": [
+          {
+            "sp": "hairtail",
+            "x": 4780.0
+          },
+          {
+            "sp": "scad",
+            "x": 823.059886333644
+          },
+          {
+            "sp": "amberjack",
+            "x": 3360.5877401997
+          },
+          {
+            "sp": "anchovy",
+            "x": 1291.28891405154
+          },
+          {
+            "sp": "flounder",
+            "x": 1678.36381820726
+          },
+          {
+            "sp": "bream",
+            "x": 2708.95719462075
+          }
+        ],
+        "shrugs": 0,
+        "slips": 0,
+        "snaps": 0,
+        "stamina": 1.0,
+        "stock": {
+          "berry": 0,
+          "bug": 0,
+          "flower": 0,
+          "herb": 0
+        },
+        "t": 720.0,
+        "tension": 0.0,
+        "tick": 43200
+      }
+    },
+    {
+      "t": 780.0,
+      "tick": 46800,
+      "file": "captures/bot/full_run/shot_013.png",
+      "state": {
+        "area": "sea",
+        "bait": "bug",
+        "baits": {
+          "berry": 32,
+          "bug": 27,
+          "herb": 19,
+          "legend": 1
+        },
+        "bed": 30.0,
+        "boat": {
+          "at_island": false,
+          "at_pier": false,
+          "durability": 50.0,
+          "m": 578.2,
+          "tier": 2,
+          "x": 1156.5
+        },
+        "card": -1,
+        "card_kind": "",
+        "catches": 35,
+        "caught": 5,
+        "caught_ids": [
+          "flounder",
+          "scad",
+          "anchovy",
+          "moray",
+          "rockfish"
+        ],
+        "coins": 365,
+        "cursor": 2,
+        "deaths": 0,
+        "denied": 0,
+        "depth": 0.0,
+        "flotsam": [
+          3641.79612722092,
+          4780.0,
+          4720.94988701667,
+          3921.58470133056,
+          4387.93996454978,
+          2194.33265647278,
+          1226.72009013517,
+          1726.4689238766
+        ],
+        "fps": 150.0,
+        "goal": {
+          "pos": [
+            4500.0,
+            528.0
+          ],
+          "reached": false
+        },
+        "hold": [],
+        "hold_cap": 10,
+        "hold_used": 0,
+        "hooked": "",
+        "hops": 0,
+        "interest": "",
+        "items_ok": [],
+        "jigs": 239,
+        "level": "shallow",
+        "limit_hits": 0,
+        "mats": {
+          "berry": 0,
+          "bug": 0,
+          "flower": 0,
+          "herb": 0
+        },
+        "mode": "sail",
+        "near": "",
+        "nudges": 0,
+        "off": 0.0,
+        "panel": "",
+        "pending": "",
+        "phase": "",
+        "picked": 18,
+        "player": {
+          "pos": [
+            1156.47643909591,
+            0.0
+          ],
+          "vel": [
+            84.0,
+            0.0
+          ]
+        },
+        "reach": 80,
+        "reeling": false,
+        "rod": 2,
+        "schools": [
+          {
+            "sp": "anchovy",
+            "x": 1291.28891405154
+          },
+          {
+            "sp": "bream",
+            "x": 2708.95719462075
+          },
+          {
+            "sp": "mackerel",
+            "x": 3028.18438705454
+          },
+          {
+            "sp": "angler",
+            "x": 4666.03938604314
+          },
+          {
+            "sp": "flounder",
+            "x": 1221.01244685472
+          },
+          {
+            "sp": "anchovy",
+            "x": 889.672129861535
+          }
+        ],
+        "shrugs": 0,
+        "slips": 0,
+        "snaps": 0,
+        "stamina": 1.0,
+        "stock": {
+          "berry": 0,
+          "bug": 0,
+          "flower": 1,
+          "herb": 0
+        },
+        "t": 780.0,
+        "tension": 0.0,
+        "tick": 46800
+      }
+    },
+    {
+      "t": 840.0,
+      "tick": 50400,
+      "file": "captures/bot/full_run/shot_014.png",
+      "state": {
+        "area": "sea",
+        "bait": "berry",
+        "baits": {
+          "berry": 31,
+          "bug": 27,
+          "herb": 19,
+          "legend": 1
+        },
+        "bed": 16.0,
+        "boat": {
+          "at_island": false,
+          "at_pier": false,
+          "durability": 50.0,
+          "m": 1204.7,
+          "tier": 2,
+          "x": 2409.3
+        },
+        "card": -1,
+        "card_kind": "",
+        "catches": 36,
+        "caught": 6,
+        "caught_ids": [
+          "flounder",
+          "scad",
+          "anchovy",
+          "moray",
+          "rockfish",
+          "amberjack"
+        ],
+        "coins": 374,
+        "cursor": 2,
+        "deaths": 0,
+        "denied": 0,
+        "depth": 0.0,
+        "flotsam": [
+          3641.79612722092,
+          4780.0,
+          4720.94988701667,
+          3921.58470133056,
+          4387.93996454978,
+          1346.48565144516,
+          3288.77275681571
+        ],
+        "fps": 150.0,
+        "goal": {
+          "pos": [
+            4500.0,
+            528.0
+          ],
+          "reached": false
+        },
+        "hold": [
+          "amberjack"
+        ],
+        "hold_cap": 10,
+        "hold_used": 3,
+        "hooked": "",
+        "hops": 0,
+        "interest": "",
+        "items_ok": [],
+        "jigs": 254,
+        "level": "open",
+        "limit_hits": 0,
+        "mats": {
+          "berry": 0,
+          "bug": 2,
+          "flower": 0,
+          "herb": 0
+        },
+        "mode": "sail",
+        "near": "",
+        "nudges": 0,
+        "off": 0.0,
+        "panel": "",
+        "pending": "",
+        "phase": "",
+        "picked": 21,
+        "player": {
+          "pos": [
+            2409.34714564901,
+            0.0
+          ],
+          "vel": [
+            20.9147475491398,
+            0.0
+          ]
+        },
+        "reach": 80,
+        "reeling": false,
+        "rod": 2,
+        "schools": [
+          {
+            "sp": "flounder",
+            "x": 1700.20879144326
+          },
+          {
+            "sp": "mackerel",
+            "x": 2245.42638629106
+          },
+          {
+            "sp": "amberjack",
+            "x": 2723.67103724406
+          },
+          {
+            "sp": "anchovy",
+            "x": 1124.55009086357
+          },
+          {
+            "sp": "scad",
+            "x": 825.734226420584
+          },
+          {
+            "sp": "bream",
+            "x": 2756.49551450224
+          },
+          {
+            "sp": "amberjack",
+            "x": 2003.13662365601
+          }
+        ],
+        "shrugs": 0,
+        "slips": 0,
+        "snaps": 0,
+        "stamina": 1.0,
+        "stock": {
+          "berry": 0,
+          "bug": 0,
+          "flower": 1,
+          "herb": 0
+        },
+        "t": 840.0,
+        "tension": 0.0,
+        "tick": 50400
+      }
+    },
+    {
+      "t": 900.0,
+      "tick": 54000,
+      "file": "captures/bot/full_run/shot_015.png",
+      "state": {
+        "area": "port",
+        "bait": "berry",
+        "baits": {
+          "berry": 28,
+          "bug": 33,
+          "herb": 23,
+          "legend": 1
+        },
+        "bed": 6.2,
+        "boat": {
+          "at_island": false,
+          "at_pier": true,
+          "durability": 50.0,
+          "m": 318.2,
+          "tier": 2,
+          "x": 636.4
+        },
+        "card": -1,
+        "card_kind": "",
+        "catches": 43,
+        "caught": 7,
+        "caught_ids": [
+          "flounder",
+          "scad",
+          "anchovy",
+          "moray",
+          "rockfish",
+          "amberjack",
+          "wrasse"
+        ],
+        "coins": 593,
+        "cursor": 2,
+        "deaths": 0,
+        "denied": 0,
+        "depth": 0.0,
+        "flotsam": [
+          3641.79612722092,
+          4780.0,
+          4720.94988701667,
+          3921.58470133056,
+          4387.93996454978,
+          3288.77275681571,
+          1488.68054519894
+        ],
+        "fps": 151.0,
+        "goal": {
+          "pos": [
+            4500.0,
+            528.0
+          ],
+          "reached": false
+        },
+        "hold": [],
+        "hold_cap": 10,
+        "hold_used": 0,
+        "hooked": "",
+        "hops": 0,
+        "interest": "",
+        "items_ok": [],
+        "jigs": 267,
+        "level": "port",
+        "limit_hits": 0,
+        "mats": {
+          "berry": 0,
+          "bug": 0,
+          "flower": 0,
+          "herb": 0
+        },
+        "mode": "land",
+        "near": "bench",
+        "nudges": 0,
+        "off": 0.0,
+        "panel": "",
+        "pending": "",
+        "phase": "",
+        "picked": 22,
+        "player": {
+          "pos": [
+            223.350155264859,
+            0.0
+          ],
+          "vel": [
+            77.9937894055298,
+            0.0
+          ]
+        },
+        "reach": 80,
+        "reeling": false,
+        "rod": 2,
+        "schools": [
+          {
+            "sp": "anchovy",
+            "x": 1124.55009086357
+          },
+          {
+            "sp": "scad",
+            "x": 825.734226420584
+          },
+          {
+            "sp": "bream",
+            "x": 2756.49551450224
+          },
+          {
+            "sp": "amberjack",
+            "x": 2003.13662365601
+          },
+          {
+            "sp": "scad",
+            "x": 1775.61689820467
+          },
+          {
+            "sp": "anchovy",
+            "x": 1512.30568806392
+          }
+        ],
+        "shrugs": 0,
+        "slips": 0,
+        "snaps": 0,
+        "stamina": 1.0,
+        "stock": {
+          "berry": 0,
+          "bug": 0,
+          "flower": 1,
+          "herb": 0
+        },
+        "t": 900.0,
+        "tension": 0.0,
+        "tick": 54000,
+        "boat_tier": 2
+      }
+    },
+    {
+      "t": 960.0,
+      "tick": 57600,
+      "file": "captures/bot/full_run/shot_016.png",
+      "state": {
+        "area": "sea",
+        "bait": "bug",
+        "baits": {
+          "berry": 28,
+          "bug": 30,
+          "herb": 23,
+          "legend": 1
+        },
+        "bed": 80.0,
+        "boat": {
+          "at_island": false,
+          "at_pier": false,
+          "durability": 50.0,
+          "m": 1011.0,
+          "tier": 2,
+          "x": 2022.0
+        },
+        "card": -1,
+        "card_kind": "",
+        "catches": 46,
+        "caught": 8,
+        "caught_ids": [
+          "flounder",
+          "scad",
+          "anchovy",
+          "moray",
+          "rockfish",
+          "amberjack",
+          "wrasse",
+          "bream"
+        ],
+        "coins": 192,
+        "cursor": 0,
+        "deaths": 0,
+        "denied": 0,
+        "depth": 42.0,
+        "flotsam": [
+          3641.79612722092,
+          4780.0,
+          4720.94988701667,
+          3921.58470133056,
+          4387.93996454978,
+          3288.77275681571,
+          1639.9055484119
+        ],
+        "fps": 151.0,
+        "goal": {
+          "pos": [
+            4500.0,
+            528.0
+          ],
+          "reached": false
+        },
+        "hold": [
+          "bream",
+          "bream",
+          "bream"
+        ],
+        "hold_cap": 10,
+        "hold_used": 6,
+        "hooked": "",
+        "hops": 0,
+        "interest": "approach",
+        "items_ok": [],
+        "jigs": 282,
+        "level": "open",
+        "limit_hits": 0,
+        "mats": {
+          "berry": 0,
+          "bug": 0,
+          "flower": 0,
+          "herb": 0
+        },
+        "mode": "fish",
+        "near": "",
+        "nudges": 0,
+        "off": 0.0,
+        "panel": "",
+        "pending": "",
+        "phase": "",
+        "picked": 25,
+        "player": {
+          "pos": [
+            2021.98693728795,
+            168.2
+          ],
+          "vel": [
+            2.77282725166093,
+            0.0
+          ]
+        },
+        "reach": 150,
+        "reeling": false,
+        "rod": 3,
+        "schools": [
+          {
+            "sp": "oarfish",
+            "x": 4043.91736205728
+          },
+          {
+            "sp": "mackerel",
+            "x": 2169.06222917037
+          },
+          {
+            "sp": "flounder",
+            "x": 1065.89972878638
+          },
+          {
+            "sp": "anchovy",
+            "x": 728.213461438183
+          },
+          {
+            "sp": "amberjack",
+            "x": 2607.72894138651
+          },
+          {
+            "sp": "scad",
+            "x": 1273.54274537079
+          }
+        ],
+        "shrugs": 0,
+        "slips": 0,
+        "snaps": 0,
+        "stamina": 1.0,
+        "stock": {
+          "berry": 0,
+          "bug": 0,
+          "flower": 1,
+          "herb": 0
+        },
+        "t": 960.0,
+        "tension": 0.0,
+        "tick": 57600
+      }
+    },
+    {
+      "t": 1020.0,
+      "tick": 61200,
+      "file": "captures/bot/full_run/shot_017.png",
+      "state": {
+        "area": "sea",
+        "bait": "bug",
+        "baits": {
+          "berry": 32,
+          "bug": 32,
+          "herb": 27,
+          "legend": 1
+        },
+        "bed": 30.0,
+        "boat": {
+          "at_island": false,
+          "at_pier": false,
+          "durability": 50.0,
+          "m": 750.5,
+          "tier": 2,
+          "x": 1500.9
+        },
+        "card": -1,
+        "card_kind": "",
+        "catches": 48,
+        "caught": 8,
+        "caught_ids": [
+          "flounder",
+          "scad",
+          "anchovy",
+          "moray",
+          "rockfish",
+          "amberjack",
+          "wrasse",
+          "bream"
+        ],
+        "coins": 378,
+        "cursor": 2,
+        "deaths": 0,
+        "denied": 0,
+        "depth": 0.0,
+        "flotsam": [
+          3641.79612722092,
+          4780.0,
+          4720.94988701667,
+          3921.58470133056,
+          4387.93996454978,
+          3288.77275681571,
+          1865.72327398247,
+          2566.05389998639,
+          1965.50219759901
+        ],
+        "fps": 148.0,
+        "goal": {
+          "pos": [
+            4500.0,
+            528.0
+          ],
+          "reached": false
+        },
+        "hold": [],
+        "hold_cap": 10,
+        "hold_used": 0,
+        "hooked": "",
+        "hops": 0,
+        "interest": "",
+        "items_ok": [],
+        "jigs": 287,
+        "level": "shallow",
+        "limit_hits": 0,
+        "mats": {
+          "berry": 0,
+          "bug": 0,
+          "flower": 0,
+          "herb": 2
+        },
+        "mode": "sail",
+        "near": "",
+        "nudges": 0,
+        "off": 0.0,
+        "panel": "",
+        "pending": "",
+        "phase": "",
+        "picked": 28,
+        "player": {
+          "pos": [
+            1500.94131967665,
+            0.0
+          ],
+          "vel": [
+            84.0,
+            0.0
+          ]
+        },
+        "reach": 150,
+        "reeling": false,
+        "rod": 3,
+        "schools": [
+          {
+            "sp": "anchovy",
+            "x": 789.919011305065
+          },
+          {
+            "sp": "anchovy",
+            "x": 1050.29458510451
+          },
+          {
+            "sp": "angler",
+            "x": 3872.72099928156
+          },
+          {
+            "sp": "amberjack",
+            "x": 3189.48331782485
+          },
+          {
+            "sp": "scad",
+            "x": 847.902516513601
+          },
+          {
+            "sp": "anchovy",
+            "x": 853.036875710884
+          }
+        ],
+        "shrugs": 0,
+        "slips": 0,
+        "snaps": 0,
+        "stamina": 1.0,
+        "stock": {
+          "berry": 0,
+          "bug": 0,
+          "flower": 1,
+          "herb": 0
+        },
+        "t": 1020.0,
+        "tension": 0.0,
+        "tick": 61200
+      }
+    },
+    {
+      "t": 1080.0,
+      "tick": 64800,
+      "file": "captures/bot/full_run/shot_018.png",
+      "state": {
+        "area": "sea",
+        "bait": "herb",
+        "baits": {
+          "berry": 32,
+          "bug": 32,
+          "herb": 18,
+          "legend": 1
+        },
+        "bed": 80.0,
+        "boat": {
+          "at_island": false,
+          "at_pier": false,
+          "durability": 50.0,
+          "m": 1009.5,
+          "tier": 2,
+          "x": 2019.0
+        },
+        "card": -1,
+        "card_kind": "",
+        "catches": 57,
+        "caught": 9,
+        "caught_ids": [
+          "flounder",
+          "scad",
+          "anchovy",
+          "moray",
+          "rockfish",
+          "amberjack",
+          "wrasse",
+          "bream",
+          "mackerel"
+        ],
+        "coins": 396,
+        "cursor": 2,
+        "deaths": 0,
+        "denied": 0,
+        "depth": 14.5,
+        "flotsam": [
+          3641.79612722092,
+          4780.0,
+          4720.94988701667,
+          3921.58470133056,
+          4387.93996454978,
+          3288.77275681571,
+          2566.05389998639,
+          1324.37884134996,
+          1648.8097481939,
+          2158.43326714223
+        ],
+        "fps": 150.0,
+        "goal": {
+          "pos": [
+            4500.0,
+            528.0
+          ],
+          "reached": false
+        },
+        "hold": [
+          "mackerel",
+          "mackerel",
+          "mackerel",
+          "mackerel",
+          "mackerel",
+          "mackerel",
+          "anchovy",
+          "mackerel",
+          "anchovy"
+        ],
+        "hold_cap": 10,
+        "hold_used": 9,
+        "hooked": "",
+        "hops": 0,
+        "interest": "approach",
+        "items_ok": [],
+        "jigs": 312,
+        "level": "open",
+        "limit_hits": 0,
+        "mats": {
+          "berry": 0,
+          "bug": 2,
+          "flower": 0,
+          "herb": 2
+        },
+        "mode": "fish",
+        "near": "",
+        "nudges": 0,
+        "off": 0.0,
+        "panel": "",
+        "pending": "",
+        "phase": "",
+        "picked": 30,
+        "player": {
+          "pos": [
+            2019.03386720379,
+            58.2
+          ],
+          "vel": [
+            3.04109613924314,
+            0.0
+          ]
+        },
+        "reach": 150,
+        "reeling": false,
+        "rod": 3,
+        "schools": [
+          {
+            "sp": "oarfish",
+            "x": 4780.0
+          },
+          {
+            "sp": "anchovy",
+            "x": 1077.64081870354
+          },
+          {
+            "sp": "angler",
+            "x": 4761.42039716229
+          },
+          {
+            "sp": "anchovy",
+            "x": 804.23675244536
+          },
+          {
+            "sp": "anchovy",
+            "x": 1051.37108245998
+          },
+          {
+            "sp": "anchovy",
+            "x": 803.468756379196
+          }
+        ],
+        "shrugs": 0,
+        "slips": 0,
+        "snaps": 0,
+        "stamina": 1.0,
+        "stock": {
+          "berry": 0,
+          "bug": 0,
+          "flower": 1,
+          "herb": 0
+        },
+        "t": 1080.0,
+        "tension": 0.0,
+        "tick": 64800
+      }
+    },
+    {
+      "t": 1140.0,
+      "tick": 68400,
+      "file": "captures/bot/full_run/shot_019.png",
+      "state": {
+        "area": "sea",
+        "bait": "bug",
+        "baits": {
+          "berry": 36,
+          "bug": 38,
+          "herb": 23,
+          "legend": 1
+        },
+        "bed": 16.0,
+        "boat": {
+          "at_island": false,
+          "at_pier": false,
+          "durability": 50.0,
+          "m": 1201.8,
+          "tier": 2,
+          "x": 2403.5
+        },
+        "card": -1,
+        "card_kind": "",
+        "catches": 58,
+        "caught": 9,
+        "caught_ids": [
+          "flounder",
+          "scad",
+          "anchovy",
+          "moray",
+          "rockfish",
+          "amberjack",
+          "wrasse",
+          "bream",
+          "mackerel"
+        ],
+        "coins": 528,
+        "cursor": 2,
+        "deaths": 0,
+        "denied": 0,
+        "depth": 11.8,
+        "flotsam": [
+          3641.79612722092,
+          4780.0,
+          4720.94988701667,
+          3921.58470133056,
+          4387.93996454978,
+          3288.77275681571,
+          2566.05389998639
+        ],
+        "fps": 151.0,
+        "goal": {
+          "pos": [
+            4500.0,
+            528.0
+          ],
+          "reached": false
+        },
+        "hold": [],
+        "hold_cap": 10,
+        "hold_used": 0,
+        "hooked": "",
+        "hops": 0,
+        "interest": "sniff",
+        "items_ok": [],
+        "jigs": 314,
+        "level": "open",
+        "limit_hits": 0,
+        "mats": {
+          "berry": 0,
+          "bug": 2,
+          "flower": 0,
+          "herb": 0
+        },
+        "mode": "fish",
+        "near": "",
+        "nudges": 0,
+        "off": 0.0,
+        "panel": "",
+        "pending": "",
+        "phase": "",
+        "picked": 33,
+        "player": {
+          "pos": [
+            2403.54382439853,
+            47.2
+          ],
+          "vel": [
+            2.85146795943227,
+            0.0
+          ]
+        },
+        "reach": 150,
+        "reeling": false,
+        "rod": 3,
+        "schools": [
+          {
+            "sp": "anchovy",
+            "x": 1051.37108245998
+          },
+          {
+            "sp": "anchovy",
+            "x": 803.468756379196
+          },
+          {
+            "sp": "scad",
+            "x": 1689.56885725021
+          },
+          {
+            "sp": "flounder",
+            "x": 1536.07671016921
+          },
+          {
+            "sp": "angler",
+            "x": 4436.8790112301
+          },
+          {
+            "sp": "mackerel",
+            "x": 2138.15520216899
+          }
+        ],
+        "shrugs": 0,
+        "slips": 0,
+        "snaps": 0,
+        "stamina": 1.0,
+        "stock": {
+          "berry": 0,
+          "bug": 0,
+          "flower": 1,
+          "herb": 0
+        },
+        "t": 1140.0,
+        "tension": 0.0,
+        "tick": 68400
+      }
+    },
+    {
+      "t": 1200.0,
+      "tick": 72000,
+      "file": "captures/bot/full_run/shot_020.png",
+      "state": {
+        "area": "sea",
+        "bait": "bug",
+        "baits": {
+          "berry": 36,
+          "bug": 28,
+          "herb": 23,
+          "legend": 1
+        },
+        "bed": 66.4,
+        "boat": {
+          "at_island": false,
+          "at_pier": false,
+          "durability": 50.0,
+          "m": 951.2,
+          "tier": 2,
+          "x": 1902.4
+        },
+        "card": -1,
+        "card_kind": "",
+        "catches": 68,
+        "caught": 9,
+        "caught_ids": [
+          "flounder",
+          "scad",
+          "anchovy",
+          "moray",
+          "rockfish",
+          "amberjack",
+          "wrasse",
+          "bream",
+          "mackerel"
+        ],
+        "coins": 538,
+        "cursor": 2,
+        "deaths": 0,
+        "denied": 0,
+        "depth": 0.0,
+        "flotsam": [
+          3641.79612722092,
+          4780.0,
+          4720.94988701667,
+          3921.58470133056,
+          4387.93996454978,
+          3288.77275681571,
+          2566.05389998639,
+          1779.46898927915,
+          1270.08343671201,
+          1181.50724306575
+        ],
+        "fps": 150.0,
+        "goal": {
+          "pos": [
+            4500.0,
+            528.0
+          ],
+          "reached": false
+        },
+        "hold": [
+          "rockfish",
+          "rockfish",
+          "rockfish",
+          "rockfish",
+          "rockfish",
+          "rockfish",
+          "rockfish",
+          "rockfish",
+          "rockfish",
+          "rockfish"
+        ],
+        "hold_cap": 10,
+        "hold_used": 10,
+        "hooked": "",
+        "hops": 0,
+        "interest": "",
+        "items_ok": [],
+        "jigs": 342,
+        "level": "open",
+        "limit_hits": 0,
+        "mats": {
+          "berry": 0,
+          "bug": 2,
+          "flower": 0,
+          "herb": 0
+        },
+        "mode": "sail",
+        "near": "",
+        "nudges": 0,
+        "off": 0.0,
+        "panel": "",
+        "pending": "",
+        "phase": "",
+        "picked": 34,
+        "player": {
+          "pos": [
+            1902.35694332978,
+            0.0
+          ],
+          "vel": [
+            -84.0,
+            0.0
+          ]
+        },
+        "reach": 150,
+        "reeling": false,
+        "rod": 3,
+        "schools": [
+          {
+            "sp": "bream",
+            "x": 3009.80073789065
+          },
+          {
+            "sp": "mackerel",
+            "x": 2671.7985789824
+          },
+          {
+            "sp": "oarfish",
+            "x": 4780.0
+          },
+          {
+            "sp": "mackerel",
+            "x": 2427.10223881334
+          },
+          {
+            "sp": "scad",
+            "x": 682.0
+          },
+          {
+            "sp": "mackerel",
+            "x": 2058.34932924744
+          }
+        ],
+        "shrugs": 0,
+        "slips": 0,
+        "snaps": 0,
+        "stamina": 1.0,
+        "stock": {
+          "berry": 0,
+          "bug": 0,
+          "flower": 1,
+          "herb": 0
+        },
+        "t": 1200.0,
+        "tension": 0.0,
+        "tick": 72000
+      }
+    },
+    {
+      "t": 1260.0,
+      "tick": 75600,
+      "file": "captures/bot/full_run/shot_021.png",
+      "state": {
+        "area": "sea",
+        "bait": "bug",
+        "baits": {
+          "berry": 40,
+          "bug": 38,
+          "herb": 27,
+          "legend": 1
+        },
+        "bed": 86.1,
+        "boat": {
+          "at_island": false,
+          "at_pier": false,
+          "durability": 80.0,
+          "m": 1808.3,
+          "tier": 3,
+          "x": 3616.6
+        },
+        "card": -1,
+        "card_kind": "",
+        "catches": 68,
+        "caught": 9,
+        "caught_ids": [
+          "flounder",
+          "scad",
+          "anchovy",
+          "moray",
+          "rockfish",
+          "amberjack",
+          "wrasse",
+          "bream",
+          "mackerel"
+        ],
+        "coins": 204,
+        "cursor": 0,
+        "deaths": 0,
+        "denied": 0,
+        "depth": 0.0,
+        "flotsam": [
+          3641.79612722092,
+          4780.0,
+          4720.94988701667,
+          3921.58470133056,
+          4387.93996454978,
+          4643.49202862114,
+          4359.54953868289
+        ],
+        "fps": 146.0,
+        "goal": {
+          "pos": [
+            4500.0,
+            528.0
+          ],
+          "reached": false
+        },
+        "hold": [],
+        "hold_cap": 14,
+        "hold_used": 0,
+        "hooked": "",
+        "hops": 0,
+        "interest": "",
+        "items_ok": [],
+        "jigs": 342,
+        "level": "deep",
+        "limit_hits": 0,
+        "mats": {
+          "berry": 0,
+          "bug": 0,
+          "flower": 0,
+          "herb": 0
+        },
+        "mode": "sail",
+        "near": "",
+        "nudges": 0,
+        "off": 0.0,
+        "panel": "",
+        "pending": "",
+        "phase": "",
+        "picked": 40,
+        "player": {
+          "pos": [
+            3616.62675307194,
+            0.0
+          ],
+          "vel": [
+            108.0,
+            0.0
+          ]
+        },
+        "reach": 150,
+        "reeling": false,
+        "rod": 3,
+        "schools": [
+          {
+            "sp": "mackerel",
+            "x": 2671.7985789824
+          },
+          {
+            "sp": "scad",
+            "x": 682.0
+          },
+          {
+            "sp": "mackerel",
+            "x": 2058.34932924744
+          },
+          {
+            "sp": "flounder",
+            "x": 1785.17903514022
+          },
+          {
+            "sp": "scad",
+            "x": 1458.20014192
+          },
+          {
+            "sp": "flounder",
+            "x": 966.996088085472
+          }
+        ],
+        "shrugs": 0,
+        "slips": 0,
+        "snaps": 0,
+        "stamina": 1.0,
+        "stock": {
+          "berry": 0,
+          "bug": 0,
+          "flower": 1,
+          "herb": 0
+        },
+        "t": 1260.0,
+        "tension": 0.0,
+        "tick": 75600
+      }
+    },
+    {
+      "t": 1320.0,
+      "tick": 79200,
+      "file": "captures/bot/full_run/shot_022.png",
+      "state": {
+        "area": "sea",
+        "bait": "bug",
+        "baits": {
+          "berry": 40,
+          "bug": 37,
+          "herb": 27,
+          "legend": 1
+        },
+        "bed": 150.0,
+        "boat": {
+          "at_island": false,
+          "at_pier": false,
+          "durability": 80.0,
+          "m": 2029.3,
+          "tier": 3,
+          "x": 4058.6
+        },
+        "card": -1,
+        "card_kind": "",
+        "catches": 68,
+        "caught": 9,
+        "caught_ids": [
+          "flounder",
+          "scad",
+          "anchovy",
+          "moray",
+          "rockfish",
+          "amberjack",
+          "wrasse",
+          "bream",
+          "mackerel"
+        ],
+        "coins": 222,
+        "cursor": 0,
+        "deaths": 0,
+        "denied": 0,
+        "depth": 99.6,
+        "flotsam": [
+          4780.0,
+          4720.94988701667,
+          4387.93996454978,
+          4643.49202862114,
+          4359.54953868289,
+          1549.55267301282,
+          2513.73224235286,
+          863.904786841843,
+          2067.8653639343,
+          3780.95092528861
+        ],
+        "fps": 150.0,
+        "goal": {
+          "pos": [
+            4500.0,
+            528.0
+          ],
+          "reached": false
+        },
+        "hold": [],
+        "hold_cap": 14,
+        "hold_used": 0,
+        "hooked": "angler",
+        "hops": 0,
+        "interest": "hooked",
+        "items_ok": [],
+        "jigs": 374,
+        "level": "deep",
+        "limit_hits": 0,
+        "mats": {
+          "berry": 0,
+          "bug": 0,
+          "flower": 0,
+          "herb": 0
+        },
+        "mode": "fish",
+        "near": "",
+        "nudges": 0,
+        "off": 6.2,
+        "panel": "",
+        "pending": "",
+        "phase": "tired",
+        "picked": 42,
+        "player": {
+          "pos": [
+            4058.62322558415,
+            398.3
+          ],
+          "vel": [
+            3.05993280682955,
+            0.0
+          ]
+        },
+        "reach": 150,
+        "reeling": true,
+        "rod": 3,
+        "schools": [
+          {
+            "sp": "mackerel",
+            "x": 2840.03828559993
+          },
+          {
+            "sp": "amberjack",
+            "x": 1869.38638289331
+          },
+          {
+            "sp": "scad",
+            "x": 1065.1877270741
+          },
+          {
+            "sp": "bream",
+            "x": 2201.26832352074
+          },
+          {
+            "sp": "angler",
+            "x": 4002.40134805304
+          },
+          {
+            "sp": "hairtail",
+            "x": 3791.11399292169
+          }
+        ],
+        "shrugs": 0,
+        "slips": 0,
+        "snaps": 0,
+        "stamina": 0.812,
+        "stock": {
+          "berry": 0,
+          "bug": 0,
+          "flower": 1,
+          "herb": 0
+        },
+        "t": 1320.0,
+        "tension": 0.8,
+        "tick": 79200
+      }
+    },
+    {
+      "t": 1380.0,
+      "tick": 82800,
+      "file": "captures/bot/full_run/shot_023.png",
+      "state": {
+        "area": "sea",
+        "bait": "bug",
+        "baits": {
+          "berry": 40,
+          "bug": 37,
+          "herb": 24,
+          "legend": 1
+        },
+        "bed": 150.0,
+        "boat": {
+          "at_island": false,
+          "at_pier": false,
+          "durability": 80.0,
+          "m": 2020.2,
+          "tier": 3,
+          "x": 4040.4
+        },
+        "card": -1,
+        "card_kind": "",
+        "catches": 72,
+        "caught": 11,
+        "caught_ids": [
+          "flounder",
+          "scad",
+          "anchovy",
+          "moray",
+          "rockfish",
+          "amberjack",
+          "wrasse",
+          "bream",
+          "mackerel",
+          "angler",
+          "hairtail"
+        ],
+        "coins": 222,
+        "cursor": 0,
+        "deaths": 0,
+        "denied": 0,
+        "depth": 57.5,
+        "flotsam": [
+          4780.0,
+          4720.94988701667,
+          4387.93996454978,
+          4643.49202862114,
+          4359.54953868289,
+          1549.55267301282,
+          2513.73224235286,
+          863.904786841843,
+          2067.8653639343,
+          3780.95092528861,
+          2583.27935891547,
+          1674.72966922463
+        ],
+        "fps": 151.0,
+        "goal": {
+          "pos": [
+            4500.0,
+            528.0
+          ],
+          "reached": false
+        },
+        "hold": [
+          "angler",
+          "hairtail",
+          "hairtail",
+          "hairtail"
+        ],
+        "hold_cap": 14,
+        "hold_used": 9,
+        "hooked": "",
+        "hops": 0,
+        "interest": "",
+        "items_ok": [],
+        "jigs": 392,
+        "level": "deep",
+        "limit_hits": 0,
+        "mats": {
+          "berry": 0,
+          "bug": 0,
+          "flower": 0,
+          "herb": 0
+        },
+        "mode": "fish",
+        "near": "",
+        "nudges": 0,
+        "off": 0.0,
+        "panel": "",
+        "pending": "",
+        "phase": "",
+        "picked": 42,
+        "player": {
+          "pos": [
+            4040.43745242469,
+            230.0
+          ],
+          "vel": [
+            -3.0402805729231,
+            110.0
+          ]
+        },
+        "reach": 150,
+        "reeling": false,
+        "rod": 3,
+        "schools": [
+          {
+            "sp": "hairtail",
+            "x": 3791.11399292169
+          },
+          {
+            "sp": "oarfish",
+            "x": 4623.23216648496
+          },
+          {
+            "sp": "anchovy",
+            "x": 1106.28958819782
+          },
+          {
+            "sp": "anchovy",
+            "x": 1665.0552371151
+          },
+          {
+            "sp": "oarfish",
+            "x": 4269.63756508037
+          },
+          {
+            "sp": "oarfish",
+            "x": 3893.70354844098
+          }
+        ],
+        "shrugs": 0,
+        "slips": 0,
+        "snaps": 0,
+        "stamina": 1.0,
+        "stock": {
+          "berry": 0,
+          "bug": 0,
+          "flower": 1,
+          "herb": 0
+        },
+        "t": 1380.0,
+        "tension": 0.0,
+        "tick": 82800
+      }
+    },
+    {
+      "t": 1440.0,
+      "tick": 86400,
+      "file": "captures/bot/full_run/shot_024.png",
+      "state": {
+        "area": "sea",
+        "bait": "bug",
+        "baits": {
+          "berry": 40,
+          "bug": 34,
+          "herb": 24,
+          "legend": 1
+        },
+        "bed": 30.0,
+        "boat": {
+          "at_island": false,
+          "at_pier": false,
+          "durability": 80.0,
+          "m": 519.7,
+          "tier": 3,
+          "x": 1039.4
+        },
+        "card": -1,
+        "card_kind": "",
+        "catches": 75,
+        "caught": 11,
+        "caught_ids": [
+          "flounder",
+          "scad",
+          "anchovy",
+          "moray",
+          "rockfish",
+          "amberjack",
+          "wrasse",
+          "bream",
+          "mackerel",
+          "angler",
+          "hairtail"
+        ],
+        "coins": 301,
+        "cursor": 0,
+        "deaths": 0,
+        "denied": 0,
+        "depth": 0.0,
+        "flotsam": [
+          4780.0,
+          4720.94988701667,
+          4387.93996454978,
+          4643.49202862114,
+          4359.54953868289,
+          863.904786841843,
+          3779.29537706191,
+          2797.2890542246,
+          1855.5757714886,
+          1466.83838707251
+        ],
+        "fps": 151.0,
+        "goal": {
+          "pos": [
+            4500.0,
+            528.0
+          ],
+          "reached": false
+        },
+        "hold": [
+          "angler",
+          "hairtail",
+          "hairtail",
+          "hairtail",
+          "angler",
+          "rockfish",
+          "rockfish"
+        ],
+        "hold_cap": 14,
+        "hold_used": 14,
+        "hooked": "",
+        "hops": 0,
+        "interest": "",
+        "items_ok": [],
+        "jigs": 400,
+        "level": "shallow",
+        "limit_hits": 0,
+        "mats": {
+          "berry": 0,
+          "bug": 0,
+          "flower": 0,
+          "herb": 4
+        },
+        "mode": "sail",
+        "near": "",
+        "nudges": 0,
+        "off": 0.0,
+        "panel": "",
+        "pending": "",
+        "phase": "",
+        "picked": 53,
+        "player": {
+          "pos": [
+            1039.40626668909,
+            0.0
+          ],
+          "vel": [
+            -108.0,
+            0.0
+          ]
+        },
+        "reach": 150,
+        "reeling": false,
+        "rod": 3,
+        "schools": [
+          {
+            "sp": "hairtail",
+            "x": 4113.6437398525
+          },
+          {
+            "sp": "angler",
+            "x": 4746.93262778682
+          },
+          {
+            "sp": "hairtail",
+            "x": 4780.0
+          },
+          {
+            "sp": "mackerel",
+            "x": 3540.19070091105
+          },
+          {
+            "sp": "scad",
+            "x": 762.033535390331
+          },
+          {
+            "sp": "scad",
+            "x": 682.0
+          },
+          {
+            "sp": "amberjack",
+            "x": 2073.60779159834
+          }
+        ],
+        "shrugs": 0,
+        "slips": 0,
+        "snaps": 0,
+        "stamina": 1.0,
+        "stock": {
+          "berry": 0,
+          "bug": 0,
+          "flower": 1,
+          "herb": 0
+        },
+        "t": 1440.0,
+        "tension": 0.0,
+        "tick": 86400
+      }
+    },
+    {
+      "t": 1500.0,
+      "tick": 90000,
+      "file": "captures/bot/full_run/shot_025.png",
+      "state": {
+        "area": "sea",
+        "bait": "berry",
+        "baits": {
+          "berry": 44,
+          "bug": 38,
+          "herb": 32,
+          "legend": 1
+        },
+        "bed": 150.0,
+        "boat": {
+          "at_island": false,
+          "at_pier": false,
+          "durability": 80.0,
+          "m": 2012.2,
+          "tier": 3,
+          "x": 4024.5
+        },
+        "card": -1,
+        "card_kind": "",
+        "catches": 75,
+        "caught": 11,
+        "caught_ids": [
+          "flounder",
+          "scad",
+          "anchovy",
+          "moray",
+          "rockfish",
+          "amberjack",
+          "wrasse",
+          "bream",
+          "mackerel",
+          "angler",
+          "hairtail"
+        ],
+        "coins": 778,
+        "cursor": 2,
+        "deaths": 0,
+        "denied": 0,
+        "depth": 127.3,
+        "flotsam": [
+          4780.0,
+          4720.94988701667,
+          4387.93996454978,
+          4643.49202862114,
+          4359.54953868289,
+          948.265153681365,
+          1355.34445973628,
+          1624.00874891876
+        ],
+        "fps": 150.0,
+        "goal": {
+          "pos": [
+            4500.0,
+            528.0
+          ],
+          "reached": false
+        },
+        "hold": [],
+        "hold_cap": 14,
+        "hold_used": 0,
+        "hooked": "",
+        "hops": 0,
+        "interest": "sniff",
+        "items_ok": [],
+        "jigs": 402,
+        "level": "deep",
+        "limit_hits": 0,
+        "mats": {
+          "berry": 0,
+          "bug": 2,
+          "flower": 0,
+          "herb": 0
+        },
+        "mode": "fish",
+        "near": "",
+        "nudges": 0,
+        "off": 0.0,
+        "panel": "",
+        "pending": "",
+        "phase": "",
+        "picked": 59,
+        "player": {
+          "pos": [
+            4024.4572494363,
+            509.2
+          ],
+          "vel": [
+            3.05673949962363,
+            0.0
+          ]
+        },
+        "reach": 150,
+        "reeling": false,
+        "rod": 3,
+        "schools": [
+          {
+            "sp": "amberjack",
+            "x": 2073.60779159834
+          },
+          {
+            "sp": "bream",
+            "x": 2626.16193951846
+          },
+          {
+            "sp": "angler",
+            "x": 3929.10044966051
+          },
+          {
+            "sp": "hairtail",
+            "x": 3671.84094625556
+          },
+          {
+            "sp": "mackerel",
+            "x": 2789.61038664625
+          },
+          {
+            "sp": "flounder",
+            "x": 711.085144897416
+          }
+        ],
+        "shrugs": 0,
+        "slips": 0,
+        "snaps": 0,
+        "stamina": 1.0,
+        "stock": {
+          "berry": 0,
+          "bug": 0,
+          "flower": 1,
+          "herb": 0
+        },
+        "t": 1500.0,
+        "tension": 0.0,
+        "tick": 90000
+      }
+    },
+    {
+      "t": 1560.0,
+      "tick": 93600,
+      "file": "captures/bot/full_run/shot_026.png",
+      "state": {
+        "area": "sea",
+        "bait": "legend",
+        "baits": {
+          "berry": 44,
+          "bug": 38,
+          "herb": 32,
+          "legend": 0
+        },
+        "bed": 150.0,
+        "boat": {
+          "at_island": false,
+          "at_pier": false,
+          "durability": 80.0,
+          "m": 2311.2,
+          "tier": 3,
+          "x": 4622.4
+        },
+        "card": -1,
+        "card_kind": "",
+        "catches": 75,
+        "caught": 11,
+        "caught_ids": [
+          "flounder",
+          "scad",
+          "anchovy",
+          "moray",
+          "rockfish",
+          "amberjack",
+          "wrasse",
+          "bream",
+          "mackerel",
+          "angler",
+          "hairtail"
+        ],
+        "coins": 808,
+        "cursor": 2,
+        "deaths": 0,
+        "denied": 0,
+        "depth": 144.5,
+        "flotsam": [
+          4780.0,
+          4720.94988701667,
+          4643.49202862114,
+          948.265153681365,
+          1355.34445973628,
+          1624.00874891876,
+          3354.27993469277,
+          1952.44977184321,
+          2656.0177951595
+        ],
+        "fps": 154.0,
+        "goal": {
+          "pos": [
+            4500.0,
+            528.0
+          ],
+          "reached": false
+        },
+        "hold": [],
+        "hold_cap": 14,
+        "hold_used": 0,
+        "hooked": "legend",
+        "hops": 0,
+        "interest": "hooked",
+        "items_ok": [],
+        "jigs": 421,
+        "level": "deep",
+        "limit_hits": 0,
+        "mats": {
+          "berry": 0,
+          "bug": 2,
+          "flower": 0,
+          "herb": 0
+        },
+        "mode": "fish",
+        "near": "",
+        "nudges": 0,
+        "off": -7.2,
+        "panel": "",
+        "pending": "",
+        "phase": "tired",
+        "picked": 61,
+        "player": {
+          "pos": [
+            4622.3856908913,
+            577.8
+          ],
+          "vel": [
+            2.97648356324908,
+            0.0
+          ]
+        },
+        "reach": 150,
+        "reeling": false,
+        "rod": 3,
+        "schools": [
+          {
+            "sp": "flounder",
+            "x": 711.085144897416
+          },
+          {
+            "sp": "oarfish",
+            "x": 4225.58835339383
+          },
+          {
+            "sp": "mackerel",
+            "x": 3060.94354518885
+          },
+          {
+            "sp": "oarfish",
+            "x": 4278.20079977509
+          },
+          {
+            "sp": "angler",
+            "x": 3777.90283724364
+          }
+        ],
+        "shrugs": 0,
+        "slips": 0,
+        "snaps": 0,
+        "stamina": 0.169,
+        "stock": {
+          "berry": 0,
+          "bug": 0,
+          "flower": 1,
+          "herb": 0
+        },
+        "t": 1560.0,
+        "tension": 0.563,
+        "tick": 93600
+      }
+    },
+    {
+      "t": 1613.9,
+      "tick": 96834,
+      "file": "captures/bot/full_run/final.png",
+      "state": {
+        "area": "port",
+        "bait": "herb",
+        "baits": {
+          "berry": 44,
+          "bug": 38,
+          "herb": 32,
+          "legend": 0
+        },
+        "bed": 6.0,
+        "boat": {
+          "at_island": false,
+          "at_pier": true,
+          "durability": 80.0,
+          "m": 317.9,
+          "tier": 3,
+          "x": 635.8
+        },
+        "card": -1,
+        "card_kind": "",
+        "catches": 76,
+        "caught": 12,
+        "caught_ids": [
+          "flounder",
+          "scad",
+          "anchovy",
+          "moray",
+          "rockfish",
+          "amberjack",
+          "wrasse",
+          "bream",
+          "mackerel",
+          "angler",
+          "hairtail",
+          "legend"
+        ],
+        "coins": 858,
+        "cursor": 2,
+        "deaths": 0,
+        "denied": 0,
+        "depth": 0.0,
+        "flotsam": [
+          4780.0,
+          4720.94988701667,
+          4032.93013262295,
+          4203.9657343903,
+          2086.80295361292,
+          1780.58390864671,
+          1205.42503019254
+        ],
+        "fps": 303.0,
+        "goal": {
+          "pos": [
+            4500.0,
+            528.0
+          ],
+          "reached": true
+        },
+        "hold": [],
+        "hold_cap": 14,
+        "hold_used": 0,
+        "hooked": "",
+        "hops": 0,
+        "interest": "",
+        "items_ok": [],
+        "jigs": 421,
+        "level": "port",
+        "limit_hits": 0,
+        "mats": {
+          "berry": 0,
+          "bug": 4,
+          "flower": 0,
+          "herb": 0
+        },
+        "mode": "land",
+        "near": "pier",
+        "nudges": 0,
+        "off": 0.0,
+        "panel": "",
+        "pending": "",
+        "phase": "",
+        "picked": 69,
+        "player": {
+          "pos": [
+            588.0,
+            0.0
+          ],
+          "vel": [
+            0.0,
+            0.0
+          ]
+        },
+        "reach": 150,
+        "reeling": false,
+        "rod": 3,
+        "schools": [
+          {
+            "sp": "mackerel",
+            "x": 3060.94354518885
+          },
+          {
+            "sp": "scad",
+            "x": 800.081397109232
+          },
+          {
+            "sp": "hairtail",
+            "x": 4780.0
+          },
+          {
+            "sp": "hairtail",
+            "x": 4540.15191912357
+          },
+          {
+            "sp": "amberjack",
+            "x": 2562.69163151067
+          },
+          {
+            "sp": "flounder",
+            "x": 1460.204921379
+          },
+          {
+            "sp": "oarfish",
+            "x": 3741.0581597407
+          }
+        ],
+        "shrugs": 0,
+        "slips": 0,
+        "snaps": 0,
+        "stamina": 1.0,
+        "stock": {
+          "berry": 4,
+          "bug": 4,
+          "flower": 1,
+          "herb": 4
+        },
+        "t": 1613.9,
+        "tension": 0.0,
+        "tick": 96834
+      }
+    }
+  ],
+  "logs": []
+}

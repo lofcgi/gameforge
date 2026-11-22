@@ -1,0 +1,201 @@
+{
+  "header": {
+    "engine": "godot",
+    "info": {
+      "actions": {
+        "back": {
+          "move": [
+            0,
+            0,
+            1
+          ]
+        },
+        "forward": {
+          "move": [
+            0,
+            0,
+            -1
+          ]
+        },
+        "jump": {},
+        "left": {
+          "move": [
+            -1,
+            0,
+            0
+          ]
+        },
+        "right": {
+          "move": [
+            1,
+            0,
+            0
+          ]
+        }
+      },
+      "dim": "3d",
+      "probe": [
+        "forward",
+        "back",
+        "left",
+        "right",
+        "jump"
+      ]
+    },
+    "seed": 0,
+    "size": [
+      1280,
+      720
+    ],
+    "tick_rate": 60,
+    "type": "header",
+    "version": 1
+  },
+  "shots": [
+    {
+      "t": 0.9,
+      "tick": 54,
+      "file": "captures/facing/shot_01_t0.90.png",
+      "state": {
+        "deaths": 0,
+        "fps": 1.0,
+        "goal": {
+          "pos": [
+            0.0,
+            1.0,
+            -27.0
+          ],
+          "reached": false
+        },
+        "level": "graybox-1",
+        "player": {
+          "on_floor": true,
+          "pos": [
+            0.0,
+            0.90003913640976,
+            -3.4999988079071
+          ],
+          "vel": [
+            0.0,
+            0.0,
+            -5.0
+          ]
+        },
+        "t": 0.9,
+        "tick": 54
+      }
+    },
+    {
+      "t": 1.4,
+      "tick": 84,
+      "file": "captures/facing/shot_02_t1.40.png",
+      "state": {
+        "deaths": 0,
+        "fps": 72.0,
+        "goal": {
+          "pos": [
+            0.0,
+            1.0,
+            -27.0
+          ],
+          "reached": false
+        },
+        "level": "graybox-1",
+        "player": {
+          "on_floor": true,
+          "pos": [
+            2.00000023841858,
+            0.90003913640976,
+            -3.99999833106995
+          ],
+          "vel": [
+            5.0,
+            0.0,
+            0.0
+          ]
+        },
+        "t": 1.4,
+        "tick": 84
+      }
+    },
+    {
+      "t": 2.0,
+      "tick": 120,
+      "file": "captures/facing/shot_03_t2.00.png",
+      "state": {
+        "deaths": 0,
+        "fps": 72.0,
+        "goal": {
+          "pos": [
+            0.0,
+            1.0,
+            -27.0
+          ],
+          "reached": false
+        },
+        "level": "graybox-1",
+        "player": {
+          "on_floor": true,
+          "pos": [
+            2.49999976158142,
+            0.90003913640976,
+            -1.5
+          ],
+          "vel": [
+            0.0,
+            0.0,
+            5.0
+          ]
+        },
+        "t": 2.0,
+        "tick": 120
+      }
+    },
+    {
+      "t": 2.5,
+      "tick": 150,
+      "file": "captures/facing/shot_04_t2.50.png",
+      "state": {
+        "deaths": 0,
+        "fps": 72.0,
+        "goal": {
+          "pos": [
+            0.0,
+            1.0,
+            -27.0
+          ],
+          "reached": false
+        },
+        "level": "graybox-1",
+        "player": {
+          "on_floor": true,
+          "pos": [
+            0.499999910593033,
+            0.90003913640976,
+            -0.999999821186066
+          ],
+          "vel": [
+            -5.0,
+            0.0,
+            0.0
+          ]
+        },
+        "t": 2.5,
+        "tick": 150
+      }
+    }
+  ],
+  "inputs": {
+    "pressed": 4,
+    "responded": 4,
+    "unmapped": 0,
+    "unverified": 0,
+    "unresponsive": []
+  },
+  "liveness": {
+    "verified": true,
+    "first_input_t": 0.2,
+    "diverged_t": 0.25
+  },
+  "logs": []
+}

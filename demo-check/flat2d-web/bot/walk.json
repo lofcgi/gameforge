@@ -1,0 +1,9 @@
+{
+  "seed": 0,
+  "actions": [
+    {"t": 0.2, "press": "right"},
+    {"t": 1.2, "release": "right"},
+    {"t": 1.5, "press": "left"},
+    {"t": 2.2, "release": "left"}
+  ]
+}

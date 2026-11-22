@@ -1,0 +1,222 @@
+{
+  "header": {
+    "type": "header",
+    "version": 1,
+    "engine": "web",
+    "tick_rate": 60,
+    "seed": 0,
+    "size": [
+      1280,
+      720
+    ],
+    "info": {
+      "dim": "3d",
+      "renderer": "webgpu",
+      "actions": {
+        "left": {
+          "keys": [
+            "ArrowLeft",
+            "KeyA"
+          ],
+          "move": [
+            -1,
+            0,
+            0
+          ]
+        },
+        "right": {
+          "keys": [
+            "ArrowRight",
+            "KeyD"
+          ],
+          "move": [
+            1,
+            0,
+            0
+          ]
+        },
+        "forward": {
+          "keys": [
+            "ArrowUp",
+            "KeyW"
+          ],
+          "move": [
+            0,
+            0,
+            -1
+          ]
+        },
+        "back": {
+          "keys": [
+            "ArrowDown",
+            "KeyS"
+          ],
+          "move": [
+            0,
+            0,
+            1
+          ]
+        },
+        "jump": {
+          "keys": [
+            "Space"
+          ]
+        }
+      },
+      "probe": [
+        "forward",
+        "back",
+        "left",
+        "right",
+        "jump"
+      ]
+    }
+  },
+  "shots": [
+    {
+      "t": 0.9,
+      "tick": 54,
+      "file": "captures/facing/shot_01_t0.90.png",
+      "state": {
+        "level": "graybox-1",
+        "player": {
+          "pos": [
+            0,
+            0.8999999999999999,
+            -3.5000000000000018
+          ],
+          "vel": [
+            0,
+            0,
+            -5
+          ],
+          "on_floor": true
+        },
+        "goal": {
+          "pos": [
+            0,
+            1,
+            -27
+          ],
+          "reached": false
+        },
+        "deaths": 0,
+        "tick": 54,
+        "t": 0.9,
+        "fps": 60
+      }
+    },
+    {
+      "t": 1.4,
+      "tick": 84,
+      "file": "captures/facing/shot_02_t1.40.png",
+      "state": {
+        "level": "graybox-1",
+        "player": {
+          "pos": [
+            1.9999999999999991,
+            0.8999999999999999,
+            -4.000000000000003
+          ],
+          "vel": [
+            5,
+            0,
+            0
+          ],
+          "on_floor": true
+        },
+        "goal": {
+          "pos": [
+            0,
+            1,
+            -27
+          ],
+          "reached": false
+        },
+        "deaths": 0,
+        "tick": 84,
+        "t": 1.4,
+        "fps": 60
+      }
+    },
+    {
+      "t": 2,
+      "tick": 120,
+      "file": "captures/facing/shot_03_t2.00.png",
+      "state": {
+        "level": "graybox-1",
+        "player": {
+          "pos": [
+            2.5,
+            0.8999999999999999,
+            -1.4999999999999998
+          ],
+          "vel": [
+            0,
+            0,
+            5
+          ],
+          "on_floor": true
+        },
+        "goal": {
+          "pos": [
+            0,
+            1,
+            -27
+          ],
+          "reached": false
+        },
+        "deaths": 0,
+        "tick": 120,
+        "t": 2,
+        "fps": 60
+      }
+    },
+    {
+      "t": 2.5,
+      "tick": 150,
+      "file": "captures/facing/shot_04_t2.50.png",
+      "state": {
+        "level": "graybox-1",
+        "player": {
+          "pos": [
+            0.5,
+            0.8999999999999999,
+            -1.0000000000000002
+          ],
+          "vel": [
+            -5,
+            0,
+            0
+          ],
+          "on_floor": true
+        },
+        "goal": {
+          "pos": [
+            0,
+            1,
+            -27
+          ],
+          "reached": false
+        },
+        "deaths": 0,
+        "tick": 150,
+        "t": 2.5,
+        "fps": 60
+      }
+    }
+  ],
+  "inputs": {
+    "pressed": 4,
+    "responded": 4,
+    "unmapped": 0,
+    "unverified": 0,
+    "unresponsive": []
+  },
+  "liveness": {
+    "verified": true,
+    "first_input_t": 0.2,
+    "diverged_t": 0.25
+  },
+  "logs": []
+}

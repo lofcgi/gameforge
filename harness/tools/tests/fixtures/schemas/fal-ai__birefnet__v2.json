@@ -1,0 +1,77 @@
+{
+ "endpoint": "fal-ai/birefnet/v2",
+ "role": "image.rembg",
+ "input": {
+  "output_format": {
+   "required": false,
+   "type": "string",
+   "enum": [
+    "webp",
+    "png",
+    "gif"
+   ],
+   "default": "png",
+   "description": "The format of the output image"
+  },
+  "image_url": {
+   "required": true,
+   "type": "string",
+   "description": "URL of the image to remove background from"
+  },
+  "mask_only": {
+   "required": false,
+   "type": "boolean",
+   "default": false,
+   "description": "Whether to return only the segmentation mask without applying it to the image. When set to `True`, only the mask will be returned and foreground refinement will be skipped. Useful for reducing computa"
+  },
+  "output_mask": {
+   "required": false,
+   "type": "boolean",
+   "default": false,
+   "description": "Whether to output the mask used to remove the background"
+  },
+  "model": {
+   "required": false,
+   "type": "string",
+   "enum": [
+    "General Use (Light)",
+    "General Use (Light 2K)",
+    "General Use (Heavy)",
+    "Matting",
+    "Portrait",
+    "General Use (Dynamic)"
+   ],
+   "default": "General Use (Light)",
+   "description": "\n            Model to use for background removal.\n            The 'General Use (Light)' model is the original model used in the BiRefNet repository.\n            The 'General Use (Light 2K)' model is t"
+  },
+  "operating_resolution": {
+   "required": false,
+   "type": "string",
+   "enum": [
+    "1024x1024",
+    "2048x2048",
+    "2304x2304"
+   ],
+   "default": "1024x1024",
+   "description": "The resolution to operate on. The higher the resolution, the more accurate the output will be for high res input images. The '2304x2304' option is only available for the 'General Use (Dynamic)' model."
+  },
+  "refine_foreground": {
+   "required": false,
+   "type": "boolean",
+   "default": true,
+   "description": "Whether to refine the foreground using the estimated mask"
+  },
+  "sync_mode": {
+   "required": false,
+   "type": "boolean",
+   "default": false,
+   "description": "If `True`, the media will be returned as a data URI and the output data won't be available in the request history."
+  }
+ },
+ "price": {
+  "endpoint_id": "fal-ai/birefnet/v2",
+  "unit_price": 0.000575,
+  "unit": "compute seconds",
+  "currency": "USD"
+ }
+}

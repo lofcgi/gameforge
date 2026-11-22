@@ -1,0 +1,321 @@
+{
+ "seed": 5,
+ "actions": [
+  {
+   "t": 0.5,
+   "tap": "action"
+  },
+  {
+   "t": 0.9,
+   "tap": "right"
+  },
+  {
+   "t": 1.3,
+   "tap": "cancel"
+  },
+  {
+   "t": 1.8,
+   "tap": "action"
+  },
+  {
+   "t": 2.2,
+   "press": "right"
+  },
+  {
+   "t": 3.0,
+   "release": "right"
+  },
+  {
+   "t": 3.1,
+   "press": "left"
+  },
+  {
+   "t": 3.5,
+   "release": "left"
+  },
+  {
+   "t": 3.7,
+   "tap": "action"
+  },
+  {
+   "t": 4.0,
+   "tap": "codex"
+  },
+  {
+   "t": 4.4,
+   "tap": "down"
+  },
+  {
+   "t": 4.7,
+   "tap": "down"
+  },
+  {
+   "t": 5.0,
+   "tap": "up"
+  },
+  {
+   "t": 5.4,
+   "tap": "cancel"
+  },
+  {
+   "t": 5.7,
+   "press": "right"
+  },
+  {
+   "t": 12.4,
+   "release": "right"
+  },
+  {
+   "t": 12.7,
+   "tap": "action"
+  },
+  {
+   "t": 13.1,
+   "press": "right"
+  },
+  {
+   "t": 15.0,
+   "release": "right"
+  },
+  {
+   "t": 15.4,
+   "press": "left"
+  },
+  {
+   "t": 16.0,
+   "release": "left"
+  },
+  {
+   "t": 16.2,
+   "press": "right"
+  },
+  {
+   "t": 19.5,
+   "release": "right"
+  },
+  {
+   "t": 19.8,
+   "tap": "bait"
+  },
+  {
+   "t": 20.2,
+   "tap": "hold"
+  },
+  {
+   "t": 20.7,
+   "tap": "cancel"
+  },
+  {
+   "t": 21.5,
+   "tap": "action"
+  },
+  {
+   "t": 22.0,
+   "tap": "left"
+  },
+  {
+   "t": 22.4,
+   "tap": "down",
+   "hold": 0.3
+  },
+  {
+   "t": 23.0,
+   "tap": "down",
+   "hold": 0.15
+  },
+  {
+   "t": 23.5,
+   "tap": "up",
+   "hold": 0.12
+  },
+  {
+   "t": 24.0,
+   "tap": "bait"
+  },
+  {
+   "t": 24.5,
+   "tap": "bait"
+  },
+  {
+   "t": 25.0,
+   "tap": "bait"
+  },
+  {
+   "t": 25.6,
+   "tap": "action",
+   "hold": 0.4
+  },
+  {
+   "t": 26.25,
+   "tap": "action",
+   "hold": 0.4
+  },
+  {
+   "t": 26.9,
+   "tap": "action",
+   "hold": 0.4
+  },
+  {
+   "t": 27.55,
+   "tap": "action",
+   "hold": 0.4
+  },
+  {
+   "t": 28.2,
+   "tap": "action",
+   "hold": 0.4
+  },
+  {
+   "t": 28.85,
+   "tap": "action",
+   "hold": 0.4
+  },
+  {
+   "t": 29.5,
+   "tap": "action",
+   "hold": 0.4
+  },
+  {
+   "t": 30.15,
+   "tap": "action",
+   "hold": 0.4
+  },
+  {
+   "t": 30.8,
+   "tap": "action",
+   "hold": 0.4
+  },
+  {
+   "t": 31.45,
+   "tap": "action",
+   "hold": 0.4
+  },
+  {
+   "t": 32.1,
+   "tap": "action",
+   "hold": 0.4
+  },
+  {
+   "t": 32.75,
+   "tap": "action",
+   "hold": 0.4
+  },
+  {
+   "t": 33.4,
+   "tap": "action",
+   "hold": 0.4
+  },
+  {
+   "t": 34.05,
+   "tap": "action",
+   "hold": 0.4
+  },
+  {
+   "t": 34.7,
+   "tap": "action",
+   "hold": 0.4
+  },
+  {
+   "t": 35.35,
+   "tap": "action",
+   "hold": 0.4
+  },
+  {
+   "t": 36.0,
+   "tap": "action",
+   "hold": 0.4
+  },
+  {
+   "t": 36.65,
+   "tap": "action",
+   "hold": 0.4
+  },
+  {
+   "t": 37.3,
+   "tap": "action",
+   "hold": 0.4
+  },
+  {
+   "t": 37.95,
+   "tap": "action",
+   "hold": 0.4
+  },
+  {
+   "t": 38.6,
+   "tap": "action",
+   "hold": 0.4
+  },
+  {
+   "t": 39.25,
+   "tap": "action",
+   "hold": 0.4
+  },
+  {
+   "t": 39.9,
+   "tap": "action",
+   "hold": 0.4
+  },
+  {
+   "t": 40.5,
+   "tap": "down",
+   "hold": 0.2
+  },
+  {
+   "t": 41.2,
+   "tap": "up",
+   "hold": 0.6
+  },
+  {
+   "t": 42.2,
+   "tap": "cancel"
+  },
+  {
+   "t": 42.6,
+   "press": "left"
+  },
+  {
+   "t": 44.0,
+   "release": "left"
+  },
+  {
+   "t": 44.2,
+   "press": "right"
+  },
+  {
+   "t": 44.8,
+   "release": "right"
+  },
+  {
+   "t": 45.0,
+   "press": "left"
+  },
+  {
+   "t": 53.5,
+   "release": "left"
+  },
+  {
+   "t": 54.0,
+   "tap": "action"
+  },
+  {
+   "t": 54.5,
+   "press": "left"
+  },
+  {
+   "t": 58.0,
+   "release": "left"
+  },
+  {
+   "t": 58.4,
+   "tap": "action"
+  },
+  {
+   "t": 59.0,
+   "tap": "action"
+  },
+  {
+   "t": 59.5,
+   "tap": "cancel"
+  }
+ ]
+}

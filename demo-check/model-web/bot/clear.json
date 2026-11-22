@@ -1,0 +1,9 @@
+{
+  "seed": 0,
+  "actions": [
+    {"t": 0.2, "press": "forward"},
+    {"t": 2.3, "tap": "jump"},
+    {"t": 3.4, "tap": "jump"},
+    {"t": 4.75, "tap": "jump"}
+  ]
+}

@@ -1,0 +1,359 @@
+{
+  "updated": "2026-11-22T15:11:30+00:00",
+  "reference": 25,
+  "anti": 4,
+  "warnings": [
+    {
+      "by": "domain",
+      "name": "pinterest.com",
+      "count": 20,
+      "total": 25,
+      "share": 0.8,
+      "message": "고른 레퍼런스 25장 중 20장이 한 사이트(pinterest.com)에서 왔다. 레퍼런스는 방향만 잡는 용도다. 특정 작품을 그대로 따라가지 않도록 다른 출처를 섞는다."
+    }
+  ],
+  "picks": [
+    {
+      "file": "steam-ab4914d8f4ab.jpg",
+      "kind": "anti",
+      "note": "어둡고 거친 분위기, 귀여움과 반대",
+      "tags": [],
+      "title": "DREDGE",
+      "source_url": "https://store.steampowered.com/app/1562430/",
+      "origin": "steam"
+    },
+    {
+      "file": "steam-0026f94f125e.jpg",
+      "kind": "anti",
+      "note": "3D 실사풍",
+      "tags": [],
+      "title": "Fishing at the Lake Full of Cats",
+      "source_url": "https://store.steampowered.com/app/3963070/",
+      "origin": "steam"
+    },
+    {
+      "file": "manual-c17f6ba9bfcc.jpg",
+      "kind": "anti",
+      "note": "너무 사실적인 비율과 질감",
+      "tags": [
+        "pinterest",
+        "고양이"
+      ],
+      "title": null,
+      "source_url": "https://i.pinimg.com/736x/e7/6c/3f/e76c3f0fa56a48ab623a0b691a0eb49c.jpg",
+      "origin": "manual"
+    },
+    {
+      "file": "manual-db3eb9866b54.jpg",
+      "kind": "reference",
+      "note": "고양이의 귀여움: 굵은 외곽선, 모자와 조끼 (픽셀로 옮길 형태만)",
+      "tags": [
+        "pinterest",
+        "고양이"
+      ],
+      "title": null,
+      "source_url": "https://i.pinimg.com/736x/28/5b/a9/285ba9d11636362b2cd07ae04161dd0e.jpg",
+      "origin": "manual"
+    },
+    {
+      "file": "manual-2fda8b119e5c.jpg",
+      "kind": "reference",
+      "note": "별주부: 창을 든 충신 거북의 실루엣",
+      "tags": [
+        "pinterest",
+        "거북"
+      ],
+      "title": null,
+      "source_url": "https://i.pinimg.com/736x/73/82/61/738261b1d0430691ff6a5904e03fbe47.jpg",
+      "origin": "manual"
+    },
+    {
+      "file": "manual-149c5b3871dd.jpg",
+      "kind": "reference",
+      "note": "한국풍 물결 문양 (바다 표현, UI 장식)",
+      "tags": [
+        "pinterest",
+        "용궁민화"
+      ],
+      "title": null,
+      "source_url": "https://i.pinimg.com/736x/5b/24/30/5b24304d6e3172de4b74f61a4a7a4faa.jpg",
+      "origin": "manual"
+    },
+    {
+      "file": "manual-42b2a5aa8636.jpg",
+      "kind": "reference",
+      "note": "용궁 건물: 단청 기둥과 처마, 밤",
+      "tags": [
+        "pinterest",
+        "용궁민화"
+      ],
+      "title": null,
+      "source_url": "https://i.pinimg.com/736x/9e/a7/0a/9ea70a286feccc57f69c64632b06c5b7.jpg",
+      "origin": "manual"
+    },
+    {
+      "file": "manual-e59dec97b71b.jpg",
+      "kind": "reference",
+      "note": "용궁 장식: 자개 느낌의 색",
+      "tags": [
+        "pinterest",
+        "용궁민화"
+      ],
+      "title": null,
+      "source_url": "https://i.pinimg.com/736x/34/f0/20/34f020a8629a22603ae35b2a4c335c99.jpg",
+      "origin": "manual"
+    },
+    {
+      "file": "manual-5978e585cba5.jpg",
+      "kind": "reference",
+      "note": "큼직한 픽셀과 따뜻한 색, 부두 낚시 장면",
+      "tags": [
+        "pinterest",
+        "픽셀-낚시"
+      ],
+      "title": null,
+      "source_url": "https://www.pinterest.com/pin/555279829030529383/",
+      "origin": "manual"
+    },
+    {
+      "file": "manual-102635ec6617.jpg",
+      "kind": "reference",
+      "note": "육지 구역: 위에서 본 나무 부두와 연못",
+      "tags": [
+        "pinterest",
+        "픽셀-낚시"
+      ],
+      "title": null,
+      "source_url": "https://www.pinterest.com/pin/593490057186575567/",
+      "origin": "manual"
+    },
+    {
+      "file": "manual-f3258c0a3697.jpg",
+      "kind": "reference",
+      "note": "화면 구도: 배 위 고양이, 수면 아래 낚싯줄과 물고기가 보이는 단면",
+      "tags": [
+        "pinterest",
+        "픽셀-낚시"
+      ],
+      "title": null,
+      "source_url": "https://www.pinterest.com/pin/4596697603233625216/",
+      "origin": "manual"
+    },
+    {
+      "file": "manual-6009c9c18177.jpg",
+      "kind": "reference",
+      "note": "고양이 동작 종류(걷기·앉기·눕기)",
+      "tags": [
+        "pinterest",
+        "픽셀-고양이"
+      ],
+      "title": null,
+      "source_url": "https://www.pinterest.com/pin/932385929085501721/",
+      "origin": "manual"
+    },
+    {
+      "file": "manual-73a9dd2ecf56.jpg",
+      "kind": "reference",
+      "note": "주인공: 옷 입고 두 발로 선 고양이 캐릭터 비율",
+      "tags": [
+        "pinterest",
+        "픽셀-고양이"
+      ],
+      "title": null,
+      "source_url": "https://www.pinterest.com/pin/659144095444370250/",
+      "origin": "manual"
+    },
+    {
+      "file": "manual-7d06593d432f.jpg",
+      "kind": "reference",
+      "note": "중간 깊이: 유적과 빛줄기",
+      "tags": [
+        "pinterest",
+        "픽셀-바닷속"
+      ],
+      "title": null,
+      "source_url": "https://www.pinterest.com/pin/120119515055929763/",
+      "origin": "manual"
+    },
+    {
+      "file": "manual-39a0c007bf4a.jpg",
+      "kind": "reference",
+      "note": "얕은 바다: 밝은 청록과 산호",
+      "tags": [
+        "pinterest",
+        "픽셀-바닷속"
+      ],
+      "title": null,
+      "source_url": "https://www.pinterest.com/pin/891220213787734700/",
+      "origin": "manual"
+    },
+    {
+      "file": "manual-8dccf1652c54.jpg",
+      "kind": "reference",
+      "note": "심해: 보라·남색과 발광 해파리",
+      "tags": [
+        "pinterest",
+        "픽셀-바닷속"
+      ],
+      "title": null,
+      "source_url": "https://www.pinterest.com/pin/998391811147293900/",
+      "origin": "manual"
+    },
+    {
+      "file": "manual-361a3d7f198a.jpg",
+      "kind": "reference",
+      "note": "깊이감: 수면의 작은 배에서 아래로 깊어지는 세로 구도",
+      "tags": [
+        "pinterest",
+        "픽셀-바닷속"
+      ],
+      "title": null,
+      "source_url": "https://www.pinterest.com/pin/913878949377762054/",
+      "origin": "manual"
+    },
+    {
+      "file": "manual-07ea39651ba6.jpg",
+      "kind": "reference",
+      "note": "배와 바다 분위기: 작은 어선, 차분한 색",
+      "tags": [
+        "pinterest",
+        "픽셀-배"
+      ],
+      "title": null,
+      "source_url": "https://www.pinterest.com/pin/1093319247078067079/",
+      "origin": "manual"
+    },
+    {
+      "file": "manual-bd3df23c247d.jpg",
+      "kind": "reference",
+      "note": "시작용 작은 배 스프라이트",
+      "tags": [
+        "pinterest",
+        "픽셀-배"
+      ],
+      "title": null,
+      "source_url": "https://www.pinterest.com/pin/1093319247078067079/",
+      "origin": "manual"
+    },
+    {
+      "file": "manual-7f044b83440e.jpg",
+      "kind": "reference",
+      "note": "개조가 끝난 큰 배 단계",
+      "tags": [
+        "pinterest",
+        "픽셀-배"
+      ],
+      "title": null,
+      "source_url": "https://www.pinterest.com/pin/289637819795206645/",
+      "origin": "manual"
+    },
+    {
+      "file": "manual-bf2747d55fdc.jpg",
+      "kind": "reference",
+      "note": "물 위 나무집과 고양이, 항구 마을 분위기",
+      "tags": [
+        "pinterest",
+        "픽셀-스토리장면"
+      ],
+      "title": null,
+      "source_url": "https://www.pinterest.com/pin/593490057185452007/",
+      "origin": "manual"
+    },
+    {
+      "file": "manual-32360961bbbc.jpg",
+      "kind": "reference",
+      "note": "등불 켜진 따뜻한 밤 장면",
+      "tags": [
+        "pinterest",
+        "픽셀-스토리장면"
+      ],
+      "title": null,
+      "source_url": "https://www.pinterest.com/pin/1068479080356179381/",
+      "origin": "manual"
+    },
+    {
+      "file": "manual-0e1268611b59.jpg",
+      "kind": "reference",
+      "note": "스토리 연출: 초상화 + 대화창",
+      "tags": [
+        "pinterest",
+        "픽셀-스토리장면"
+      ],
+      "title": null,
+      "source_url": "https://www.pinterest.com/pin/493355334190434613/",
+      "origin": "manual"
+    },
+    {
+      "file": "manual-001b1463eff2.jpg",
+      "kind": "anti",
+      "note": "너무 중국풍: 원색 빨강·금색 과다",
+      "tags": [
+        "pinterest",
+        "픽셀-한국전통"
+      ],
+      "title": null,
+      "source_url": "https://www.pinterest.com/pin/1038290889111534206/",
+      "origin": "manual"
+    },
+    {
+      "file": "manual-016f0dc9bc94.jpg",
+      "kind": "reference",
+      "note": "UI: 크림색 종이 느낌, 둥근 모서리",
+      "tags": [
+        "pinterest",
+        "픽셀-UI"
+      ],
+      "title": null,
+      "source_url": "https://www.pinterest.com/pin/1136314549767508390/",
+      "origin": "manual"
+    },
+    {
+      "file": "manual-742df26d410c.jpg",
+      "kind": "reference",
+      "note": "인벤토리 칸 구성",
+      "tags": [
+        "pinterest",
+        "픽셀-UI"
+      ],
+      "title": null,
+      "source_url": "https://www.pinterest.com/pin/383580093272480542/",
+      "origin": "manual"
+    },
+    {
+      "file": "manual-502604a25f2e.jpg",
+      "kind": "reference",
+      "note": "물고기: 귀여운 도감 스타일",
+      "tags": [
+        "pinterest",
+        "픽셀-물고기"
+      ],
+      "title": null,
+      "source_url": "https://www.pinterest.com/pin/1004302785725094569/",
+      "origin": "manual"
+    },
+    {
+      "file": "manual-0cba235b6f26.jpg",
+      "kind": "reference",
+      "note": "큼직하고 귀여운 물고기 비율",
+      "tags": [
+        "pinterest",
+        "픽셀-물고기"
+      ],
+      "title": null,
+      "source_url": "https://www.pinterest.com/pin/502573639682896519/",
+      "origin": "manual"
+    },
+    {
+      "file": "manual-e4c4eacf6c72.jpg",
+      "kind": "reference",
+      "note": "심해어 종류와 형태",
+      "tags": [
+        "pinterest",
+        "픽셀-물고기"
+      ],
+      "title": null,
+      "source_url": "https://www.pinterest.com/pin/866591153345335336/",
+      "origin": "manual"
+    }
+  ]
+}

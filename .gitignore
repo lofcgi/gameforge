@@ -1,0 +1,45 @@
+# 자격증명
+.env
+.env.*
+!.env.example
+*.key
+*.pem
+secrets/
+
+# 도구가 다시 만드는 것
+.venv/
+node_modules/
+__pycache__/
+.pytest_cache/
+.ruff_cache/
+.godot/
+.DS_Store
+.smoke*/
+
+# 하네스 캐시와 로그
+**/.gf/cache/
+**/.gf/godot.log
+
+# 다시 만들 수 있는 큰 실행 기록
+**/captures/sessions/*.jsonl
+**/captures/bot/**/trace.jsonl
+demo-check/plugin-session/logs/
+
+# 남의 저작물: 수집한 레퍼런스 이미지와 그것으로 만든 모음판은 올리지 않는다.
+# 출처 주소가 든 .json 메타는 올린다 (gf ref add 로 다시 받을 수 있다).
+**/references/inbox/*.jpg
+**/references/inbox/*.jpeg
+**/references/inbox/*.png
+**/references/inbox/*.webp
+**/references/inbox/*.gif
+**/references/picked/*.jpg
+**/references/picked/*.jpeg
+**/references/picked/*.webp
+**/references/picked/*.gif
+**/references/picked/*.png
+!**/references/picked/traits-palette.png
+**/references/sheets/*.png
+
+# 개인 설정
+.claude/settings.local.json
+demo-check/plugin-session/

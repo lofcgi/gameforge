@@ -1,0 +1,328 @@
+{
+  "session": "captures/sessions/os-keys.jsonl",
+  "inputs": {
+    "pressed": 4,
+    "responded": 4,
+    "unmapped": 0,
+    "unverified": 0,
+    "unresponsive": []
+  },
+  "liveness": {
+    "verified": true,
+    "first_input_t": 0.283,
+    "diverged_t": 0.3
+  },
+  "drift": {
+    "compared": 80,
+    "max": 0.0,
+    "final": 0.0
+  },
+  "final_state": {
+    "level": "graybox-1",
+    "player": {
+      "pos": [
+        621,
+        149
+      ],
+      "vel": [
+        0,
+        0
+      ],
+      "on_floor": true
+    },
+    "goal": {
+      "pos": [
+        606,
+        140
+      ],
+      "reached": true
+    },
+    "deaths": 0,
+    "jumps": 3,
+    "tick": 510,
+    "t": 8.5,
+    "fps": 60
+  },
+  "shots": [
+    {
+      "t": 1,
+      "tick": 60,
+      "file": "captures/replays/os-keys/shot_001.png",
+      "state": {
+        "level": "graybox-1",
+        "player": {
+          "pos": [
+            88.5,
+            149
+          ],
+          "vel": [
+            90,
+            0
+          ],
+          "on_floor": true
+        },
+        "goal": {
+          "pos": [
+            606,
+            140
+          ],
+          "reached": false
+        },
+        "deaths": 0,
+        "jumps": 0,
+        "tick": 60,
+        "t": 1,
+        "fps": 60
+      }
+    },
+    {
+      "t": 2,
+      "tick": 120,
+      "file": "captures/replays/os-keys/shot_002.png",
+      "state": {
+        "level": "graybox-1",
+        "player": {
+          "pos": [
+            178.5,
+            149
+          ],
+          "vel": [
+            90,
+            0
+          ],
+          "on_floor": true
+        },
+        "goal": {
+          "pos": [
+            606,
+            140
+          ],
+          "reached": false
+        },
+        "deaths": 0,
+        "jumps": 0,
+        "tick": 120,
+        "t": 2,
+        "fps": 60
+      }
+    },
+    {
+      "t": 3,
+      "tick": 180,
+      "file": "captures/replays/os-keys/shot_003.png",
+      "state": {
+        "level": "graybox-1",
+        "player": {
+          "pos": [
+            268.5,
+            149
+          ],
+          "vel": [
+            90,
+            0
+          ],
+          "on_floor": true
+        },
+        "goal": {
+          "pos": [
+            606,
+            140
+          ],
+          "reached": false
+        },
+        "deaths": 0,
+        "jumps": 1,
+        "tick": 180,
+        "t": 3,
+        "fps": 60
+      }
+    },
+    {
+      "t": 4,
+      "tick": 240,
+      "file": "captures/replays/os-keys/shot_004.png",
+      "state": {
+        "level": "graybox-1",
+        "player": {
+          "pos": [
+            358.5,
+            149
+          ],
+          "vel": [
+            90,
+            0
+          ],
+          "on_floor": true
+        },
+        "goal": {
+          "pos": [
+            606,
+            140
+          ],
+          "reached": false
+        },
+        "deaths": 0,
+        "jumps": 2,
+        "tick": 240,
+        "t": 4,
+        "fps": 60
+      }
+    },
+    {
+      "t": 5,
+      "tick": 300,
+      "file": "captures/replays/os-keys/shot_005.png",
+      "state": {
+        "level": "graybox-1",
+        "player": {
+          "pos": [
+            448.5,
+            125
+          ],
+          "vel": [
+            90,
+            0
+          ],
+          "on_floor": true
+        },
+        "goal": {
+          "pos": [
+            606,
+            140
+          ],
+          "reached": false
+        },
+        "deaths": 0,
+        "jumps": 3,
+        "tick": 300,
+        "t": 5,
+        "fps": 60
+      }
+    },
+    {
+      "t": 6,
+      "tick": 360,
+      "file": "captures/replays/os-keys/shot_006.png",
+      "state": {
+        "level": "graybox-1",
+        "player": {
+          "pos": [
+            538.5,
+            149
+          ],
+          "vel": [
+            90,
+            0
+          ],
+          "on_floor": true
+        },
+        "goal": {
+          "pos": [
+            606,
+            140
+          ],
+          "reached": false
+        },
+        "deaths": 0,
+        "jumps": 3,
+        "tick": 360,
+        "t": 6,
+        "fps": 60
+      }
+    },
+    {
+      "t": 7,
+      "tick": 420,
+      "file": "captures/replays/os-keys/shot_007.png",
+      "state": {
+        "level": "graybox-1",
+        "player": {
+          "pos": [
+            621,
+            149
+          ],
+          "vel": [
+            0,
+            0
+          ],
+          "on_floor": true
+        },
+        "goal": {
+          "pos": [
+            606,
+            140
+          ],
+          "reached": true
+        },
+        "deaths": 0,
+        "jumps": 3,
+        "tick": 420,
+        "t": 7,
+        "fps": 60
+      }
+    },
+    {
+      "t": 8,
+      "tick": 480,
+      "file": "captures/replays/os-keys/shot_008.png",
+      "state": {
+        "level": "graybox-1",
+        "player": {
+          "pos": [
+            621,
+            149
+          ],
+          "vel": [
+            0,
+            0
+          ],
+          "on_floor": true
+        },
+        "goal": {
+          "pos": [
+            606,
+            140
+          ],
+          "reached": true
+        },
+        "deaths": 0,
+        "jumps": 3,
+        "tick": 480,
+        "t": 8,
+        "fps": 60
+      }
+    },
+    {
+      "t": 8.5,
+      "tick": 510,
+      "file": "captures/replays/os-keys/final.png",
+      "state": {
+        "level": "graybox-1",
+        "player": {
+          "pos": [
+            621,
+            149
+          ],
+          "vel": [
+            0,
+            0
+          ],
+          "on_floor": true
+        },
+        "goal": {
+          "pos": [
+            606,
+            140
+          ],
+          "reached": true
+        },
+        "deaths": 0,
+        "jumps": 3,
+        "tick": 510,
+        "t": 8.5,
+        "fps": 60
+      }
+    }
+  ],
+  "logs": []
+}

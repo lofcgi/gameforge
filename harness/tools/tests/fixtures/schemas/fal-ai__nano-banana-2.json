@@ -1,0 +1,165 @@
+{
+ "endpoint": "fal-ai/nano-banana-2",
+ "role": "image.concept",
+ "input": {
+  "max_output_tokens": {
+   "required": false,
+   "description": "Maximum output tokens for the generation. Omit to retain the provider default. Explicit values use a direct Google or Vertex API.",
+   "anyOf": [
+    "integer",
+    "null"
+   ]
+  },
+  "enable_image_search": {
+   "required": false,
+   "type": "boolean",
+   "default": false,
+   "description": "Ground image generation with Google Image Search. Can be combined with enable_web_search; source attribution is returned in grounding_metadata. Uses direct Google or Vertex APIs."
+  },
+  "resolution": {
+   "required": false,
+   "type": "string",
+   "enum": [
+    "0.5K",
+    "1K",
+    "2K",
+    "4K"
+   ],
+   "default": "1K",
+   "description": "The resolution of the image to generate."
+  },
+  "history": {
+   "required": false,
+   "type": "array",
+   "description": "Previous native Gemini turns, including original parts and thought signatures from conversations. The current prompt starts a new user turn."
+  },
+  "seed": {
+   "required": false,
+   "description": "The seed for the random number generator.",
+   "anyOf": [
+    "integer",
+    "null"
+   ]
+  },
+  "aspect_ratio": {
+   "required": false,
+   "default": "auto",
+   "description": "The aspect ratio of the generated image. Supports extreme ratios: 4:1, 1:4, 8:1, 1:8. Use \"auto\" to let the model decide based on the prompt.",
+   "anyOf": [
+    "string",
+    "null"
+   ]
+  },
+  "context": {
+   "required": false,
+   "type": "array",
+   "description": "Ordered text, image, PDF, UTF-8 text-file or video parts appended to the current prompt. Original media bytes are preserved; images count toward the total 14-reference limit."
+  },
+  "enable_web_search": {
+   "required": false,
+   "type": "boolean",
+   "default": false,
+   "description": "Enable web search for the image generation task. This will allow the model to use the latest information from the web to generate the image."
+  },
+  "temperature": {
+   "required": false,
+   "description": "Sampling temperature. Omit to use the provider default of 1. Explicit values use a direct Google or Vertex API.",
+   "anyOf": [
+    "number",
+    "null"
+   ]
+  },
+  "num_images": {
+   "required": false,
+   "type": "integer",
+   "default": 1,
+   "description": "The number of images to generate.",
+   "minimum": 1,
+   "maximum": 4
+  },
+  "include_thoughts": {
+   "required": false,
+   "description": "Whether to include thought summaries. Omit to preserve the existing behavior: an explicit thinking_level requests summaries. Set limit_generations=false to return summary text in description. This doe",
+   "anyOf": [
+    "boolean",
+    "null"
+   ]
+  },
+  "output_format": {
+   "required": false,
+   "type": "string",
+   "enum": [
+    "jpeg",
+    "png",
+    "webp"
+   ],
+   "default": "png",
+   "description": "The format of the generated image."
+  },
+  "top_p": {
+   "required": false,
+   "description": "Nucleus sampling probability. Omit to use the provider default of 0.95. Explicit values use a direct Google or Vertex API.",
+   "anyOf": [
+    "number",
+    "null"
+   ]
+  },
+  "system_prompt": {
+   "required": false,
+   "type": "string",
+   "default": "",
+   "description": "Optional system instruction that steers the model's persona and output style across the request. Leave blank to omit; when provided, it is sent as the system instruction to Gemini (or as a system mess"
+  },
+  "return_history": {
+   "required": false,
+   "type": "boolean",
+   "default": false,
+   "description": "Return reusable native conversations with original image parts and provider thought signatures. Uses a native provider. Each generated conversation is independent; send its messages as history for the"
+  },
+  "safety_tolerance": {
+   "required": false,
+   "type": "string",
+   "enum": [
+    "1",
+    "2",
+    "3",
+    "4",
+    "5",
+    "6"
+   ],
+   "default": "4",
+   "description": "The safety tolerance level for content moderation. 1 is the most strict (blocks most content), 6 is the least strict."
+  },
+  "limit_generations": {
+   "required": false,
+   "type": "boolean",
+   "default": true,
+   "description": "Experimental parameter to limit the number of generations from each round of prompting to 1. Set to `True` to to disregard any instructions in the prompt regarding the number of images to generate and"
+  },
+  "thinking_level": {
+   "required": false,
+   "description": "Controls thinking effort ('minimal' or 'high') and requests thought summaries. Omit to use the provider default ('minimal'); thinking cannot be disabled.",
+   "anyOf": [
+    "string",
+    "null"
+   ]
+  },
+  "prompt": {
+   "required": true,
+   "type": "string",
+   "description": "The text prompt to generate an image from."
+  },
+  "sync_mode": {
+   "required": false,
+   "type": "boolean",
+   "default": false,
+   "description": "If `True`, the media will be returned as a data URI and the output data won't be available in the request history."
+  }
+ },
+ "price": {
+  "endpoint_id": "fal-ai/nano-banana-2",
+  "unit_price": 0.08,
+  "unit": "images",
+  "currency": "USD"
+ }
+}

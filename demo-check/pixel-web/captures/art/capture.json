@@ -1,0 +1,250 @@
+{
+  "header": {
+    "type": "header",
+    "version": 1,
+    "engine": "web",
+    "tick_rate": 60,
+    "seed": 0,
+    "size": [
+      1280,
+      720
+    ],
+    "info": {
+      "dim": "2d",
+      "actions": {
+        "left": {
+          "keys": [
+            "ArrowLeft",
+            "KeyA"
+          ],
+          "move": [
+            -1,
+            0
+          ]
+        },
+        "right": {
+          "keys": [
+            "ArrowRight",
+            "KeyD"
+          ],
+          "move": [
+            1,
+            0
+          ]
+        },
+        "jump": {
+          "keys": [
+            "Space",
+            "ArrowUp"
+          ]
+        }
+      },
+      "probe": [
+        "right",
+        "left",
+        "jump"
+      ]
+    }
+  },
+  "shots": [
+    {
+      "t": 0.1,
+      "tick": 6,
+      "file": "captures/art/shot_01_t0.10.png",
+      "state": {
+        "level": "graybox-1",
+        "player": {
+          "pos": [
+            24,
+            144.08333333333334
+          ],
+          "vel": [
+            0,
+            70
+          ],
+          "on_floor": false
+        },
+        "goal": {
+          "pos": [
+            606,
+            140
+          ],
+          "reached": false
+        },
+        "deaths": 0,
+        "jumps": 0,
+        "tick": 6,
+        "t": 0.1,
+        "fps": 0
+      }
+    },
+    {
+      "t": 1,
+      "tick": 60,
+      "file": "captures/art/shot_02_t1.00.png",
+      "state": {
+        "level": "graybox-1",
+        "player": {
+          "pos": [
+            96,
+            149
+          ],
+          "vel": [
+            90,
+            0
+          ],
+          "on_floor": true
+        },
+        "goal": {
+          "pos": [
+            606,
+            140
+          ],
+          "reached": false
+        },
+        "deaths": 0,
+        "jumps": 0,
+        "tick": 60,
+        "t": 1,
+        "fps": 60
+      }
+    },
+    {
+      "t": 2.3,
+      "tick": 138,
+      "file": "captures/art/shot_03_t2.30.png",
+      "state": {
+        "level": "graybox-1",
+        "player": {
+          "pos": [
+            213,
+            111.91666666666664
+          ],
+          "vel": [
+            90,
+            -66.66666666666671
+          ],
+          "on_floor": false
+        },
+        "goal": {
+          "pos": [
+            606,
+            140
+          ],
+          "reached": false
+        },
+        "deaths": 0,
+        "jumps": 1,
+        "tick": 138,
+        "t": 2.3,
+        "fps": 60
+      }
+    },
+    {
+      "t": 3.1,
+      "tick": 186,
+      "file": "captures/art/shot_04_t3.10.png",
+      "state": {
+        "level": "graybox-1",
+        "player": {
+          "pos": [
+            285,
+            149
+          ],
+          "vel": [
+            90,
+            0
+          ],
+          "on_floor": true
+        },
+        "goal": {
+          "pos": [
+            606,
+            140
+          ],
+          "reached": false
+        },
+        "deaths": 0,
+        "jumps": 1,
+        "tick": 186,
+        "t": 3.1,
+        "fps": 60
+      }
+    },
+    {
+      "t": 3.5,
+      "tick": 210,
+      "file": "captures/art/shot_05_t3.50.png",
+      "state": {
+        "level": "graybox-1",
+        "player": {
+          "pos": [
+            321,
+            109.74999999999996
+          ],
+          "vel": [
+            90,
+            -31.66666666666672
+          ],
+          "on_floor": false
+        },
+        "goal": {
+          "pos": [
+            606,
+            140
+          ],
+          "reached": false
+        },
+        "deaths": 0,
+        "jumps": 2,
+        "tick": 210,
+        "t": 3.5,
+        "fps": 60
+      }
+    },
+    {
+      "t": 7.2,
+      "tick": 432,
+      "file": "captures/art/shot_06_t7.20.png",
+      "state": {
+        "level": "graybox-1",
+        "player": {
+          "pos": [
+            621.5,
+            149
+          ],
+          "vel": [
+            0,
+            0
+          ],
+          "on_floor": true
+        },
+        "goal": {
+          "pos": [
+            606,
+            140
+          ],
+          "reached": true
+        },
+        "deaths": 0,
+        "jumps": 3,
+        "tick": 432,
+        "t": 7.2,
+        "fps": 60
+      }
+    }
+  ],
+  "inputs": {
+    "pressed": 4,
+    "responded": 4,
+    "unmapped": 0,
+    "unverified": 0,
+    "unresponsive": []
+  },
+  "liveness": {
+    "verified": true,
+    "first_input_t": 0.2,
+    "diverged_t": 0.25
+  },
+  "logs": []
+}

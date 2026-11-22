@@ -1,0 +1,186 @@
+{
+  "policy": "bot/clear.json",
+  "seed": 0,
+  "reached_goal": true,
+  "time_s": 6.6,
+  "deaths": 0,
+  "liveness": {
+    "verified": true,
+    "first_input_t": 0.2,
+    "diverged_t": 0.25
+  },
+  "inputs": {
+    "pressed": 4,
+    "responded": 4,
+    "unmapped": 0,
+    "unverified": 0,
+    "unresponsive": []
+  },
+  "final_state": {
+    "deaths": 0,
+    "fps": 142.0,
+    "goal": {
+      "pos": [
+        606.0,
+        140.0
+      ],
+      "reached": true
+    },
+    "level": "graybox-1",
+    "player": {
+      "on_floor": true,
+      "pos": [
+        597.425231933594,
+        148.925216674805
+      ],
+      "vel": [
+        90.0,
+        0.0
+      ]
+    },
+    "sounds_goal": 1,
+    "sounds_jump": 3,
+    "t": 6.6,
+    "tick": 396
+  },
+  "shots": [
+    {
+      "t": 2.0,
+      "tick": 120,
+      "file": "captures/bot/clear-20261122-222217/shot_001.png",
+      "state": {
+        "deaths": 0,
+        "fps": 96.0,
+        "goal": {
+          "pos": [
+            606.0,
+            140.0
+          ],
+          "reached": false
+        },
+        "level": "graybox-1",
+        "player": {
+          "on_floor": true,
+          "pos": [
+            186.0,
+            148.996856689453
+          ],
+          "vel": [
+            90.0,
+            0.0
+          ]
+        },
+        "sounds_goal": 0,
+        "sounds_jump": 0,
+        "t": 2.0,
+        "tick": 120
+      }
+    },
+    {
+      "t": 4.0,
+      "tick": 240,
+      "file": "captures/bot/clear-20261122-222217/shot_002.png",
+      "state": {
+        "deaths": 0,
+        "fps": 144.0,
+        "goal": {
+          "pos": [
+            606.0,
+            140.0
+          ],
+          "reached": false
+        },
+        "level": "graybox-1",
+        "player": {
+          "on_floor": true,
+          "pos": [
+            366.024749755859,
+            148.925247192383
+          ],
+          "vel": [
+            90.0,
+            0.0
+          ]
+        },
+        "sounds_goal": 0,
+        "sounds_jump": 2,
+        "t": 4.0,
+        "tick": 240
+      }
+    },
+    {
+      "t": 6.0,
+      "tick": 360,
+      "file": "captures/bot/clear-20261122-222217/shot_003.png",
+      "state": {
+        "deaths": 0,
+        "fps": 144.0,
+        "goal": {
+          "pos": [
+            606.0,
+            140.0
+          ],
+          "reached": false
+        },
+        "level": "graybox-1",
+        "player": {
+          "on_floor": true,
+          "pos": [
+            543.425231933594,
+            148.925216674805
+          ],
+          "vel": [
+            90.0,
+            0.0
+          ]
+        },
+        "sounds_goal": 0,
+        "sounds_jump": 3,
+        "t": 6.0,
+        "tick": 360
+      }
+    },
+    {
+      "t": 6.6,
+      "tick": 396,
+      "file": "captures/bot/clear-20261122-222217/final.png",
+      "state": {
+        "deaths": 0,
+        "fps": 142.0,
+        "goal": {
+          "pos": [
+            606.0,
+            140.0
+          ],
+          "reached": true
+        },
+        "level": "graybox-1",
+        "player": {
+          "on_floor": true,
+          "pos": [
+            597.425231933594,
+            148.925216674805
+          ],
+          "vel": [
+            90.0,
+            0.0
+          ]
+        },
+        "sounds_goal": 1,
+        "sounds_jump": 3,
+        "t": 6.6,
+        "tick": 396
+      }
+    }
+  ],
+  "logs": [
+    {
+      "level": "warning",
+      "text": "WARNING: 4 ObjectDB instances were leaked at exit (run with `--verbose` for details). at: cleanup (core/object/object.cpp:2536)"
+    },
+    {
+      "level": "warning",
+      "text": "ERROR: 2 resources still in use at exit (run with --verbose for details). at: clear (core/io/resource.cpp:822)"
+    }
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "name": "dune-rover",
+  "engine": "web",
+  "dim": "2d",
+  "style": "pixel",
+  "stage": "polish",
+  "approvals": [],
+  "created": "2026-11-22T12:55:32+00:00"
+}

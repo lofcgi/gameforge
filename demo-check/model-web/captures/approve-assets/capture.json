@@ -1,0 +1,156 @@
+{
+  "header": {
+    "type": "header",
+    "version": 1,
+    "engine": "web",
+    "tick_rate": 60,
+    "seed": 0,
+    "size": [
+      1280,
+      720
+    ],
+    "info": {
+      "dim": "3d",
+      "renderer": "webgpu",
+      "actions": {
+        "left": {
+          "keys": [
+            "ArrowLeft",
+            "KeyA"
+          ],
+          "move": [
+            -1,
+            0,
+            0
+          ]
+        },
+        "right": {
+          "keys": [
+            "ArrowRight",
+            "KeyD"
+          ],
+          "move": [
+            1,
+            0,
+            0
+          ]
+        },
+        "forward": {
+          "keys": [
+            "ArrowUp",
+            "KeyW"
+          ],
+          "move": [
+            0,
+            0,
+            -1
+          ]
+        },
+        "back": {
+          "keys": [
+            "ArrowDown",
+            "KeyS"
+          ],
+          "move": [
+            0,
+            0,
+            1
+          ]
+        },
+        "jump": {
+          "keys": [
+            "Space"
+          ]
+        }
+      },
+      "probe": [
+        "forward",
+        "back",
+        "left",
+        "right",
+        "jump"
+      ]
+    }
+  },
+  "shots": [
+    {
+      "t": 1,
+      "tick": 60,
+      "file": "captures/approve-assets/shot_01_t1.00.png",
+      "state": {
+        "level": "graybox-1",
+        "player": {
+          "pos": [
+            0,
+            0.8999999999999999,
+            -4.000000000000003
+          ],
+          "vel": [
+            0,
+            0,
+            -5
+          ],
+          "on_floor": true
+        },
+        "goal": {
+          "pos": [
+            0,
+            1,
+            -27
+          ],
+          "reached": false
+        },
+        "deaths": 0,
+        "tick": 60,
+        "t": 1,
+        "fps": 60
+      }
+    },
+    {
+      "t": 3,
+      "tick": 180,
+      "file": "captures/approve-assets/shot_02_t3.00.png",
+      "state": {
+        "level": "graybox-1",
+        "player": {
+          "pos": [
+            0,
+            1.4950000000000014,
+            -14.00000000000003
+          ],
+          "vel": [
+            0,
+            -5.299999999999996,
+            -5
+          ],
+          "on_floor": false
+        },
+        "goal": {
+          "pos": [
+            0,
+            1,
+            -27
+          ],
+          "reached": false
+        },
+        "deaths": 0,
+        "tick": 180,
+        "t": 3,
+        "fps": 60
+      }
+    }
+  ],
+  "inputs": {
+    "pressed": 4,
+    "responded": 4,
+    "unmapped": 0,
+    "unverified": 0,
+    "unresponsive": []
+  },
+  "liveness": {
+    "verified": true,
+    "first_input_t": 0.2,
+    "diverged_t": 0.25
+  },
+  "logs": []
+}

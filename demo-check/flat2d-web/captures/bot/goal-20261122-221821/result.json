@@ -1,0 +1,265 @@
+{
+  "policy": "goal",
+  "seed": 0,
+  "reached_goal": true,
+  "time_s": 12.55,
+  "deaths": 2,
+  "liveness": {
+    "verified": true,
+    "first_input_t": 0.0,
+    "diverged_t": 0.05
+  },
+  "inputs": {
+    "pressed": 5,
+    "responded": 5,
+    "unmapped": 0,
+    "unverified": 0,
+    "unresponsive": []
+  },
+  "final_state": {
+    "level": "graybox-1",
+    "player": {
+      "pos": [
+        599,
+        149
+      ],
+      "vel": [
+        90,
+        0
+      ],
+      "on_floor": true
+    },
+    "goal": {
+      "pos": [
+        606,
+        140
+      ],
+      "reached": true
+    },
+    "deaths": 2,
+    "jumps": 4,
+    "tick": 753,
+    "t": 12.55,
+    "fps": 60
+  },
+  "shots": [
+    {
+      "t": 2,
+      "tick": 120,
+      "file": "captures/bot/goal-20261122-221821/shot_001.png",
+      "state": {
+        "level": "graybox-1",
+        "player": {
+          "pos": [
+            204,
+            149
+          ],
+          "vel": [
+            90,
+            0
+          ],
+          "on_floor": true
+        },
+        "goal": {
+          "pos": [
+            606,
+            140
+          ],
+          "reached": false
+        },
+        "deaths": 0,
+        "jumps": 0,
+        "tick": 120,
+        "t": 2,
+        "fps": 60
+      }
+    },
+    {
+      "t": 4,
+      "tick": 240,
+      "file": "captures/bot/goal-20261122-221821/shot_002.png",
+      "state": {
+        "level": "graybox-1",
+        "player": {
+          "pos": [
+            163.5,
+            149
+          ],
+          "vel": [
+            90,
+            0
+          ],
+          "on_floor": true
+        },
+        "goal": {
+          "pos": [
+            606,
+            140
+          ],
+          "reached": false
+        },
+        "deaths": 1,
+        "jumps": 0,
+        "tick": 240,
+        "t": 4,
+        "fps": 60
+      }
+    },
+    {
+      "t": 6,
+      "tick": 360,
+      "file": "captures/bot/goal-20261122-221821/shot_003.png",
+      "state": {
+        "level": "graybox-1",
+        "player": {
+          "pos": [
+            60,
+            149
+          ],
+          "vel": [
+            90,
+            0
+          ],
+          "on_floor": true
+        },
+        "goal": {
+          "pos": [
+            606,
+            140
+          ],
+          "reached": false
+        },
+        "deaths": 2,
+        "jumps": 1,
+        "tick": 360,
+        "t": 6,
+        "fps": 60
+      }
+    },
+    {
+      "t": 8,
+      "tick": 480,
+      "file": "captures/bot/goal-20261122-221821/shot_004.png",
+      "state": {
+        "level": "graybox-1",
+        "player": {
+          "pos": [
+            240,
+            125.16666666666661
+          ],
+          "vel": [
+            90,
+            143.3333333333333
+          ],
+          "on_floor": false
+        },
+        "goal": {
+          "pos": [
+            606,
+            140
+          ],
+          "reached": false
+        },
+        "deaths": 2,
+        "jumps": 2,
+        "tick": 480,
+        "t": 8,
+        "fps": 60
+      }
+    },
+    {
+      "t": 10,
+      "tick": 600,
+      "file": "captures/bot/goal-20261122-221821/shot_005.png",
+      "state": {
+        "level": "graybox-1",
+        "player": {
+          "pos": [
+            395,
+            149
+          ],
+          "vel": [
+            0,
+            0
+          ],
+          "on_floor": true
+        },
+        "goal": {
+          "pos": [
+            606,
+            140
+          ],
+          "reached": false
+        },
+        "deaths": 2,
+        "jumps": 3,
+        "tick": 600,
+        "t": 10,
+        "fps": 60
+      }
+    },
+    {
+      "t": 12,
+      "tick": 720,
+      "file": "captures/bot/goal-20261122-221821/shot_006.png",
+      "state": {
+        "level": "graybox-1",
+        "player": {
+          "pos": [
+            549.5,
+            149
+          ],
+          "vel": [
+            90,
+            0
+          ],
+          "on_floor": true
+        },
+        "goal": {
+          "pos": [
+            606,
+            140
+          ],
+          "reached": false
+        },
+        "deaths": 2,
+        "jumps": 4,
+        "tick": 720,
+        "t": 12,
+        "fps": 60
+      }
+    },
+    {
+      "t": 12.55,
+      "tick": 753,
+      "file": "captures/bot/goal-20261122-221821/final.png",
+      "state": {
+        "level": "graybox-1",
+        "player": {
+          "pos": [
+            599,
+            149
+          ],
+          "vel": [
+            90,
+            0
+          ],
+          "on_floor": true
+        },
+        "goal": {
+          "pos": [
+            606,
+            140
+          ],
+          "reached": true
+        },
+        "deaths": 2,
+        "jumps": 4,
+        "tick": 753,
+        "t": 12.55,
+        "fps": 60
+      }
+    }
+  ],
+  "logs": []
+}

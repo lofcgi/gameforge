@@ -1,0 +1,281 @@
+{
+  "policy": "goal",
+  "seed": 0,
+  "reached_goal": true,
+  "time_s": 13.65,
+  "deaths": 2,
+  "liveness": {
+    "verified": true,
+    "first_input_t": 0.0,
+    "diverged_t": 0.05
+  },
+  "inputs": {
+    "pressed": 6,
+    "responded": 6,
+    "unmapped": 0,
+    "unverified": 0,
+    "unresponsive": []
+  },
+  "final_state": {
+    "deaths": 2,
+    "fps": 221.0,
+    "goal": {
+      "pos": [
+        0.0,
+        1.0,
+        -27.0
+      ],
+      "reached": true
+    },
+    "level": "graybox-1",
+    "player": {
+      "on_floor": false,
+      "pos": [
+        0.0,
+        1.30423140525818,
+        -26.1131057739258
+      ],
+      "vel": [
+        0.0,
+        -5.90000200271606,
+        -5.0
+      ]
+    },
+    "t": 13.65,
+    "tick": 819
+  },
+  "shots": [
+    {
+      "t": 2.0,
+      "tick": 120,
+      "file": "captures/bot/model-goal-policy/shot_001.png",
+      "state": {
+        "deaths": 0,
+        "fps": 88.0,
+        "goal": {
+          "pos": [
+            0.0,
+            1.0,
+            -27.0
+          ],
+          "reached": false
+        },
+        "level": "graybox-1",
+        "player": {
+          "on_floor": true,
+          "pos": [
+            0.0,
+            0.900828838348389,
+            -9.99999809265137
+          ],
+          "vel": [
+            0.0,
+            0.0,
+            -5.0
+          ]
+        },
+        "t": 2.0,
+        "tick": 120
+      }
+    },
+    {
+      "t": 4.0,
+      "tick": 240,
+      "file": "captures/bot/model-goal-policy/shot_002.png",
+      "state": {
+        "deaths": 1,
+        "fps": 88.0,
+        "goal": {
+          "pos": [
+            0.0,
+            1.0,
+            -27.0
+          ],
+          "reached": false
+        },
+        "level": "graybox-1",
+        "player": {
+          "on_floor": true,
+          "pos": [
+            0.0,
+            0.900828838348389,
+            -6.16666889190674
+          ],
+          "vel": [
+            0.0,
+            0.0,
+            -5.0
+          ]
+        },
+        "t": 4.0,
+        "tick": 240
+      }
+    },
+    {
+      "t": 6.0,
+      "tick": 360,
+      "file": "captures/bot/model-goal-policy/shot_003.png",
+      "state": {
+        "deaths": 1,
+        "fps": 232.0,
+        "goal": {
+          "pos": [
+            0.0,
+            1.0,
+            -27.0
+          ],
+          "reached": false
+        },
+        "level": "graybox-1",
+        "player": {
+          "on_floor": true,
+          "pos": [
+            0.0,
+            0.900827825069427,
+            -16.1666946411133
+          ],
+          "vel": [
+            0.0,
+            0.0,
+            -5.0
+          ]
+        },
+        "t": 6.0,
+        "tick": 360
+      }
+    },
+    {
+      "t": 8.0,
+      "tick": 480,
+      "file": "captures/bot/model-goal-policy/shot_004.png",
+      "state": {
+        "deaths": 2,
+        "fps": 232.0,
+        "goal": {
+          "pos": [
+            0.0,
+            1.0,
+            -27.0
+          ],
+          "reached": false
+        },
+        "level": "graybox-1",
+        "player": {
+          "on_floor": true,
+          "pos": [
+            0.0,
+            0.9000244140625,
+            -0.333333343267441
+          ],
+          "vel": [
+            0.0,
+            0.0,
+            -5.0
+          ]
+        },
+        "t": 8.0,
+        "tick": 480
+      }
+    },
+    {
+      "t": 10.0,
+      "tick": 600,
+      "file": "captures/bot/model-goal-policy/shot_005.png",
+      "state": {
+        "deaths": 2,
+        "fps": 245.0,
+        "goal": {
+          "pos": [
+            0.0,
+            1.0,
+            -27.0
+          ],
+          "reached": false
+        },
+        "level": "graybox-1",
+        "player": {
+          "on_floor": true,
+          "pos": [
+            0.0,
+            0.9000244140625,
+            -10.3333301544189
+          ],
+          "vel": [
+            0.0,
+            0.0,
+            -5.0
+          ]
+        },
+        "t": 10.0,
+        "tick": 600
+      }
+    },
+    {
+      "t": 12.0,
+      "tick": 720,
+      "file": "captures/bot/model-goal-policy/shot_006.png",
+      "state": {
+        "deaths": 2,
+        "fps": 245.0,
+        "goal": {
+          "pos": [
+            0.0,
+            1.0,
+            -27.0
+          ],
+          "reached": false
+        },
+        "level": "graybox-1",
+        "player": {
+          "on_floor": false,
+          "pos": [
+            0.0,
+            2.28431558609009,
+            -17.8629932403564
+          ],
+          "vel": [
+            0.0,
+            1.29999876022339,
+            -5.0
+          ]
+        },
+        "t": 12.0,
+        "tick": 720
+      }
+    },
+    {
+      "t": 13.65,
+      "tick": 819,
+      "file": "captures/bot/model-goal-policy/final.png",
+      "state": {
+        "deaths": 2,
+        "fps": 221.0,
+        "goal": {
+          "pos": [
+            0.0,
+            1.0,
+            -27.0
+          ],
+          "reached": true
+        },
+        "level": "graybox-1",
+        "player": {
+          "on_floor": false,
+          "pos": [
+            0.0,
+            1.30423140525818,
+            -26.1131057739258
+          ],
+          "vel": [
+            0.0,
+            -5.90000200271606,
+            -5.0
+          ]
+        },
+        "t": 13.65,
+        "tick": 819
+      }
+    }
+  ],
+  "logs": []
+}

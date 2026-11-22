@@ -1,0 +1,9 @@
+{
+  "seed": 0,
+  "actions": [
+    {"t": 0.2, "press": "forward"}, {"t": 1.0, "release": "forward"},
+    {"t": 1.0, "press": "right"}, {"t": 1.5, "release": "right"},
+    {"t": 1.5, "press": "back"}, {"t": 2.1, "release": "back"},
+    {"t": 2.1, "press": "left"}, {"t": 2.6, "release": "left"}
+  ]
+}

@@ -1,0 +1,135 @@
+{
+  "header": {
+    "engine": "godot",
+    "info": {
+      "actions": {
+        "back": {
+          "move": [
+            0,
+            0,
+            1
+          ]
+        },
+        "forward": {
+          "move": [
+            0,
+            0,
+            -1
+          ]
+        },
+        "jump": {},
+        "left": {
+          "move": [
+            -1,
+            0,
+            0
+          ]
+        },
+        "right": {
+          "move": [
+            1,
+            0,
+            0
+          ]
+        }
+      },
+      "dim": "3d",
+      "probe": [
+        "forward",
+        "back",
+        "left",
+        "right",
+        "jump"
+      ]
+    },
+    "seed": 0,
+    "size": [
+      1280,
+      720
+    ],
+    "tick_rate": 60,
+    "type": "header",
+    "version": 1
+  },
+  "shots": [
+    {
+      "t": 1.0,
+      "tick": 60,
+      "file": "captures/approve-assets/shot_01_t1.00.png",
+      "state": {
+        "deaths": 0,
+        "fps": 1.0,
+        "goal": {
+          "pos": [
+            0.0,
+            1.0,
+            -27.0
+          ],
+          "reached": false
+        },
+        "level": "graybox-1",
+        "player": {
+          "on_floor": true,
+          "pos": [
+            0.0,
+            0.90003913640976,
+            -3.99999833106995
+          ],
+          "vel": [
+            0.0,
+            0.0,
+            -5.0
+          ]
+        },
+        "t": 1.0,
+        "tick": 60
+      }
+    },
+    {
+      "t": 3.0,
+      "tick": 180,
+      "file": "captures/approve-assets/shot_02_t3.00.png",
+      "state": {
+        "deaths": 0,
+        "fps": 75.0,
+        "goal": {
+          "pos": [
+            0.0,
+            1.0,
+            -27.0
+          ],
+          "reached": false
+        },
+        "level": "graybox-1",
+        "player": {
+          "on_floor": false,
+          "pos": [
+            0.0,
+            1.58389675617218,
+            -14.000358581543
+          ],
+          "vel": [
+            0.0,
+            -5.00000143051147,
+            -5.0
+          ]
+        },
+        "t": 3.0,
+        "tick": 180
+      }
+    }
+  ],
+  "inputs": {
+    "pressed": 4,
+    "responded": 4,
+    "unmapped": 0,
+    "unverified": 0,
+    "unresponsive": []
+  },
+  "liveness": {
+    "verified": true,
+    "first_input_t": 0.2,
+    "diverged_t": 0.25
+  },
+  "logs": []
+}

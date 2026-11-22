@@ -1,0 +1,22 @@
+{
+  "seconds": 5.0,
+  "uncapped": false,
+  "load_s": 0.106,
+  "frames": 300,
+  "avg_fps": 60.0,
+  "p95_fps": 59.5,
+  "min_fps": 59.5,
+  "avg_frame_ms": 16.666,
+  "p95_frame_ms": 16.8,
+  "max_frame_ms": 16.8,
+  "counters": {
+    "draw_calls": 53,
+    "triangles": 6601,
+    "objects": 12,
+    "work_ms_avg": 1.762,
+    "memory_mb": 17.521
+  },
+  "errors": 0,
+  "warnings": 0,
+  "logs": []
+}

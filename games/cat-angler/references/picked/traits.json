@@ -1,0 +1,841 @@
+{
+  "generated": "2026-11-22T15:11:31+00:00",
+  "k": 6,
+  "reference": {
+    "count": 25,
+    "palette": [
+      {
+        "hex": "#1e1c25",
+        "rgb": [
+          30,
+          28,
+          37
+        ],
+        "share": 0.1923
+      },
+      {
+        "hex": "#3368a3",
+        "rgb": [
+          51,
+          104,
+          163
+        ],
+        "share": 0.1898
+      },
+      {
+        "hex": "#72b3d3",
+        "rgb": [
+          114,
+          179,
+          211
+        ],
+        "share": 0.1772
+      },
+      {
+        "hex": "#eff4ec",
+        "rgb": [
+          239,
+          244,
+          236
+        ],
+        "share": 0.171
+      },
+      {
+        "hex": "#cbbaa1",
+        "rgb": [
+          203,
+          186,
+          161
+        ],
+        "share": 0.1402
+      },
+      {
+        "hex": "#875e48",
+        "rgb": [
+          135,
+          94,
+          72
+        ],
+        "share": 0.1295
+      }
+    ],
+    "accents": [
+      {
+        "hex": "#2e5996",
+        "rgb": [
+          46,
+          89,
+          150
+        ],
+        "share": 0.1598
+      },
+      {
+        "hex": "#49b6dd",
+        "rgb": [
+          73,
+          182,
+          221
+        ],
+        "share": 0.1145
+      },
+      {
+        "hex": "#9b5a38",
+        "rgb": [
+          155,
+          90,
+          56
+        ],
+        "share": 0.081
+      }
+    ],
+    "brightness": {
+      "mean": 0.5283,
+      "min": 0.1183,
+      "max": 0.9274
+    },
+    "contrast": {
+      "mean": 0.1926,
+      "min": 0.0865,
+      "max": 0.2903
+    },
+    "saturation": {
+      "mean": 0.4087,
+      "min": 0.0654,
+      "max": 0.7856
+    },
+    "warmth": {
+      "mean": -0.0989,
+      "min": -0.6821,
+      "max": 0.2519
+    },
+    "edge_density": {
+      "mean": 0.2169,
+      "min": 0.0187,
+      "max": 0.5172
+    },
+    "temperature": "cool",
+    "pixel_art": {
+      "images_with_grid": 0,
+      "cell_sizes": {}
+    },
+    "aspects": {
+      "기타": 10,
+      "1:1": 5,
+      "9:16": 4,
+      "3:4": 2,
+      "16:9": 2,
+      "2:3": 1,
+      "4:3": 1
+    },
+    "images": [
+      {
+        "file": "manual-db3eb9866b54.jpg",
+        "width": 666,
+        "height": 1000,
+        "aspect": 0.666,
+        "brightness": 0.829,
+        "contrast": 0.2903,
+        "saturation": 0.0809,
+        "warmth": 0.0333,
+        "edge_density": 0.2204,
+        "pixel_cell": null
+      },
+      {
+        "file": "manual-2fda8b119e5c.jpg",
+        "width": 480,
+        "height": 640,
+        "aspect": 0.75,
+        "brightness": 0.8244,
+        "contrast": 0.2789,
+        "saturation": 0.2175,
+        "warmth": 0.159,
+        "edge_density": 0.1272,
+        "pixel_cell": null
+      },
+      {
+        "file": "manual-149c5b3871dd.jpg",
+        "width": 700,
+        "height": 1555,
+        "aspect": 0.45,
+        "brightness": 0.8267,
+        "contrast": 0.0865,
+        "saturation": 0.1196,
+        "warmth": -0.0084,
+        "edge_density": 0.1816,
+        "pixel_cell": null
+      },
+      {
+        "file": "manual-42b2a5aa8636.jpg",
+        "width": 735,
+        "height": 977,
+        "aspect": 0.752,
+        "brightness": 0.3746,
+        "contrast": 0.2547,
+        "saturation": 0.4557,
+        "warmth": 0.1067,
+        "edge_density": 0.3502,
+        "pixel_cell": null
+      },
+      {
+        "file": "manual-e59dec97b71b.jpg",
+        "width": 736,
+        "height": 1308,
+        "aspect": 0.563,
+        "brightness": 0.2898,
+        "contrast": 0.268,
+        "saturation": 0.3387,
+        "warmth": 0.0138,
+        "edge_density": 0.4913,
+        "pixel_cell": null
+      },
+      {
+        "file": "manual-5978e585cba5.jpg",
+        "width": 400,
+        "height": 400,
+        "aspect": 1.0,
+        "brightness": 0.4956,
+        "contrast": 0.182,
+        "saturation": 0.4524,
+        "warmth": 0.0281,
+        "edge_density": 0.1682,
+        "pixel_cell": null
+      },
+      {
+        "file": "manual-102635ec6617.jpg",
+        "width": 736,
+        "height": 640,
+        "aspect": 1.15,
+        "brightness": 0.487,
+        "contrast": 0.1615,
+        "saturation": 0.5208,
+        "warmth": -0.0278,
+        "edge_density": 0.1851,
+        "pixel_cell": null
+      },
+      {
+        "file": "manual-f3258c0a3697.jpg",
+        "width": 651,
+        "height": 476,
+        "aspect": 1.368,
+        "brightness": 0.6154,
+        "contrast": 0.1161,
+        "saturation": 0.6063,
+        "warmth": -0.4971,
+        "edge_density": 0.0859,
+        "pixel_cell": null
+      },
+      {
+        "file": "manual-6009c9c18177.jpg",
+        "width": 736,
+        "height": 1308,
+        "aspect": 0.563,
+        "brightness": 0.9274,
+        "contrast": 0.1596,
+        "saturation": 0.0654,
+        "warmth": 0.0473,
+        "edge_density": 0.2153,
+        "pixel_cell": null
+      },
+      {
+        "file": "manual-73a9dd2ecf56.jpg",
+        "width": 597,
+        "height": 592,
+        "aspect": 1.008,
+        "brightness": 0.7005,
+        "contrast": 0.223,
+        "saturation": 0.1343,
+        "warmth": 0.0624,
+        "edge_density": 0.0545,
+        "pixel_cell": null
+      },
+      {
+        "file": "manual-7d06593d432f.jpg",
+        "width": 736,
+        "height": 414,
+        "aspect": 1.778,
+        "brightness": 0.5314,
+        "contrast": 0.175,
+        "saturation": 0.469,
+        "warmth": -0.2521,
+        "edge_density": 0.248,
+        "pixel_cell": null
+      },
+      {
+        "file": "manual-39a0c007bf4a.jpg",
+        "width": 736,
+        "height": 414,
+        "aspect": 1.778,
+        "brightness": 0.5975,
+        "contrast": 0.1865,
+        "saturation": 0.7649,
+        "warmth": -0.6821,
+        "edge_density": 0.248,
+        "pixel_cell": null
+      },
+      {
+        "file": "manual-8dccf1652c54.jpg",
+        "width": 736,
+        "height": 1313,
+        "aspect": 0.561,
+        "brightness": 0.2454,
+        "contrast": 0.177,
+        "saturation": 0.7856,
+        "warmth": -0.4477,
+        "edge_density": 0.2015,
+        "pixel_cell": null
+      },
+      {
+        "file": "manual-361a3d7f198a.jpg",
+        "width": 640,
+        "height": 1280,
+        "aspect": 0.5,
+        "brightness": 0.3657,
+        "contrast": 0.1104,
+        "saturation": 0.7068,
+        "warmth": -0.3604,
+        "edge_density": 0.0187,
+        "pixel_cell": null
+      },
+      {
+        "file": "manual-07ea39651ba6.jpg",
+        "width": 736,
+        "height": 736,
+        "aspect": 1.0,
+        "brightness": 0.4988,
+        "contrast": 0.1132,
+        "saturation": 0.416,
+        "warmth": -0.2679,
+        "edge_density": 0.072,
+        "pixel_cell": null
+      },
+      {
+        "file": "manual-bd3df23c247d.jpg",
+        "width": 736,
+        "height": 736,
+        "aspect": 1.0,
+        "brightness": 0.1183,
+        "contrast": 0.1951,
+        "saturation": 0.1995,
+        "warmth": 0.0396,
+        "edge_density": 0.0852,
+        "pixel_cell": null
+      },
+      {
+        "file": "manual-7f044b83440e.jpg",
+        "width": 540,
+        "height": 576,
+        "aspect": 0.938,
+        "brightness": 0.5593,
+        "contrast": 0.2597,
+        "saturation": 0.4765,
+        "warmth": -0.3532,
+        "edge_density": 0.1282,
+        "pixel_cell": null
+      },
+      {
+        "file": "manual-bf2747d55fdc.jpg",
+        "width": 736,
+        "height": 535,
+        "aspect": 1.376,
+        "brightness": 0.3145,
+        "contrast": 0.1338,
+        "saturation": 0.4573,
+        "warmth": -0.0418,
+        "edge_density": 0.261,
+        "pixel_cell": null
+      },
+      {
+        "file": "manual-32360961bbbc.jpg",
+        "width": 736,
+        "height": 1309,
+        "aspect": 0.562,
+        "brightness": 0.2263,
+        "contrast": 0.1984,
+        "saturation": 0.5622,
+        "warmth": 0.0583,
+        "edge_density": 0.2944,
+        "pixel_cell": null
+      },
+      {
+        "file": "manual-0e1268611b59.jpg",
+        "width": 680,
+        "height": 535,
+        "aspect": 1.271,
+        "brightness": 0.4823,
+        "contrast": 0.2489,
+        "saturation": 0.3828,
+        "warmth": 0.1232,
+        "edge_density": 0.3041,
+        "pixel_cell": null
+      },
+      {
+        "file": "manual-016f0dc9bc94.jpg",
+        "width": 735,
+        "height": 609,
+        "aspect": 1.207,
+        "brightness": 0.7466,
+        "contrast": 0.1635,
+        "saturation": 0.2599,
+        "warmth": 0.1527,
+        "edge_density": 0.2991,
+        "pixel_cell": null
+      },
+      {
+        "file": "manual-742df26d410c.jpg",
+        "width": 275,
+        "height": 313,
+        "aspect": 0.879,
+        "brightness": 0.4555,
+        "contrast": 0.2383,
+        "saturation": 0.5093,
+        "warmth": 0.2519,
+        "edge_density": 0.5172,
+        "pixel_cell": null
+      },
+      {
+        "file": "manual-502604a25f2e.jpg",
+        "width": 736,
+        "height": 920,
+        "aspect": 0.8,
+        "brightness": 0.7181,
+        "contrast": 0.2097,
+        "saturation": 0.3829,
+        "warmth": -0.2187,
+        "edge_density": 0.2765,
+        "pixel_cell": null
+      },
+      {
+        "file": "manual-0cba235b6f26.jpg",
+        "width": 640,
+        "height": 600,
+        "aspect": 1.067,
+        "brightness": 0.5495,
+        "contrast": 0.1461,
+        "saturation": 0.251,
+        "warmth": -0.0397,
+        "edge_density": 0.0572,
+        "pixel_cell": null
+      },
+      {
+        "file": "manual-e4c4eacf6c72.jpg",
+        "width": 736,
+        "height": 736,
+        "aspect": 1.0,
+        "brightness": 0.4267,
+        "contrast": 0.2379,
+        "saturation": 0.6015,
+        "warmth": -0.3517,
+        "edge_density": 0.3307,
+        "pixel_cell": null
+      }
+    ]
+  },
+  "anti": {
+    "count": 4,
+    "palette": [
+      {
+        "hex": "#4f5744",
+        "rgb": [
+          79,
+          87,
+          68
+        ],
+        "share": 0.3571
+      },
+      {
+        "hex": "#f9f8f5",
+        "rgb": [
+          249,
+          248,
+          245
+        ],
+        "share": 0.2155
+      },
+      {
+        "hex": "#171c0d",
+        "rgb": [
+          23,
+          28,
+          13
+        ],
+        "share": 0.1708
+      },
+      {
+        "hex": "#bdb3a0",
+        "rgb": [
+          189,
+          179,
+          160
+        ],
+        "share": 0.1154
+      },
+      {
+        "hex": "#cf7e43",
+        "rgb": [
+          207,
+          126,
+          67
+        ],
+        "share": 0.0751
+      },
+      {
+        "hex": "#71251d",
+        "rgb": [
+          113,
+          37,
+          29
+        ],
+        "share": 0.0661
+      }
+    ],
+    "accents": [
+      {
+        "hex": "#5f5021",
+        "rgb": [
+          95,
+          80,
+          33
+        ],
+        "share": 0.1364
+      },
+      {
+        "hex": "#d98142",
+        "rgb": [
+          217,
+          129,
+          66
+        ],
+        "share": 0.0717
+      },
+      {
+        "hex": "#2f84a9",
+        "rgb": [
+          47,
+          132,
+          169
+        ],
+        "share": 0.0154
+      }
+    ],
+    "brightness": {
+      "mean": 0.4808,
+      "min": 0.2325,
+      "max": 0.8385
+    },
+    "contrast": {
+      "mean": 0.2001,
+      "min": 0.1481,
+      "max": 0.2822
+    },
+    "saturation": {
+      "mean": 0.3199,
+      "min": 0.1164,
+      "max": 0.584
+    },
+    "warmth": {
+      "mean": 0.1026,
+      "min": 0.0142,
+      "max": 0.2282
+    },
+    "edge_density": {
+      "mean": 0.3066,
+      "min": 0.1778,
+      "max": 0.5026
+    },
+    "temperature": "warm",
+    "pixel_art": {
+      "images_with_grid": 0,
+      "cell_sizes": {}
+    },
+    "aspects": {
+      "16:9": 2,
+      "1:1": 1,
+      "기타": 1
+    },
+    "images": [
+      {
+        "file": "steam-ab4914d8f4ab.jpg",
+        "width": 1920,
+        "height": 1080,
+        "aspect": 1.778,
+        "brightness": 0.2325,
+        "contrast": 0.1481,
+        "saturation": 0.1288,
+        "warmth": 0.0142,
+        "edge_density": 0.1778,
+        "pixel_cell": null
+      },
+      {
+        "file": "steam-0026f94f125e.jpg",
+        "width": 1920,
+        "height": 1080,
+        "aspect": 1.778,
+        "brightness": 0.3315,
+        "contrast": 0.1602,
+        "saturation": 0.584,
+        "warmth": 0.0881,
+        "edge_density": 0.5026,
+        "pixel_cell": null
+      },
+      {
+        "file": "manual-c17f6ba9bfcc.jpg",
+        "width": 736,
+        "height": 736,
+        "aspect": 1.0,
+        "brightness": 0.8385,
+        "contrast": 0.2098,
+        "saturation": 0.1164,
+        "warmth": 0.08,
+        "edge_density": 0.2234,
+        "pixel_cell": null
+      },
+      {
+        "file": "manual-001b1463eff2.jpg",
+        "width": 615,
+        "height": 570,
+        "aspect": 1.079,
+        "brightness": 0.5205,
+        "contrast": 0.2822,
+        "saturation": 0.4506,
+        "warmth": 0.2282,
+        "edge_density": 0.3224,
+        "pixel_cell": null
+      }
+    ]
+  },
+  "difference": {
+    "brightness": 0.0475,
+    "contrast": -0.0075,
+    "saturation": 0.0888,
+    "warmth": -0.2015,
+    "edge_density": -0.0897
+  },
+  "notes": {
+    "steam-ab4914d8f4ab.jpg": {
+      "kind": "anti",
+      "note": "어둡고 거친 분위기, 귀여움과 반대",
+      "tags": []
+    },
+    "steam-0026f94f125e.jpg": {
+      "kind": "anti",
+      "note": "3D 실사풍",
+      "tags": []
+    },
+    "manual-c17f6ba9bfcc.jpg": {
+      "kind": "anti",
+      "note": "너무 사실적인 비율과 질감",
+      "tags": [
+        "pinterest",
+        "고양이"
+      ]
+    },
+    "manual-db3eb9866b54.jpg": {
+      "kind": "reference",
+      "note": "고양이의 귀여움: 굵은 외곽선, 모자와 조끼 (픽셀로 옮길 형태만)",
+      "tags": [
+        "pinterest",
+        "고양이"
+      ]
+    },
+    "manual-2fda8b119e5c.jpg": {
+      "kind": "reference",
+      "note": "별주부: 창을 든 충신 거북의 실루엣",
+      "tags": [
+        "pinterest",
+        "거북"
+      ]
+    },
+    "manual-149c5b3871dd.jpg": {
+      "kind": "reference",
+      "note": "한국풍 물결 문양 (바다 표현, UI 장식)",
+      "tags": [
+        "pinterest",
+        "용궁민화"
+      ]
+    },
+    "manual-42b2a5aa8636.jpg": {
+      "kind": "reference",
+      "note": "용궁 건물: 단청 기둥과 처마, 밤",
+      "tags": [
+        "pinterest",
+        "용궁민화"
+      ]
+    },
+    "manual-e59dec97b71b.jpg": {
+      "kind": "reference",
+      "note": "용궁 장식: 자개 느낌의 색",
+      "tags": [
+        "pinterest",
+        "용궁민화"
+      ]
+    },
+    "manual-5978e585cba5.jpg": {
+      "kind": "reference",
+      "note": "큼직한 픽셀과 따뜻한 색, 부두 낚시 장면",
+      "tags": [
+        "pinterest",
+        "픽셀-낚시"
+      ]
+    },
+    "manual-102635ec6617.jpg": {
+      "kind": "reference",
+      "note": "육지 구역: 위에서 본 나무 부두와 연못",
+      "tags": [
+        "pinterest",
+        "픽셀-낚시"
+      ]
+    },
+    "manual-f3258c0a3697.jpg": {
+      "kind": "reference",
+      "note": "화면 구도: 배 위 고양이, 수면 아래 낚싯줄과 물고기가 보이는 단면",
+      "tags": [
+        "pinterest",
+        "픽셀-낚시"
+      ]
+    },
+    "manual-6009c9c18177.jpg": {
+      "kind": "reference",
+      "note": "고양이 동작 종류(걷기·앉기·눕기)",
+      "tags": [
+        "pinterest",
+        "픽셀-고양이"
+      ]
+    },
+    "manual-73a9dd2ecf56.jpg": {
+      "kind": "reference",
+      "note": "주인공: 옷 입고 두 발로 선 고양이 캐릭터 비율",
+      "tags": [
+        "pinterest",
+        "픽셀-고양이"
+      ]
+    },
+    "manual-7d06593d432f.jpg": {
+      "kind": "reference",
+      "note": "중간 깊이: 유적과 빛줄기",
+      "tags": [
+        "pinterest",
+        "픽셀-바닷속"
+      ]
+    },
+    "manual-39a0c007bf4a.jpg": {
+      "kind": "reference",
+      "note": "얕은 바다: 밝은 청록과 산호",
+      "tags": [
+        "pinterest",
+        "픽셀-바닷속"
+      ]
+    },
+    "manual-8dccf1652c54.jpg": {
+      "kind": "reference",
+      "note": "심해: 보라·남색과 발광 해파리",
+      "tags": [
+        "pinterest",
+        "픽셀-바닷속"
+      ]
+    },
+    "manual-361a3d7f198a.jpg": {
+      "kind": "reference",
+      "note": "깊이감: 수면의 작은 배에서 아래로 깊어지는 세로 구도",
+      "tags": [
+        "pinterest",
+        "픽셀-바닷속"
+      ]
+    },
+    "manual-07ea39651ba6.jpg": {
+      "kind": "reference",
+      "note": "배와 바다 분위기: 작은 어선, 차분한 색",
+      "tags": [
+        "pinterest",
+        "픽셀-배"
+      ]
+    },
+    "manual-bd3df23c247d.jpg": {
+      "kind": "reference",
+      "note": "시작용 작은 배 스프라이트",
+      "tags": [
+        "pinterest",
+        "픽셀-배"
+      ]
+    },
+    "manual-7f044b83440e.jpg": {
+      "kind": "reference",
+      "note": "개조가 끝난 큰 배 단계",
+      "tags": [
+        "pinterest",
+        "픽셀-배"
+      ]
+    },
+    "manual-bf2747d55fdc.jpg": {
+      "kind": "reference",
+      "note": "물 위 나무집과 고양이, 항구 마을 분위기",
+      "tags": [
+        "pinterest",
+        "픽셀-스토리장면"
+      ]
+    },
+    "manual-32360961bbbc.jpg": {
+      "kind": "reference",
+      "note": "등불 켜진 따뜻한 밤 장면",
+      "tags": [
+        "pinterest",
+        "픽셀-스토리장면"
+      ]
+    },
+    "manual-0e1268611b59.jpg": {
+      "kind": "reference",
+      "note": "스토리 연출: 초상화 + 대화창",
+      "tags": [
+        "pinterest",
+        "픽셀-스토리장면"
+      ]
+    },
+    "manual-001b1463eff2.jpg": {
+      "kind": "anti",
+      "note": "너무 중국풍: 원색 빨강·금색 과다",
+      "tags": [
+        "pinterest",
+        "픽셀-한국전통"
+      ]
+    },
+    "manual-016f0dc9bc94.jpg": {
+      "kind": "reference",
+      "note": "UI: 크림색 종이 느낌, 둥근 모서리",
+      "tags": [
+        "pinterest",
+        "픽셀-UI"
+      ]
+    },
+    "manual-742df26d410c.jpg": {
+      "kind": "reference",
+      "note": "인벤토리 칸 구성",
+      "tags": [
+        "pinterest",
+        "픽셀-UI"
+      ]
+    },
+    "manual-502604a25f2e.jpg": {
+      "kind": "reference",
+      "note": "물고기: 귀여운 도감 스타일",
+      "tags": [
+        "pinterest",
+        "픽셀-물고기"
+      ]
+    },
+    "manual-0cba235b6f26.jpg": {
+      "kind": "reference",
+      "note": "큼직하고 귀여운 물고기 비율",
+      "tags": [
+        "pinterest",
+        "픽셀-물고기"
+      ]
+    },
+    "manual-e4c4eacf6c72.jpg": {
+      "kind": "reference",
+      "note": "심해어 종류와 형태",
+      "tags": [
+        "pinterest",
+        "픽셀-물고기"
+      ]
+    }
+  }
+}

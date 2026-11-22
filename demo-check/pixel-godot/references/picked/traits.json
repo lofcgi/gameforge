@@ -1,0 +1,315 @@
+{
+  "generated": "2026-11-22T11:36:21+00:00",
+  "k": 6,
+  "reference": {
+    "count": 2,
+    "palette": [
+      {
+        "hex": "#235a5d",
+        "rgb": [
+          35,
+          90,
+          93
+        ],
+        "share": 0.3063
+      },
+      {
+        "hex": "#1f2528",
+        "rgb": [
+          31,
+          37,
+          40
+        ],
+        "share": 0.1959
+      },
+      {
+        "hex": "#f4ac1b",
+        "rgb": [
+          244,
+          172,
+          27
+        ],
+        "share": 0.1564
+      },
+      {
+        "hex": "#9d5621",
+        "rgb": [
+          157,
+          86,
+          33
+        ],
+        "share": 0.1498
+      },
+      {
+        "hex": "#89cd0a",
+        "rgb": [
+          137,
+          205,
+          10
+        ],
+        "share": 0.1057
+      },
+      {
+        "hex": "#328407",
+        "rgb": [
+          50,
+          132,
+          7
+        ],
+        "share": 0.0859
+      }
+    ],
+    "accents": [
+      {
+        "hex": "#24554e",
+        "rgb": [
+          36,
+          85,
+          78
+        ],
+        "share": 0.2788
+      },
+      {
+        "hex": "#798c0e",
+        "rgb": [
+          121,
+          140,
+          14
+        ],
+        "share": 0.2529
+      },
+      {
+        "hex": "#eca616",
+        "rgb": [
+          236,
+          166,
+          22
+        ],
+        "share": 0.1892
+      }
+    ],
+    "brightness": {
+      "mean": 0.3958,
+      "min": 0.3082,
+      "max": 0.4834
+    },
+    "contrast": {
+      "mean": 0.1745,
+      "min": 0.1558,
+      "max": 0.1933
+    },
+    "saturation": {
+      "mean": 0.7575,
+      "min": 0.7159,
+      "max": 0.7991
+    },
+    "warmth": {
+      "mean": 0.1961,
+      "min": -0.1119,
+      "max": 0.504
+    },
+    "edge_density": {
+      "mean": 0.3294,
+      "min": 0.1392,
+      "max": 0.5196
+    },
+    "temperature": "warm",
+    "pixel_art": {
+      "images_with_grid": 0,
+      "cell_sizes": {}
+    },
+    "aspects": {
+      "16:9": 1,
+      "1:1": 1
+    },
+    "images": [
+      {
+        "file": "steam-4c4b746d3251.jpg",
+        "width": 1920,
+        "height": 1080,
+        "aspect": 1.778,
+        "brightness": 0.4834,
+        "contrast": 0.1933,
+        "saturation": 0.7991,
+        "warmth": 0.504,
+        "edge_density": 0.5196,
+        "pixel_cell": null
+      },
+      {
+        "file": "manual-697faf7c36f2.png",
+        "width": 512,
+        "height": 512,
+        "aspect": 1.0,
+        "brightness": 0.3082,
+        "contrast": 0.1558,
+        "saturation": 0.7159,
+        "warmth": -0.1119,
+        "edge_density": 0.1392,
+        "pixel_cell": null
+      }
+    ]
+  },
+  "anti": {
+    "count": 1,
+    "palette": [
+      {
+        "hex": "#c7c7c7",
+        "rgb": [
+          199,
+          199,
+          199
+        ],
+        "share": 0.7593
+      },
+      {
+        "hex": "#d4ad19",
+        "rgb": [
+          212,
+          173,
+          25
+        ],
+        "share": 0.0979
+      },
+      {
+        "hex": "#924325",
+        "rgb": [
+          146,
+          67,
+          37
+        ],
+        "share": 0.0652
+      },
+      {
+        "hex": "#193439",
+        "rgb": [
+          25,
+          52,
+          57
+        ],
+        "share": 0.0317
+      },
+      {
+        "hex": "#2a8f8c",
+        "rgb": [
+          42,
+          143,
+          140
+        ],
+        "share": 0.0234
+      },
+      {
+        "hex": "#cea76a",
+        "rgb": [
+          206,
+          167,
+          106
+        ],
+        "share": 0.0225
+      }
+    ],
+    "accents": [
+      {
+        "hex": "#d4ac1f",
+        "rgb": [
+          212,
+          172,
+          31
+        ],
+        "share": 0.1077
+      },
+      {
+        "hex": "#924225",
+        "rgb": [
+          146,
+          66,
+          37
+        ],
+        "share": 0.0649
+      },
+      {
+        "hex": "#237a7b",
+        "rgb": [
+          35,
+          122,
+          123
+        ],
+        "share": 0.0325
+      }
+    ],
+    "brightness": {
+      "mean": 0.7115,
+      "min": 0.7115,
+      "max": 0.7115
+    },
+    "contrast": {
+      "mean": 0.1578,
+      "min": 0.1578,
+      "max": 0.1578
+    },
+    "saturation": {
+      "mean": 0.1878,
+      "min": 0.1878,
+      "max": 0.1878
+    },
+    "warmth": {
+      "mean": 0.0965,
+      "min": 0.0965,
+      "max": 0.0965
+    },
+    "edge_density": {
+      "mean": 0.0476,
+      "min": 0.0476,
+      "max": 0.0476
+    },
+    "temperature": "warm",
+    "pixel_art": {
+      "images_with_grid": 0,
+      "cell_sizes": {}
+    },
+    "aspects": {
+      "1:1": 1
+    },
+    "images": [
+      {
+        "file": "manual-9bf386b8e12f.png",
+        "width": 1024,
+        "height": 1024,
+        "aspect": 1.0,
+        "brightness": 0.7115,
+        "contrast": 0.1578,
+        "saturation": 0.1878,
+        "warmth": 0.0965,
+        "edge_density": 0.0476,
+        "pixel_cell": null
+      }
+    ]
+  },
+  "difference": {
+    "brightness": -0.3157,
+    "contrast": 0.0167,
+    "saturation": 0.5697,
+    "warmth": 0.0996,
+    "edge_density": 0.2818
+  },
+  "notes": {
+    "steam-4c4b746d3251.jpg": {
+      "kind": "reference",
+      "note": "색 온도와 화면 밀도만",
+      "tags": []
+    },
+    "manual-697faf7c36f2.png": {
+      "kind": "reference",
+      "note": "팔레트",
+      "tags": [
+        "local"
+      ]
+    },
+    "manual-9bf386b8e12f.png": {
+      "kind": "anti",
+      "note": "3D 렌더 질감은 아님",
+      "tags": [
+        "local"
+      ]
+    }
+  }
+}
