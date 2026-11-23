@@ -7,8 +7,9 @@ AI로 1인이 게임을 만들기 위한 작업 저장소다. 조사, 제작 하
 | `reports/`, `research_notes/` | 2026-10-22 ~ 11-22 기간의 AI 1인 게임 제작 방법론 조사 |
 | `harness/` | Claude Code 플러그인 `gameforge`. 기획부터 공개까지 단계별로 진행하는 하네스. 설명은 `harness/README.md` |
 | `demo-check/` | 하네스 검증용 데모 6종 (Godot·웹 × 픽셀·일반 2D·3D)과 증거 목록 `EVIDENCE.md` |
-| `games/cat-angler/` | 별주부전 모티브의 2D 픽셀 낚시 게임. 현재 그레이박스 단계 |
+| `games/cat-angler/` | 별주부전 모티브의 2D 픽셀 낚시 게임. 현재 에셋 제작 단계 (화면은 `games/cat-angler/SCREENSHOTS.md`) |
 | `.claude/handoffs/` | 작업 인계 기록. 이어서 작업할 때 가장 최근 파일부터 읽는다 |
+| `docs/education/` | 이 하네스와 게임을 AI 에이전트로 만든 과정을 가르치는 교육 자료. [`docs/education/README.md`](docs/education/README.md) 부터 읽는다 |
 
 ## 시작하기
 
