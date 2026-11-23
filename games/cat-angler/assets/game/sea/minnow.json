@@ -1,0 +1,27 @@
+{
+  "image": "minnow.png",
+  "frame_size": [
+    13,
+    7
+  ],
+  "animations": {
+    "minnow": {
+      "fps": 4.0,
+      "loop": true,
+      "frames": [
+        {
+          "x": 0,
+          "y": 0,
+          "w": 13,
+          "h": 7
+        },
+        {
+          "x": 13,
+          "y": 0,
+          "w": 13,
+          "h": 7
+        }
+      ]
+    }
+  }
+}

@@ -116,7 +116,7 @@
             "baits": [
               "herb"
             ],
-            "count": 5,
+            "count": 6,
             "dmax": 10,
             "dmin": 2,
             "id": "anchovy",
@@ -135,7 +135,7 @@
             "baits": [
               "bug"
             ],
-            "count": 3,
+            "count": 4,
             "dmax": 20,
             "dmin": 9,
             "id": "scad",
@@ -154,7 +154,7 @@
             "baits": [
               "berry"
             ],
-            "count": 2,
+            "count": 3,
             "dmax": 30,
             "dmin": 23,
             "id": "flounder",
@@ -173,7 +173,7 @@
             "baits": [
               "herb"
             ],
-            "count": 4,
+            "count": 5,
             "dmax": 25,
             "dmin": 5,
             "id": "mackerel",
@@ -287,7 +287,7 @@
             "baits": [
               "herb"
             ],
-            "count": 3,
+            "count": 4,
             "dmax": 60,
             "dmin": 20,
             "id": "hairtail",
@@ -567,13 +567,7 @@
         ]
       },
       "dim": "2d",
-      "missing_assets": [
-        "audio/talk.wav",
-        "audio/page.wav",
-        "audio/repair.wav",
-        "audio/pickup.wav",
-        "audio/release.wav"
-      ],
+      "missing_assets": [],
       "probe": [
         "down",
         "up",
@@ -654,7 +648,7 @@
           "flower": 0,
           "herb": 0
         },
-        "missing_count": 5,
+        "missing_count": 0,
         "mode": "fish",
         "near": "",
         "nudges": 0,
@@ -779,9 +773,9 @@
           7593.87343849351,
           8781.43564457159,
           9560.0,
-          4903.78086502181
+          5938.09676176523
         ],
-        "fps": 41.0,
+        "fps": 37.0,
         "goal": {
           "pos": [
             9000.0,
@@ -795,7 +789,7 @@
         "hold_used": 0,
         "hooked": "",
         "hops": 0,
-        "interest": "",
+        "interest": "sniff",
         "items_ok": [],
         "jigs": 0,
         "level": "shallow",
@@ -806,7 +800,7 @@
           "flower": 0,
           "herb": 0
         },
-        "missing_count": 5,
+        "missing_count": 0,
         "mode": "fish",
         "near": "",
         "nudges": 0,
@@ -935,9 +929,9 @@
           7593.87343849351,
           8781.43564457159,
           9560.0,
-          4903.78086502181
+          5938.09676176523
         ],
-        "fps": 149.0,
+        "fps": 146.0,
         "goal": {
           "pos": [
             9000.0,
@@ -962,7 +956,7 @@
           "flower": 0,
           "herb": 0
         },
-        "missing_count": 5,
+        "missing_count": 0,
         "mode": "fish",
         "near": "",
         "nudges": 0,

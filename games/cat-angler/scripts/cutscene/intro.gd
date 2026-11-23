@@ -158,58 +158,69 @@ func _u_sickbed(t: float) -> void:
 	update_bubbles(n.bubbles, t)
 	update_king(t, "chars/king_sick", [1.4, 4.0])
 	var turtle: Sprite2D = n.turtle
-	# 발을 동동 구르며 왔다 갔다 하다가, 아뢸 때는 용왕 앞에 선다.
-	var pace := sin(t * 1.3) * 34.0
-	var settle := glide(t, 6.6, 7.3)
-	var x := lerpf(420.0 + pace, 468.0, settle)
-	var facing_left := cos(t * 1.3) < 0.0 and settle < 0.5
+	# 안절부절 왔다 갔다 하다가, 아뢸 때는 용왕 앞에 가서 선다.
+	var x := _pace_x(t)
+	var speed := (_pace_x(t + 1.0 / TICKS) - x) * TICKS
 	var startle := pulse(t, 1.45, 0.35) + pulse(t, 4.05, 0.35)
-	if startle > 0.0:
-		facing_left = false
-	var bounce := hop(t, 9.0, 2.0) if settle < 1.0 else (hop(t, 12.0, 2.0) if speaking(TURTLE) else 0.0)
-	turtle.flip_h = facing_left
-	turtle.position = Vector2(x, 388.0 + bounce - startle * 9.0).round()
+	var walking := absf(speed) > 5.0 and startle <= 0.0
+	turtle.flip_h = walking and speed < 0.0
+	turtle.texture = walk_tex("turtle_l", x, turtle.flip_h, TURTLE_STRIDE) if walking else tex("chars/turtle_l_stand")
+	var talk := hop(t, 12.0, 2.0) if (speaking(TURTLE) and not walking) else 0.0
+	turtle.position = Vector2(x, 388.0 + talk - startle * 9.0).round()
 	turtle.scale = Vector2(1.0, 1.0 + startle * 0.08)
+
+
+func _pace_x(t: float) -> float:
+	return lerpf(420.0 + sin(t * 1.3) * 34.0, 468.0, glide(t, 6.4, 7.5))
 
 
 # ---------- 4. 전설의 물고기 ----------
 
 func _b_legend(root: Node2D) -> void:
-	build_deep(root, "props/legend_a")
+	build_deep(root, "props/legend_shadow", 4, true)
 	n.line = Line2D.new()
 	n.line.width = 1.0
 	n.line.default_color = CREAM
 	n.world.add_child(n.line)
 	n.halo = Sprite2D.new()
-	n.halo.texture = glow_texture(11, ORANGE)
 	n.world.add_child(n.halo)
 	n.hook = actor(n.world, "props/p_hook")
 
 
+## 그림자의 가운데. 오른쪽에서 천천히 들어오고, 미끼가 내려오면 그쪽으로 다가간다.
+func _legend_at(t: float) -> Vector2:
+	var x := glide(t, -1.0, 6.0, 960.0, 560.0) - glide(t, 6.6, 9.8, 0.0, 150.0)
+	return Vector2(x, 186.0 + sin(t * 0.9) * 10.0 + sin(t * 0.37 + 1.0) * 5.0)
+
+
+func _legend_tail(t: float) -> Vector2:
+	return _legend_at(t) + Vector2(150.0, sin(t * 2.1 - 3.6) * 8.0)
+
+
 func _u_legend(t: float) -> void:
-	n.world.position.x = -roundf(t * 6.4)
-	n.near.position.x = -roundf(t * 10.0)
+	# 카메라는 오른쪽으로 흐르며 위아래로 느리게 떠다닌다.
+	var drift := roundf(sin(t * 0.45) * 5.0)
+	n.world.position = Vector2(-roundf(t * 6.4), -14.0 + drift)
+	n.near.position = Vector2(-roundf(t * 10.0), roundf(drift * 1.6))
 	update_school(n.school, t)
 	update_bubbles(n.bubbles, t)
-	# 그림자가 오른쪽에서 천천히 들어오고, 미끼가 내려오면 그쪽으로 다가간다.
-	var x := glide(t, -1.0, 6.0, 900.0, 520.0) - glide(t, 6.6, 9.6, 0.0, 120.0)
-	var y := 200.0 + sin(t * 0.9) * 9.0
-	var legend: Sprite2D = n.legend
-	legend.position = Vector2(x, y).round()
-	legend.rotation = sin(t * 0.9 + 1.2) * 0.025
-	legend.scale = Vector2(1.0 + sin(t * 2.4) * 0.012, 1.0)
-	var eye := legend.position + Vector2(-131, -4)
-	n.glint.position = eye
-	n.glint.visible = (t > 6.7 and t < 7.5 and int(t * 12.0) % 2 == 0) or (t > 2.6 and t < 2.9)
+	update_motes(n.far_motes, t, Vector2(5.0, -2.0))
+	update_motes(n.near_motes, t, Vector2(12.0, -5.0))
+	var legend: Swimmer = n.legend
+	# 미끼를 알아챈 뒤에는 꼬리짓이 빨라진다.
+	update_swimmer(legend, t + glide(t, 6.4, 9.8, 0.0, 1.6), _legend_at(t))
+	update_wake(n.wake, t, _legend_tail)
+	n.glint.position = legend.position + legend.point(Vector2(314, 96))
+	n.glint.visible = (t > 6.7 and t < 7.7 and int(t * 12.0) % 2 == 0) or fposmod(t, 2.3) < 0.16
 	# 뭍의 미끼를 단 낚싯바늘.
-	var hook_x := 190.0 + t * 6.4 * 0.0
+	var hook_x := 190.0
 	var hook_y := glide(t, 4.9, 6.2, -40.0, 190.0) + sin(t * 2.3) * 2.0
 	var sway := sin(t * 1.4) * 3.0
 	n.hook.position = Vector2(hook_x + sway, hook_y).round()
 	n.line.points = PackedVector2Array([Vector2(hook_x + 2.0, -10.0), Vector2(hook_x + sway + 2.0, hook_y - 23.0)])
 	n.halo.position = n.hook.position + Vector2(2, -7)
 	n.halo.visible = t > 5.9
-	n.halo.scale = Vector2.ONE * (2.0 if sin(t * 5.0) > 0.2 else 1.0)
+	n.halo.texture = glow_texture(22 if sin(t * 5.0) > 0.2 else 11, ORANGE)
 
 
 # ---------- 5. 별주부가 나선다 ----------
@@ -222,18 +233,22 @@ func _u_bow(t: float) -> void:
 	update_bubbles(n.bubbles, t + 3.0)
 	update_king(t, "chars/king_weak" if t > 1.6 else "chars/king_sick")
 	# 용왕이 고개를 끄덕인다.
-	n.king.position.y = 338.0 + roundf(pulse(t, 2.5, 0.5) * 3.0)
+	n.king.position.y = KING_AT.y + roundf(pulse(t, 2.5, 0.5) * 3.0)
 	var turtle: Sprite2D = n.turtle
 	var bowing := t > 1.0 and t < 2.4
-	turtle.texture = tex("chars/turtle_l_bow" if bowing else "chars/turtle_l_stand")
 	var squash := pulse(t, 1.0, 0.25) * 0.1 + pulse(t, 2.4, 0.25) * 0.1
 	turtle.scale = Vector2(1.0 + squash, 1.0 - squash)
-	# 돌아서서 달려 나간다.
-	var leaving := t > 3.1
-	turtle.flip_h = leaving
-	var run := glide(t, 3.2, 4.6, 0.0, 190.0)
-	var bounce := hop(t, 14.0, 3.0) if leaving else (hop(t, 12.0, 2.0) if (speaking(TURTLE) and not bowing) else 0.0)
-	turtle.position = Vector2(468.0 - run, 388.0 + bounce - pulse(t, 3.0, 0.3) * 8.0).round()
+	# 펄쩍 돌아서서 달려 나간다. 처음 0.3초 동안 속도가 붙는다.
+	var since := maxf(t - 2.95, 0.0)
+	var x := 468.0 - 150.0 * (since - 0.3 * (1.0 - exp(-since / 0.3)))
+	var running := since > 0.0
+	turtle.flip_h = t > 2.7
+	if running:
+		turtle.texture = walk_tex("turtle_l", x, true, TURTLE_STRIDE)
+	else:
+		turtle.texture = tex("chars/turtle_l_bow" if bowing else "chars/turtle_l_stand")
+	var talk := hop(t, 12.0, 2.0) if (speaking(TURTLE) and not bowing and not running) else 0.0
+	turtle.position = Vector2(x, 388.0 + talk - pulse(t, 2.65, 0.3) * 8.0).round()
 
 
 # ---------- 6. 뭍으로 올라간다 ----------
@@ -345,27 +360,31 @@ func _u_shore(t: float) -> void:
 	n.line.points = PackedVector2Array([tip, float_at])
 	n.bobber.position = float_at + Vector2(-1, -1)
 	# 별주부가 물 위로 고개를 내민다.
-	var up := glide(t, 5.4, 5.8, 0.0, 78.0) + pulse(t, 5.4, 0.5) * 6.0
+	var size := turtle_size()
+	var up := glide(t, 5.4, 5.8, 0.0, size.y - 2.0) + pulse(t, 5.4, 0.5) * 6.0
 	var water_y := 364.0
 	var turtle: Sprite2D = n.turtle
-	var shown := clampf(up + sin(t * 3.0) * 1.5, 0.0, 84.0)
-	turtle.region_rect = Rect2(0, 0, 75, roundf(shown))
-	turtle.position = Vector2(556, water_y - roundf(shown))
+	var shown := clampf(up + sin(t * 3.0) * 1.5, 0.0, size.y)
+	turtle.region_rect = Rect2(0, 0, size.x, roundf(shown))
+	turtle.position = Vector2(594.0 - roundf(size.x / 2.0), water_y - roundf(shown))
 	turtle.visible = shown >= 1.0
 	# 두리번거리다가 고양이를 본다.
 	var looking := t > 6.0 and t < 8.4
 	turtle.flip_h = (int((t - 6.0) / 0.6) % 2 == 0) if looking else t >= 8.4
 	n.splash.visible = t > 5.4 and t < 5.75
-	n.splash.scale = Vector2.ONE * (1.0 + pulse(t, 5.4, 0.35) * 0.3)
+	n.splash.position.y = 332.0 - roundf(pulse(t, 5.4, 0.35) * 5.0)
 	for i in n.ripple.size():
 		var bar: Polygon2D = n.ripple[i]
 		bar.visible = false
 		bar.position = Vector2(594.0 - (11.0 - i * 4.0) + sin(t * 2.0 + i) * 2.0, water_y + i * 3.0).round()
 	n.mark.visible = t > 8.5 and t < 9.6
-	n.mark.position = Vector2(598, water_y - 96.0 - roundf(pulse(t, 8.5, 0.3) * 5.0))
+	n.mark.position = Vector2(598, water_y - size.y - 12.0 - roundf(pulse(t, 8.5, 0.3) * 5.0))
 
 
 # ---------- 8. 고양이 ----------
+
+## 별주부가 물에서 솟는 자리(배경 그림 안의 x).
+const TURTLE_RISES_AT := 548.0
 
 func _b_cat(root: Node2D) -> void:
 	n.clear()
@@ -379,7 +398,7 @@ func _b_cat(root: Node2D) -> void:
 	n.turtle.flip_h = true
 	n.world.add_child(n.turtle)
 	n.ripple = [_bar(n.world, 120, PAPER), _bar(n.world, 84, MINT), _bar(n.world, 50, PAPER)]
-	n.splash = actor(n.world, "props/p_splash", Vector2(560, 330))
+	n.splash = actor(n.world, "props/p_splash_big", Vector2(TURTLE_RISES_AT, 346))
 	n.line = Line2D.new()
 	n.line.width = 1.0
 	n.line.default_color = PAPER
@@ -426,7 +445,7 @@ func _u_cat(t: float) -> void:
 	cat.position = Vector2(215, 366.0 + talk).round()
 	update_burst(n.burst, t - 10.4, cat.position + Vector2(-10, -120), 110.0, 1.1)
 	# 낚싯줄과 찌. 찌는 별주부가 솟을 때 크게 출렁인다.
-	var tip: Vector2 = cat.position + n.front.position - n.world.position + Vector2(92.0 * cat.scale.x, -142.0 * cat.scale.y)
+	var tip: Vector2 = cat.position + n.front.position - n.world.position + Vector2(96.0 * cat.scale.x, -134.0 * cat.scale.y)
 	var slosh := pulse(t, 1.1, 0.8) * 5.0
 	var float_at := Vector2(455.0, 336.0 + sin(t * 2.6) * 1.5 + sin(t * 20.0) * slosh).round()
 	n.line.points = PackedVector2Array([tip, float_at])
@@ -443,18 +462,19 @@ func _u_cat(t: float) -> void:
 	turtle.texture = tex("chars/turtle_m_" + pose)
 	var plead := hop(t, 10.0, 4.0) if (speaking(TURTLE) and t > 7.0) else 0.0
 	var joy := hop(t, 8.0, 5.0) if t >= 12.9 else 0.0
-	var shown := clampf(glide(t, 1.1, 1.5, 0.0, 112.0) + pulse(t, 1.1, 0.7) * 10.0 + sin(t * 2.2) * 2.0 - plead - joy - pulse(t, 5.0, 0.3) * 8.0, 0.0, 140.0)
+	var size := turtle.texture.get_size()
+	var shown := clampf(glide(t, 1.1, 1.5, 0.0, size.y - 40.0) + pulse(t, 1.1, 0.7) * 10.0 + sin(t * 2.2) * 2.0 - plead - joy - pulse(t, 5.0, 0.3) * 8.0, 0.0, size.y)
 	var water_y := 344.0
-	turtle.region_rect = Rect2(0, 0, 122, roundf(shown))
-	turtle.position = Vector2(498, water_y - roundf(shown))
+	turtle.region_rect = Rect2(0, 0, size.x, roundf(shown))
+	turtle.position = Vector2(TURTLE_RISES_AT - roundf(size.x / 2.0), water_y - roundf(shown))
 	turtle.visible = shown >= 1.0
 	n.splash.visible = t > 1.1 and t < 1.5
-	n.splash.scale = Vector2.ONE * (2.0 + pulse(t, 1.1, 0.4))
+	n.splash.position.y = 346.0 - roundf(pulse(t, 1.1, 0.4) * 10.0)
 	for i in n.ripple.size():
 		var bar: Polygon2D = n.ripple[i]
 		bar.visible = t > 1.2
 		var width: float = [120.0, 84.0, 50.0][i]
-		bar.position = Vector2(560.0 - width / 2.0 + sin(t * 1.8 + i * 1.4) * 5.0, water_y + i * 4.0).round()
+		bar.position = Vector2(TURTLE_RISES_AT - width / 2.0 + sin(t * 1.8 + i * 1.4) * 5.0, water_y + i * 4.0).round()
 
 
 # ---------- 9. 거래 ----------
@@ -477,8 +497,8 @@ func _u_deal(t: float) -> void:
 	var settle := pulse(t, 0.8, 0.25) * 6.0
 	var decay := clampf(1.0 - (t - 0.95) / 2.0, 0.0, 1.0)
 	var shake := (sin((t - 0.95) * 15.0) * 9.0 * decay) if t > 0.95 else 0.0
-	n.paw.position = Vector2(lerpf(-450.0, -74.0, meet) - settle, 2.0 + shake).round()
-	n.flipper.position = Vector2(lerpf(650.0, 266.0, meet) + settle, 2.0 + shake).round()
+	n.paw.position = Vector2(lerpf(-400.0, -22.0, meet) - settle, -58.0 + shake).round()
+	n.flipper.position = Vector2(lerpf(650.0, 272.0, meet) + settle, -52.0 + shake).round()
 	update_burst(n.burst, t - 0.85, Vector2(322, 150), 120.0, 1.2)
 	for i in n.streaks.size():
 		var bar: Polygon2D = n.streaks[i]
@@ -529,14 +549,18 @@ func _u_depart(t: float) -> void:
 		bar.visible = trail < 0.8
 	# 별주부가 옆에서 헤엄쳐 따라간다.
 	var turtle: Sprite2D = n.turtle
-	var shown := 40.0 + roundf(sin(t * 3.2 + 1.0) * 3.0)
-	turtle.region_rect = Rect2(0, 0, 75, shown)
+	var shown := 54.0 + roundf(sin(t * 3.2 + 1.0) * 3.0)
+	turtle.region_rect = Rect2(0, 0, turtle_size().x, shown)
 	turtle.position = Vector2(x - 170.0 + sin(t * 1.1) * 6.0, y - 4.0 - shown).round()
 	n.splash.visible = t > 1.2 and t < 1.6
 	n.splash.position = Vector2(x + 70.0, y + 2.0).round()
 
 
 # ---------- 작은 그림 ----------
+
+func turtle_size() -> Vector2:
+	return tex("chars/turtle_l_stand").get_size()
+
 
 ## 가로 띠 (잔물결, 속도선, 물살).
 func _bar(root: Node, width: int, colour: Color, height := 1) -> Polygon2D:

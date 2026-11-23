@@ -159,34 +159,45 @@ func _coins() -> void:
 
 func _depth_ruler(g: Game) -> void:
 	var fishing := g.fishing
-	var top := 60.0
-	var height := 260.0
+	var top := 64.0
+	var height := 252.0
 	var bed_m: float = maxf(10.0, Sea.bed_y(fishing.hook_x(g)) / Data.Y_PX)
 	var reach: float = g.inv.rod_data()["reach"]
 	var span := maxf(bed_m, 12.0)
-	var ruler := Assets.tex("ui/depth_ruler.png")
-	draw_texture_rect(ruler, Rect2(6, top, 24, height), true)
-	draw_rect(Rect2(6, top - 2, 24, 2), Pal.BARK)
-	draw_rect(Rect2(6, top + height, 24, 3), Pal.BARK)
+	# 대나무 자: 틀은 장력 게이지와 같은 것을 쓰고, 눈금은 왼쪽에, 숫자는 오른쪽에 둬 서로 겹치지 않는다.
+	Ui.box(self, "tension_frame", Rect2(3, top - 6, 32, height + 12), 6)
+	draw_texture_rect(Assets.tex("ui/depth_ruler.png"), Rect2(7, top - 2, 24, height + 4), true)
+	# 지금 미끼를 무는 어종의 깊이: 자 위에 초록 띠로 보여 준다(눈금과 숫자는 그 위에 찍힌다).
+	for sp in g.guide.biting(g):
+		var from_y := roundf(top + height * minf(sp["dmin"], span) / span)
+		var to_y := roundf(top + height * minf(minf(sp["dmax"], reach), span) / span)
+		draw_rect(Rect2(7, from_y, 24, maxf(2.0, to_y - from_y)), Color(GOOD, 0.75 if g.tick % 60 < 40 else 0.5))
 	var step := 5.0 if span <= 40.0 else (10.0 if span <= 90.0 else 25.0)
+	var minor := step / 5.0
 	var m := 0.0
-	while m <= span:
+	while m <= span + 0.01:
 		var y := roundf(top + height * m / span)
-		Ui.text(self, Vector2(8, y - 5 if m > 0.0 else y + 1), "%d" % int(m), Pal.WOOD, "small")
-		m += step
+		if is_zero_approx(fmod(m, step)):
+			draw_rect(Rect2(9, y, 6, 1), Pal.BARK)
+			Ui.text_right(self, 30, clampf(y - 5, top - 1, top + height - 10), "%d" % int(m), Pal.BARK, "small")
+		else:
+			draw_rect(Rect2(9, y, 3, 1), Pal.WOOD)
+		m += minor
 	# 낚싯대가 닿는 한계
 	if reach < span:
 		var ry := roundf(top + height * reach / span)
-		draw_rect(Rect2(4, ry, 28, 2), WARN if not fx.on("limit") or g.tick % 6 < 3 else Pal.WHITE)
-		draw_rect(Rect2(6, ry + 2, 24, top + height - ry - 2), Color(Pal.INK, 0.45))
+		draw_rect(Rect2(7, ry + 1, 24, top + height + 2 - ry - 1), Color(Pal.INK, 0.5))
+		draw_rect(Rect2(5, ry, 28, 2), WARN if not fx.on("limit") or g.tick % 6 < 3 else Pal.WHITE)
 	# 미끼의 깊이
 	var depth: float = fishing.hook_y / Data.Y_PX
 	var hy := roundf(top + height * clampf(depth / span, 0.0, 1.0))
-	draw_colored_polygon(PackedVector2Array([Vector2(40, hy - 5), Vector2(32, hy), Vector2(40, hy + 5)]), Pal.CREAM)
-	draw_polyline(PackedVector2Array([Vector2(40, hy - 5), Vector2(32, hy), Vector2(40, hy + 5), Vector2(40, hy - 5)]), Pal.BARK, 1.0)
-	Ui.label(self, Vector2(44, hy - 7), "%dm" % int(depth), Pal.WHITE if not fx.on("limit") else WARN)
+	var arrow := Assets.tex("ui/arrow.png")
+	draw_set_transform(Vector2(44, hy), PI * 0.5)
+	draw_texture(arrow, -arrow.get_size() * 0.5)
+	draw_set_transform(Vector2.ZERO)
+	Ui.label(self, Vector2(54, hy - 7), "%dm" % int(depth), Pal.WHITE if not fx.on("limit") else WARN)
 	if fx.on("limit"):
-		Ui.label(self, Vector2(44, hy + 8), "낚싯대가 여기까지" if reach < bed_m - 1.0 else "바닥이다", WARN)
+		Ui.label(self, Vector2(54, hy + 8), "낚싯대가 여기까지" if reach < bed_m - 1.0 else "바닥이다", WARN)
 
 
 func _fight(g: Game) -> void:
@@ -261,7 +272,7 @@ func hints(g: Game) -> Array:
 		"help", "notice":
 			return [["action", "닫기"]]
 	if g.mode == "cut":
-		return [["cancel", "건너뛰기"]]
+		return [["cancel", "길게 눌러 건너뛰기"]]
 	if g.mode == "shop":
 		if g.shop.talking():
 			return [["action", "다음"], ["cancel", "건너뛰기"]]

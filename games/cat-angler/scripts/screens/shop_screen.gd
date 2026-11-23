@@ -59,6 +59,11 @@ func _dialog() -> void:
 	Ui.box(self, "panel", PORTRAIT)
 	draw_texture(Assets.tex("portraits/keeper_%s.png" % shop.id), PORTRAIT.position + Vector2(2, 2))
 	Ui.box(self, "bubble", DIALOG)
+	# 말풍선 꼬리: 초상화 쪽을 가리킨다. 창의 왼쪽 테두리를 꼬리 안쪽 높이만큼 바탕색으로 덮어 이어 붙인다.
+	var tail := Assets.tex("ui/bubble_tail.png")
+	var tail_at := DIALOG.position + Vector2(-tail.get_width() + 1, 26)
+	draw_texture(tail, tail_at)
+	draw_rect(Rect2(DIALOG.position.x, tail_at.y + 1, 4, tail.get_height() - 3), Pal.WHITE)
 	var name: String = shop.data()["keeper"]
 	Ui.box(self, "button", Rect2(DIALOG.position + Vector2(10, -10), Vector2(Ui.width(name) + 16, 20)), 8)
 	Ui.text(self, DIALOG.position + Vector2(18, -7), name, Pal.BARK)

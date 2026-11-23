@@ -106,3 +106,14 @@ fal 추정 누적 약 $9 (하네스 시험 약 $8, cat-angler 약 $0.7). Tripo·
 결과 화면은 `games/cat-angler/SCREENSHOTS.md`. 조작과 실행은 `design/play-guide.md` (`graybox-play.md` 를 대체).
 
 아직 약한 것은 SCREENSHOTS.md 끝에 있다. 사용자의 평가를 아직 받지 못했다. cat-angler 누적 생성 비용 약 $16.
+
+## 갱신 (2026-11-23 저녁): 다듬기 패스와 교육 자료
+
+- 다듬기: 바다 화면만 세계를 2배로 당겨 그려 고양이와 배가 기준 화면 비율이 됐다. 물속 장식, 잔고기 떼, 해파리, 바닥 섞임, 고양이 꼬리·귀·깜박임, 가게 주인 입 모양, 컷신 걷기 프레임과 용왕 깜빡임, 빠진 효과음 5개, 길잡이 문구, 마우스 왼쪽 버튼 = Space.
+- 블라인드 심사(기준 화면 대 게임 화면) 7번 중 앞 5번은 기준 화면 승, 마지막 2번은 게임 화면 근소 승. 표본이 작다.
+- 최종 코드로 타이틀 → 닫는 컷신 한 번 실행: 1757초, 입력 1466/1466 반응, 오류 0. `gf check assets/audio/evidence` 통과. 하네스 테스트 282개 통과.
+- 남은 약점은 `games/cat-angler/SCREENSHOTS.md` 끝에 있다. 큰 것: 바다만 2배라 마을·실내와 고양이 크기가 다르다, 소리는 아무도 듣지 않았다, 기본 모니터에서 p95 60fps 미달(다른 화면에서는 충족).
+- cat-angler 비용 기록 합계 $12.80 (`.gf/ledger.jsonl`). 앞의 "약 $16"은 근거 없는 어림이었다.
+- 교육 자료: `docs/education/` (Markdown 원본 + HTML). 공개 주소 https://lofcgi.github.io/gameforge/docs/education/ . 원본을 고치면 `uv run docs/education/build_html.py` 로 HTML을 다시 만든다. GitHub Pages는 main 루트를 그대로 내보낸다(`.nojekyll`).
+- 사용자는 아직 다시 만든 게임을 플레이해 평가하지 않았다. 다음 세션은 그것부터 받는다.
+

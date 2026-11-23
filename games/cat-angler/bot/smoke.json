@@ -466,100 +466,76 @@
    "release": "action"
   },
   {
-   "t": 47.95,
+   "t": 48.6,
    "press": "action"
   },
   {
-   "t": 48.0,
+   "t": 50.45,
    "release": "action"
   },
   {
-   "t": 49.45,
+   "t": 51.4,
    "press": "action"
   },
   {
-   "t": 49.5,
+   "t": 53.25,
    "release": "action"
   },
   {
-   "t": 50.95,
-   "press": "action"
-  },
-  {
-   "t": 51.0,
-   "release": "action"
-  },
-  {
-   "t": 53.2,
-   "press": "action"
-  },
-  {
-   "t": 54.7,
-   "release": "action"
-  },
-  {
-   "t": 55.65,
-   "press": "action"
-  },
-  {
-   "t": 57.4,
-   "release": "action"
-  },
-  {
-   "t": 58.4,
-   "press": "action"
-  },
-  {
-   "t": 59.15,
-   "release": "action"
-  },
-  {
-   "t": 59.15,
+   "t": 53.25,
    "press": "down"
   },
   {
-   "t": 60.2,
+   "t": 54.3,
    "release": "down"
   },
   {
-   "t": 61.45,
+   "t": 55.45,
    "press": "action"
+  },
+  {
+   "t": 55.5,
+   "release": "action"
+  },
+  {
+   "t": 56.95,
+   "press": "action"
+  },
+  {
+   "t": 57.0,
+   "release": "action"
+  },
+  {
+   "t": 58.45,
+   "press": "action"
+  },
+  {
+   "t": 58.5,
+   "release": "action"
   },
   {
    "t": 61.5,
-   "release": "action"
-  },
-  {
-   "t": 62.95,
    "press": "action"
   },
   {
-   "t": 63.0,
+   "t": 63.05,
    "release": "action"
   },
   {
-   "t": 64.45,
+   "t": 64.25,
    "press": "action"
   },
   {
-   "t": 64.5,
+   "t": 66.55,
    "release": "action"
   },
   {
-   "t": 65.95,
-   "press": "action"
+   "t": 66.55,
+   "press": "down"
   },
   {
-   "t": 66.0,
-   "release": "action"
-  },
-  {
-   "t": 67.45,
-   "press": "action"
-  },
-  {
-   "t": 67.5,
-   "release": "action"
+   "t": 67.6,
+   "release": "down"
   },
   {
    "t": 68.95,
@@ -570,203 +546,155 @@
    "release": "action"
   },
   {
-   "t": 71.6,
+   "t": 70.45,
    "press": "action"
   },
   {
-   "t": 73.2,
+   "t": 70.5,
    "release": "action"
   },
   {
-   "t": 74.4,
+   "t": 71.95,
    "press": "action"
   },
   {
-   "t": 76.65,
+   "t": 72.0,
    "release": "action"
   },
   {
-   "t": 77.35,
+   "t": 73.45,
    "press": "action"
   },
   {
-   "t": 77.45,
+   "t": 73.5,
    "release": "action"
   },
   {
-   "t": 77.45,
-   "press": "down"
-  },
-  {
-   "t": 78.5,
-   "release": "down"
-  },
-  {
-   "t": 79.45,
+   "t": 74.95,
    "press": "action"
   },
   {
-   "t": 79.5,
+   "t": 75.0,
    "release": "action"
   },
   {
-   "t": 80.95,
+   "t": 77.3,
    "press": "action"
   },
   {
-   "t": 81.0,
+   "t": 79.0,
    "release": "action"
   },
   {
-   "t": 82.45,
+   "t": 80.15,
    "press": "action"
   },
   {
-   "t": 82.5,
+   "t": 82.3,
    "release": "action"
   },
   {
-   "t": 83.95,
-   "press": "action"
-  },
-  {
-   "t": 84.0,
-   "release": "action"
-  },
-  {
-   "t": 85.45,
-   "press": "action"
-  },
-  {
-   "t": 85.5,
-   "release": "action"
-  },
-  {
-   "t": 88.2,
-   "press": "action"
-  },
-  {
-   "t": 89.9,
-   "release": "action"
-  },
-  {
-   "t": 91.1,
-   "press": "action"
-  },
-  {
-   "t": 93.2,
-   "release": "action"
-  },
-  {
-   "t": 93.95,
-   "press": "action"
-  },
-  {
-   "t": 94.1,
-   "release": "action"
-  },
-  {
-   "t": 94.15,
+   "t": 82.35,
    "press": "cancel"
   },
   {
-   "t": 94.2,
+   "t": 82.4,
    "release": "cancel"
   },
   {
-   "t": 94.2,
+   "t": 82.4,
    "press": "left"
   },
   {
-   "t": 100.9,
+   "t": 89.1,
    "release": "left"
   },
   {
-   "t": 100.95,
+   "t": 89.15,
    "press": "action"
   },
   {
-   "t": 101.0,
+   "t": 89.2,
    "release": "action"
   },
   {
-   "t": 101.45,
+   "t": 89.65,
    "press": "left"
   },
   {
-   "t": 108.0,
+   "t": 96.2,
    "release": "left"
   },
   {
-   "t": 108.05,
+   "t": 96.25,
    "press": "action"
   },
   {
-   "t": 108.1,
+   "t": 96.3,
    "release": "action"
   },
   {
-   "t": 108.55,
+   "t": 96.75,
    "press": "action"
   },
   {
-   "t": 108.6,
+   "t": 96.8,
    "release": "action"
   },
   {
-   "t": 108.65,
+   "t": 96.85,
    "press": "action"
   },
   {
-   "t": 108.7,
+   "t": 96.9,
    "release": "action"
   },
   {
-   "t": 108.75,
+   "t": 96.95,
    "press": "action"
   },
   {
-   "t": 108.8,
+   "t": 97.0,
    "release": "action"
   },
   {
-   "t": 108.85,
+   "t": 97.05,
    "press": "action"
   },
   {
-   "t": 108.9,
+   "t": 97.1,
    "release": "action"
   },
   {
-   "t": 108.95,
+   "t": 97.15,
    "press": "action"
   },
   {
-   "t": 109.0,
+   "t": 97.2,
    "release": "action"
   },
   {
-   "t": 109.05,
+   "t": 97.25,
    "press": "action"
   },
   {
-   "t": 109.1,
+   "t": 97.3,
    "release": "action"
   },
   {
-   "t": 109.15,
+   "t": 97.35,
    "press": "action"
   },
   {
-   "t": 109.2,
+   "t": 97.4,
    "release": "action"
   },
   {
-   "t": 109.25,
+   "t": 97.45,
    "press": "cancel"
   },
   {
-   "t": 109.3,
+   "t": 97.5,
    "release": "cancel"
   }
  ]

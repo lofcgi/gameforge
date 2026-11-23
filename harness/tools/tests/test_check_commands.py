@@ -162,6 +162,54 @@ def test_web_references_resolve_relative_to_project(tmp_path):
     assert check.assets_report(project)["problems"] == []
 
 
+def test_references_without_the_asset_folder_resolve_inside_game_assets(project):
+    (project / "scripts" / "main.gd").write_text(
+        'var boat = Assets.tex("boats/boat1.png")\n'
+        'const FONTS := {"body": ["body.ttf", 12]}\n'
+        'var gone = Assets.tex("boats/boat9.png")\n'
+        'var elsewhere = Assets.tex("ui/boat1.png")\n'
+    )
+    shot(project, "assets/game/boats/boat1.png")
+    (project / "assets/game/fonts").mkdir()
+    (project / "assets/game/fonts/body.ttf").write_bytes(b"font")
+    report = check.assets_report(project)
+    assert report["references"] == 4
+    assert report["problems"] == [
+        "scripts/main.gd 가 가리키는 boats/boat9.png 이 없다",
+        "scripts/main.gd 가 가리키는 ui/boat1.png 이 없다",
+    ]
+    found = {item["ref"]: item["file"] for item in check.references(project)}
+    assert found["boats/boat1.png"] == "assets/game/boats/boat1.png"
+    assert found["body.ttf"] == "assets/game/fonts/body.ttf"
+
+
+def test_project_root_path_wins_over_game_assets(project):
+    (project / "scripts" / "main.gd").write_text('var icon = load("res://icon.png")\n')
+    shot(project, "icon.png")
+    shot(project, "assets/game/ui/icon.png")
+    assert check.references(project)[0]["file"] == "icon.png"
+
+
+def test_audio_table_without_the_asset_folder_is_measured_and_loops_found(project):
+    (project / "scripts" / "audio.gd").write_text(
+        'const TRACKS := {\n'
+        '\t"town": {"file": "audio/town.wav", "db": -8.0, "loop": true},\n'
+        '\t"coin": {"file": "audio/coin.wav", "db": -3.0},\n'
+        '\t"door": {"file": "audio/door.wav", "db": -5.0},\n'
+        '}\n'
+    )
+    (project / "assets/game/audio").mkdir()
+    for name in ("town", "coin"):
+        (project / f"assets/game/audio/{name}.wav").write_bytes(b"RIFF....")
+    report = check.audio_report(project, [], require=True, measure=loud)
+    assert report["referenced"] == 3
+    assert report["problems"] == ["audio/door.wav 이 없다"]
+    assert [row["file"] for row in report["audio"] if row["exists"]] == [
+        "assets/game/audio/coin.wav", "assets/game/audio/town.wav",
+    ]
+    assert check.loop_hints(project) == {"assets/game/audio/town.wav"}
+
+
 def test_pixel_project_rejects_unprocessed_art(tmp_path):
     project = make_project(tmp_path, style="pixel")
     crisp = Image.new("RGBA", (16, 16), (0, 0, 0, 0))

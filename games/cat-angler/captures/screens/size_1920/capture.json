@@ -116,7 +116,7 @@
             "baits": [
               "herb"
             ],
-            "count": 5,
+            "count": 6,
             "dmax": 10,
             "dmin": 2,
             "id": "anchovy",
@@ -135,7 +135,7 @@
             "baits": [
               "bug"
             ],
-            "count": 3,
+            "count": 4,
             "dmax": 20,
             "dmin": 9,
             "id": "scad",
@@ -154,7 +154,7 @@
             "baits": [
               "berry"
             ],
-            "count": 2,
+            "count": 3,
             "dmax": 30,
             "dmin": 23,
             "id": "flounder",
@@ -173,7 +173,7 @@
             "baits": [
               "herb"
             ],
-            "count": 4,
+            "count": 5,
             "dmax": 25,
             "dmin": 5,
             "id": "mackerel",
@@ -287,7 +287,7 @@
             "baits": [
               "herb"
             ],
-            "count": 3,
+            "count": 4,
             "dmax": 60,
             "dmin": 20,
             "id": "hairtail",
@@ -567,20 +567,14 @@
         ]
       },
       "dim": "2d",
-      "missing_assets": [
-        "audio/talk.wav",
-        "audio/page.wav",
-        "audio/repair.wav",
-        "audio/pickup.wav",
-        "audio/release.wav"
-      ],
+      "missing_assets": [],
       "probe": [
         "down",
         "up",
         "action"
       ]
     },
-    "seed": 0,
+    "seed": 3,
     "size": [
       1920,
       1080
@@ -591,43 +585,46 @@
   },
   "shots": [
     {
-      "t": 1.0,
-      "tick": 60,
-      "file": "captures/screens/size_1920/shot_01_t1.00.png",
+      "t": 4.4,
+      "tick": 264,
+      "file": "captures/screens/size_1920/shot_01_t4.40.png",
       "state": {
         "bait": "herb",
         "baits": {
-          "berry": 0,
-          "bug": 0,
-          "herb": 4,
-          "legend": 0
+          "berry": 5,
+          "bug": 5,
+          "herb": 5,
+          "legend": 5
         },
-        "bed": 4.1,
+        "bed": 30.0,
         "boat": {
           "at_island": false,
-          "at_pier": true,
+          "at_pier": false,
           "durability": 30.0,
-          "m": 306.0,
+          "m": 520.0,
           "tier": 1,
-          "x": 1224.0
+          "x": 2080.0
         },
         "catches": 0,
         "caught": 0,
         "caught_ids": [],
         "coins": 0,
-        "cursor": 1,
+        "cursor": 0,
         "cut_skip": false,
         "deaths": 0,
         "debug": false,
         "denied": 0,
-        "depth": 0.0,
+        "depth": 2.7,
         "flotsam": [
-          1989.11506934482,
-          7283.59225444184,
+          2814.77692530967,
+          3731.87560522405,
+          5169.98730541009,
+          7593.87343849351,
+          8781.43564457159,
           9560.0,
-          6273.04486554082
+          5926.10755567858
         ],
-        "fps": 50.0,
+        "fps": 150.0,
         "goal": {
           "pos": [
             9000.0,
@@ -635,20 +632,16 @@
           ],
           "reached": false
         },
-        "guide": "gather",
+        "guide": "",
         "hold": [],
         "hold_cap": 6,
         "hold_used": 0,
         "hooked": "",
         "hops": 0,
-        "interest": "",
-        "items_ok": [
-          false,
-          true,
-          true
-        ],
+        "interest": "nibble",
+        "items_ok": [],
         "jigs": 0,
-        "level": "title",
+        "level": "shallow",
         "limit_hits": 0,
         "mats": {
           "berry": 0,
@@ -656,19 +649,19 @@
           "flower": 0,
           "herb": 0
         },
-        "missing_count": 5,
-        "mode": "title",
+        "missing_count": 0,
+        "mode": "fish",
         "near": "",
         "nudges": 0,
         "off": 0.0,
-        "panel": "title",
+        "panel": "",
         "pending": "",
         "phase": "",
         "picked": 0,
         "player": {
           "pos": [
-            420.0,
-            0.0
+            2080.0,
+            21.6
           ],
           "vel": [
             0.0,
@@ -678,35 +671,31 @@
         "reach": 30,
         "reeling": false,
         "rod": 1,
-        "scene": "title",
+        "scene": "sea",
         "schools": [
           {
-            "sp": "scad",
-            "x": 1822.63622221993
+            "sp": "flounder",
+            "x": 1735.57819308549
           },
           {
-            "sp": "anchovy",
-            "x": 2663.12406891619
+            "sp": "flounder",
+            "x": 2067.05777221785
           },
           {
-            "sp": "scad",
-            "x": 3546.26670267738
-          },
-          {
-            "sp": "amberjack",
-            "x": 4174.43103830215
-          },
-          {
-            "sp": "bream",
-            "x": 5476.16549157441
-          },
-          {
-            "sp": "hairtail",
-            "x": 7993.41954835359
+            "sp": "mackerel",
+            "x": 4338.88659343138
           },
           {
             "sp": "oarfish",
-            "x": 8498.13110603599
+            "x": 7876.40294215724
+          },
+          {
+            "sp": "angler",
+            "x": 8168.41673472948
+          },
+          {
+            "sp": "oarfish",
+            "x": 7972.31091613351
           }
         ],
         "shrugs": 0,
@@ -742,26 +731,27 @@
           "flower": 1,
           "herb": 4
         },
-        "t": 1.0,
+        "t": 4.4,
         "talk_steps": 0,
         "talking": false,
         "taps": 0,
         "tension": 0.0,
-        "tick": 60,
+        "tick": 264,
         "transition": false
       }
     }
   ],
   "inputs": {
-    "pressed": 0,
-    "responded": 0,
+    "pressed": 2,
+    "responded": 2,
     "unmapped": 0,
     "unverified": 0,
     "unresponsive": []
   },
   "liveness": {
-    "verified": false,
-    "reason": "보낸 입력이 없다"
+    "verified": true,
+    "first_input_t": 3.0,
+    "diverged_t": 3.05
   },
   "logs": []
 }

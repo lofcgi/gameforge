@@ -15,6 +15,7 @@ var hook_v := 0.0
 var engaged = null          # 미끼에 반응 중이거나 걸린 물고기
 var fighting := false
 var jig_timer := 0
+var sniff_told := -100000   # 미끼가 안 맞는다고 마지막으로 알린 틱
 var jigs := 0
 var nudges := 0
 var limit_hits := 0
@@ -164,6 +165,13 @@ func _find_candidate(g: Game, hook: Vector2) -> void:
 		best["state"] = "sniff"
 		best["timer"] = 50
 		g.emit("sniff", {})
+		if g.tick - sniff_told > 900:
+			# 왜 안 무는지 알려 준다: 이 어종이 무는 미끼의 이름.
+			sniff_told = g.tick
+			var names: Array = []
+			for bait in best["sp"]["baits"]:
+				names.append(Data.BAITS[bait]["name"])
+			g.toast("%s: %s만 문다. Q 로 미끼를 바꾸자" % [best["sp"]["name"], ", ".join(names)])
 
 
 func _let_go(cooldown: int) -> void:

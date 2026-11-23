@@ -116,7 +116,7 @@
             "baits": [
               "herb"
             ],
-            "count": 5,
+            "count": 6,
             "dmax": 10,
             "dmin": 2,
             "id": "anchovy",
@@ -135,7 +135,7 @@
             "baits": [
               "bug"
             ],
-            "count": 3,
+            "count": 4,
             "dmax": 20,
             "dmin": 9,
             "id": "scad",
@@ -154,7 +154,7 @@
             "baits": [
               "berry"
             ],
-            "count": 2,
+            "count": 3,
             "dmax": 30,
             "dmin": 23,
             "id": "flounder",
@@ -173,7 +173,7 @@
             "baits": [
               "herb"
             ],
-            "count": 4,
+            "count": 5,
             "dmax": 25,
             "dmin": 5,
             "id": "mackerel",
@@ -287,7 +287,7 @@
             "baits": [
               "herb"
             ],
-            "count": 3,
+            "count": 4,
             "dmax": 60,
             "dmin": 20,
             "id": "hairtail",
@@ -567,13 +567,7 @@
         ]
       },
       "dim": "2d",
-      "missing_assets": [
-        "audio/talk.wav",
-        "audio/page.wav",
-        "audio/repair.wav",
-        "audio/pickup.wav",
-        "audio/release.wav"
-      ],
+      "missing_assets": [],
       "probe": [
         "down",
         "up",
@@ -602,14 +596,14 @@
           "herb": 5,
           "legend": 5
         },
-        "bed": 16.0,
+        "bed": 80.0,
         "boat": {
           "at_island": false,
           "at_pier": false,
           "durability": 50.0,
-          "m": 1158.0,
+          "m": 1057.9,
           "tier": 2,
-          "x": 4632.1
+          "x": 4231.7
         },
         "catches": 0,
         "caught": 0,
@@ -628,9 +622,9 @@
           7593.87343849351,
           8781.43564457159,
           9560.0,
-          7578.65622632947
+          2389.5331889042
         ],
-        "fps": 54.0,
+        "fps": 35.0,
         "goal": {
           "pos": [
             9000.0,
@@ -655,7 +649,7 @@
           "flower": 0,
           "herb": 0
         },
-        "missing_count": 5,
+        "missing_count": 0,
         "mode": "sail",
         "near": "",
         "nudges": 0,
@@ -666,7 +660,7 @@
         "picked": 0,
         "player": {
           "pos": [
-            4632.05298562213,
+            4231.66699073197,
             0.0
           ],
           "vel": [
@@ -700,8 +694,8 @@
             "x": 8168.41673472948
           },
           {
-            "sp": "hairtail",
-            "x": 8751.64297018109
+            "sp": "oarfish",
+            "x": 7972.31091613351
           }
         ],
         "shrugs": 0,
@@ -758,19 +752,19 @@
           "herb": 5,
           "legend": 5
         },
-        "bed": 80.0,
+        "bed": 38.2,
         "boat": {
           "at_island": false,
           "at_pier": false,
           "durability": 50.0,
-          "m": 1326.0,
+          "m": 1225.9,
           "tier": 2,
-          "x": 5304.1
+          "x": 4903.7
         },
         "catches": 0,
         "caught": 0,
         "caught_ids": [],
-        "coins": 6,
+        "coins": 0,
         "cursor": 0,
         "cut_skip": false,
         "deaths": 0,
@@ -780,13 +774,13 @@
         "flotsam": [
           2814.77692530967,
           3731.87560522405,
+          5169.98730541009,
           7593.87343849351,
           8781.43564457159,
           9560.0,
-          7578.65622632947,
-          5501.22182270605
+          2389.5331889042
         ],
-        "fps": 196.0,
+        "fps": 155.0,
         "goal": {
           "pos": [
             9000.0,
@@ -811,7 +805,7 @@
           "flower": 0,
           "herb": 0
         },
-        "missing_count": 5,
+        "missing_count": 0,
         "mode": "sail",
         "near": "",
         "nudges": 0,
@@ -819,10 +813,10 @@
         "panel": "",
         "pending": "",
         "phase": "",
-        "picked": 1,
+        "picked": 0,
         "player": {
           "pos": [
-            5304.05298562217,
+            4903.66699073201,
             0.0
           ],
           "vel": [
@@ -856,8 +850,8 @@
             "x": 8168.41673472948
           },
           {
-            "sp": "hairtail",
-            "x": 8751.64297018109
+            "sp": "oarfish",
+            "x": 7972.31091613351
           }
         ],
         "shrugs": 0,
@@ -915,14 +909,5 @@
     "first_input_t": 0.3,
     "diverged_t": 0.35
   },
-  "logs": [
-    {
-      "level": "warning",
-      "text": "WARNING: 4 ObjectDB instances were leaked at exit (run with `--verbose` for details). at: cleanup (core/object/object.cpp:2536)"
-    },
-    {
-      "level": "warning",
-      "text": "ERROR: 2 resources still in use at exit (run with --verbose for details). at: clear (core/io/resource.cpp:822)"
-    }
-  ]
+  "logs": []
 }

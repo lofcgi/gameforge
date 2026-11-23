@@ -1,0 +1,954 @@
+{
+  "ok": false,
+  "at": "2026-11-23T09:22:48+09:00",
+  "error": "소리 측정 실패: 반복 지점까지 재지 못했다: assets/game/audio/sea_shallow.wav. --seconds 를 곡 길이보다 길게 준다",
+  "measured": "엔진 안의 최종 신호 (Godot: 마스터 버스, web: destination 직전). 스피커 소리가 아니다",
+  "seconds": 8.32,
+  "peak_db": -6.4,
+  "rms_db": -25.7,
+  "before_first_input": {
+    "seconds": 1.23,
+    "peak_db": -9.7,
+    "sounds": [
+      "assets/game/audio/sea_shallow.wav"
+    ],
+    "audio_contexts": 0
+  },
+  "sounds": {
+    "assets/game/audio/sea_shallow.wav": {
+      "starts": 1,
+      "loop": true,
+      "length_s": 38.26
+    },
+    "assets/game/audio/ui_ok.wav": {
+      "starts": 1,
+      "loop": false,
+      "length_s": 0.48
+    },
+    "assets/game/audio/release.wav": {
+      "starts": 2,
+      "loop": false,
+      "length_s": 0.639
+    },
+    "assets/game/audio/ui_cancel.wav": {
+      "starts": 1,
+      "loop": false,
+      "length_s": 0.48
+    }
+  },
+  "responses": [
+    {
+      "t": 1.35,
+      "kind": "input",
+      "name": "hold",
+      "sounds": [
+        "assets/game/audio/ui_ok.wav"
+      ],
+      "peak_db_before": -14.4,
+      "peak_db_after": -8.5
+    },
+    {
+      "t": 2.4,
+      "kind": "input",
+      "name": "action",
+      "sounds": [
+        "assets/game/audio/release.wav"
+      ],
+      "peak_db_before": -12.2,
+      "peak_db_after": -7.4
+    },
+    {
+      "t": 3.85,
+      "kind": "input",
+      "name": "action",
+      "sounds": [
+        "assets/game/audio/release.wav"
+      ],
+      "peak_db_before": -14.5,
+      "peak_db_after": -6.4
+    },
+    {
+      "t": 5.383,
+      "kind": "input",
+      "name": "cancel",
+      "sounds": [
+        "assets/game/audio/ui_cancel.wav"
+      ],
+      "peak_db_before": -7.6,
+      "peak_db_after": -10.1
+    },
+    {
+      "t": 6.317,
+      "kind": "input",
+      "name": "left",
+      "sounds": [],
+      "peak_db_before": -15.3,
+      "peak_db_after": -9.3
+    }
+  ],
+  "loops": [
+    {
+      "sound": "assets/game/audio/sea_shallow.wav",
+      "length_s": 38.26,
+      "started_t": 0.017,
+      "observed_s": 8.05,
+      "wraps": 0,
+      "continues": null,
+      "peak_db_after_wrap": null,
+      "quiet_ms_at_wrap": null
+    }
+  ],
+  "gaps": [],
+  "checks": {
+    "audible": "ok",
+    "loop_continues": "반복 지점까지 재지 못했다: assets/game/audio/sea_shallow.wav. --seconds 를 곡 길이보다 길게 준다",
+    "no_errors": "ok"
+  },
+  "marks": [
+    {
+      "tick": 81,
+      "kind": "input",
+      "name": "hold"
+    },
+    {
+      "tick": 144,
+      "kind": "input",
+      "name": "action"
+    },
+    {
+      "tick": 231,
+      "kind": "input",
+      "name": "action"
+    },
+    {
+      "tick": 323,
+      "kind": "input",
+      "name": "cancel"
+    },
+    {
+      "tick": 379,
+      "kind": "input",
+      "name": "left"
+    }
+  ],
+  "timeline": [
+    {
+      "bus_peak_db": {
+        "Master": -22.1550025939941
+      },
+      "ms": 269,
+      "peak_db": -22.1550036649294,
+      "quiet_ms": 246.708333333333,
+      "rms_db": -35.0931844957852,
+      "tick": 21
+    },
+    {
+      "bus_peak_db": {
+        "Master": -9.65068626403809
+      },
+      "ms": 375,
+      "peak_db": -9.65068710452666,
+      "quiet_ms": 0.0,
+      "rms_db": -23.8206444030881,
+      "tick": 27
+    },
+    {
+      "bus_peak_db": {
+        "Master": -16.6786422729492
+      },
+      "ms": 480,
+      "peak_db": -16.6786418873737,
+      "quiet_ms": 0.0,
+      "rms_db": -26.9729704113425,
+      "tick": 34
+    },
+    {
+      "bus_peak_db": {
+        "Master": -18.276294708252
+      },
+      "ms": 587,
+      "peak_db": -18.2762954137883,
+      "quiet_ms": 0.0,
+      "rms_db": -28.1112624586025,
+      "tick": 40
+    },
+    {
+      "bus_peak_db": {
+        "Master": -12.9571895599365
+      },
+      "ms": 699,
+      "peak_db": -12.9571903396593,
+      "quiet_ms": 0.0,
+      "rms_db": -26.6971985488792,
+      "tick": 47
+    },
+    {
+      "bus_peak_db": {
+        "Master": -16.5622940063477
+      },
+      "ms": 804,
+      "peak_db": -16.5622939870882,
+      "quiet_ms": 0.0,
+      "rms_db": -25.2876857139802,
+      "tick": 53
+    },
+    {
+      "bus_peak_db": {
+        "Master": -18.3504638671875
+      },
+      "ms": 911,
+      "peak_db": -16.3341726321411,
+      "quiet_ms": 0.0,
+      "rms_db": -27.2860048591441,
+      "tick": 59
+    },
+    {
+      "bus_peak_db": {
+        "Master": -21.5171089172363
+      },
+      "ms": 1014,
+      "peak_db": -21.2530304483619,
+      "quiet_ms": 0.0,
+      "rms_db": -29.1372142343917,
+      "tick": 66
+    },
+    {
+      "bus_peak_db": {
+        "Master": -14.4109334945679
+      },
+      "ms": 1125,
+      "peak_db": -14.4109336981661,
+      "quiet_ms": 0.0,
+      "rms_db": -24.3530338084197,
+      "tick": 72
+    },
+    {
+      "bus_peak_db": {
+        "Master": -17.4428825378418
+      },
+      "ms": 1225,
+      "peak_db": -17.6336732978149,
+      "quiet_ms": 0.0,
+      "rms_db": -25.9882920649711,
+      "tick": 79
+    },
+    {
+      "bus_peak_db": {
+        "Master": -14.1526784896851
+      },
+      "ms": 1338,
+      "peak_db": -14.1526794315009,
+      "quiet_ms": 0.0,
+      "rms_db": -23.7469653022929,
+      "tick": 86
+    },
+    {
+      "bus_peak_db": {
+        "Master": -13.1288766860962
+      },
+      "ms": 1445,
+      "peak_db": -8.47873295519594,
+      "quiet_ms": 0.0,
+      "rms_db": -21.2178742047638,
+      "tick": 92
+    },
+    {
+      "bus_peak_db": {
+        "Master": -12.1608581542969
+      },
+      "ms": 1550,
+      "peak_db": -12.1608586168216,
+      "quiet_ms": 0.0,
+      "rms_db": -23.6378709835076,
+      "tick": 98
+    },
+    {
+      "bus_peak_db": {
+        "Master": -18.38671875
+      },
+      "ms": 1655,
+      "peak_db": -18.3867201873893,
+      "quiet_ms": 0.0,
+      "rms_db": -28.9598159781181,
+      "tick": 105
+    },
+    {
+      "bus_peak_db": {
+        "Master": -20.4212455749512
+      },
+      "ms": 1767,
+      "peak_db": -20.4212448364266,
+      "quiet_ms": 0.0208333333333333,
+      "rms_db": -30.4835327426874,
+      "tick": 111
+    },
+    {
+      "bus_peak_db": {
+        "Master": -14.5480737686157
+      },
+      "ms": 1870,
+      "peak_db": -14.548074775167,
+      "quiet_ms": 0.0,
+      "rms_db": -24.4088981080923,
+      "tick": 118
+    },
+    {
+      "bus_peak_db": {
+        "Master": -16.0643482208252
+      },
+      "ms": 1976,
+      "peak_db": -16.0643496162608,
+      "quiet_ms": 0.0,
+      "rms_db": -24.6120088968378,
+      "tick": 124
+    },
+    {
+      "bus_peak_db": {
+        "Master": -16.6776809692383
+      },
+      "ms": 2090,
+      "peak_db": -16.6776812236471,
+      "quiet_ms": 0.0,
+      "rms_db": -26.5905750871876,
+      "tick": 131
+    },
+    {
+      "bus_peak_db": {
+        "Master": -12.1798648834229
+      },
+      "ms": 2204,
+      "peak_db": -12.179865589649,
+      "quiet_ms": 0.0,
+      "rms_db": -26.6599162437817,
+      "tick": 138
+    },
+    {
+      "bus_peak_db": {
+        "Master": -17.2438888549805
+      },
+      "ms": 2309,
+      "peak_db": -17.2438898674381,
+      "quiet_ms": 0.0,
+      "rms_db": -29.1054053427851,
+      "tick": 144
+    },
+    {
+      "bus_peak_db": {
+        "Master": -8.22545146942139
+      },
+      "ms": 2418,
+      "peak_db": -8.22545237200847,
+      "quiet_ms": 0.0,
+      "rms_db": -26.2548323665063,
+      "tick": 151
+    },
+    {
+      "bus_peak_db": {
+        "Master": -7.43897104263306
+      },
+      "ms": 2523,
+      "peak_db": -7.43897118335134,
+      "quiet_ms": 0.0,
+      "rms_db": -20.0989238008081,
+      "tick": 157
+    },
+    {
+      "bus_peak_db": {
+        "Master": -12.2272033691406
+      },
+      "ms": 2629,
+      "peak_db": -12.2272037306168,
+      "quiet_ms": 0.0,
+      "rms_db": -24.2855139118265,
+      "tick": 163
+    },
+    {
+      "bus_peak_db": {
+        "Master": -15.7131757736206
+      },
+      "ms": 2734,
+      "peak_db": -15.71317600054,
+      "quiet_ms": 0.0,
+      "rms_db": -27.7505319065146,
+      "tick": 170
+    },
+    {
+      "bus_peak_db": {
+        "Master": -19.8646621704102
+      },
+      "ms": 2848,
+      "peak_db": -19.8646614084356,
+      "quiet_ms": 0.0,
+      "rms_db": -29.6856465696313,
+      "tick": 176
+    },
+    {
+      "bus_peak_db": {
+        "Master": -12.5547094345093
+      },
+      "ms": 2952,
+      "peak_db": -12.5547097786464,
+      "quiet_ms": 0.0,
+      "rms_db": -27.4114934608539,
+      "tick": 183
+    },
+    {
+      "bus_peak_db": {
+        "Master": -17.7192535400391
+      },
+      "ms": 3055,
+      "peak_db": -17.7192537562114,
+      "quiet_ms": 0.0,
+      "rms_db": -25.553085691867,
+      "tick": 189
+    },
+    {
+      "bus_peak_db": {
+        "Master": -18.2096195220947
+      },
+      "ms": 3164,
+      "peak_db": -17.795930325857,
+      "quiet_ms": 0.0,
+      "rms_db": -28.2555900586467,
+      "tick": 195
+    },
+    {
+      "bus_peak_db": {
+        "Master": -20.2384738922119
+      },
+      "ms": 3267,
+      "peak_db": -20.2384734692959,
+      "quiet_ms": 0.0,
+      "rms_db": -31.5140039135487,
+      "tick": 202
+    },
+    {
+      "bus_peak_db": {
+        "Master": -10.3135719299316
+      },
+      "ms": 3381,
+      "peak_db": -10.3135727188614,
+      "quiet_ms": 0.0,
+      "rms_db": -25.8449681813013,
+      "tick": 208
+    },
+    {
+      "bus_peak_db": {
+        "Master": -19.0645427703857
+      },
+      "ms": 3484,
+      "peak_db": -19.064542847885,
+      "quiet_ms": 0.0,
+      "rms_db": -28.0455870798549,
+      "tick": 215
+    },
+    {
+      "bus_peak_db": {
+        "Master": -18.2199325561523
+      },
+      "ms": 3589,
+      "peak_db": -15.8435467339144,
+      "quiet_ms": 0.0,
+      "rms_db": -27.3419230194261,
+      "tick": 221
+    },
+    {
+      "bus_peak_db": {
+        "Master": -14.4881811141968
+      },
+      "ms": 3698,
+      "peak_db": -14.4881813242509,
+      "quiet_ms": 0.0,
+      "rms_db": -27.1413563967721,
+      "tick": 227
+    },
+    {
+      "bus_peak_db": {
+        "Master": -14.3009777069092
+      },
+      "ms": 3801,
+      "peak_db": -6.3998771697706,
+      "quiet_ms": 0.0,
+      "rms_db": -23.0696140388093,
+      "tick": 234
+    },
+    {
+      "bus_peak_db": {
+        "Master": -6.57477331161499
+      },
+      "ms": 3914,
+      "peak_db": -6.57477359117215,
+      "quiet_ms": 0.0,
+      "rms_db": -19.8830776057987,
+      "tick": 240
+    },
+    {
+      "bus_peak_db": {
+        "Master": -10.7312755584717
+      },
+      "ms": 4016,
+      "peak_db": -8.26633865801624,
+      "quiet_ms": 0.0,
+      "rms_db": -22.7491751420879,
+      "tick": 247
+    },
+    {
+      "bus_peak_db": {
+        "Master": -12.9984474182129
+      },
+      "ms": 4123,
+      "peak_db": -12.9984479677927,
+      "quiet_ms": 0.0,
+      "rms_db": -23.4183783839582,
+      "tick": 253
+    },
+    {
+      "bus_peak_db": {
+        "Master": -16.0682353973389
+      },
+      "ms": 4230,
+      "peak_db": -16.0682353677616,
+      "quiet_ms": 0.0,
+      "rms_db": -24.9775153966676,
+      "tick": 259
+    },
+    {
+      "bus_peak_db": {
+        "Master": -20.4486904144287
+      },
+      "ms": 4334,
+      "peak_db": -19.2114813458104,
+      "quiet_ms": 0.0,
+      "rms_db": -27.9225440777662,
+      "tick": 266
+    },
+    {
+      "bus_peak_db": {
+        "Master": -11.2573442459106
+      },
+      "ms": 4448,
+      "peak_db": -11.2573447265966,
+      "quiet_ms": 0.0,
+      "rms_db": -25.6132604798524,
+      "tick": 272
+    },
+    {
+      "bus_peak_db": {
+        "Master": -17.0975799560547
+      },
+      "ms": 4549,
+      "peak_db": -15.4056532792704,
+      "quiet_ms": 0.0,
+      "rms_db": -26.1389927197865,
+      "tick": 278
+    },
+    {
+      "bus_peak_db": {
+        "Master": -18.9316234588623
+      },
+      "ms": 4649,
+      "peak_db": -18.8019363575117,
+      "quiet_ms": 0.0,
+      "rms_db": -28.1028774308703,
+      "tick": 284
+    },
+    {
+      "bus_peak_db": {
+        "Master": -21.0808029174805
+      },
+      "ms": 4751,
+      "peak_db": -21.080803065387,
+      "quiet_ms": 0.0,
+      "rms_db": -30.6425930300679,
+      "tick": 291
+    },
+    {
+      "bus_peak_db": {
+        "Master": -12.919116973877
+      },
+      "ms": 4856,
+      "peak_db": -12.9191177441562,
+      "quiet_ms": 0.0,
+      "rms_db": -24.3700971232326,
+      "tick": 297
+    },
+    {
+      "bus_peak_db": {
+        "Master": -15.1959295272827
+      },
+      "ms": 4965,
+      "peak_db": -15.1959298870965,
+      "quiet_ms": 0.0,
+      "rms_db": -24.6303739853205,
+      "tick": 303
+    },
+    {
+      "bus_peak_db": {
+        "Master": -16.3378639221191
+      },
+      "ms": 5067,
+      "peak_db": -16.3378643180839,
+      "quiet_ms": 0.0,
+      "rms_db": -26.796056887762,
+      "tick": 310
+    },
+    {
+      "bus_peak_db": {
+        "Master": -7.64970397949219
+      },
+      "ms": 5181,
+      "peak_db": -7.64970419176618,
+      "quiet_ms": 0.0,
+      "rms_db": -26.1229282477752,
+      "tick": 316
+    },
+    {
+      "bus_peak_db": {
+        "Master": -12.6959400177002
+      },
+      "ms": 5284,
+      "peak_db": -12.6959412408385,
+      "quiet_ms": 0.0,
+      "rms_db": -24.1840304722426,
+      "tick": 323
+    },
+    {
+      "bus_peak_db": {
+        "Master": -12.6490535736084
+      },
+      "ms": 5391,
+      "peak_db": -12.6490541392529,
+      "quiet_ms": 0.0,
+      "rms_db": -23.1281186443049,
+      "tick": 329
+    },
+    {
+      "bus_peak_db": {
+        "Master": -16.8076877593994
+      },
+      "ms": 5495,
+      "peak_db": -16.8076881200253,
+      "quiet_ms": 0.0,
+      "rms_db": -25.8225251262547,
+      "tick": 335
+    },
+    {
+      "bus_peak_db": {
+        "Master": -11.8508787155151
+      },
+      "ms": 5601,
+      "peak_db": -10.1254511911767,
+      "quiet_ms": 0.0,
+      "rms_db": -24.4902268722691,
+      "tick": 342
+    },
+    {
+      "bus_peak_db": {
+        "Master": -16.107593536377
+      },
+      "ms": 5717,
+      "peak_db": -15.023819895116,
+      "quiet_ms": 0.0,
+      "rms_db": -26.7201832155694,
+      "tick": 348
+    },
+    {
+      "bus_peak_db": {
+        "Master": -17.5522880554199
+      },
+      "ms": 5819,
+      "peak_db": -17.5522890856022,
+      "quiet_ms": 0.0,
+      "rms_db": -28.6375549639313,
+      "tick": 355
+    },
+    {
+      "bus_peak_db": {
+        "Master": -9.28570461273193
+      },
+      "ms": 5924,
+      "peak_db": -9.28570471699824,
+      "quiet_ms": 0.0,
+      "rms_db": -28.4521461365693,
+      "tick": 361
+    },
+    {
+      "bus_peak_db": {
+        "Master": -16.7674217224121
+      },
+      "ms": 6031,
+      "peak_db": -15.2911519027178,
+      "quiet_ms": 0.0,
+      "rms_db": -26.2842757832774,
+      "tick": 367
+    },
+    {
+      "bus_peak_db": {
+        "Master": -17.9623870849609
+      },
+      "ms": 6134,
+      "peak_db": -17.1907710511206,
+      "quiet_ms": 0.0,
+      "rms_db": -28.201216650386,
+      "tick": 374
+    },
+    {
+      "bus_peak_db": {
+        "Master": -21.2856044769287
+      },
+      "ms": 6248,
+      "peak_db": -21.2856043238873,
+      "quiet_ms": 0.0,
+      "rms_db": -31.0968056960337,
+      "tick": 380
+    },
+    {
+      "bus_peak_db": {
+        "Master": -9.32061386108398
+      },
+      "ms": 6350,
+      "peak_db": -9.3206146227791,
+      "quiet_ms": 0.0,
+      "rms_db": -25.4343925408234,
+      "tick": 387
+    },
+    {
+      "bus_peak_db": {
+        "Master": -17.1217937469482
+      },
+      "ms": 6457,
+      "peak_db": -17.1217951297724,
+      "quiet_ms": 0.0,
+      "rms_db": -26.2287606957184,
+      "tick": 393
+    },
+    {
+      "bus_peak_db": {
+        "Master": -17.8342304229736
+      },
+      "ms": 6564,
+      "peak_db": -17.8342304174638,
+      "quiet_ms": 0.0,
+      "rms_db": -27.9924525480184,
+      "tick": 399
+    },
+    {
+      "bus_peak_db": {
+        "Master": -16.4017944335938
+      },
+      "ms": 6668,
+      "peak_db": -13.7559438034859,
+      "quiet_ms": 0.0,
+      "rms_db": -28.6323628099779,
+      "tick": 406
+    },
+    {
+      "bus_peak_db": {
+        "Master": -15.5756320953369
+      },
+      "ms": 6781,
+      "peak_db": -14.8437833766186,
+      "quiet_ms": 0.0,
+      "rms_db": -24.073113020969,
+      "tick": 412
+    },
+    {
+      "bus_peak_db": {
+        "Master": -17.2983665466309
+      },
+      "ms": 6889,
+      "peak_db": -17.2983662908528,
+      "quiet_ms": 0.0,
+      "rms_db": -26.0238772255285,
+      "tick": 419
+    },
+    {
+      "bus_peak_db": {
+        "Master": -19.7491569519043
+      },
+      "ms": 6994,
+      "peak_db": -19.7491566105614,
+      "quiet_ms": 0.0,
+      "rms_db": -28.9859794743392,
+      "tick": 425
+    },
+    {
+      "bus_peak_db": {
+        "Master": -11.8086957931519
+      },
+      "ms": 7103,
+      "peak_db": -11.8086965194564,
+      "quiet_ms": 0.0,
+      "rms_db": -24.3794674007741,
+      "tick": 432
+    },
+    {
+      "bus_peak_db": {
+        "Master": -17.552604675293
+      },
+      "ms": 7219,
+      "peak_db": -17.5526054603366,
+      "quiet_ms": 0.0,
+      "rms_db": -26.1500809609591,
+      "tick": 439
+    },
+    {
+      "bus_peak_db": {
+        "Master": -15.9039287567139
+      },
+      "ms": 7323,
+      "peak_db": -15.9039297614378,
+      "quiet_ms": 0.0,
+      "rms_db": -26.4935776294546,
+      "tick": 445
+    },
+    {
+      "bus_peak_db": {
+        "Master": -9.78075408935547
+      },
+      "ms": 7430,
+      "peak_db": -9.78075395845194,
+      "quiet_ms": 0.0,
+      "rms_db": -27.3279426844511,
+      "tick": 451
+    },
+    {
+      "bus_peak_db": {
+        "Master": -15.0833425521851
+      },
+      "ms": 7534,
+      "peak_db": -15.0833437449799,
+      "quiet_ms": 0.0,
+      "rms_db": -26.5545550591683,
+      "tick": 458
+    },
+    {
+      "bus_peak_db": {
+        "Master": -18.8671550750732
+      },
+      "ms": 7647,
+      "peak_db": -18.8671561159899,
+      "quiet_ms": 0.0,
+      "rms_db": -28.814321025815,
+      "tick": 464
+    },
+    {
+      "bus_peak_db": {
+        "Master": -20.1492538452148
+      },
+      "ms": 7750,
+      "peak_db": -20.1492539892726,
+      "quiet_ms": 0.0,
+      "rms_db": -28.9955505508997,
+      "tick": 471
+    },
+    {
+      "bus_peak_db": {
+        "Master": -15.4097995758057
+      },
+      "ms": 7856,
+      "peak_db": -14.768714122938,
+      "quiet_ms": 0.0,
+      "rms_db": -25.0788407178288,
+      "tick": 477
+    },
+    {
+      "bus_peak_db": {
+        "Master": -15.8977842330933
+      },
+      "ms": 7965,
+      "peak_db": -15.8977848023371,
+      "quiet_ms": 0.0,
+      "rms_db": -25.0117179940999,
+      "tick": 483
+    },
+    {
+      "bus_peak_db": {
+        "Master": -15.8513984680176
+      },
+      "ms": 8067,
+      "peak_db": -15.851399330158,
+      "quiet_ms": 0.0,
+      "rms_db": -26.9109680498006,
+      "tick": 490
+    },
+    {
+      "bus_peak_db": {
+        "Master": -16.334171295166
+      },
+      "ms": 8180,
+      "peak_db": -11.4311986994405,
+      "quiet_ms": 0.0,
+      "rms_db": -25.8711063007944,
+      "tick": 496
+    },
+    {
+      "bus_peak_db": {
+        "Master": -16.6997890472412
+      },
+      "ms": 8318,
+      "peak_db": -16.6997892526196,
+      "quiet_ms": 0.0,
+      "rms_db": -25.6377692209529,
+      "tick": 504
+    }
+  ],
+  "events": [
+    {
+      "bus": "Master",
+      "kind": "start",
+      "length_s": 38.2598541666667,
+      "loop": true,
+      "ms": 266,
+      "sound": "res://assets/game/audio/sea_shallow.wav",
+      "t": 0.0166666666666667,
+      "tick": 1,
+      "volume_db": -5.5
+    },
+    {
+      "bus": "Master",
+      "kind": "start",
+      "length_s": 0.480022675736961,
+      "loop": false,
+      "ms": 1403,
+      "sound": "res://assets/game/audio/ui_ok.wav",
+      "t": 1.36666666666667,
+      "tick": 82,
+      "volume_db": -7.0
+    },
+    {
+      "bus": "Master",
+      "kind": "start",
+      "length_s": 0.639229024943311,
+      "loop": false,
+      "ms": 2461,
+      "sound": "res://assets/game/audio/release.wav",
+      "t": 2.43333333333333,
+      "tick": 146,
+      "volume_db": -4.0
+    },
+    {
+      "bus": "Master",
+      "kind": "start",
+      "length_s": 0.639229024943311,
+      "loop": false,
+      "ms": 3894,
+      "sound": "res://assets/game/audio/release.wav",
+      "t": 3.86666666666667,
+      "tick": 232,
+      "volume_db": -4.0
+    },
+    {
+      "bus": "Master",
+      "kind": "start",
+      "length_s": 0.480022675736961,
+      "loop": false,
+      "ms": 5444,
+      "sound": "res://assets/game/audio/ui_cancel.wav",
+      "t": 5.41666666666667,
+      "tick": 325,
+      "volume_db": -8.0
+    }
+  ],
+  "logs": []
+}

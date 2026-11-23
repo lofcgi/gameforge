@@ -87,15 +87,15 @@ static func icon(c: CanvasItem, rel: String, pos: Vector2, tint := Color.WHITE) 
 ## 키 모양 하나와 설명. 그린 너비를 돌려준다.
 static func key(c: CanvasItem, pos: Vector2, action: String, caption: String, color := Pal.WHITE) -> float:
 	var name: String = KEY_NAMES.get(action, action)
-	var w := width(name) + 10.0
+	var w := width(name, "bold") + 10.0
 	box(c, "button", Rect2(pos.x, pos.y, w, fs() + 6), 8)
-	text(c, pos + Vector2(5, 2), name, Pal.BARK)
+	text(c, pos + Vector2(5, 2), name, Pal.INK, "bold")
 	label(c, pos + Vector2(w + 4, 2), caption, color)
 	return w + 4.0 + width(caption, "bold") + 12.0
 
 
 static func key_width(action: String, caption: String) -> float:
-	return width(KEY_NAMES.get(action, action)) + 10.0 + 4.0 + width(caption, "bold") + 12.0
+	return width(KEY_NAMES.get(action, action), "bold") + 10.0 + 4.0 + width(caption, "bold") + 12.0
 
 
 ## 가로 게이지: 틀 안을 frac 만큼 채운다.

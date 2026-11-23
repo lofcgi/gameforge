@@ -12,6 +12,8 @@ var crafted := false
 var sold := false
 var changed := 0              # 할 일이 바뀐 틱(띠를 잠깐 반짝이게 한다)
 
+var _note := ""               # 지금 상황에 맞춰 바꿔 쓴 할 일(미끼를 내릴 깊이처럼 상황마다 다른 것)
+
 
 func done() -> bool:
 	return step >= Data.GUIDE.size()
@@ -22,7 +24,9 @@ func id() -> String:
 
 
 func text() -> String:
-	return "" if done() or not on else Data.GUIDE[step]["text"]
+	if done() or not on:
+		return ""
+	return _note if _note != "" else Data.GUIDE[step]["text"]
 
 
 func advance(g: Game) -> void:
@@ -51,6 +55,41 @@ func advance(g: Game) -> void:
 		step = _index("school")
 	if step != before:
 		changed = g.tick
+	_note = _lower_note(g) if id() == "lower" else ""
+
+
+## 지금 고른 미끼를 무는 어종(이 자리에 살고 낚싯대가 닿는 것). 어군이 있는 어종이 먼저다.
+func biting(g: Game) -> Array:
+	var x := g.sailing.x
+	var zone: String = Sea.zone_at(x)["id"]
+	var reach: float = g.inv.rod_data()["reach"]
+	var found: Array = []
+	for sp in Data.FISH:
+		if sp["zone"] != zone or not sp["baits"].has(g.inv.bait) or sp["dmin"] >= reach:
+			continue
+		if sp["place"] != "" and not Sea.near_place(x, sp["place"], 20.0):
+			continue
+		if sp["dmin"] * Data.Y_PX >= Sea.bed_y(x):
+			continue
+		if g.sailing.school_near(x, sp["id"]):
+			found.push_front(sp)
+		else:
+			found.append(sp)
+	return found
+
+
+## "미끼를 내리자"를 상황에 맞게: 어느 깊이까지인지, 미끼가 없거나 안 맞으면 어떻게 할지.
+func _lower_note(g: Game) -> String:
+	if g.inv.baits[g.inv.bait] <= 0:
+		for other in g.inv.baits:
+			if g.inv.baits[other] > 0:
+				return "이 미끼는 다 썼다. Q 로 다른 미끼를 고르자"
+		return "미끼가 없다. X 로 닻을 올리고 항구로 돌아가 미끼를 만들자"
+	var list := biting(g)
+	if list.is_empty():
+		return "여기서는 이 미끼를 무는 고기가 없다. Q 로 미끼를 바꾸거나 X 로 자리를 옮기자"
+	var sp: Dictionary = list[0]
+	return "↓ 로 미끼를 %d~%dm 까지 내리자 (%s)" % [sp["dmin"], mini(sp["dmax"], int(g.inv.rod_data()["reach"])), sp["name"]]
 
 
 func _index(name: String) -> int:
@@ -122,9 +161,17 @@ func target(g: Game) -> Dictionary:
 			return {"dir": 1}
 		"sea":
 			if step_id == "school" and g.mode == "sail":
+				# 가진 미끼로 낚을 수 있는 어군을 먼저 가리킨다(없으면 가장 가까운 것).
 				var best_x := INF
+				var best_score := INF
 				for school in g.sailing.schools:
-					if absf(school["x"] - g.sailing.x) < absf(best_x - g.sailing.x):
+					var sp := Data.fish(school["sp"])
+					var usable := false
+					for bait in sp["baits"]:
+						usable = usable or g.inv.baits[bait] > 0
+					var score: float = absf(school["x"] - g.sailing.x) + (0.0 if usable and sp["dmin"] < g.inv.rod_data()["reach"] else 4000.0)
+					if score < best_score:
+						best_score = score
 						best_x = school["x"]
 				return {"x": best_x} if best_x != INF else {"dir": 1}
 			if step_id in ["sell", "upgrade"] or (step_id == "return" and g.mode == "sail" and g.inv.hold_used() >= g.inv.hold_cap()):

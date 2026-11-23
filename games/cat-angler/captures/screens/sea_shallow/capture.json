@@ -116,7 +116,7 @@
             "baits": [
               "herb"
             ],
-            "count": 5,
+            "count": 6,
             "dmax": 10,
             "dmin": 2,
             "id": "anchovy",
@@ -135,7 +135,7 @@
             "baits": [
               "bug"
             ],
-            "count": 3,
+            "count": 4,
             "dmax": 20,
             "dmin": 9,
             "id": "scad",
@@ -154,7 +154,7 @@
             "baits": [
               "berry"
             ],
-            "count": 2,
+            "count": 3,
             "dmax": 30,
             "dmin": 23,
             "id": "flounder",
@@ -173,7 +173,7 @@
             "baits": [
               "herb"
             ],
-            "count": 4,
+            "count": 5,
             "dmax": 25,
             "dmin": 5,
             "id": "mackerel",
@@ -287,7 +287,7 @@
             "baits": [
               "herb"
             ],
-            "count": 3,
+            "count": 4,
             "dmax": 60,
             "dmin": 20,
             "id": "hairtail",
@@ -567,13 +567,7 @@
         ]
       },
       "dim": "2d",
-      "missing_assets": [
-        "audio/talk.wav",
-        "audio/page.wav",
-        "audio/repair.wav",
-        "audio/pickup.wav",
-        "audio/release.wav"
-      ],
+      "missing_assets": [],
       "probe": [
         "down",
         "up",
@@ -607,9 +601,9 @@
           "at_island": false,
           "at_pier": false,
           "durability": 30.0,
-          "m": 565.0,
+          "m": 544.9,
           "tier": 1,
-          "x": 2260.1
+          "x": 2179.7
         },
         "catches": 0,
         "caught": 0,
@@ -628,7 +622,7 @@
           7593.87343849351,
           8781.43564457159,
           9560.0,
-          7578.65622632947
+          5926.10755567858
         ],
         "fps": 45.0,
         "goal": {
@@ -638,7 +632,7 @@
           ],
           "reached": false
         },
-        "guide": "school",
+        "guide": "",
         "hold": [],
         "hold_cap": 6,
         "hold_used": 0,
@@ -655,7 +649,7 @@
           "flower": 0,
           "herb": 0
         },
-        "missing_count": 5,
+        "missing_count": 0,
         "mode": "sail",
         "near": "",
         "nudges": 0,
@@ -666,7 +660,7 @@
         "picked": 0,
         "player": {
           "pos": [
-            2260.06411820576,
+            2179.65525255855,
             0.0
           ],
           "vel": [
@@ -763,9 +757,9 @@
           "at_island": false,
           "at_pier": false,
           "durability": 30.0,
-          "m": 689.0,
+          "m": 668.9,
           "tier": 1,
-          "x": 2756.1
+          "x": 2675.7
         },
         "catches": 0,
         "caught": 0,
@@ -784,9 +778,9 @@
           7593.87343849351,
           8781.43564457159,
           9560.0,
-          7578.65622632947
+          5926.10755567858
         ],
-        "fps": 202.0,
+        "fps": 165.0,
         "goal": {
           "pos": [
             9000.0,
@@ -794,7 +788,7 @@
           ],
           "reached": false
         },
-        "guide": "school",
+        "guide": "",
         "hold": [],
         "hold_cap": 6,
         "hold_used": 0,
@@ -811,7 +805,7 @@
           "flower": 0,
           "herb": 0
         },
-        "missing_count": 5,
+        "missing_count": 0,
         "mode": "sail",
         "near": "",
         "nudges": 0,
@@ -822,7 +816,7 @@
         "picked": 0,
         "player": {
           "pos": [
-            2756.06411820575,
+            2675.65525255853,
             0.0
           ],
           "vel": [

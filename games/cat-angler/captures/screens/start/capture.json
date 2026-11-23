@@ -116,7 +116,7 @@
             "baits": [
               "herb"
             ],
-            "count": 5,
+            "count": 6,
             "dmax": 10,
             "dmin": 2,
             "id": "anchovy",
@@ -135,7 +135,7 @@
             "baits": [
               "bug"
             ],
-            "count": 3,
+            "count": 4,
             "dmax": 20,
             "dmin": 9,
             "id": "scad",
@@ -154,7 +154,7 @@
             "baits": [
               "berry"
             ],
-            "count": 2,
+            "count": 3,
             "dmax": 30,
             "dmin": 23,
             "id": "flounder",
@@ -173,7 +173,7 @@
             "baits": [
               "herb"
             ],
-            "count": 4,
+            "count": 5,
             "dmax": 25,
             "dmin": 5,
             "id": "mackerel",
@@ -287,7 +287,7 @@
             "baits": [
               "herb"
             ],
-            "count": 3,
+            "count": 4,
             "dmax": 60,
             "dmin": 20,
             "id": "hairtail",
@@ -567,13 +567,7 @@
         ]
       },
       "dim": "2d",
-      "missing_assets": [
-        "audio/talk.wav",
-        "audio/page.wav",
-        "audio/repair.wav",
-        "audio/pickup.wav",
-        "audio/release.wav"
-      ],
+      "missing_assets": [],
       "probe": [
         "down",
         "up",
@@ -653,7 +647,7 @@
           "flower": 0,
           "herb": 0
         },
-        "missing_count": 5,
+        "missing_count": 0,
         "mode": "title",
         "near": "",
         "nudges": 0,
@@ -782,7 +776,7 @@
           9560.0,
           3963.66272534574
         ],
-        "fps": 63.0,
+        "fps": 59.0,
         "goal": {
           "pos": [
             9000.0,
@@ -807,7 +801,7 @@
           "flower": 0,
           "herb": 0
         },
-        "missing_count": 5,
+        "missing_count": 0,
         "mode": "cut",
         "near": "",
         "nudges": 0,
@@ -936,7 +930,7 @@
           9560.0,
           3963.66272534574
         ],
-        "fps": 220.0,
+        "fps": 59.0,
         "goal": {
           "pos": [
             9000.0,
@@ -961,7 +955,7 @@
           "flower": 0,
           "herb": 0
         },
-        "missing_count": 5,
+        "missing_count": 0,
         "mode": "land",
         "near": "",
         "nudges": 0,
@@ -1090,7 +1084,7 @@
           9560.0,
           3963.66272534574
         ],
-        "fps": 220.0,
+        "fps": 331.0,
         "goal": {
           "pos": [
             9000.0,
@@ -1115,7 +1109,7 @@
           "flower": 0,
           "herb": 0
         },
-        "missing_count": 5,
+        "missing_count": 0,
         "mode": "land",
         "near": "bug",
         "nudges": 0,
@@ -1219,14 +1213,5 @@
     "first_input_t": 0.5,
     "diverged_t": 0.55
   },
-  "logs": [
-    {
-      "level": "warning",
-      "text": "WARNING: 4 ObjectDB instances were leaked at exit (run with `--verbose` for details). at: cleanup (core/object/object.cpp:2536)"
-    },
-    {
-      "level": "warning",
-      "text": "ERROR: 2 resources still in use at exit (run with --verbose for details). at: clear (core/io/resource.cpp:822)"
-    }
-  ]
+  "logs": []
 }

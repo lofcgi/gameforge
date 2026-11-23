@@ -1,0 +1,24 @@
+{
+  "seconds": 6.0,
+  "uncapped": false,
+  "load_s": 0.828,
+  "frames": 450,
+  "avg_fps": 75.0,
+  "p95_fps": 58.6,
+  "min_fps": 42.6,
+  "avg_frame_ms": 13.332,
+  "p95_frame_ms": 17.079,
+  "max_frame_ms": 23.48,
+  "counters": {
+    "draw_calls": 53.0,
+    "memory_mb": 69.492,
+    "nodes": 18.0,
+    "objects": 1955.0,
+    "objects_drawn": 558.0,
+    "primitives": 1116.0,
+    "video_memory_mb": 43.047
+  },
+  "errors": 0,
+  "warnings": 0,
+  "logs": []
+}

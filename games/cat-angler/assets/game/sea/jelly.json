@@ -1,0 +1,27 @@
+{
+  "image": "jelly.png",
+  "frame_size": [
+    21,
+    32
+  ],
+  "animations": {
+    "jelly": {
+      "fps": 2.0,
+      "loop": true,
+      "frames": [
+        {
+          "x": 0,
+          "y": 0,
+          "w": 21,
+          "h": 32
+        },
+        {
+          "x": 21,
+          "y": 0,
+          "w": 21,
+          "h": 32
+        }
+      ]
+    }
+  }
+}

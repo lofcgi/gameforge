@@ -230,6 +230,10 @@ func _finish() -> void:
 	_fx.queue_redraw()
 	finished.emit()
 	if _standalone:
+		# 재생기가 소리를 쥔 채 끝나면 엔진이 종료하며 누수 경고를 낸다.
+		for player in find_children("*", "AudioStreamPlayer", true, false):
+			player.stop()
+			player.stream = null
 		get_tree().quit()
 
 
@@ -276,6 +280,7 @@ func _build_frame() -> void:
 	_world = Node2D.new()
 	_frame.add_child(_world)
 	_fx = Node2D.new()
+	_fx.texture_repeat = CanvasItem.TEXTURE_REPEAT_ENABLED
 	_fx.draw.connect(_draw_fx)
 	_frame.add_child(_fx)
 	_build_subtitles()
@@ -408,19 +413,34 @@ func _draw_fx() -> void:
 	if _transition_kind == "wave":
 		_draw_wave_wipe()
 		return
-	# 페이드: 반투명 대신 4단계 디더 무늬로 덮는다.
+	# 페이드: 반투명 대신 4단계 디더 무늬(1px 격자)로 덮는다.
 	var level := clampi(int(ceil(_cover * 4.0)), 1, 4)
 	if level >= 4:
 		_fx.draw_rect(Rect2(0, 0, W, H), INK)
+		_draw_emblem(TEAL_DARK)
 		return
-	var step := 4
-	@warning_ignore("integer_division")
-	for y in range(0, H, step):
-		for x in range(0, W, step):
-			var cell := ((x / step) % 2) + ((y / step) % 2) * 2
-			var on := (level == 1 and cell == 0) or (level == 2 and (cell == 0 or cell == 3)) or (level == 3 and cell != 1)
-			if on:
-				_fx.draw_rect(Rect2(x, y, step, step), INK)
+	_fx.draw_texture_rect(_dither_texture(level), Rect2(0, 0, W, H), true)
+
+
+## 2×2 칸 가운데 level 칸을 칠한 무늬. 화면에 타일로 깐다.
+func _dither_texture(level: int) -> Texture2D:
+	var key := "dither%d" % level
+	if not _tex_cache.has(key):
+		var image := Image.create(2, 2, false, Image.FORMAT_RGBA8)
+		for cell: Vector2i in [Vector2i(0, 0), Vector2i(1, 1), Vector2i(0, 1)].slice(0, level):
+			image.set_pixelv(cell, INK)
+		_tex_cache[key] = ImageTexture.create_from_image(image)
+	return _tex_cache[key]
+
+
+## 다 가려진 화면 가운데의 물결 문양 두 줄. 화면이 한 색이 되지 않게 한다
+## (하네스는 한 색이 99.5% 를 넘는 스크린샷을 렌더링 실패로 본다. 문양은 화면의 1% 를 넘는다).
+func _draw_emblem(colour: Color) -> void:
+	for row in 2:
+		for i in 7 - row:
+			var centre := Vector2(W / 2.0 + (i - (6 - row) / 2.0) * 26.0, H / 2.0 + 14.0 - row * 13.0)
+			for radius: float in [12.0, 8.0, 4.0]:
+				_fx.draw_arc(centre, radius, PI, TAU, 16, colour, 2.0, false)
 
 
 ## 물결이 화면을 쓸고 지나간다. 덮을 때는 왼쪽에서 밀려오고, 걷힐 때는 오른쪽으로 빠져나간다.
@@ -443,6 +463,8 @@ func _draw_wave_wipe() -> void:
 			_fx.draw_rect(Rect2(-100.0, y, edge + 100.0, row_h), TEAL_DARK)
 			for band: Array in bands:
 				_fx.draw_rect(Rect2(edge + band[0], y, band[1], row_h), band[2])
+	if _cover > 0.9:
+		_draw_emblem(TEAL)
 
 
 # ---------- 소리 ----------
@@ -453,7 +475,8 @@ func _play_music(track: String) -> void:
 	if _music.has(_music_now):
 		(_music[_music_now] as AudioStreamPlayer).stop()
 	_music_now = track
-	if track == "":
+	# 화면만 찍는 실행에서는 틀지 않는다 (틀자마자 종료하면 엔진이 재생 중인 소리를 누수로 알린다).
+	if track == "" or _snap_dir != "":
 		return
 	if not _music.has(track):
 		var path := AUDIO + track + ".wav"
@@ -482,7 +505,7 @@ func _fade_music(ratio: float) -> void:
 ## 효과음 한 번. 화면이나 진행에는 영향을 주지 않는다.
 func play_sfx(sound: String) -> void:
 	var path := AUDIO + sound + ".wav"
-	if not ResourceLoader.exists(path):
+	if not ResourceLoader.exists(path) or _snap_dir != "":
 		return
 	var player := AudioStreamPlayer.new()
 	player.stream = load(path)
@@ -658,6 +681,7 @@ func make_lanterns(root: Node, positions: Array, radius := 7) -> Array:
 	for at: Vector2 in positions:
 		var sprite := Sprite2D.new()
 		sprite.texture = glow_texture(radius, CYAN)
+		sprite.set_meta("radius", radius)
 		sprite.position = at
 		root.add_child(sprite)
 		list.append(sprite)
@@ -670,7 +694,8 @@ func update_lanterns(list: Array, t: float) -> void:
 		# 등불마다 다른 박자로 커졌다 작아진다 (세 단계).
 		var wave := sin(t * (2.2 + rnd(i, 7) * 2.0) + rnd(i, 8) * TAU)
 		sprite.visible = wave > -0.55
-		sprite.scale = Vector2.ONE * (2.0 if wave > 0.45 else 1.0)
+		var radius: int = sprite.get_meta("radius")
+		sprite.texture = glow_texture(radius * 2 if wave > 0.45 else radius, CYAN)
 
 
 ## 일렁이는 빛줄기. 위가 좁고 아래가 넓은 띠.
@@ -751,4 +776,4 @@ func _run_snaps() -> void:
 		await RenderingServer.frame_post_draw
 		var image := get_viewport().get_texture().get_image()
 		image.save_png("%s/s%02d_t%05.2f.png" % [_snap_dir, job[0], job[1]])
-	get_tree().quit()
+	_finish()

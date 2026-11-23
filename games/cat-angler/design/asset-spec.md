@@ -17,10 +17,10 @@
 
 | 대상 | 캔버스 | 동작(프레임 수는 최소) |
 |---|---|---|
-| `cat` (주인공) | 80×60 (그림은 약 43×52, 낚싯대가 들어가도록 캔버스만 넓혔다. 발밑 가운데는 (40, 59)) | `idle` 4, `walk` 6, `pick` 3(줍기), `sit_fish` 4(낚싯대 들고 기다림), `reel` 4(감기), `strain` 4(버티기), `cheer` 4(낚았다), `sad` 2(놓쳤다) |
+| `cat` (주인공) | 80×60 (그림은 약 43×52, 낚싯대가 들어가도록 캔버스만 넓혔다. 발밑 가운데는 (40, 59)) | `idle` 4(지금은 16: 꼬리 흔들림·귀 움찔·깜박임), `walk` 6, `pick` 3(줍기), `sit_fish` 4(낚싯대 들고 기다림), `reel` 4(감기), `strain` 4(버티기), `cheer` 4(낚았다), `sad` 2(놓쳤다) |
 | `turtle` (별주부) | 48×48 | `idle` 4, `walk` 4, `bow` 2 |
 | `king` (용왕) | 96×96 | `idle` 4(병든 모습), `better` 4(조금 나은 모습) |
-| 가게 주인 4명 `keeper_bait`, `keeper_market`, `keeper_yard`, `keeper_tackle` | 48×56 | `idle` 4, `talk` 2 |
+| 가게 주인 4명 `keeper_bait`, `keeper_market`, `keeper_yard`, `keeper_tackle` | 48×56 | `idle` 4, `talk` 2(지금은 4: 입을 벌린 프레임이 번갈아 나온다) |
 
 `chars/cat.json`: `{"canvas": [80, 60], "foot": [40, 59], "rod_tip": {"sit_fish": [[x, y], ...], "reel": [...], "strain": [...]}}`. 낚싯대는 낚시 동작 그림 안에 들어 있고, `rod_tip` 은 프레임별 낚싯대 끝(캔버스 좌표)이다. 낚싯줄은 여기서 내린다.
 
@@ -58,6 +58,24 @@
 - 떠다니는 물건 `crate.png`, `bottle.png`. 미끼와 바늘 `hook.png`, `bait_<id>.png`(8×8).
 - 효과 `splash` 6, `bubble` 4, `sparkle` 4.
 
+### 바다 화면은 두 배로 당겨 그린다 (다듬기 단계에서 정함)
+
+- 바다 화면(`scripts/screens/sea_screen.gd`)은 세계를 2배로 확대해 그린다(`ZOOM`). 화면에 보이는 세계는 320×180 이고 그림 픽셀 하나가 화면 2×2 칸이다. 기준 화면(`design/look/target.png`)의 고양이·배·물고기 비율이 그 크기다. HUD 와 글자는 1배 그대로다.
+- 그래서 위 겹 규칙의 수치는 "세계 px"로 읽는다. 항해 중 수평선은 세계 y 로 위에서 100(나룻배) 또는 124(돛 달린 배). `far_*` 는 밑동이 수평선에서 12, `mid_*` 는 16 위에 놓여 물결 문양 뒤에 잠긴다(섬이 물 위에 앉아 보인다).
+- `under_<구간>.png` 는 색 띠만 굽는다(빛줄기는 굽지 않는다). 띠 간격은 당겨 본 화면(세로 180)에 서너 개가 걸리게 좁다: 얕은 바다는 0~12m 사이에 청록 → 파랑 → 남보라까지 내려간다.
+- 추가된 그림:
+
+| 파일 | 크기 | 쓰임 |
+|---|---|---|
+| `ray.png` | 100×150 | 빛줄기. 한 가지 옅은 색의 비스듬한 띠. 위 가장자리가 수면에 오고 게임이 옅게(알파 0.1 안팎) 겹쳐 느리게 흔든다 |
+| `deco_far_<구간>.png`, `deco_far2_<구간>.png` | 640×94, 가로 반복, 한 가지 색 | 물속 먼 윤곽(바위·해초·무너진 기둥). `deco_far` 는 바닥에 앉고(시차 0.55), `deco_far2` 는 수면 가까이에서도 보이게 5m 쯤 아래에 떠서 카메라의 35% 속도로 따라온다(시차 0.3) |
+| `weed_1~3`, `coral_1~2`, `rock_1~2`, `shell_1` | 17~29 높이 | 얕은 바다의 바닥 장식. 아래 가운데가 바닥선 |
+| `kelp_1~2`, `rock_3~4`, `glow_1~2`, `pearl_1`, `lantern_1` | 27~40 높이 | 먼바다·심해의 바닥 장식. `weed_*`·`kelp_*` 는 게임이 가로 띠로 잘라 흔든다 |
+| `minnow` 2프레임 | 13×7, 흰색 윤곽 | 낚이지 않는 배경 잔고기 떼. 색은 게임이 구간에 맞춰 입힌다(남보라 계열 단색이라 낚이는 물고기와 구분된다) |
+| `jelly` 2프레임 | 21×32 | 먼바다·심해의 배경 해파리(컷신의 해파리와 같은 그림) |
+
+- 바닥은 높이가 같은 구간을 2px 단위 띠로 놓는다(16px 계단이 아니다). 가파른 비탈에서는 `bed_*` 의 무늬 없는 한 줄만 늘려 쓰고, 구간 경계의 비탈 90m 동안 두 구간의 바닥이 서서히 섞인다. 큰 그림(암초·난파선·유적·누각)은 바닥 띠보다 먼저 그려 밑동이 묻힌다.
+
 ## 장소 배경 `assets/game/places/`
 
 | 파일 | 크기 | 내용 |
@@ -78,7 +96,7 @@
 | `in_yard.json` | `"dock": [x, y]` 선거에 놓인 내 배의 흘수선 가운데(주변 240×110 을 비워 둔다), `"preview": [x, y, w, h]` 다음 배의 설계도가 걸리는 판 |
 | `in_tackle.json` | `"rods": [[x,y]×3]` 벽에 걸린 낚싯대 세 자루의 가운데(대나무, 옻칠, 용골 순. 사이 간격 70 이상) |
 
-`town.json` 에는 `"left": x, "right": x`(걸을 수 있는 범위)도 넣을 수 있다. `ground_y` 는 캐릭터의 발이 닿는 y 다. `town.json` 과 `island.json` 에 `"water_y": y` 를 넣으면 부두(선착장)에 매인 내 배의 흘수선이 그 높이에 온다(없으면 `ground_y` + 24). 배는 마을에서는 `pier` 오른쪽 34px 부터, 섬에서는 `dock` 왼쪽 30px 까지 놓인다. 타이틀의 흔들리는 나룻배는 (470, 230)에 놓이고 그 뒤로 수면 문양이 y 226 에 흐른다(`title.png` 에는 배를 그려 넣지 않는다).
+`town.json` 에는 `"left": x, "right": x`(걸을 수 있는 범위)도 넣을 수 있다. `ground_y` 는 캐릭터의 발이 닿는 y 다. `town.json` 과 `island.json` 에 `"water_y": y` 를 넣으면 부두(선착장)에 매인 내 배의 흘수선이 그 높이에 온다(없으면 `ground_y` + 24). 배는 마을에서는 `pier` 오른쪽 34px 부터, 섬에서는 `dock` 왼쪽 30px 까지 놓인다. 타이틀의 흔들리는 나룻배는 (516, 230)에 바다 화면과 같은 2배 크기로 놓이고 그 뒤로 수면 문양(2배)이 y 226 에 흐른다(`title.png` 에는 배를 그려 넣지 않는다).
 | `title.png` | 640×360 | 타이틀 배경(로고 자리는 비워 둔다) |
 
 채집 재료 `assets/game/items/`: `herb`, `bug`, `berry`, `flower`(각 16×16 아이콘과 땅에 난 모습 24×24), 미끼 4종 아이콘 16×16, 동전, 낚싯대 3종 아이콘 32×32.
@@ -98,7 +116,8 @@
 | `bubble.png` | 48×48, 가장자리 12 | 대사 창(화면 아래, 초상화 옆). 9-slice |
 | `gauge_frame.png`, `gauge_fill.png` | 틀 64×12(가장자리 4), 채움 4×4 | 가로 게이지(내구도, 물고기 체력). 채움은 늘려 그린다 |
 | `tension_frame.png`, `tension_fill.png` | 틀 24×168(가장자리 6), 채움 4×4 | 세로 장력 게이지. 채움의 색은 코드가 입힌다(흰색 계열로 그린다) |
-| `depth_ruler.png` | 24×32 타일 | 깊이 눈금의 세로 띠(위아래로 반복) |
+| `depth_ruler.png` | 24×32 타일 | 깊이 눈금의 세로 띠(대나무 자, 위아래로 반복). 틀은 `tension_frame` 을 쓰고 눈금·숫자·무는 깊이 띠는 게임이 찍는다 |
+| `bubble_tail.png` | 10×12 | 대사 창 왼쪽에 붙어 초상화를 가리키는 말풍선 꼬리 **(다듬기 단계에서 추가)** |
 | `slot.png`, `slot_focus.png` | 28×28, 가장자리 6 | 어창·진열대·도감의 칸. `slot_focus` 는 고른 칸 |
 | `codex_book.png` | 640×360 | 도감. 쪽의 자리는 `codex_book.json` 에 `{"left": [x,y,w,h], "right": [x,y,w,h]}`(없으면 왼쪽 44,40,260,280 / 오른쪽 336,40,260,280) |
 | `icon_durability.png`, `icon_hold.png`, `icon_coin.png`, `icon_anchor.png`, `icon_bait.png` | 16×16 | 상태 줄 아이콘 |
@@ -111,13 +130,13 @@
 
 ## 컷신 `assets/game/cutscenes/`
 
-여는 컷신 `intro_01` ~ `intro_08`, 닫는 컷신 `ending_01` ~ `ending_02`. 컷마다 폴더 하나에 겹을 나눠 둔다: `bg.png`(640×360 이상, 카메라가 움직일 만큼 넓게), `mid.png`, `chars.png` 또는 캐릭터 시트, `fg.png`. 컷의 내용과 움직임은 `design/cutscene-script.md` 에 적는다.
+여는 컷신 10컷, 닫는 컷신 3컷. 그림은 컷별 폴더가 아니라 종류별로 둔다(`bg/`, `chars/`, `props/`, `audio/`. 같은 배경과 캐릭터를 여러 컷이 함께 쓴다). 컷의 내용과 움직임은 `design/cutscene-script.md` 에 적는다.
 
 컷신 씬과 게임이 맞물리는 규칙 **(코드 쪽에서 정함)**:
 
 - 씬은 `scenes/cutscenes/intro.tscn`, `scenes/cutscenes/ending.tscn`. 게임(`scripts/screens/cutscene_host.gd`)이 이 씬을 자식으로 넣어 재생하고, 끝나면 지운다.
 - 루트 노드는 `signal finished` 를 가진다. 마지막 컷이 끝나면 한 번 낸다.
-- 건너뛰기: 플레이어가 X(Esc)를 누르면 게임이 루트의 `skip()` 을 부른다. `skip()` 은 곧바로(또는 짧게 마무리한 뒤) `finished` 를 낸다. 씬이 건너뛰기를 스스로 처리해도 된다(루트에 `skippable` 변수를 두고 `cancel` 을 길게 눌러 건너뛴다. 지금의 `CutscenePlayer` 가 이 방식이다). 둘 다 없으면 게임이 그 자리에서 끝낸다.
+- 건너뛰기(지금의 컷신은 스스로 처리한다: X 를 1초 누르고 있으면 건너뛴다). 씬에 `skip()` 이 있으면 플레이어가 X(Esc)를 누를 때 게임이 그것을 부른다. `skip()` 은 곧바로(또는 짧게 마무리한 뒤) `finished` 를 낸다. 씬이 건너뛰기를 스스로 처리해도 된다(루트에 `skippable` 변수를 두고 `cancel` 을 길게 눌러 건너뛴다. 지금의 `CutscenePlayer` 가 이 방식이다). 둘 다 없으면 게임이 그 자리에서 끝낸다.
 - 진행은 `_physics_process`(초당 60틱)에서 틱을 세어 한다. 벽시계와 `randomize()` 를 쓰지 않는다(기록 재생과 봇 때문이다). 씬이 스스로 `action` 입력을 읽어 자막을 넘기는 것은 된다.
 - 화면은 640×360, 원점은 왼쪽 위. 전환(페이드)은 게임이 앞뒤로 넣는다. 음악은 컷신 씬이 스스로 튼다(지금의 `CutscenePlayer` 가 그렇다). 게임이 `assets/game/audio/cutscene_intro.wav`·`cutscene_ending.wav` 를 대신 틀게 하려면 루트에 `var plays_own_music := false` 를 둔다. 씬이 없을 때의 임시 카드에서는 게임이 튼다.
 - 씬이 아직 없으면 게임은 "컷신 준비 중" 임시 카드를 보여 주고 넘어간다.
@@ -126,13 +145,15 @@
 
 - 파일은 `assets/game/audio/<이름>.wav`(없으면 `.ogg`, `.mp3` 순으로 찾는다).
 - 음악(반복용 wav): `title`, `town`, `sea_shallow`, `sea_open`, `sea_deep`, `fight`, `legend_fight`, `cutscene_intro`, `cutscene_ending`. 채집지·실내·섬은 `town` 을 쓴다.
-- 효과음: `step`, `pick`, `door`, `coin`, `buy`, `craft`, `anchor_down`, `anchor_up`, `cast`, `nibble`, `bite`, `reel`, `line_strain`, `snap`, `slip`, `catch_small`, `catch_big`, `wave_hit`, `splash`, `ui_move`, `ui_ok`, `ui_cancel`, `codex_new`
-- 코드 쪽에서 추가한 효과음: `talk`(대사 글자가 찍히는 짧은 소리), `page`(도감 넘기기), `repair`(수리·개조 망치질), `pickup`(떠다니는 물건 건지기), `release`(놓아주기)
+- 효과음: `step`, `pick`, `door`, `coin`, `buy`, `craft`, `anchor_down`, `anchor_up`, `cast`, `nibble`, `bite`, `reel`, `line_strain`, `snap`, `slip`, `catch_small`, `catch_big`, `wave_hit`, `splash`, `ui_move`, `ui_ok`, `ui_cancel`, `codex_new`, `talk`(대사 글자가 찍히는 짧은 소리. 45ms), `page`(도감 넘기기), `repair`(수리·개조 망치질), `pickup`(떠다니는 물건 건지기), `release`(놓아주기)
+- 소리마다의 파일 경로와 재생 음량(dB)은 `scripts/audio.gd` 의 `TRACKS` 한 곳에 적는다(`Assets.probe` 와 `gf check audio` 가 이 표를 읽는다). 소리를 더하면 여기에 한 줄을 넣는다.
+- 효과음 파일: 모노 44.1kHz wav, 앞 무음 없음, 가장 큰 0.1초의 음량 −16 dB, 최대 −3 dB 이하(`assets/raw/_tools/audio_post.sh sfx`). 음악 파일은 원래 음량 그대로 두고 `TRACKS` 의 dB 로 게임 안에서 약 −24 LUFS 에 맞춘다.
 
 ## 그림 쪽에서 정한 것 (규격과 다른 점)
 
 - 고양이 캔버스는 80×60, 발밑 가운데 (40, 59). 낚싯대가 낚시 동작 그림 안에 있어 48×56 에 들어가지 않는다. 프레임별 낚싯대 끝은 `chars/cat.json` 의 `rod_tip`.
 - 배의 실제 크기: `boat1` 119×33, `boat2` 168×134, `boat3` 224×137(돛과 선실까지 그려 규격의 "약 168×72, 224×96"보다 높다). `boatN.json` 의 `seat` 는 80×60 고양이 캔버스의 발밑 가운데 기준이고 `rod_tip` = seat + (32, −44).
+- 갈치·산갈치는 곧게 편 몸으로 다시 만들었다: 갈치 102×12, 산갈치 120×36, 헤엄 6프레임(몸 전체가 물결친다).
 - 물고기 크기는 규격의 작은 것 24×16 보다 조금 키웠다(블라인드 심사에서 "물고기가 작고 물색에 묻힌다"는 지적). 멸치 30×9, 전갱이 38×17, 넙치 48×36, 고등어 44×21, 놀래기 36×18, 쏨뱅이 46×31, 참돔 50×31, 방어 73×29, 곰치 76×38, 갈치 71×30, 아귀 60×38, 산갈치 97×57, 전설 176×98. 헤엄 시트는 위아래로 여백(꼬리 흔들림 폭)이 붙는다.
 - `far_<구간>.png` 는 1280 너비(640 그림을 좌우로 뒤집어 붙여 이음매를 없앴다), 높이 111~150. `mid_<구간>.png` 는 640×88.
 - `bed_<구간>.png` 는 1024×64(심해는 512×64), 좌우로 뒤집어 붙인 띠.
@@ -140,5 +161,5 @@
 - `legend_shadow_swim` 은 검은색이 아니라 남보라(#2E3068) 몸에 푸른 테두리(#426A96)다. 심해의 물색이 #17121B~#1B2139 라 검은 실루엣은 보이지 않았다.
 - `sea/pier.json`(`deck_y`, `waterline`, `size`)이 규격에 없이 추가됐다.
 - `in_market.json` 의 `table` 높이는 46(규격 80 이상에 못 미친다). `in_yard.json` 의 `preview` 는 98×64.
-- `ui/bubble.png` 는 꼬리 없는 9-slice 상자, `ui/logo.png` 는 342×129.
+- `ui/bubble.png` 는 9-slice 상자이고 꼬리는 `ui/bubble_tail.png` 로 따로 붙인다. `ui/logo.png` 는 342×138.
 - 글꼴: `assets/game/fonts/Galmuri11.ttf`, `Galmuri11-Bold.ttf`, `Galmuri9.ttf`, `Galmuri14.ttf` (SIL OFL 1.1, 출처는 같은 폴더의 `SOURCE.md`).

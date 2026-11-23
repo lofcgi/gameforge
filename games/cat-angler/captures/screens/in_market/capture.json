@@ -116,7 +116,7 @@
             "baits": [
               "herb"
             ],
-            "count": 5,
+            "count": 6,
             "dmax": 10,
             "dmin": 2,
             "id": "anchovy",
@@ -135,7 +135,7 @@
             "baits": [
               "bug"
             ],
-            "count": 3,
+            "count": 4,
             "dmax": 20,
             "dmin": 9,
             "id": "scad",
@@ -154,7 +154,7 @@
             "baits": [
               "berry"
             ],
-            "count": 2,
+            "count": 3,
             "dmax": 30,
             "dmin": 23,
             "id": "flounder",
@@ -173,7 +173,7 @@
             "baits": [
               "herb"
             ],
-            "count": 4,
+            "count": 5,
             "dmax": 25,
             "dmin": 5,
             "id": "mackerel",
@@ -287,7 +287,7 @@
             "baits": [
               "herb"
             ],
-            "count": 3,
+            "count": 4,
             "dmax": 60,
             "dmin": 20,
             "id": "hairtail",
@@ -567,13 +567,7 @@
         ]
       },
       "dim": "2d",
-      "missing_assets": [
-        "audio/talk.wav",
-        "audio/page.wav",
-        "audio/repair.wav",
-        "audio/pickup.wav",
-        "audio/release.wav"
-      ],
+      "missing_assets": [],
       "probe": [
         "down",
         "up",
@@ -606,20 +600,15 @@
         "boat": {
           "at_island": false,
           "at_pier": true,
-          "durability": 14.0,
+          "durability": 30.0,
           "m": 306.0,
           "tier": 1,
           "x": 1224.0
         },
         "catches": 0,
-        "caught": 4,
-        "caught_ids": [
-          "anchovy",
-          "scad",
-          "flounder",
-          "mackerel"
-        ],
-        "coins": 300,
+        "caught": 0,
+        "caught_ids": [],
+        "coins": 0,
         "cursor": 0,
         "cut_skip": false,
         "deaths": 0,
@@ -645,18 +634,15 @@
         "guide": "",
         "hold": [
           "anchovy",
-          "anchovy",
           "scad",
-          "flounder",
-          "mackerel"
+          "flounder"
         ],
         "hold_cap": 6,
-        "hold_used": 6,
+        "hold_used": 4,
         "hooked": "",
         "hops": 0,
         "interest": "",
         "items_ok": [
-          true,
           true,
           true,
           true,
@@ -666,12 +652,12 @@
         "level": "in_market",
         "limit_hits": 0,
         "mats": {
-          "berry": 3,
-          "bug": 3,
-          "flower": 3,
-          "herb": 3
+          "berry": 0,
+          "bug": 0,
+          "flower": 0,
+          "herb": 0
         },
-        "missing_count": 5,
+        "missing_count": 0,
         "mode": "shop",
         "near": "",
         "nudges": 0,
@@ -774,20 +760,15 @@
         "boat": {
           "at_island": false,
           "at_pier": true,
-          "durability": 14.0,
+          "durability": 30.0,
           "m": 306.0,
           "tier": 1,
           "x": 1224.0
         },
         "catches": 0,
-        "caught": 4,
-        "caught_ids": [
-          "anchovy",
-          "scad",
-          "flounder",
-          "mackerel"
-        ],
-        "coins": 300,
+        "caught": 0,
+        "caught_ids": [],
+        "coins": 0,
         "cursor": 0,
         "cut_skip": false,
         "deaths": 0,
@@ -802,7 +783,7 @@
           8781.43564457159,
           9560.0
         ],
-        "fps": 43.0,
+        "fps": 1.0,
         "goal": {
           "pos": [
             9000.0,
@@ -813,18 +794,15 @@
         "guide": "",
         "hold": [
           "anchovy",
-          "anchovy",
           "scad",
-          "flounder",
-          "mackerel"
+          "flounder"
         ],
         "hold_cap": 6,
-        "hold_used": 6,
+        "hold_used": 4,
         "hooked": "",
         "hops": 0,
         "interest": "",
         "items_ok": [
-          true,
           true,
           true,
           true,
@@ -834,12 +812,12 @@
         "level": "in_market",
         "limit_hits": 0,
         "mats": {
-          "berry": 3,
-          "bug": 3,
-          "flower": 3,
-          "herb": 3
+          "berry": 0,
+          "bug": 0,
+          "flower": 0,
+          "herb": 0
         },
-        "missing_count": 5,
+        "missing_count": 0,
         "mode": "shop",
         "near": "",
         "nudges": 0,
@@ -942,20 +920,15 @@
         "boat": {
           "at_island": false,
           "at_pier": true,
-          "durability": 14.0,
+          "durability": 30.0,
           "m": 306.0,
           "tier": 1,
           "x": 1224.0
         },
         "catches": 0,
-        "caught": 4,
-        "caught_ids": [
-          "anchovy",
-          "scad",
-          "flounder",
-          "mackerel"
-        ],
-        "coins": 305,
+        "caught": 0,
+        "caught_ids": [],
+        "coins": 5,
         "cursor": 1,
         "cut_skip": false,
         "deaths": 0,
@@ -970,7 +943,7 @@
           8781.43564457159,
           9560.0
         ],
-        "fps": 43.0,
+        "fps": 55.0,
         "goal": {
           "pos": [
             9000.0,
@@ -980,19 +953,15 @@
         },
         "guide": "",
         "hold": [
-          "anchovy",
           "scad",
-          "flounder",
-          "mackerel"
+          "flounder"
         ],
         "hold_cap": 6,
-        "hold_used": 5,
+        "hold_used": 3,
         "hooked": "",
         "hops": 0,
         "interest": "",
         "items_ok": [
-          true,
-          true,
           true,
           true,
           true
@@ -1001,12 +970,12 @@
         "level": "in_market",
         "limit_hits": 0,
         "mats": {
-          "berry": 3,
-          "bug": 3,
-          "flower": 3,
-          "herb": 3
+          "berry": 0,
+          "bug": 0,
+          "flower": 0,
+          "herb": 0
         },
-        "missing_count": 5,
+        "missing_count": 0,
         "mode": "shop",
         "near": "",
         "nudges": 0,
@@ -1109,20 +1078,15 @@
         "boat": {
           "at_island": false,
           "at_pier": true,
-          "durability": 14.0,
+          "durability": 30.0,
           "m": 306.0,
           "tier": 1,
           "x": 1224.0
         },
         "catches": 0,
-        "caught": 4,
-        "caught_ids": [
-          "anchovy",
-          "scad",
-          "flounder",
-          "mackerel"
-        ],
-        "coins": 305,
+        "caught": 0,
+        "caught_ids": [],
+        "coins": 5,
         "cursor": 1,
         "cut_skip": false,
         "deaths": 0,
@@ -1137,7 +1101,7 @@
           8781.43564457159,
           9560.0
         ],
-        "fps": 43.0,
+        "fps": 55.0,
         "goal": {
           "pos": [
             9000.0,
@@ -1147,19 +1111,15 @@
         },
         "guide": "",
         "hold": [
-          "anchovy",
           "scad",
-          "flounder",
-          "mackerel"
+          "flounder"
         ],
         "hold_cap": 6,
-        "hold_used": 5,
+        "hold_used": 3,
         "hooked": "",
         "hops": 0,
         "interest": "",
         "items_ok": [
-          true,
-          true,
           true,
           true,
           true
@@ -1168,12 +1128,12 @@
         "level": "in_market",
         "limit_hits": 0,
         "mats": {
-          "berry": 3,
-          "bug": 3,
-          "flower": 3,
-          "herb": 3
+          "berry": 0,
+          "bug": 0,
+          "flower": 0,
+          "herb": 0
         },
-        "missing_count": 5,
+        "missing_count": 0,
         "mode": "shop",
         "near": "",
         "nudges": 0,

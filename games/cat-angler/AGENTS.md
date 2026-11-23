@@ -75,6 +75,7 @@ scripts/graybox.gd, sprite_sheet.gd, sound.gd   템플릿의 도우미(sound.gd 
 bot/smoke.json             고정 입력 스모크(bot/make_smoke.py 로 다시 만든다)
 bot/full_run.py            끝까지 깨는 정책 봇. 균형 표와 배치를 브리지 info["data"] 에서 읽는다
 bot/shot_*.json            화면 하나를 여는 짧은 입력(스크린샷용)
+bot/capture_all.sh         화면마다의 스크린샷(captures/screens/)을 전부 다시 찍는다
 ```
 
 화면 전환: 코어에서 `g.goto(화면, "fade" | "iris", 인자)` 를 부른다. 28틱(0.47초) 동안 입력을 받지 않고, 가운데 틱(화면이 다 가려진 때)에 `scene` 이 바뀌며 `main.gd` 가 화면 씬을 갈아 끼운다. `fade` 는 격자 무늬로 어두워지고 `iris` 는 고양이에게로 오므라든다. 다 가려진 동안에는 가운데에 물결 문양이 뜬다(하네스가 단색 스크린샷을 렌더링 실패로 보기 때문이기도 하다).
@@ -92,19 +93,21 @@ bot/shot_*.json            화면 하나를 여는 짧은 입력(스크린샷용
 | `PLACES` | 암초·작은 섬·난파선·소용돌이 자리의 위치와 너비 |
 | `TUG` | 줄다리기 상수 |
 | `SHOPS` | 가게 넷: 실내 화면 이름, 주인, 대사(인사·상황별 한마디·물건 설명) |
-| `GUIDE` | 길잡이의 단계와 글 |
+| `GUIDE` | 길잡이의 단계와 글("미끼를 내리자"는 `Guide._lower_note` 가 깊이·어종·미끼 상황에 맞춰 바꿔 쓴다) |
 | `NOTES`, `WRECKED`, `DELIVERED` | 병 속 쪽지, 알림 글 |
 
 규칙:
 
 - 코어(`scripts/core/`)는 화면을 모른다. 화면에 알릴 일은 `g.emit(종류, 데이터)` 로 `events` 에 넣고 `Fx.consume`(연출)과 `GameAudio.consume`(소리)이 받는다. 새 연출과 소리는 거기에 더한다.
+- 마우스 왼쪽 버튼은 `action`(Space)에 묶여 있다(`project.godot`).
 - 입력은 `main.gd` 가 액션 이름으로 읽어 `Game.step(held, pressed)` 에 넘긴다. 코어 안에서는 `g.held()`, `g.pressed()` 만 쓴다. 액션을 더하면 `project.godot`, `main.gd` 의 `ACTIONS` 에 넣는다(`info.actions` 는 거기서 만든다).
 - 모든 입력은 누른 틱에 상태(카운터나 값)와 화면이 바뀌어야 한다. 하는 일이 없는 키에도 반응을 준다(귀 움찔 `shrugs`, 폴짝 `hops`, 안 되는 선택 `denied`, 전환·컷신 중 `taps`). 화면 아래 조작 안내(`Hud.hints`)에는 지금 실제로 하는 일이 있는 키만 넣는다.
 - 그림·글꼴·소리는 `Assets` 로만 읽는다. 경로는 `design/asset-spec.md` 의 것만 쓴다. 규격에 없는 것이 필요하면 규격에 먼저 더하고 `Assets.probe` 의 목록과 `Placeholder` 에도 넣는다.
 - 브리지 상태(`Game.snapshot`)에는 입력과 무관하게 매 틱 변하는 값(물고기 위치, 파도)을 넣지 않는다. 줄다리기 중의 `tension`·`stamina` 만 예외다. 더한 필드: `scene`, `mode`(title/cut/land/shop/sail/fish), `transition`, `panel`(열린 메뉴 또는 가게의 거래), `talking`, `near`, `spots`, `guide`, `missing_count`. 빠진 에셋의 전체 목록은 `info.missing_assets`(시작할 때)와, 디버그를 켰을 때(F3 또는 `CA_DEBUG=1`) 상태의 `missing_assets` 에 있다(매 표본에 싣기에는 길어서 늘 싣지는 않는다).
 - 연출(Fx)도 물리 틱에서 진행하고 따로 가진 난수기를 쓴다. 코어의 난수 순서를 건드리지 않기 위해서다.
 - 저장(`Save`)은 자동 실행에서 꺼져 있다(`CA_SAVE`). 켜면 남은 저장 파일이 다음 실행의 타이틀 메뉴를 바꿔 재생이 어긋난다.
-- 그리기: 바다 화면은 수면 높이를 틱마다 한 번만 재서(`_surf`) 물기둥(8px), 수면선, 문양, 배가 함께 쓴다. 틱 하나(코어 + 화면 갱신 준비)는 평균 1ms 안쪽이다(`CA_PROFILE=1` 로 잰다). 고친 뒤 `gf engine perf --uncapped` 의 평균을 본다. 창이 뒤에 있을 때의 p95 는 화면 주사와 다른 프로세스에 좌우되어 타이틀 화면에서도 16ms 안팎이 나온다.
+- 바다 화면(`SeaScreen`)은 세계를 2배로 당겨 그린다(`ZOOM`, 보이는 세계는 320×180). 노드의 `scale` 로 당기므로 `_draw` 안의 좌표는 세계 px(`VIEW`) 기준이고, 세계 위의 글자·화살표만 `_texts` 에 모아 마지막에 1배로 얹는다. 타이틀의 배와 문양도 같은 2배다. 다른 화면은 1배다.
+- 그리기: 바다 화면은 수면 높이를 틱마다 한 번만 재서(`_surf`) 물기둥(4px), 수면선, 문양(8px 띠), 배가 함께 쓴다. 바닥은 높이가 같은 구간을 묶어 2px 단위로 놓는다. 바닥 장식·잔고기·해파리의 자리는 난수 없이 x 칸의 번호(`_pick`)와 틱으로 정한다. 틱 하나(코어 + 화면 갱신 준비)는 평균 1ms 안쪽이다(`CA_PROFILE=1` 로 잰다). 고친 뒤 `gf engine perf --uncapped` 의 평균을 본다. 창이 뒤에 있을 때의 p95 는 화면 주사에 좌우된다: 75Hz 화면에서는 타이틀도 17ms 안팎이고, `--screen 0`(120Hz)·`--screen 1`(60Hz)에서는 다섯 화면 모두 14ms 아래다.
 
 - 좌표·크기·속도는 **기준 해상도 640×360 의 픽셀**이다(하네스 템플릿의 320×180 에서 두 배로 옮겼다. `window/size/viewport_*` 가 640×360, 창은 1280×720 = 2배).
 
@@ -128,7 +131,7 @@ bot/shot_*.json            화면 하나를 여는 짧은 입력(스크린샷용
 - `Assets.tex("boats/boat1.png")` 정지 그림, `Assets.anim("chars/cat_idle")`·`Assets.frame(...)` 애니메이션(`gf post sheet` 의 `.tres`, 없으면 PNG + JSON), `Assets.font(역할)`, `Assets.stream("coin")`.
 - 파일이 없으면 `Placeholder` 의 임시 그림(소리는 무음)을 쓰고 `Assets.missing` 에 이름을 적는다. F3 으로 화면에서 보고, 브리지 `info.missing_assets` 로 읽는다. 파일을 넣으면 다음 실행부터 코드 수정 없이 쓰인다.
 - 문·재료 자리·앉는 자리 같은 좌표는 그림 옆의 JSON 에 적고 `Layout` 으로 읽는다(`places/town.json`, `boats/boat1.json`, `chars/cat.json` 등). 코드에 좌표를 박지 않는다.
-- 소리는 `Fx.consume` 과 같은 사건을 받는 `GameAudio.consume` 의 표(`EVENT_SOUNDS`)에 건다. 반복할 음악은 `gf post audio-loop` 로 다듬은 .wav 를 쓴다. 넣은 뒤 `$GF engine audio` 로 실행 중에 소리가 나고 반복되는지 잰다.
+- 소리는 `Fx.consume` 과 같은 사건을 받는 `GameAudio.consume` 의 표(`EVENT_SOUNDS`)에 건다. 파일 경로와 재생 음량(dB)은 같은 파일의 `TRACKS` 에 적는다. 반복할 음악은 `gf post audio-loop` 로 다듬은 .wav 를 쓴다. 넣은 뒤 `$GF engine audio` 로 실행 중에 소리가 나고 반복되는지 잰다.
 - `captures/`, `assets/raw/`, `references/`, `design/` 에는 `.gdignore` 가 있어 Godot 이 가져오지 않는다. 지우지 않는다. 게임이 쓰는 파일은 `assets/game/` 에만 둔다.
 - 생성 원본은 `assets/raw/`, 후처리가 끝난 게임용 파일만 `assets/game/` 에 둔다. 게임 코드는 `assets/game/` 만 참조한다.
 - 특정 기존 게임의 캐릭터·레벨·이름을 재현하지 않는다.

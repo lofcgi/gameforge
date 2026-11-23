@@ -1,0 +1,14 @@
+{
+  "id": "polish-04",
+  "created": "2026-11-23T01:03:19+00:00",
+  "mode": "target",
+  "series": "sea-polish",
+  "mapping": {
+    "X": "b",
+    "Y": "a"
+  },
+  "a": "/Users/iyeonsang/Desktop/game/games/cat-angler/design/look/target.png",
+  "b": "/Users/iyeonsang/Desktop/game/games/cat-angler/captures/judge_src/polish-04.png",
+  "target": null,
+  "recorded": true
+}

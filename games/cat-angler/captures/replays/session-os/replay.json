@@ -9,11 +9,11 @@
   },
   "liveness": {
     "verified": true,
-    "first_input_t": 0.717,
-    "diverged_t": 0.75
+    "first_input_t": 0.683,
+    "diverged_t": 0.7
   },
   "drift": {
-    "compared": 432,
+    "compared": 452,
     "max": 0.0,
     "final": 0.0
   },
@@ -22,7 +22,7 @@
     "baits": {
       "berry": 0,
       "bug": 0,
-      "herb": 3,
+      "herb": 4,
       "legend": 0
     },
     "bed": 30.0,
@@ -30,19 +30,19 @@
       "at_island": false,
       "at_pier": false,
       "durability": 30.0,
-      "m": 446.1,
+      "m": 444.7,
       "tier": 1,
-      "x": 1784.3
+      "x": 1778.7
     },
     "catches": 0,
     "caught": 0,
     "caught_ids": [],
-    "coins": 4,
+    "coins": 0,
     "cursor": 0,
     "cut_skip": true,
     "deaths": 0,
     "debug": false,
-    "denied": 5,
+    "denied": 4,
     "depth": 0.0,
     "flotsam": [
       2462.81377112846,
@@ -51,9 +51,9 @@
       7276.87834613556,
       8776.84351860677,
       9560.0,
-      1364.0
+      1587.59766509533
     ],
-    "fps": 153.0,
+    "fps": 146.0,
     "goal": {
       "pos": [
         9000.0,
@@ -61,7 +61,7 @@
       ],
       "reached": false
     },
-    "guide": "lower",
+    "guide": "school",
     "hold": [],
     "hold_cap": 6,
     "hold_used": 0,
@@ -74,12 +74,12 @@
     "limit_hits": 0,
     "mats": {
       "berry": 0,
-      "bug": 0,
+      "bug": 2,
       "flower": 0,
       "herb": 0
     },
-    "missing_count": 5,
-    "mode": "fish",
+    "missing_count": 0,
+    "mode": "sail",
     "near": "",
     "nudges": 2,
     "off": 0.0,
@@ -89,11 +89,11 @@
     "picked": 1,
     "player": {
       "pos": [
-        1784.2570796399,
+        1778.66964697893,
         0.0
       ],
       "vel": [
-        -5.94638565672899,
+        0.0,
         0.0
       ]
     },
@@ -120,14 +120,14 @@
       },
       {
         "sp": "amberjack",
-        "x": 3678.5351511988
+        "x": 6153.05255701584
       },
       {
         "sp": "flounder",
         "x": 3228.45705822513
       }
     ],
-    "shrugs": 8,
+    "shrugs": 7,
     "slips": 0,
     "snaps": 0,
     "spots": {
@@ -160,18 +160,18 @@
       "flower": 1,
       "herb": 4
     },
-    "t": 43.6,
+    "t": 45.6,
     "talk_steps": 3,
     "talking": false,
     "taps": 2,
     "tension": 0.0,
-    "tick": 2616,
+    "tick": 2736,
     "transition": false
   },
   "shots": [
     {
-      "t": 10.0,
-      "tick": 600,
+      "t": 5.0,
+      "tick": 300,
       "file": "captures/replays/session-os/shot_001.png",
       "state": {
         "bait": "herb",
@@ -209,7 +209,155 @@
           8776.84351860677,
           9560.0
         ],
-        "fps": 268.0,
+        "fps": 203.0,
+        "goal": {
+          "pos": [
+            9000.0,
+            1056.0
+          ],
+          "reached": false
+        },
+        "guide": "gather",
+        "hold": [],
+        "hold_cap": 6,
+        "hold_used": 0,
+        "hooked": "",
+        "hops": 0,
+        "interest": "",
+        "items_ok": [],
+        "jigs": 0,
+        "level": "town",
+        "limit_hits": 0,
+        "mats": {
+          "berry": 0,
+          "bug": 0,
+          "flower": 0,
+          "herb": 0
+        },
+        "missing_count": 0,
+        "mode": "land",
+        "near": "",
+        "nudges": 0,
+        "off": 0.0,
+        "panel": "",
+        "pending": "",
+        "phase": "",
+        "picked": 0,
+        "player": {
+          "pos": [
+            267.0,
+            0.0
+          ],
+          "vel": [
+            0.0,
+            0.0
+          ]
+        },
+        "reach": 30,
+        "reeling": false,
+        "rod": 1,
+        "scene": "town",
+        "schools": [
+          {
+            "sp": "flounder",
+            "x": 3191.84602635031
+          },
+          {
+            "sp": "amberjack",
+            "x": 5469.58017396382
+          },
+          {
+            "sp": "oarfish",
+            "x": 7747.43620950539
+          },
+          {
+            "sp": "bream",
+            "x": 4180.47028323271
+          }
+        ],
+        "shrugs": 0,
+        "slips": 0,
+        "snaps": 0,
+        "spots": {
+          "berry": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "bug": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "flower": [
+            true
+          ],
+          "herb": [
+            true,
+            true,
+            true,
+            true
+          ]
+        },
+        "stamina": 1.0,
+        "stock": {
+          "berry": 4,
+          "bug": 4,
+          "flower": 1,
+          "herb": 4
+        },
+        "t": 5.0,
+        "talk_steps": 0,
+        "talking": false,
+        "taps": 2,
+        "tension": 0.0,
+        "tick": 300,
+        "transition": false
+      }
+    },
+    {
+      "t": 10.0,
+      "tick": 600,
+      "file": "captures/replays/session-os/shot_002.png",
+      "state": {
+        "bait": "herb",
+        "baits": {
+          "berry": 0,
+          "bug": 0,
+          "herb": 4,
+          "legend": 0
+        },
+        "bed": 4.1,
+        "boat": {
+          "at_island": false,
+          "at_pier": true,
+          "durability": 30.0,
+          "m": 306.0,
+          "tier": 1,
+          "x": 1224.0
+        },
+        "catches": 0,
+        "caught": 0,
+        "caught_ids": [],
+        "coins": 0,
+        "cursor": 0,
+        "cut_skip": true,
+        "deaths": 0,
+        "debug": false,
+        "denied": 1,
+        "depth": 0.0,
+        "flotsam": [
+          1769.57329355773,
+          2462.81377112846,
+          2992.91004571039,
+          4316.3958503802,
+          7276.87834613556,
+          8776.84351860677,
+          9560.0
+        ],
+        "fps": 303.0,
         "goal": {
           "pos": [
             9000.0,
@@ -234,7 +382,7 @@
           "flower": 0,
           "herb": 0
         },
-        "missing_count": 5,
+        "missing_count": 0,
         "mode": "land",
         "near": "",
         "nudges": 0,
@@ -318,9 +466,162 @@
       }
     },
     {
+      "t": 15.0,
+      "tick": 900,
+      "file": "captures/replays/session-os/shot_003.png",
+      "state": {
+        "bait": "herb",
+        "baits": {
+          "berry": 0,
+          "bug": 0,
+          "herb": 4,
+          "legend": 0
+        },
+        "bed": 4.1,
+        "boat": {
+          "at_island": false,
+          "at_pier": true,
+          "durability": 30.0,
+          "m": 306.0,
+          "tier": 1,
+          "x": 1224.0
+        },
+        "catches": 0,
+        "caught": 0,
+        "caught_ids": [],
+        "coins": 0,
+        "cursor": 1,
+        "cut_skip": true,
+        "deaths": 0,
+        "debug": false,
+        "denied": 3,
+        "depth": 0.0,
+        "flotsam": [
+          1769.57329355773,
+          2462.81377112846,
+          2992.91004571039,
+          4316.3958503802,
+          7276.87834613556,
+          8776.84351860677,
+          9560.0
+        ],
+        "fps": 303.0,
+        "goal": {
+          "pos": [
+            9000.0,
+            1056.0
+          ],
+          "reached": false
+        },
+        "guide": "gather",
+        "hold": [],
+        "hold_cap": 6,
+        "hold_used": 0,
+        "hooked": "",
+        "hops": 1,
+        "interest": "",
+        "items_ok": [
+          false,
+          false,
+          false,
+          false
+        ],
+        "jigs": 0,
+        "level": "in_bait",
+        "limit_hits": 0,
+        "mats": {
+          "berry": 0,
+          "bug": 0,
+          "flower": 0,
+          "herb": 0
+        },
+        "missing_count": 0,
+        "mode": "shop",
+        "near": "",
+        "nudges": 0,
+        "off": 0.0,
+        "panel": "bench",
+        "pending": "",
+        "phase": "",
+        "picked": 0,
+        "player": {
+          "pos": [
+            202.0,
+            0.0
+          ],
+          "vel": [
+            0.0,
+            0.0
+          ]
+        },
+        "reach": 30,
+        "reeling": false,
+        "rod": 1,
+        "scene": "in_bait",
+        "schools": [
+          {
+            "sp": "flounder",
+            "x": 3191.84602635031
+          },
+          {
+            "sp": "amberjack",
+            "x": 5469.58017396382
+          },
+          {
+            "sp": "oarfish",
+            "x": 7747.43620950539
+          },
+          {
+            "sp": "bream",
+            "x": 4180.47028323271
+          }
+        ],
+        "shrugs": 2,
+        "slips": 0,
+        "snaps": 0,
+        "spots": {
+          "berry": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "bug": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "flower": [
+            true
+          ],
+          "herb": [
+            true,
+            true,
+            true,
+            true
+          ]
+        },
+        "stamina": 1.0,
+        "stock": {
+          "berry": 4,
+          "bug": 4,
+          "flower": 1,
+          "herb": 4
+        },
+        "t": 15.0,
+        "talk_steps": 3,
+        "talking": false,
+        "taps": 2,
+        "tension": 0.0,
+        "tick": 900,
+        "transition": false
+      }
+    },
+    {
       "t": 20.0,
       "tick": 1200,
-      "file": "captures/replays/session-os/shot_002.png",
+      "file": "captures/replays/session-os/shot_004.png",
       "state": {
         "bait": "herb",
         "baits": {
@@ -357,7 +658,7 @@
           8776.84351860677,
           9560.0
         ],
-        "fps": 369.0,
+        "fps": 362.0,
         "goal": {
           "pos": [
             9000.0,
@@ -382,7 +683,7 @@
           "flower": 0,
           "herb": 0
         },
-        "missing_count": 5,
+        "missing_count": 0,
         "mode": "land",
         "near": "",
         "nudges": 0,
@@ -393,7 +694,7 @@
         "picked": 0,
         "player": {
           "pos": [
-            734.9,
+            737.4,
             0.0
           ],
           "vel": [
@@ -466,9 +767,157 @@
       }
     },
     {
+      "t": 25.0,
+      "tick": 1500,
+      "file": "captures/replays/session-os/shot_005.png",
+      "state": {
+        "bait": "herb",
+        "baits": {
+          "berry": 0,
+          "bug": 0,
+          "herb": 4,
+          "legend": 0
+        },
+        "bed": 4.1,
+        "boat": {
+          "at_island": false,
+          "at_pier": true,
+          "durability": 30.0,
+          "m": 306.0,
+          "tier": 1,
+          "x": 1224.0
+        },
+        "catches": 0,
+        "caught": 0,
+        "caught_ids": [],
+        "coins": 0,
+        "cursor": 0,
+        "cut_skip": true,
+        "deaths": 0,
+        "debug": false,
+        "denied": 3,
+        "depth": 0.0,
+        "flotsam": [
+          1769.57329355773,
+          2462.81377112846,
+          2992.91004571039,
+          4316.3958503802,
+          7276.87834613556,
+          8776.84351860677,
+          9560.0
+        ],
+        "fps": 364.0,
+        "goal": {
+          "pos": [
+            9000.0,
+            1056.0
+          ],
+          "reached": false
+        },
+        "guide": "gather",
+        "hold": [],
+        "hold_cap": 6,
+        "hold_used": 0,
+        "hooked": "",
+        "hops": 1,
+        "interest": "",
+        "items_ok": [],
+        "jigs": 0,
+        "level": "town",
+        "limit_hits": 0,
+        "mats": {
+          "berry": 0,
+          "bug": 0,
+          "flower": 0,
+          "herb": 0
+        },
+        "missing_count": 0,
+        "mode": "land",
+        "near": "",
+        "nudges": 0,
+        "off": 0.0,
+        "panel": "",
+        "pending": "",
+        "phase": "",
+        "picked": 0,
+        "player": {
+          "pos": [
+            1487.4,
+            0.0
+          ],
+          "vel": [
+            150.0,
+            0.0
+          ]
+        },
+        "reach": 30,
+        "reeling": false,
+        "rod": 1,
+        "scene": "town",
+        "schools": [
+          {
+            "sp": "flounder",
+            "x": 3191.84602635031
+          },
+          {
+            "sp": "amberjack",
+            "x": 5469.58017396382
+          },
+          {
+            "sp": "oarfish",
+            "x": 7747.43620950539
+          },
+          {
+            "sp": "bream",
+            "x": 4180.47028323271
+          }
+        ],
+        "shrugs": 3,
+        "slips": 0,
+        "snaps": 0,
+        "spots": {
+          "berry": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "bug": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "flower": [
+            true
+          ],
+          "herb": [
+            true,
+            true,
+            true,
+            true
+          ]
+        },
+        "stamina": 1.0,
+        "stock": {
+          "berry": 4,
+          "bug": 4,
+          "flower": 1,
+          "herb": 4
+        },
+        "t": 25.0,
+        "talk_steps": 3,
+        "talking": false,
+        "taps": 2,
+        "tension": 0.0,
+        "tick": 1500,
+        "transition": false
+      }
+    },
+    {
       "t": 30.0,
       "tick": 1800,
-      "file": "captures/replays/session-os/shot_003.png",
+      "file": "captures/replays/session-os/shot_006.png",
       "state": {
         "bait": "herb",
         "baits": {
@@ -505,7 +954,7 @@
           8776.84351860677,
           9560.0
         ],
-        "fps": 160.0,
+        "fps": 153.0,
         "goal": {
           "pos": [
             9000.0,
@@ -530,7 +979,7 @@
           "flower": 0,
           "herb": 0
         },
-        "missing_count": 5,
+        "missing_count": 0,
         "mode": "sail",
         "near": "",
         "nudges": 0,
@@ -541,7 +990,7 @@
         "picked": 0,
         "player": {
           "pos": [
-            1592.10354956132,
+            1592.10354631185,
             0.0
           ],
           "vel": [
@@ -572,7 +1021,7 @@
           },
           {
             "sp": "amberjack",
-            "x": 3678.5351511988
+            "x": 6153.05255701584
           },
           {
             "sp": "flounder",
@@ -622,15 +1071,15 @@
       }
     },
     {
-      "t": 40.0,
-      "tick": 2400,
-      "file": "captures/replays/session-os/shot_004.png",
+      "t": 35.0,
+      "tick": 2100,
+      "file": "captures/replays/session-os/shot_007.png",
       "state": {
         "bait": "herb",
         "baits": {
           "berry": 0,
           "bug": 0,
-          "herb": 3,
+          "herb": 4,
           "legend": 0
         },
         "bed": 30.0,
@@ -638,20 +1087,20 @@
           "at_island": false,
           "at_pier": false,
           "durability": 30.0,
-          "m": 446.1,
+          "m": 445.4,
           "tier": 1,
-          "x": 1784.3
+          "x": 1781.5
         },
         "catches": 0,
         "caught": 0,
         "caught_ids": [],
-        "coins": 4,
+        "coins": 0,
         "cursor": 0,
         "cut_skip": true,
         "deaths": 0,
         "debug": false,
-        "denied": 5,
-        "depth": 11.9,
+        "denied": 4,
+        "depth": 0.0,
         "flotsam": [
           2462.81377112846,
           2992.91004571039,
@@ -659,9 +1108,9 @@
           7276.87834613556,
           8776.84351860677,
           9560.0,
-          1364.0
+          1587.59766509533
         ],
-        "fps": 166.0,
+        "fps": 148.0,
         "goal": {
           "pos": [
             9000.0,
@@ -669,39 +1118,39 @@
           ],
           "reached": false
         },
-        "guide": "fight",
+        "guide": "lower",
         "hold": [],
         "hold_cap": 6,
         "hold_used": 0,
-        "hooked": "anchovy",
+        "hooked": "",
         "hops": 1,
-        "interest": "hooked",
+        "interest": "",
         "items_ok": [],
-        "jigs": 1,
+        "jigs": 0,
         "level": "shallow",
         "limit_hits": 0,
         "mats": {
           "berry": 0,
-          "bug": 0,
+          "bug": 2,
           "flower": 0,
           "herb": 0
         },
-        "missing_count": 5,
+        "missing_count": 0,
         "mode": "fish",
         "near": "",
-        "nudges": 2,
+        "nudges": 0,
         "off": 0.0,
         "panel": "",
         "pending": "",
-        "phase": "tired",
+        "phase": "",
         "picked": 1,
         "player": {
           "pos": [
-            1784.2570796399,
-            94.9
+            1781.5278125731,
+            0.0
           ],
           "vel": [
-            -5.94638565672899,
+            -5.83524385723914,
             0.0
           ]
         },
@@ -728,14 +1177,170 @@
           },
           {
             "sp": "amberjack",
-            "x": 3678.5351511988
+            "x": 6153.05255701584
           },
           {
             "sp": "flounder",
             "x": 3228.45705822513
           }
         ],
-        "shrugs": 8,
+        "shrugs": 5,
+        "slips": 0,
+        "snaps": 0,
+        "spots": {
+          "berry": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "bug": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "flower": [
+            true
+          ],
+          "herb": [
+            true,
+            true,
+            true,
+            true
+          ]
+        },
+        "stamina": 1.0,
+        "stock": {
+          "berry": 4,
+          "bug": 4,
+          "flower": 1,
+          "herb": 4
+        },
+        "t": 35.0,
+        "talk_steps": 3,
+        "talking": false,
+        "taps": 2,
+        "tension": 0.0,
+        "tick": 2100,
+        "transition": false
+      }
+    },
+    {
+      "t": 40.0,
+      "tick": 2400,
+      "file": "captures/replays/session-os/shot_008.png",
+      "state": {
+        "bait": "herb",
+        "baits": {
+          "berry": 0,
+          "bug": 0,
+          "herb": 4,
+          "legend": 0
+        },
+        "bed": 30.0,
+        "boat": {
+          "at_island": false,
+          "at_pier": false,
+          "durability": 30.0,
+          "m": 445.4,
+          "tier": 1,
+          "x": 1781.5
+        },
+        "catches": 0,
+        "caught": 0,
+        "caught_ids": [],
+        "coins": 0,
+        "cursor": 0,
+        "cut_skip": true,
+        "deaths": 0,
+        "debug": false,
+        "denied": 4,
+        "depth": 11.8,
+        "flotsam": [
+          2462.81377112846,
+          2992.91004571039,
+          4316.3958503802,
+          7276.87834613556,
+          8776.84351860677,
+          9560.0,
+          1587.59766509533
+        ],
+        "fps": 148.0,
+        "goal": {
+          "pos": [
+            9000.0,
+            1056.0
+          ],
+          "reached": false
+        },
+        "guide": "lower",
+        "hold": [],
+        "hold_cap": 6,
+        "hold_used": 0,
+        "hooked": "",
+        "hops": 1,
+        "interest": "nibble",
+        "items_ok": [],
+        "jigs": 1,
+        "level": "shallow",
+        "limit_hits": 0,
+        "mats": {
+          "berry": 0,
+          "bug": 2,
+          "flower": 0,
+          "herb": 0
+        },
+        "missing_count": 0,
+        "mode": "fish",
+        "near": "",
+        "nudges": 2,
+        "off": 0.0,
+        "panel": "",
+        "pending": "",
+        "phase": "",
+        "picked": 1,
+        "player": {
+          "pos": [
+            1781.5278125731,
+            94.3
+          ],
+          "vel": [
+            -5.83524385723914,
+            0.0
+          ]
+        },
+        "reach": 30,
+        "reeling": false,
+        "rod": 1,
+        "scene": "sea",
+        "schools": [
+          {
+            "sp": "flounder",
+            "x": 3191.84602635031
+          },
+          {
+            "sp": "amberjack",
+            "x": 5469.58017396382
+          },
+          {
+            "sp": "oarfish",
+            "x": 7747.43620950539
+          },
+          {
+            "sp": "bream",
+            "x": 4180.47028323271
+          },
+          {
+            "sp": "amberjack",
+            "x": 6153.05255701584
+          },
+          {
+            "sp": "flounder",
+            "x": 3228.45705822513
+          }
+        ],
+        "shrugs": 7,
         "slips": 0,
         "snaps": 0,
         "spots": {
@@ -772,21 +1377,21 @@
         "talk_steps": 3,
         "talking": false,
         "taps": 2,
-        "tension": 0.171,
+        "tension": 0.0,
         "tick": 2400,
         "transition": false
       }
     },
     {
-      "t": 43.6,
-      "tick": 2616,
-      "file": "captures/replays/session-os/final.png",
+      "t": 45.0,
+      "tick": 2700,
+      "file": "captures/replays/session-os/shot_009.png",
       "state": {
         "bait": "herb",
         "baits": {
           "berry": 0,
           "bug": 0,
-          "herb": 3,
+          "herb": 4,
           "legend": 0
         },
         "bed": 30.0,
@@ -794,19 +1399,19 @@
           "at_island": false,
           "at_pier": false,
           "durability": 30.0,
-          "m": 446.1,
+          "m": 444.7,
           "tier": 1,
-          "x": 1784.3
+          "x": 1778.7
         },
         "catches": 0,
         "caught": 0,
         "caught_ids": [],
-        "coins": 4,
+        "coins": 0,
         "cursor": 0,
         "cut_skip": true,
         "deaths": 0,
         "debug": false,
-        "denied": 5,
+        "denied": 4,
         "depth": 0.0,
         "flotsam": [
           2462.81377112846,
@@ -815,9 +1420,9 @@
           7276.87834613556,
           8776.84351860677,
           9560.0,
-          1364.0
+          1587.59766509533
         ],
-        "fps": 153.0,
+        "fps": 146.0,
         "goal": {
           "pos": [
             9000.0,
@@ -825,7 +1430,7 @@
           ],
           "reached": false
         },
-        "guide": "lower",
+        "guide": "school",
         "hold": [],
         "hold_cap": 6,
         "hold_used": 0,
@@ -838,12 +1443,12 @@
         "limit_hits": 0,
         "mats": {
           "berry": 0,
-          "bug": 0,
+          "bug": 2,
           "flower": 0,
           "herb": 0
         },
-        "missing_count": 5,
-        "mode": "fish",
+        "missing_count": 0,
+        "mode": "sail",
         "near": "",
         "nudges": 2,
         "off": 0.0,
@@ -853,11 +1458,11 @@
         "picked": 1,
         "player": {
           "pos": [
-            1784.2570796399,
+            1778.66964697893,
             0.0
           ],
           "vel": [
-            -5.94638565672899,
+            0.0,
             0.0
           ]
         },
@@ -884,14 +1489,14 @@
           },
           {
             "sp": "amberjack",
-            "x": 3678.5351511988
+            "x": 6153.05255701584
           },
           {
             "sp": "flounder",
             "x": 3228.45705822513
           }
         ],
-        "shrugs": 8,
+        "shrugs": 7,
         "slips": 0,
         "snaps": 0,
         "spots": {
@@ -924,12 +1529,168 @@
           "flower": 1,
           "herb": 4
         },
-        "t": 43.6,
+        "t": 45.0,
         "talk_steps": 3,
         "talking": false,
         "taps": 2,
         "tension": 0.0,
-        "tick": 2616,
+        "tick": 2700,
+        "transition": false
+      }
+    },
+    {
+      "t": 45.6,
+      "tick": 2736,
+      "file": "captures/replays/session-os/final.png",
+      "state": {
+        "bait": "herb",
+        "baits": {
+          "berry": 0,
+          "bug": 0,
+          "herb": 4,
+          "legend": 0
+        },
+        "bed": 30.0,
+        "boat": {
+          "at_island": false,
+          "at_pier": false,
+          "durability": 30.0,
+          "m": 444.7,
+          "tier": 1,
+          "x": 1778.7
+        },
+        "catches": 0,
+        "caught": 0,
+        "caught_ids": [],
+        "coins": 0,
+        "cursor": 0,
+        "cut_skip": true,
+        "deaths": 0,
+        "debug": false,
+        "denied": 4,
+        "depth": 0.0,
+        "flotsam": [
+          2462.81377112846,
+          2992.91004571039,
+          4316.3958503802,
+          7276.87834613556,
+          8776.84351860677,
+          9560.0,
+          1587.59766509533
+        ],
+        "fps": 146.0,
+        "goal": {
+          "pos": [
+            9000.0,
+            1056.0
+          ],
+          "reached": false
+        },
+        "guide": "school",
+        "hold": [],
+        "hold_cap": 6,
+        "hold_used": 0,
+        "hooked": "",
+        "hops": 1,
+        "interest": "",
+        "items_ok": [],
+        "jigs": 1,
+        "level": "shallow",
+        "limit_hits": 0,
+        "mats": {
+          "berry": 0,
+          "bug": 2,
+          "flower": 0,
+          "herb": 0
+        },
+        "missing_count": 0,
+        "mode": "sail",
+        "near": "",
+        "nudges": 2,
+        "off": 0.0,
+        "panel": "",
+        "pending": "",
+        "phase": "",
+        "picked": 1,
+        "player": {
+          "pos": [
+            1778.66964697893,
+            0.0
+          ],
+          "vel": [
+            0.0,
+            0.0
+          ]
+        },
+        "reach": 30,
+        "reeling": false,
+        "rod": 1,
+        "scene": "sea",
+        "schools": [
+          {
+            "sp": "flounder",
+            "x": 3191.84602635031
+          },
+          {
+            "sp": "amberjack",
+            "x": 5469.58017396382
+          },
+          {
+            "sp": "oarfish",
+            "x": 7747.43620950539
+          },
+          {
+            "sp": "bream",
+            "x": 4180.47028323271
+          },
+          {
+            "sp": "amberjack",
+            "x": 6153.05255701584
+          },
+          {
+            "sp": "flounder",
+            "x": 3228.45705822513
+          }
+        ],
+        "shrugs": 7,
+        "slips": 0,
+        "snaps": 0,
+        "spots": {
+          "berry": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "bug": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "flower": [
+            true
+          ],
+          "herb": [
+            true,
+            true,
+            true,
+            true
+          ]
+        },
+        "stamina": 1.0,
+        "stock": {
+          "berry": 4,
+          "bug": 4,
+          "flower": 1,
+          "herb": 4
+        },
+        "t": 45.6,
+        "talk_steps": 3,
+        "talking": false,
+        "taps": 2,
+        "tension": 0.0,
+        "tick": 2736,
         "transition": false
       }
     }

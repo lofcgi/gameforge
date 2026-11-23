@@ -116,7 +116,7 @@
             "baits": [
               "herb"
             ],
-            "count": 5,
+            "count": 6,
             "dmax": 10,
             "dmin": 2,
             "id": "anchovy",
@@ -135,7 +135,7 @@
             "baits": [
               "bug"
             ],
-            "count": 3,
+            "count": 4,
             "dmax": 20,
             "dmin": 9,
             "id": "scad",
@@ -154,7 +154,7 @@
             "baits": [
               "berry"
             ],
-            "count": 2,
+            "count": 3,
             "dmax": 30,
             "dmin": 23,
             "id": "flounder",
@@ -173,7 +173,7 @@
             "baits": [
               "herb"
             ],
-            "count": 4,
+            "count": 5,
             "dmax": 25,
             "dmin": 5,
             "id": "mackerel",
@@ -287,7 +287,7 @@
             "baits": [
               "herb"
             ],
-            "count": 3,
+            "count": 4,
             "dmax": 60,
             "dmin": 20,
             "id": "hairtail",
@@ -567,13 +567,7 @@
         ]
       },
       "dim": "2d",
-      "missing_assets": [
-        "audio/talk.wav",
-        "audio/page.wav",
-        "audio/repair.wav",
-        "audio/pickup.wav",
-        "audio/release.wav"
-      ],
+      "missing_assets": [],
       "probe": [
         "down",
         "up",
@@ -602,13 +596,13 @@
           "herb": 4,
           "legend": 0
         },
-        "bed": 5.1,
+        "bed": 4.1,
         "boat": {
           "at_island": false,
           "at_pier": true,
-          "durability": 50.0,
+          "durability": 30.0,
           "m": 306.0,
-          "tier": 2,
+          "tier": 1,
           "x": 1224.0
         },
         "catches": 0,
@@ -639,7 +633,7 @@
         },
         "guide": "",
         "hold": [],
-        "hold_cap": 10,
+        "hold_cap": 6,
         "hold_used": 0,
         "hooked": "",
         "hops": 0,
@@ -654,7 +648,7 @@
           "flower": 0,
           "herb": 0
         },
-        "missing_count": 5,
+        "missing_count": 0,
         "mode": "land",
         "near": "dock",
         "nudges": 0,
@@ -753,13 +747,13 @@
           "herb": 4,
           "legend": 0
         },
-        "bed": 5.1,
+        "bed": 4.1,
         "boat": {
           "at_island": false,
           "at_pier": true,
-          "durability": 50.0,
+          "durability": 30.0,
           "m": 306.0,
-          "tier": 2,
+          "tier": 1,
           "x": 1224.0
         },
         "catches": 0,
@@ -780,7 +774,7 @@
           8781.43564457159,
           9560.0
         ],
-        "fps": 53.0,
+        "fps": 51.0,
         "goal": {
           "pos": [
             9000.0,
@@ -790,7 +784,7 @@
         },
         "guide": "",
         "hold": [],
-        "hold_cap": 10,
+        "hold_cap": 6,
         "hold_used": 0,
         "hooked": "",
         "hops": 0,
@@ -805,7 +799,7 @@
           "flower": 0,
           "herb": 0
         },
-        "missing_count": 5,
+        "missing_count": 0,
         "mode": "land",
         "near": "flower",
         "nudges": 0,

@@ -116,7 +116,7 @@
             "baits": [
               "herb"
             ],
-            "count": 5,
+            "count": 6,
             "dmax": 10,
             "dmin": 2,
             "id": "anchovy",
@@ -135,7 +135,7 @@
             "baits": [
               "bug"
             ],
-            "count": 3,
+            "count": 4,
             "dmax": 20,
             "dmin": 9,
             "id": "scad",
@@ -154,7 +154,7 @@
             "baits": [
               "berry"
             ],
-            "count": 2,
+            "count": 3,
             "dmax": 30,
             "dmin": 23,
             "id": "flounder",
@@ -173,7 +173,7 @@
             "baits": [
               "herb"
             ],
-            "count": 4,
+            "count": 5,
             "dmax": 25,
             "dmin": 5,
             "id": "mackerel",
@@ -287,7 +287,7 @@
             "baits": [
               "herb"
             ],
-            "count": 3,
+            "count": 4,
             "dmax": 60,
             "dmin": 20,
             "id": "hairtail",
@@ -567,13 +567,7 @@
         ]
       },
       "dim": "2d",
-      "missing_assets": [
-        "audio/talk.wav",
-        "audio/page.wav",
-        "audio/repair.wav",
-        "audio/pickup.wav",
-        "audio/release.wav"
-      ],
+      "missing_assets": [],
       "probe": [
         "down",
         "up",
@@ -642,21 +636,21 @@
         "hold_cap": 6,
         "hold_used": 0,
         "hooked": "",
-        "hops": 0,
+        "hops": 1,
         "interest": "",
         "items_ok": [],
         "jigs": 0,
-        "level": "forage",
+        "level": "town",
         "limit_hits": 0,
         "mats": {
-          "berry": 1,
+          "berry": 0,
           "bug": 0,
           "flower": 0,
           "herb": 0
         },
-        "missing_count": 5,
+        "missing_count": 0,
         "mode": "land",
-        "near": "berry",
+        "near": "",
         "nudges": 0,
         "off": 0.0,
         "panel": "",
@@ -665,7 +659,7 @@
         "picked": 0,
         "player": {
           "pos": [
-            737.0,
+            72.0,
             0.0
           ],
           "vel": [
@@ -676,7 +670,7 @@
         "reach": 30,
         "reeling": false,
         "rod": 1,
-        "scene": "forage",
+        "scene": "town",
         "schools": [
           {
             "sp": "flounder",
@@ -707,7 +701,7 @@
             true,
             true,
             true,
-            false
+            true
           ],
           "bug": [
             true,
@@ -727,7 +721,7 @@
         },
         "stamina": 1.0,
         "stock": {
-          "berry": 3,
+          "berry": 4,
           "bug": 4,
           "flower": 1,
           "herb": 4
@@ -780,7 +774,7 @@
           8781.43564457159,
           9560.0
         ],
-        "fps": 150.0,
+        "fps": 147.0,
         "goal": {
           "pos": [
             9000.0,
@@ -793,21 +787,21 @@
         "hold_cap": 6,
         "hold_used": 0,
         "hooked": "",
-        "hops": 0,
+        "hops": 1,
         "interest": "",
         "items_ok": [],
         "jigs": 0,
         "level": "forage",
         "limit_hits": 0,
         "mats": {
-          "berry": 1,
+          "berry": 0,
           "bug": 0,
           "flower": 0,
           "herb": 0
         },
-        "missing_count": 5,
+        "missing_count": 0,
         "mode": "land",
-        "near": "bug",
+        "near": "",
         "nudges": 0,
         "off": 0.0,
         "panel": "",
@@ -816,7 +810,7 @@
         "picked": 0,
         "player": {
           "pos": [
-            647.1,
+            932.0,
             0.0
           ],
           "vel": [
@@ -858,7 +852,7 @@
             true,
             true,
             true,
-            false
+            true
           ],
           "bug": [
             true,
@@ -878,7 +872,7 @@
         },
         "stamina": 1.0,
         "stock": {
-          "berry": 3,
+          "berry": 4,
           "bug": 4,
           "flower": 1,
           "herb": 4
@@ -905,14 +899,5 @@
     "first_input_t": 0.3,
     "diverged_t": 0.35
   },
-  "logs": [
-    {
-      "level": "warning",
-      "text": "WARNING: 4 ObjectDB instances were leaked at exit (run with `--verbose` for details). at: cleanup (core/object/object.cpp:2536)"
-    },
-    {
-      "level": "warning",
-      "text": "ERROR: 2 resources still in use at exit (run with --verbose for details). at: clear (core/io/resource.cpp:822)"
-    }
-  ]
+  "logs": []
 }

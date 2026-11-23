@@ -116,7 +116,7 @@
             "baits": [
               "herb"
             ],
-            "count": 5,
+            "count": 6,
             "dmax": 10,
             "dmin": 2,
             "id": "anchovy",
@@ -135,7 +135,7 @@
             "baits": [
               "bug"
             ],
-            "count": 3,
+            "count": 4,
             "dmax": 20,
             "dmin": 9,
             "id": "scad",
@@ -154,7 +154,7 @@
             "baits": [
               "berry"
             ],
-            "count": 2,
+            "count": 3,
             "dmax": 30,
             "dmin": 23,
             "id": "flounder",
@@ -173,7 +173,7 @@
             "baits": [
               "herb"
             ],
-            "count": 4,
+            "count": 5,
             "dmax": 25,
             "dmin": 5,
             "id": "mackerel",
@@ -287,7 +287,7 @@
             "baits": [
               "herb"
             ],
-            "count": 3,
+            "count": 4,
             "dmax": 60,
             "dmin": 20,
             "id": "hairtail",
@@ -567,20 +567,14 @@
         ]
       },
       "dim": "2d",
-      "missing_assets": [
-        "audio/talk.wav",
-        "audio/page.wav",
-        "audio/repair.wav",
-        "audio/pickup.wav",
-        "audio/release.wav"
-      ],
+      "missing_assets": [],
       "probe": [
         "down",
         "up",
         "action"
       ]
     },
-    "seed": 3,
+    "seed": 0,
     "size": [
       1280,
       720
@@ -622,14 +616,12 @@
         "denied": 0,
         "depth": 0.0,
         "flotsam": [
-          2814.77692530967,
-          3731.87560522405,
-          5169.98730541009,
-          7593.87343849351,
-          8781.43564457159,
-          9560.0
+          1989.11506934482,
+          7283.59225444184,
+          9560.0,
+          6273.04486554082
         ],
-        "fps": 55.0,
+        "fps": 49.0,
         "goal": {
           "pos": [
             9000.0,
@@ -654,9 +646,9 @@
           "flower": 0,
           "herb": 0
         },
-        "missing_count": 5,
+        "missing_count": 0,
         "mode": "land",
-        "near": "bait",
+        "near": "",
         "nudges": 0,
         "off": 0.0,
         "panel": "",
@@ -665,7 +657,7 @@
         "picked": 0,
         "player": {
           "pos": [
-            199.5,
+            267.0,
             0.0
           ],
           "vel": [
@@ -679,24 +671,32 @@
         "scene": "town",
         "schools": [
           {
-            "sp": "flounder",
-            "x": 1735.57819308549
+            "sp": "scad",
+            "x": 1822.63622221993
           },
           {
-            "sp": "flounder",
-            "x": 2067.05777221785
+            "sp": "anchovy",
+            "x": 2663.12406891619
           },
           {
-            "sp": "mackerel",
-            "x": 4338.88659343138
+            "sp": "scad",
+            "x": 3546.26670267738
+          },
+          {
+            "sp": "amberjack",
+            "x": 4174.43103830215
+          },
+          {
+            "sp": "bream",
+            "x": 5476.16549157441
+          },
+          {
+            "sp": "hairtail",
+            "x": 7993.41954835359
           },
           {
             "sp": "oarfish",
-            "x": 7876.40294215724
-          },
-          {
-            "sp": "angler",
-            "x": 8168.41673472948
+            "x": 8498.13110603599
           }
         ],
         "shrugs": 0,
@@ -740,179 +740,18 @@
         "tick": 66,
         "transition": false
       }
-    },
-    {
-      "t": 1.5,
-      "tick": 90,
-      "file": "captures/screens/town/shot_02_t1.50.png",
-      "state": {
-        "bait": "herb",
-        "baits": {
-          "berry": 0,
-          "bug": 0,
-          "herb": 4,
-          "legend": 0
-        },
-        "bed": 4.1,
-        "boat": {
-          "at_island": false,
-          "at_pier": true,
-          "durability": 30.0,
-          "m": 306.0,
-          "tier": 1,
-          "x": 1224.0
-        },
-        "catches": 0,
-        "caught": 0,
-        "caught_ids": [],
-        "coins": 0,
-        "cursor": 0,
-        "cut_skip": false,
-        "deaths": 0,
-        "debug": false,
-        "denied": 0,
-        "depth": 0.0,
-        "flotsam": [
-          2814.77692530967,
-          3731.87560522405,
-          5169.98730541009,
-          7593.87343849351,
-          8781.43564457159,
-          9560.0
-        ],
-        "fps": 55.0,
-        "goal": {
-          "pos": [
-            9000.0,
-            1056.0
-          ],
-          "reached": false
-        },
-        "guide": "gather",
-        "hold": [],
-        "hold_cap": 6,
-        "hold_used": 0,
-        "hooked": "",
-        "hops": 0,
-        "interest": "",
-        "items_ok": [],
-        "jigs": 0,
-        "level": "town",
-        "limit_hits": 0,
-        "mats": {
-          "berry": 0,
-          "bug": 0,
-          "flower": 0,
-          "herb": 0
-        },
-        "missing_count": 5,
-        "mode": "land",
-        "near": "bait",
-        "nudges": 0,
-        "off": 0.0,
-        "panel": "",
-        "pending": "",
-        "phase": "",
-        "picked": 0,
-        "player": {
-          "pos": [
-            199.5,
-            0.0
-          ],
-          "vel": [
-            0.0,
-            0.0
-          ]
-        },
-        "reach": 30,
-        "reeling": false,
-        "rod": 1,
-        "scene": "town",
-        "schools": [
-          {
-            "sp": "flounder",
-            "x": 1735.57819308549
-          },
-          {
-            "sp": "flounder",
-            "x": 2067.05777221785
-          },
-          {
-            "sp": "mackerel",
-            "x": 4338.88659343138
-          },
-          {
-            "sp": "oarfish",
-            "x": 7876.40294215724
-          },
-          {
-            "sp": "angler",
-            "x": 8168.41673472948
-          }
-        ],
-        "shrugs": 0,
-        "slips": 0,
-        "snaps": 0,
-        "spots": {
-          "berry": [
-            true,
-            true,
-            true,
-            true
-          ],
-          "bug": [
-            true,
-            true,
-            true,
-            true
-          ],
-          "flower": [
-            true
-          ],
-          "herb": [
-            true,
-            true,
-            true,
-            true
-          ]
-        },
-        "stamina": 1.0,
-        "stock": {
-          "berry": 4,
-          "bug": 4,
-          "flower": 1,
-          "herb": 4
-        },
-        "t": 1.5,
-        "talk_steps": 0,
-        "talking": false,
-        "taps": 0,
-        "tension": 0.0,
-        "tick": 90,
-        "transition": true
-      }
     }
   ],
   "inputs": {
-    "pressed": 2,
-    "responded": 2,
+    "pressed": 0,
+    "responded": 0,
     "unmapped": 0,
     "unverified": 0,
     "unresponsive": []
   },
   "liveness": {
-    "verified": true,
-    "first_input_t": 0.3,
-    "diverged_t": 0.35
+    "verified": false,
+    "reason": "보낸 입력이 없다"
   },
-  "logs": [
-    {
-      "level": "warning",
-      "text": "WARNING: 6 ObjectDB instances were leaked at exit (run with `--verbose` for details). at: cleanup (core/object/object.cpp:2536)"
-    },
-    {
-      "level": "warning",
-      "text": "ERROR: 3 resources still in use at exit (run with --verbose for details). at: clear (core/io/resource.cpp:822)"
-    }
-  ]
+  "logs": []
 }

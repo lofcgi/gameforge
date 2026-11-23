@@ -116,7 +116,7 @@
             "baits": [
               "herb"
             ],
-            "count": 5,
+            "count": 6,
             "dmax": 10,
             "dmin": 2,
             "id": "anchovy",
@@ -135,7 +135,7 @@
             "baits": [
               "bug"
             ],
-            "count": 3,
+            "count": 4,
             "dmax": 20,
             "dmin": 9,
             "id": "scad",
@@ -154,7 +154,7 @@
             "baits": [
               "berry"
             ],
-            "count": 2,
+            "count": 3,
             "dmax": 30,
             "dmin": 23,
             "id": "flounder",
@@ -173,7 +173,7 @@
             "baits": [
               "herb"
             ],
-            "count": 4,
+            "count": 5,
             "dmax": 25,
             "dmin": 5,
             "id": "mackerel",
@@ -287,7 +287,7 @@
             "baits": [
               "herb"
             ],
-            "count": 3,
+            "count": 4,
             "dmax": 60,
             "dmin": 20,
             "id": "hairtail",
@@ -567,13 +567,7 @@
         ]
       },
       "dim": "2d",
-      "missing_assets": [
-        "audio/talk.wav",
-        "audio/page.wav",
-        "audio/repair.wav",
-        "audio/pickup.wav",
-        "audio/release.wav"
-      ],
+      "missing_assets": [],
       "probe": [
         "down",
         "up",
@@ -606,7 +600,7 @@
         "boat": {
           "at_island": false,
           "at_pier": false,
-          "durability": 3.0,
+          "durability": 8.0,
           "m": 1137.9,
           "tier": 1,
           "x": 4551.6
@@ -628,9 +622,9 @@
           7593.87343849351,
           8781.43564457159,
           9560.0,
-          9560.0
+          2389.5331889042
         ],
-        "fps": 54.0,
+        "fps": 150.0,
         "goal": {
           "pos": [
             9000.0,
@@ -639,14 +633,9 @@
           "reached": false
         },
         "guide": "",
-        "hold": [
-          "anchovy",
-          "scad",
-          "scad",
-          "anchovy"
-        ],
+        "hold": [],
         "hold_cap": 6,
-        "hold_used": 4,
+        "hold_used": 0,
         "hooked": "",
         "hops": 0,
         "interest": "",
@@ -660,7 +649,7 @@
           "flower": 0,
           "herb": 0
         },
-        "missing_count": 5,
+        "missing_count": 0,
         "mode": "sail",
         "near": "",
         "nudges": 0,
@@ -705,8 +694,8 @@
             "x": 8168.41673472948
           },
           {
-            "sp": "angler",
-            "x": 7293.12947717114
+            "sp": "oarfish",
+            "x": 7972.31091613351
           }
         ],
         "shrugs": 0,
@@ -763,14 +752,14 @@
           "herb": 4,
           "legend": 0
         },
-        "bed": 4.1,
+        "bed": 16.0,
         "boat": {
           "at_island": false,
-          "at_pier": true,
-          "durability": 15.0,
-          "m": 306.0,
+          "at_pier": false,
+          "durability": 1.0,
+          "m": 1166.7,
           "tier": 1,
-          "x": 1224.0
+          "x": 4666.6
         },
         "catches": 0,
         "caught": 0,
@@ -778,7 +767,7 @@
         "coins": 0,
         "cursor": 0,
         "cut_skip": false,
-        "deaths": 1,
+        "deaths": 0,
         "debug": false,
         "denied": 0,
         "depth": 0.0,
@@ -789,9 +778,9 @@
           7593.87343849351,
           8781.43564457159,
           9560.0,
-          9560.0
+          2389.5331889042
         ],
-        "fps": 54.0,
+        "fps": 150.0,
         "goal": {
           "pos": [
             9000.0,
@@ -800,18 +789,15 @@
           "reached": false
         },
         "guide": "",
-        "hold": [
-          "scad",
-          "anchovy"
-        ],
+        "hold": [],
         "hold_cap": 6,
-        "hold_used": 2,
+        "hold_used": 0,
         "hooked": "",
         "hops": 0,
         "interest": "",
         "items_ok": [],
         "jigs": 0,
-        "level": "town",
+        "level": "open",
         "limit_hits": 0,
         "mats": {
           "berry": 0,
@@ -819,29 +805,29 @@
           "flower": 0,
           "herb": 0
         },
-        "missing_count": 5,
-        "mode": "land",
+        "missing_count": 0,
+        "mode": "sail",
         "near": "",
         "nudges": 0,
         "off": 0.0,
-        "panel": "notice",
+        "panel": "",
         "pending": "",
         "phase": "",
         "picked": 0,
         "player": {
           "pos": [
-            1510.0,
+            4666.62426308697,
             0.0
           ],
           "vel": [
-            0.0,
+            124.0,
             0.0
           ]
         },
         "reach": 30,
         "reeling": false,
         "rod": 1,
-        "scene": "town",
+        "scene": "sea",
         "schools": [
           {
             "sp": "flounder",
@@ -864,8 +850,8 @@
             "x": 8168.41673472948
           },
           {
-            "sp": "angler",
-            "x": 7293.12947717114
+            "sp": "oarfish",
+            "x": 7972.31091613351
           }
         ],
         "shrugs": 0,
@@ -923,14 +909,5 @@
     "first_input_t": 0.3,
     "diverged_t": 0.35
   },
-  "logs": [
-    {
-      "level": "warning",
-      "text": "WARNING: 2 ObjectDB instances were leaked at exit (run with `--verbose` for details). at: cleanup (core/object/object.cpp:2536)"
-    },
-    {
-      "level": "warning",
-      "text": "ERROR: 1 resources still in use at exit (run with --verbose for details). at: clear (core/io/resource.cpp:822)"
-    }
-  ]
+  "logs": []
 }

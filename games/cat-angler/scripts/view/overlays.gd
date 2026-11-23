@@ -88,7 +88,7 @@ func _list(g: Game, rect: Rect2, title: String) -> void:
 func _help() -> void:
 	var rect := Rect2(90, 50, 460, 250)
 	Ui.box(self, "panel", rect)
-	Ui.text_center(self, 320, rect.position.y + 10, "조작 (키보드)", Pal.BARK)
+	Ui.text_center(self, 320, rect.position.y + 10, "조작 (키보드 · 마우스 왼쪽 버튼은 Space 와 같다)", Pal.BARK)
 	var y := rect.position.y + 36
 	for row in HELP_ROWS:
 		Ui.box(self, "button", Rect2(rect.position.x + 14, y - 2, 96, 20), 8)

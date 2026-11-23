@@ -2,8 +2,8 @@ class_name Shoal
 extends RefCounted
 ## 배 주변의 물고기들: 생성과 헤엄. 미끼에 대한 반응과 줄다리기는 Fishing 이 맡는다.
 
-const WINDOW := 500.0
-const FAR := 660.0
+const WINDOW := 300.0
+const FAR := 440.0
 
 var fish: Array = []
 
@@ -35,9 +35,9 @@ func _populate(g: Game, boat_x: float) -> void:
 			px = Sea.place_x(sp["place"]) + randf_range(-0.5, 0.5) * place["w"] * Data.X_PX
 			if absf(px - boat_x) > WINDOW:
 				continue
-		elif g.mode == "fish" and absf(px - boat_x) < 350.0:
+		elif g.mode == "fish" and absf(px - boat_x) < 190.0:
 			# 낚시 중에는 화면 밖에서 헤엄쳐 들어오게 한다.
-			px = boat_x + signf(px - boat_x + 0.01) * randf_range(350.0, WINDOW)
+			px = boat_x + signf(px - boat_x + 0.01) * randf_range(190.0, WINDOW)
 		if Sea.zone_at(px)["id"] != sp["zone"]:
 			continue
 		var bed := Sea.bed_y(px)

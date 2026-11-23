@@ -124,10 +124,25 @@ def references(project: Path) -> list[dict]:
 
 
 def _resolve(project: Path, source: Path, raw: str) -> Path:
+    """참조가 가리키는 파일. 프로젝트 루트 기준, 참조한 파일 옆, assets/game 아래의 순서로 찾고, 없으면 루트 기준 경로다."""
     cleaned = raw.removeprefix("res://").removeprefix("./").lstrip("/")
     at_root = project / cleaned
+    if at_root.is_file():
+        return at_root
     beside = source.parent / cleaned
-    return beside if not at_root.is_file() and beside.is_file() else at_root
+    if beside.is_file():
+        return beside
+    return _in_game_assets(project, cleaned) or at_root
+
+
+def _in_game_assets(project: Path, cleaned: str) -> Path | None:
+    """assets/game 아래에서 이 경로로 끝나는 파일. 게임이 에셋 폴더를 뺀 경로("boats/boat1.png", "body.ttf")를 적고
+    읽을 때 폴더를 붙이는 경우다. 폴더까지 적힌 경로는 폴더도 맞아야 한다."""
+    parts = Path(cleaned).parts
+    for path in sorted((project / "assets" / "game").rglob(parts[-1])):
+        if path.is_file() and path.parts[-len(parts):] == parts:
+            return path
+    return None
 
 
 def _kind(path: Path) -> str:

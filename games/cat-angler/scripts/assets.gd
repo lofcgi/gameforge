@@ -214,12 +214,14 @@ static func probe() -> void:
 		stills.append("fish/%s_card.png" % fish["id"])
 	anims.append("fish/legend_shadow_swim")
 	for zone in ["shallow", "open", "deep"]:
-		for layer in ["sky", "far", "mid", "under", "bed"]:
+		for layer in ["sky", "far", "mid", "under", "bed", "deco_far", "deco_far2"]:
 			stills.append("sea/%s_%s.png" % [layer, zone])
+		for name in SeaScreen.DRESS[zone]:
+			stills.append("sea/%s.png" % name)
 	for name in ["surface_pattern", "wave_crest", "reef", "wreck", "island_far", "ruin_1", "ruin_2", "ruin_3", "pavilion", "pier",
-			"crate", "bottle", "hook"]:
+			"crate", "bottle", "hook", "ray"]:
 		stills.append("sea/%s.png" % name)
-	for name in ["school_small", "school_mid", "school_big", "bird", "splash", "bubble", "sparkle", "vortex"]:
+	for name in ["school_small", "school_mid", "school_big", "bird", "splash", "bubble", "sparkle", "vortex", "minnow", "jelly"]:
 		anims.append("sea/" + name)
 	for id in Data.BAIT_ORDER:
 		stills.append("sea/bait_%s.png" % id)
@@ -234,7 +236,7 @@ static func probe() -> void:
 		stills.append("items/rod%d.png" % tier)
 		stills.append("items/rod%d_wall.png" % tier)
 	for name in ["panel", "button", "button_focus", "bubble", "gauge_frame", "gauge_fill", "tension_frame", "tension_fill",
-			"depth_ruler", "slot", "slot_focus", "codex_book", "icon_durability", "icon_hold", "icon_coin", "icon_anchor",
+			"depth_ruler", "slot", "slot_focus", "codex_book", "bubble_tail", "icon_durability", "icon_hold", "icon_coin", "icon_anchor",
 			"icon_bait", "arrow", "logo"]:
 		stills.append("ui/%s.png" % name)
 	for rel in stills:
@@ -243,7 +245,7 @@ static func probe() -> void:
 	for base in anims:
 		if not exists(base + ".tres") and not (exists(base + ".png") and exists(base + ".json")):
 			_note_missing(base + ".tres")
-	for name in MUSIC + SOUNDS:
+	for name in GameAudio.TRACKS:
 		var found := false
 		for ext in SOUND_TYPES:
 			found = found or exists("audio/" + name + ext)
@@ -252,8 +254,3 @@ static func probe() -> void:
 	for role in FONT_ROLES:
 		font(role)
 
-
-const MUSIC := ["title", "town", "sea_shallow", "sea_open", "sea_deep", "fight", "legend_fight", "cutscene_intro", "cutscene_ending"]
-const SOUNDS := ["step", "pick", "door", "coin", "buy", "craft", "anchor_down", "anchor_up", "cast", "nibble", "bite", "reel",
-	"line_strain", "snap", "slip", "catch_small", "catch_big", "wave_hit", "splash", "ui_move", "ui_ok", "ui_cancel", "codex_new",
-	"talk", "page", "repair", "pickup", "release"]
