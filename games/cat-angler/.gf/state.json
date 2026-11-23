@@ -3,7 +3,7 @@
   "engine": "godot",
   "dim": "2d",
   "style": "pixel",
-  "stage": "graybox",
+  "stage": "assets",
   "approvals": [
     {
       "stage": "plan",

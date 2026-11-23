@@ -1,0 +1,10 @@
+{"ok": true, "files": ["assets/raw/audio/sea_shallow.mp3"], "role": "audio.music", "endpoint": "elevenlabs/music/v2.5", 
+{"ok": true, "files": ["assets/raw/audio/town.mp3"], "role": "audio.music", "endpoint": "elevenlabs/music/v2.5", "argume
+{"ok": true, "files": ["assets/raw/audio/title.mp3"], "role": "audio.music", "endpoint": "elevenlabs/music/v2.5", "argum
+{"ok": true, "files": ["assets/raw/audio/sea_open.mp3"], "role": "audio.music", "endpoint": "elevenlabs/music/v2.5", "ar
+{"ok": true, "files": ["assets/raw/audio/sea_deep.mp3"], "role": "audio.music", "endpoint": "elevenlabs/music/v2.5", "ar
+{"ok": true, "files": ["assets/raw/audio/fight.mp3"], "role": "audio.music", "endpoint": "elevenlabs/music/v2.5", "argum
+{"ok": true, "files": ["assets/raw/audio/legend_fight.mp3"], "role": "audio.music", "endpoint": "elevenlabs/music/v2.5",
+{"ok": true, "files": ["assets/raw/audio/cutscene_intro.mp3"], "role": "audio.music", "endpoint": "elevenlabs/music/v2.5
+{"ok": true, "files": ["assets/raw/audio/cutscene_ending.mp3"], "role": "audio.music", "endpoint": "elevenlabs/music/v2.
+MUSIC_DONE

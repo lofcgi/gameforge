@@ -1,0 +1,27 @@
+{
+  "image": "turtle_bow.png",
+  "frame_size": [
+    48,
+    48
+  ],
+  "animations": {
+    "turtle_bow": {
+      "fps": 3.0,
+      "loop": false,
+      "frames": [
+        {
+          "x": 0,
+          "y": 0,
+          "w": 48,
+          "h": 48
+        },
+        {
+          "x": 48,
+          "y": 0,
+          "w": 48,
+          "h": 48
+        }
+      ]
+    }
+  }
+}

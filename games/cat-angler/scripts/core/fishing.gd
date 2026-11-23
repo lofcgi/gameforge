@@ -2,14 +2,13 @@ class_name Fishing
 extends RefCounted
 ## 닻을 내린 뒤의 일: 깊이 조준, 물고기의 접근과 입질, 줄다리기.
 
-const ROD_REACH_X := 16.0
-const LINE_SPEED := 110.0
-const LINE_START := 28.0
-const LINE_ACCEL := 240.0
-const SENSE_X := 80.0
-const SENSE_Y := 24.0
+const LINE_SPEED := 220.0
+const LINE_START := 56.0
+const LINE_ACCEL := 480.0
+const SENSE_X := 160.0
+const SENSE_Y := 48.0
 const LURK_SENSE := 1.8
-const FOLLOW_SPEED := 22.0
+const FOLLOW_SPEED := 44.0
 
 var hook_y := 0.0
 var hook_v := 0.0
@@ -38,11 +37,12 @@ var slips := 0
 
 
 func hook_x(g: Game) -> float:
-	return g.sailing.x + ROD_REACH_X
+	# 낚싯대 끝의 자리는 배 그림 옆의 JSON(rod_tip)에서 온다.
+	return g.sailing.x + Layout.boat_reach(g.inv.boat)
 
 
 func max_depth(g: Game) -> float:
-	return minf(g.inv.rod_data()["reach"] * Data.Y_PX, Sea.bed_y(hook_x(g)) - 3.0)
+	return minf(g.inv.rod_data()["reach"] * Data.Y_PX, Sea.bed_y(hook_x(g)) - 6.0)
 
 
 func drop_anchor(g: Game) -> void:
@@ -97,13 +97,16 @@ func _step_line(g: Game) -> void:
 	if hook_y >= limit or hook_y <= 0.0:
 		if hook_y > limit and g.pressed("down"):
 			limit_hits += 1
-			g.emit("limit", {"rod": limit < Sea.bed_y(hook_x(g)) - 4.0})
+			g.emit("limit", {"rod": limit < Sea.bed_y(hook_x(g)) - 8.0})
+		elif hook_y <= 0.0 and g.pressed("up"):
+			# 이미 다 올라와 있다: 고양이가 귀를 움찔한다.
+			g.shrug()
 		hook_y = clampf(hook_y, 0.0, limit)
 		hook_v = 0.0
 
 
 func _step_interest(g: Game) -> void:
-	var baited: bool = hook_y > 8.0 and g.inv.baits[g.inv.bait] > 0
+	var baited: bool = hook_y > 16.0 and g.inv.baits[g.inv.bait] > 0
 	if not baited:
 		_let_go(60)
 		return
@@ -114,9 +117,9 @@ func _step_interest(g: Game) -> void:
 	var f: Dictionary = engaged
 	var to := hook - Vector2(f["x"], f["y"])
 	f["dir"] = 1.0 if to.x >= 0.0 else -1.0
-	var near := 12.0 if f["state"] == "sniff" else 5.0
+	var near := 24.0 if f["state"] == "sniff" else 10.0
 	if to.length() > near:
-		var step := to.normalized() * maxf(f["sp"]["speed"] * 1.6, 30.0) / 60.0
+		var step := to.normalized() * maxf(f["sp"]["speed"] * 1.6, 60.0) / 60.0
 		f["x"] += step.x
 		f["y"] += step.y
 		return
@@ -185,7 +188,7 @@ func _bite(g: Game, f: Dictionary) -> void:
 	# 입질 직후 짧은 예고 뒤에 첫 버티기가 온다: 싸움은 늘 "기다렸다 감기"로 시작한다.
 	_set_phase(g, "warn", 30)
 	g.freeze = 6 if f["sp"]["slots"] >= 3 else 3
-	g.emit("bite", {"big": f["sp"]["slots"] >= 3})
+	g.emit("bite", {"big": f["sp"]["slots"] >= 3, "id": f["id"]})
 
 
 func _set_phase(g: Game, name: String, ticks: int) -> void:
@@ -202,7 +205,7 @@ func _next_phase(g: Game) -> void:
 		_set_phase(g, "warn", int(Data.TUG["warn"] * 60.0))
 	elif phase == "warn":
 		run_dir = 1.0 if randf() < 0.5 else -1.0
-		if absf(off) > 60.0:
+		if absf(off) > 120.0:
 			run_dir = -signf(off)
 		_set_phase(g, "pull", int((0.6 + 0.12 * power) * randf_range(0.75, 1.25) * (0.45 + 0.55 * stamina) * 60.0))
 	else:
@@ -234,16 +237,16 @@ func _step_fight(g: Game) -> void:
 		g.sailing.x = clampf(g.sailing.x + moved, Sailing.left_limit(), Sailing.right_limit())
 		off -= moved
 	if pulling and sp["run"]:
-		off += run_dir * (10.0 + 2.0 * power) * spirit / 60.0
-		var drag: float = run_dir * (4.0 + 0.9 * power) * spirit / 60.0
+		off += run_dir * (20.0 + 4.0 * power) * spirit / 60.0
+		var drag: float = run_dir * (8.0 + 1.8 * power) * spirit / 60.0
 		g.sailing.x = clampf(g.sailing.x + drag, Sailing.left_limit(), Sailing.right_limit())
 		off -= drag
 	elif not pulling:
 		off -= off * 0.6 / 60.0
-	off = clampf(off, -110.0, 110.0)
+	off = clampf(off, -220.0, 220.0)
 
 	# 줄 길이
-	var limit := minf(g.inv.rod_data()["reach"] * Data.Y_PX, Sea.bed_y(hook_x(g) + off) - 3.0)
+	var limit := minf(g.inv.rod_data()["reach"] * Data.Y_PX, Sea.bed_y(hook_x(g) + off) - 6.0)
 	at_limit = false
 	if reeling and (not pulling or rc < 0.5):
 		var ease_in := 0.5 if pulling else clampf(1.25 - 0.45 * rc, 0.5, 1.0)
@@ -262,10 +265,10 @@ func _step_fight(g: Game) -> void:
 	elif pulling:
 		target = tug["slack_pull"][0] + tug["slack_pull"][1] * rc
 	if pulling:
-		target += tug["run_extra"] * clampf(absf(off) / 80.0, 0.0, 1.0)
+		target += tug["run_extra"] * clampf(absf(off) / 160.0, 0.0, 1.0)
 		if at_limit:
 			target += tug["limit_extra"]
-		if steer != 0 and steer == signf(off) and absf(off) > 6.0:
+		if steer != 0 and steer == signf(off) and absf(off) > 12.0:
 			target -= tug["follow_relief"]
 	target = minf(target, tug["cap"])
 	var rate: float = tug["up"] if target > tension else tug["down"]
@@ -289,7 +292,7 @@ func _step_fight(g: Game) -> void:
 			return
 	else:
 		slack_t = maxi(0, slack_t - 2)
-	if line <= 10.0:
+	if line <= 20.0:
 		_catch(g, f)
 
 
@@ -305,7 +308,7 @@ func _lose(g: Game, how: String, text: String) -> void:
 	gone["state"] = "swim"
 	gone["cool"] = 600
 	gone["burst"] = 60
-	g.emit(how, {})
+	g.emit(how, {"id": gone["id"]})
 	g.toast(text)
 
 
@@ -332,10 +335,9 @@ func _catch(g: Game, f: Dictionary) -> void:
 	var big: bool = sp["slots"] >= 3
 	g.freeze = 6 if big else 2
 	g.emit("catch", {"id": id, "new": is_new, "big": big})
-	g.toast("%s%s 낚았다!" % ["새 어종! " if is_new else "", sp["name"]])
 	if id == "legend":
 		g.toast("항구로 돌아가 용궁에 바치자.")
 	if g.inv.fits(id):
 		g.inv.hold.append(id)
 	else:
-		g.menu.open_hold(g, id)
+		g.menu.open(g, "hold", id)

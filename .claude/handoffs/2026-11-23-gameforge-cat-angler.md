@@ -92,3 +92,17 @@ fal 추정 누적 약 $9 (하네스 시험 약 $8, cat-angler 약 $0.7). Tripo·
 ## 저장소에 올리지 않은 것
 
 `.gitignore` 참조. `.env`, 가상 환경과 `node_modules`, Godot 캐시, 큰 실행 기록(`captures/sessions/*.jsonl`, 봇 `trace.jsonl`), 수집한 레퍼런스 이미지와 모음판, `demo-check/plugin-session/`.
+
+## 갱신 (2026-11-23 오후): 그레이박스 반려와 전면 재제작
+
+사용자가 그레이박스를 강하게 반려했다: 기준 화면 느낌이 아니고 너무 거칠고 단순하다, 화면이 넘어가야 한다, 미끼와 상점이 따로 구현돼야 한다, 첫 애니메이션이 나레이션 하나다, 퀄리티가 말이 안 되게 낮다. **이 사용자에게는 색 덩어리 임시 버전을 보여 주고 손맛을 묻는 방식이 통하지 않는다. 실제 품질의 화면으로 보여 줘야 한다.**
+
+그래서 세 갈래로 다시 만들었다(단계는 `assets`):
+
+- 해상도 640×360, 장소마다 씬 분리와 전환 연출, 가게 4곳 전용 실내 화면, 저장, 첫 출항 길잡이
+- 그림 197장(24색 팔레트), 효과음 23개, 음악 9곡. 규격은 `games/cat-angler/design/asset-spec.md`, 상태는 `design/asset-status.md`
+- 여는 컷신 10컷 89.6초, 닫는 컷신 3컷 30.4초 (`scenes/cutscenes/`, 대본 `design/cutscene-script.md`)
+
+결과 화면은 `games/cat-angler/SCREENSHOTS.md`. 조작과 실행은 `design/play-guide.md` (`graybox-play.md` 를 대체).
+
+아직 약한 것은 SCREENSHOTS.md 끝에 있다. 사용자의 평가를 아직 받지 못했다. cat-angler 누적 생성 비용 약 $16.

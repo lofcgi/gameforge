@@ -1,0 +1,14 @@
+{
+  "id": "sea-art-02",
+  "created": "2026-11-22T23:21:34+00:00",
+  "mode": "change",
+  "series": "art-pass",
+  "mapping": {
+    "X": "a",
+    "Y": "b"
+  },
+  "a": "/Users/iyeonsang/Desktop/game/games/cat-angler/captures/graybox/01-sail-shallow-flotsam.png",
+  "b": "/Users/iyeonsang/Desktop/game/games/cat-angler/captures/assets/ingame_sea/shot_01_t2.00.png",
+  "target": "/Users/iyeonsang/Desktop/game/games/cat-angler/design/look/target.png",
+  "recorded": true
+}

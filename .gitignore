@@ -43,3 +43,6 @@ demo-check/plugin-session/logs/
 # 개인 설정
 .claude/settings.local.json
 demo-check/plugin-session/
+
+# 봇 실행 캡처는 다시 만들 수 있다
+**/captures/bot/

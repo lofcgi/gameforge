@@ -1,136 +1,136 @@
 class_name Menu
 extends RefCounted
-## 화면을 덮는 것: 가게·작업대·어창·도감 패널과 이야기 카드. 열려 있는 동안 바다는 멈춘다.
+## 화면을 덮는 것: 타이틀 메뉴, 일시정지, 조작 안내, 알림, 어창, 도감. 열려 있는 동안 세계는 멈춘다.
 
-const TITLES := {"bench": "미끼 작업대", "market": "어시장", "shipyard": "조선소", "tackle": "낚시 가게",
-	"hold": "어창", "codex": "도감"}
+const CODEX_COLS := 3
+const TITLES := {"hold": "어창", "pause": "잠깐 멈춤", "help": "조작", "title": "", "notice": "", "codex": "도감"}
 
-var panel := ""
+var kind := ""
 var cursor := 0
 var items: Array = []     # {text, right, ok, do, arg}
 var say := ""
+var text := ""            # 알림의 글
 var pending := ""         # 어창이 가득 차 자리를 기다리는 방금 낚은 물고기
-var cards: Array = []
-var card := 0
-var card_kind := ""
 var denied := 0
 var lock := 0             # 줄다리기 직후 감던 손이 그대로 "놓아주기"를 누르지 않게 잠깐 선택을 막는다
+var opened := 0           # 연 틱(펼치는 연출에 쓴다)
 
 
 func busy() -> bool:
-	return panel != "" or not cards.is_empty()
+	return kind != ""
 
 
-func show_cards(kind: String, texts: Array) -> void:
-	card_kind = kind
-	cards = texts
-	card = 0
-
-
-func open(g: Game, id: String) -> void:
-	panel = id
+func open(g: Game, what: String, arg := "") -> void:
+	kind = what
 	cursor = 0
 	say = ""
-	for station in Data.STATIONS:
-		if station["id"] == id:
-			say = station.get("say", "")
+	opened = g.tick
+	match what:
+		"hold":
+			pending = arg
+			if arg != "":
+				lock = 45
+				var fish := Data.fish(arg)
+				say = "가득 찼다! 놓아줄 것을 고르자. X: 방금 낚은 %s(%d닢) 놓아주기" % [fish["name"], fish["price"]]
+		"notice":
+			text = arg
+		"title":
+			cursor = 0 if Save.exists() else 1
 	_rebuild(g)
-	g.emit("open", {})
-
-
-func open_hold(g: Game, waiting := "") -> void:
-	pending = waiting
-	open(g, "hold")
-	if waiting != "":
-		lock = 45
-		var fish := Data.fish(waiting)
-		say = "가득! 놓아줄 것을 고른다. X: 방금 낚은 %s(%d닢) 놓아주기" % [fish["name"], fish["price"]]
+	g.emit("open", {"kind": what})
 
 
 func step(g: Game) -> void:
-	if not cards.is_empty():
-		_step_cards(g)
-		return
+	lock = maxi(0, lock - 1)
+	match kind:
+		"help", "notice":
+			if g.pressed("action") or g.pressed("cancel") or g.pressed("pause"):
+				_close(g)
+			elif g.pressed_other([]):
+				_deny(g)
+			return
+		"codex":
+			_step_codex(g)
+			return
+	var used := ["up", "down", "action"]
+	if kind != "title":
+		used.append("cancel")
+		used.append(kind)         # 어창은 H, 일시정지는 P 로도 닫힌다
+	if g.pressed_other(used):
+		_deny(g)
 	var move := int(g.pressed("down")) - int(g.pressed("up"))
-	if move != 0 and not items.is_empty():
+	if move != 0 and items.size() > 1:
 		cursor = posmod(cursor + move, items.size())
 		g.emit("cursor", {})
-	lock = maxi(0, lock - 1)
+	elif move != 0:
+		_deny(g)
 	if g.pressed("action") and not items.is_empty():
 		var item: Dictionary = items[cursor]
 		if item["ok"] and lock == 0:
 			_do(g, item)
-			if panel != "":
+			if kind != "" and kind != "help":
 				_rebuild(g)
 		else:
 			denied += 1
 			g.emit("deny", {})
-	var toggle := (panel == "codex" and g.pressed("codex")) or (panel == "hold" and g.pressed("hold"))
-	if g.pressed("cancel") or toggle:
+		return
+	if kind == "title":
+		return
+	if g.pressed("cancel") or (kind == "hold" and g.pressed("hold")) or (kind == "pause" and g.pressed("pause")):
 		_close(g)
+
+
+func _step_codex(g: Game) -> void:
+	var count := Data.FISH.size()
+	var move := int(g.pressed("right")) - int(g.pressed("left")) + CODEX_COLS * (int(g.pressed("down")) - int(g.pressed("up")))
+	var to := clampi(cursor + move, 0, count - 1)
+	if to != cursor:
+		cursor = to
+		g.emit("page", {})
+	elif move != 0:
+		_deny(g)
+	if g.pressed("cancel") or g.pressed("codex") or g.pressed("action"):
+		_close(g)
+	elif g.pressed_other(["left", "right", "up", "down"]):
+		_deny(g)
+
+
+## 여기서는 하는 일이 없는 키: 틀이 살짝 떨린다.
+func _deny(g: Game) -> void:
+	denied += 1
+	g.emit("deny", {})
 
 
 func _close(g: Game) -> void:
 	if pending != "":
 		g.toast("%s 놓아주었다." % Data.fish(pending)["name"])
+		g.emit("release", {})
 		pending = ""
-	panel = ""
-	g.emit("close", {})
+	var was := kind
+	kind = ""
+	g.emit("close", {"kind": was})
+	if g.scene == "title":
+		open(g, "title")
 
 
-func _step_cards(g: Game) -> void:
-	if g.pressed("cancel"):
-		card = cards.size()
-	elif g.pressed("action") or g.pressed("right") or g.pressed("down"):
-		card += 1
-		g.emit("card", {})
-	if card >= cards.size():
-		cards = []
-		card = 0
-		if card_kind == "ending":
-			g.delivered = true
-		g.emit("close", {})
-
-
-func _item(text: String, right := "", ok := true, action := "", arg = null) -> Dictionary:
-	return {"text": text, "right": right, "ok": ok, "do": action, "arg": arg}
+func _item(label: String, right := "", ok := true, action := "", arg = null) -> Dictionary:
+	return {"text": label, "right": right, "ok": ok, "do": action, "arg": arg}
 
 
 func _rebuild(g: Game) -> void:
 	var inv := g.inv
 	items = []
-	match panel:
-		"bench":
-			for id in Data.BAIT_ORDER:
-				var bait: Dictionary = Data.BAITS[id]
-				var need := []
-				for mat in bait["cost"]:
-					need.append("%s%d/%d" % [Data.MATS[mat]["name"], inv.mats[mat], bait["cost"][mat]])
-				items.append(_item("%s x%d" % [bait["name"], inv.baits[id]], " ".join(need), inv.can_craft(id), "craft", id))
-		"market":
-			items.append(_item("모두 팔기", "+%d닢" % inv.hold_value(), inv.hold_value() > 0, "sell_all"))
-			for id in _stacks(inv):
-				var fish := Data.fish(id)
-				if id == "legend":
-					items.append(_item(fish["name"], "용궁에 바친다", false))
-				else:
-					items.append(_item("%s x%d" % [fish["name"], inv.hold.count(id)], "%d닢" % fish["price"], true, "sell", id))
-		"shipyard":
-			var cost := inv.repair_cost()
-			items.append(_item("수리 %d/%d" % [inv.durability, inv.boat_data()["dur"]], "%d닢" % cost,
-				cost > 0 and inv.coins >= cost, "repair"))
-			for tier in range(inv.boat + 1, Data.BOATS.size()):
-				var boat: Dictionary = Data.BOATS[tier]
-				var sea: String = Data.ZONES.filter(func(z): return z["grade"] == boat["grade"])[0]["name"]
-				items.append(_item("%s(%s) 내구%d 어창%d" % [boat["name"], sea, boat["dur"], boat["hold"]], "%d닢" % boat["price"],
-					tier == inv.boat + 1 and inv.coins >= boat["price"], "buy_boat"))
-		"tackle":
-			for tier in range(inv.rod + 1, Data.RODS.size()):
-				var rod: Dictionary = Data.RODS[tier]
-				items.append(_item("%s %dm 힘%d" % [rod["name"], rod["reach"], rod["str"]], "%d닢" % rod["price"],
-					tier == inv.rod + 1 and inv.coins >= rod["price"], "buy_rod"))
-			if items.is_empty():
-				items.append(_item("가장 좋은 낚싯대를 쓰고 있다", "", false))
+	match kind:
+		"title":
+			items.append(_item("이어하기", "", Save.exists(), "continue"))
+			items.append(_item("새로 시작", "", true, "new"))
+			items.append(_item("조작 안내", "", true, "help"))
+		"pause":
+			items.append(_item("계속하기", "", true, "resume"))
+			items.append(_item("저장하기", "", Save.enabled(), "save"))
+			items.append(_item("길잡이 끄기" if g.guide.on else "길잡이 켜기", "", true, "guide"))
+			items.append(_item("조작 안내", "", true, "help"))
+			items.append(_item("타이틀로", "저장하고 나간다", true, "title"))
 		"hold":
 			for i in inv.hold.size():
 				var fish := Data.fish(inv.hold[i])
@@ -144,41 +144,31 @@ func _rebuild(g: Game) -> void:
 	cursor = clampi(cursor, 0, maxi(0, items.size() - 1))
 
 
-func _stacks(inv: Inventory) -> Array:
-	var seen := []
-	for id in inv.hold:
-		if not seen.has(id):
-			seen.append(id)
-	return seen
-
-
 func _do(g: Game, item: Dictionary) -> void:
 	var inv := g.inv
 	match item["do"]:
-		"craft":
-			inv.craft(item["arg"])
-			if inv.baits[inv.bait] <= 0:
-				inv.bait = item["arg"]
-			g.emit("craft", {})
-		"sell_all":
-			g.emit("sell", {"coins": inv.sell_all()})
-		"sell":
-			g.emit("sell", {"coins": inv.sell_one(item["arg"])})
-		"repair":
-			inv.coins -= inv.repair_cost()
-			inv.durability = inv.boat_data()["dur"]
-			g.emit("buy", {})
-		"buy_boat":
-			inv.boat += 1
-			inv.coins -= inv.boat_data()["price"]
-			inv.durability = inv.boat_data()["dur"]
-			say = "비버: 새 배다! 더 먼 파도도 견딜 거야."
-			g.emit("buy", {})
-		"buy_rod":
-			inv.rod += 1
-			inv.coins -= inv.rod_data()["price"]
-			say = "왜가리: 더 깊이, 더 큰 놈을 노려 보게."
-			g.emit("buy", {})
+		"continue":
+			kind = ""
+			g.continue_game()
+		"new":
+			kind = ""
+			g.new_game()
+		"help":
+			open(g, "help")
+		"resume":
+			_close(g)
+		"save":
+			Save.write(g)
+			g.toast("저장했다.")
+			g.emit("saved", {})
+			_close(g)
+		"guide":
+			g.guide.on = not g.guide.on
+			g.emit("cursor", {})
+		"title":
+			Save.write(g)
+			kind = ""
+			g.goto("title", "fade", {})
 		"release":
 			var id: String = inv.hold[item["arg"]]
 			inv.hold.remove_at(item["arg"])
@@ -187,5 +177,5 @@ func _do(g: Game, item: Dictionary) -> void:
 				inv.hold.append(pending)
 				g.toast("%s 놓아주고 %s 실었다." % [Data.fish(id)["name"], Data.fish(pending)["name"]])
 				pending = ""
-				panel = ""
-				g.emit("close", {})
+				kind = ""
+				g.emit("close", {"kind": "hold"})

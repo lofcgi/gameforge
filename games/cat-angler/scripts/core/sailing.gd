@@ -2,10 +2,10 @@ class_name Sailing
 extends RefCounted
 ## 배와 수면 위의 것들: 운항, 큰 파도와 내구도, 어군 표시, 떠다니는 물건.
 
-const CELL := 320.0              # "화면 두 개 너비 안에 볼거리" 규칙의 칸 너비: 칸마다 하나는 있게 한다
-const CREST_WIDTH := 16.0
-const PICKUP_RANGE := 11.0
-const DOCK_RANGE := 18.0
+const CELL := 640.0              # "화면 두 개 너비 안에 볼거리" 규칙의 칸 너비: 칸마다 하나는 있게 한다
+const CREST_WIDTH := 32.0
+const PICKUP_RANGE := 26.0
+const DOCK_RANGE := 40.0
 const SCHOOLS_WANTED := 6
 const FLOTSAM_WANTED := 7
 
@@ -28,11 +28,11 @@ static func left_limit() -> float:
 
 
 static func right_limit() -> float:
-	return Data.SEA_END_M * Data.X_PX - 20.0
+	return Data.SEA_END_M * Data.X_PX - 40.0
 
 
 static func island_dock() -> float:
-	return Sea.place_x("island") - 46.0
+	return Sea.place_x("island") - 180.0
 
 
 func _init() -> void:
@@ -62,7 +62,7 @@ func step_env(g: Game) -> void:
 	var stiffness := 260.0 if target < y else 70.0
 	vy += ((target - y) * stiffness - vy * 12.0) / 60.0
 	y += vy / 60.0
-	var slope := atan2(surface_y(x + 9.0, g.tick) - surface_y(x - 9.0, g.tick), 18.0)
+	var slope := atan2(surface_y(x + 18.0, g.tick) - surface_y(x - 18.0, g.tick), 36.0)
 	tilt += (slope - tilt) * 0.12
 	for school in schools:
 		school["life"] -= 1
@@ -81,13 +81,13 @@ func step_drive(g: Game) -> void:
 		vx += dir * push / 60.0
 		if g.pressed("left") or g.pressed("right"):
 			# 누른 순간 바로 움직임이 보이게 작은 첫 밀기를 준다.
-			vx += dir * 10.0
+			vx += dir * 20.0
 			g.emit("paddle", {"dir": dir})
 	else:
 		vx -= vx * 1.3 / 60.0
-		if absf(vx) < 1.0:
+		if absf(vx) < 2.0:
 			vx = 0.0
-	vx -= tilt * 14.0 / 60.0 * minf(1.0, absf(vx) / 20.0)
+	vx -= tilt * 28.0 / 60.0 * minf(1.0, absf(vx) / 40.0)
 	vx = clampf(vx, -speed, speed)
 	x += vx / 60.0
 	if x < left_limit() or x > right_limit():
@@ -99,10 +99,8 @@ func step_drive(g: Game) -> void:
 		if at_pier():
 			g.arrive_port()
 		elif at_island():
-			g.land.enter("island")
-			g.mode = "land"
 			vx = 0.0
-			g.emit("dock", {})
+			g.dock_island()
 		else:
 			vx *= 0.4
 			g.fishing.drop_anchor(g)
@@ -128,7 +126,7 @@ func sync_zone() -> void:
 
 
 func at_pier() -> bool:
-	return x < left_limit() + 30.0
+	return x < left_limit() + 60.0
 
 
 func at_island() -> bool:
@@ -139,28 +137,28 @@ func _step_crests(g: Game) -> void:
 	_crest_timer -= 1
 	if _crest_timer <= 0:
 		_crest_timer = randi_range(190, 330)
-		var spawn_x := x + randf_range(200.0, 270.0)
-		if spawn_x < right_limit() + 200.0:
-			crests.append({"x": spawn_x, "v": -randf_range(28.0, 44.0), "scale": randf_range(0.8, 1.2), "age": 0, "ahead": true})
+		var spawn_x := x + randf_range(400.0, 540.0)
+		if spawn_x < right_limit() + 400.0:
+			crests.append({"x": spawn_x, "v": -randf_range(56.0, 88.0), "scale": randf_range(0.8, 1.2), "age": 0, "ahead": true})
 	for crest in crests:
 		crest["x"] += crest["v"] / 60.0
 		crest["age"] += 1
 		if crest["ahead"] and crest["x"] <= x:
 			crest["ahead"] = false
 			_meet_crest(g, crest)
-	crests = crests.filter(func(c): return c["x"] > x - 260.0 and c["x"] > left_limit() - 40.0)
+	crests = crests.filter(func(c): return c["x"] > x - 520.0 and c["x"] > left_limit() - 80.0)
 
 
 func _meet_crest(g: Game, crest: Dictionary) -> void:
 	var excess: float = Sea.blend(crest["x"], "grade") - g.inv.boat_data()["grade"]
 	if excess < 0.2:
-		if crest_height(crest) > 2.0:
+		if crest_height(crest) > 4.0:
 			g.emit("ride", {})
 		return
 	var damage := maxf(1.0, roundf(Data.WAVE_DAMAGE * excess * crest["scale"]))
 	g.inv.durability = maxf(0.0, g.inv.durability - damage)
-	vx -= 16.0
-	vy -= 24.0
+	vx -= 32.0
+	vy -= 48.0
 	g.freeze = 3
 	g.emit("hit", {"damage": damage})
 	if g.inv.durability <= 0.0:
@@ -188,7 +186,7 @@ func _pick_flotsam(g: Game) -> void:
 			g.inv.mats[mat] += 2
 			text = "상자: %s +2" % Data.MATS[mat]["name"]
 		g.picked += 1
-		g.emit("pickup", {"x": item["x"], "text": text})
+		g.emit("pickup", {"x": item["x"], "text": text, "kind": item["kind"]})
 		g.toast(text)
 		return
 
@@ -226,8 +224,8 @@ func _cell_has(from: float) -> bool:
 func _spawn(from: float, school: bool) -> void:
 	var px := 0.0
 	for attempt in 6:
-		px = clampf(from + randf_range(10.0, CELL - 10.0), left_limit() + 70.0, right_limit())
-		if absf(px - x) > 190.0:
+		px = clampf(from + randf_range(20.0, CELL - 20.0), left_limit() + 140.0, right_limit())
+		if absf(px - x) > 380.0:
 			break
 	if school:
 		var zone_id: String = Sea.zone_at(px)["id"]
@@ -240,7 +238,7 @@ func _spawn(from: float, school: bool) -> void:
 		flotsam.append({"x": px, "kind": "bottle" if randf() < 0.35 else "crate"})
 
 
-func school_near(px: float, sp: String, reach := 70.0) -> bool:
+func school_near(px: float, sp: String, reach := 140.0) -> bool:
 	for school in schools:
 		if school["sp"] == sp and absf(school["x"] - px) < reach:
 			return true

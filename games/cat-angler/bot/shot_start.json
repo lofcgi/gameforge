@@ -1,0 +1,25 @@
+{
+ "seed": 3,
+ "actions": [
+  {
+   "t": 0.5,
+   "tap": "action"
+  },
+  {
+   "t": 1.5,
+   "press": "cancel"
+  },
+  {
+   "t": 4.5,
+   "release": "cancel"
+  },
+  {
+   "t": 6.0,
+   "press": "left"
+  },
+  {
+   "t": 9.5,
+   "release": "left"
+  }
+ ]
+}

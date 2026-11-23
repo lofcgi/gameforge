@@ -1,0 +1,935 @@
+{
+  "header": {
+    "engine": "godot",
+    "info": {
+      "actions": {
+        "action": {
+          "keys": [
+            "Space",
+            "Z"
+          ]
+        },
+        "bait": {
+          "keys": [
+            "Q"
+          ]
+        },
+        "cancel": {
+          "keys": [
+            "X",
+            "Escape"
+          ]
+        },
+        "codex": {
+          "keys": [
+            "C",
+            "Tab"
+          ]
+        },
+        "debug": {
+          "keys": [
+            "F3"
+          ]
+        },
+        "down": {
+          "keys": [
+            "Down",
+            "S"
+          ]
+        },
+        "hold": {
+          "keys": [
+            "H"
+          ]
+        },
+        "left": {
+          "keys": [
+            "Left",
+            "A"
+          ],
+          "move": [
+            -1,
+            0
+          ]
+        },
+        "pause": {
+          "keys": [
+            "P",
+            "Enter"
+          ]
+        },
+        "right": {
+          "keys": [
+            "Right",
+            "D"
+          ],
+          "move": [
+            1,
+            0
+          ]
+        },
+        "up": {
+          "keys": [
+            "Up",
+            "W"
+          ]
+        }
+      },
+      "data": {
+        "baits": [
+          "herb",
+          "bug",
+          "berry",
+          "legend"
+        ],
+        "boats": [
+          {
+            "accel": 170.0,
+            "dur": 30,
+            "grade": 1.0,
+            "hold": 6,
+            "name": "나룻배",
+            "price": 0,
+            "speed": 124.0
+          },
+          {
+            "accel": 200.0,
+            "dur": 50,
+            "grade": 2.0,
+            "hold": 10,
+            "name": "돛단배",
+            "price": 180,
+            "speed": 168.0
+          },
+          {
+            "accel": 230.0,
+            "dur": 80,
+            "grade": 3.0,
+            "hold": 14,
+            "name": "큰 어선",
+            "price": 650,
+            "speed": 216.0
+          }
+        ],
+        "fish": [
+          {
+            "baits": [
+              "herb"
+            ],
+            "count": 5,
+            "dmax": 10,
+            "dmin": 2,
+            "id": "anchovy",
+            "move": "school",
+            "name": "멸치",
+            "place": "",
+            "price": 5,
+            "run": false,
+            "shape": "round",
+            "slots": 1,
+            "speed": 44.0,
+            "str": 1.0,
+            "zone": "shallow"
+          },
+          {
+            "baits": [
+              "bug"
+            ],
+            "count": 3,
+            "dmax": 20,
+            "dmin": 9,
+            "id": "scad",
+            "move": "dart",
+            "name": "전갱이",
+            "place": "",
+            "price": 10,
+            "run": false,
+            "shape": "round",
+            "slots": 1,
+            "speed": 60.0,
+            "str": 2.0,
+            "zone": "shallow"
+          },
+          {
+            "baits": [
+              "berry"
+            ],
+            "count": 2,
+            "dmax": 30,
+            "dmin": 23,
+            "id": "flounder",
+            "move": "lurk",
+            "name": "넙치",
+            "place": "",
+            "price": 24,
+            "run": false,
+            "shape": "flat",
+            "slots": 2,
+            "speed": 16.0,
+            "str": 3.0,
+            "zone": "shallow"
+          },
+          {
+            "baits": [
+              "herb"
+            ],
+            "count": 4,
+            "dmax": 25,
+            "dmin": 5,
+            "id": "mackerel",
+            "move": "school",
+            "name": "고등어",
+            "place": "",
+            "price": 14,
+            "run": false,
+            "shape": "round",
+            "slots": 1,
+            "speed": 68.0,
+            "str": 3.0,
+            "zone": "open"
+          },
+          {
+            "baits": [
+              "bug"
+            ],
+            "count": 3,
+            "dmax": 55,
+            "dmin": 32,
+            "id": "bream",
+            "move": "cruise",
+            "name": "참돔",
+            "place": "",
+            "price": 36,
+            "run": false,
+            "shape": "round",
+            "slots": 2,
+            "speed": 36.0,
+            "str": 5.0,
+            "zone": "open"
+          },
+          {
+            "baits": [
+              "berry"
+            ],
+            "count": 2,
+            "dmax": 78,
+            "dmin": 45,
+            "id": "amberjack",
+            "move": "patrol",
+            "name": "방어",
+            "place": "",
+            "price": 62,
+            "run": true,
+            "shape": "round",
+            "slots": 3,
+            "speed": 80.0,
+            "str": 7.0,
+            "zone": "open"
+          },
+          {
+            "baits": [
+              "berry"
+            ],
+            "count": 3,
+            "dmax": 13,
+            "dmin": 4,
+            "id": "wrasse",
+            "move": "dart",
+            "name": "놀래기",
+            "place": "reef",
+            "price": 22,
+            "run": false,
+            "shape": "round",
+            "slots": 1,
+            "speed": 48.0,
+            "str": 3.0,
+            "zone": "open"
+          },
+          {
+            "baits": [
+              "bug"
+            ],
+            "count": 3,
+            "dmax": 20,
+            "dmin": 10,
+            "id": "rockfish",
+            "move": "lurk",
+            "name": "쏨뱅이",
+            "place": "reef",
+            "price": 28,
+            "run": false,
+            "shape": "round",
+            "slots": 1,
+            "speed": 12.0,
+            "str": 4.0,
+            "zone": "open"
+          },
+          {
+            "baits": [
+              "bug"
+            ],
+            "count": 2,
+            "dmax": 80,
+            "dmin": 66,
+            "id": "moray",
+            "move": "lurk",
+            "name": "곰치",
+            "place": "wreck",
+            "price": 90,
+            "run": true,
+            "shape": "long",
+            "slots": 3,
+            "speed": 12.0,
+            "str": 8.0,
+            "zone": "open"
+          },
+          {
+            "baits": [
+              "herb"
+            ],
+            "count": 3,
+            "dmax": 60,
+            "dmin": 20,
+            "id": "hairtail",
+            "move": "dart",
+            "name": "갈치",
+            "place": "",
+            "price": 50,
+            "run": false,
+            "shape": "long",
+            "slots": 2,
+            "speed": 52.0,
+            "str": 6.0,
+            "zone": "deep"
+          },
+          {
+            "baits": [
+              "bug"
+            ],
+            "count": 2,
+            "dmax": 130,
+            "dmin": 90,
+            "id": "angler",
+            "move": "lurk",
+            "name": "아귀",
+            "place": "",
+            "price": 115,
+            "run": true,
+            "shape": "round",
+            "slots": 3,
+            "speed": 12.0,
+            "str": 9.0,
+            "zone": "deep"
+          },
+          {
+            "baits": [
+              "berry"
+            ],
+            "count": 2,
+            "dmax": 148,
+            "dmin": 108,
+            "id": "oarfish",
+            "move": "patrol",
+            "name": "산갈치",
+            "place": "",
+            "price": 170,
+            "run": true,
+            "shape": "long",
+            "slots": 4,
+            "speed": 40.0,
+            "str": 11.0,
+            "zone": "deep"
+          },
+          {
+            "baits": [
+              "legend"
+            ],
+            "count": 1,
+            "dmax": 147,
+            "dmin": 132,
+            "id": "legend",
+            "move": "lurk",
+            "name": "전설의 심해어",
+            "place": "vortex",
+            "price": 0,
+            "run": true,
+            "shape": "round",
+            "slots": 6,
+            "speed": 18.0,
+            "str": 16.0,
+            "zone": "deep"
+          }
+        ],
+        "forage": {
+          "berry": [
+            [
+              90.0,
+              303.0
+            ],
+            [
+              330.0,
+              303.0
+            ],
+            [
+              520.0,
+              303.0
+            ],
+            [
+              720.0,
+              303.0
+            ]
+          ],
+          "bug": [
+            [
+              230.0,
+              303.0
+            ],
+            [
+              450.0,
+              303.0
+            ],
+            [
+              660.0,
+              303.0
+            ],
+            [
+              870.0,
+              303.0
+            ]
+          ],
+          "ground_y": 310.0,
+          "herb": [
+            [
+              150.0,
+              303.0
+            ],
+            [
+              400.0,
+              303.0
+            ],
+            [
+              590.0,
+              303.0
+            ],
+            [
+              790.0,
+              303.0
+            ]
+          ],
+          "left": 16.0,
+          "right": 944.0,
+          "size": [
+            960,
+            360
+          ]
+        },
+        "island": {
+          "dock": 124.0,
+          "flower": [
+            [
+              560.0,
+              306.0
+            ]
+          ],
+          "ground_y": 310.0,
+          "left": 112.0,
+          "right": 624.0,
+          "size": [
+            640,
+            360
+          ]
+        },
+        "island_dock_px": 5580.0,
+        "island_px": 5760.0,
+        "pier_px": 1224.0,
+        "places": {
+          "island": {
+            "name": "작은 섬",
+            "w": 64.0,
+            "x": 1440.0
+          },
+          "reef": {
+            "name": "암초",
+            "top": 16.0,
+            "w": 130.0,
+            "x": 1200.0
+          },
+          "vortex": {
+            "name": "소용돌이 자리",
+            "w": 70.0,
+            "x": 2250.0
+          },
+          "wreck": {
+            "name": "난파선",
+            "w": 80.0,
+            "x": 1640.0
+          }
+        },
+        "rods": [
+          {
+            "name": "대나무 낚싯대",
+            "price": 0,
+            "reach": 30,
+            "reel": 80.0,
+            "str": 3.0
+          },
+          {
+            "name": "옻칠 낚싯대",
+            "price": 100,
+            "reach": 80,
+            "reel": 104.0,
+            "str": 7.0
+          },
+          {
+            "name": "용골 낚싯대",
+            "price": 420,
+            "reach": 150,
+            "reel": 132.0,
+            "str": 12.0
+          }
+        ],
+        "shops": {
+          "bait": {
+            "panel": "bench",
+            "scene": "in_bait"
+          },
+          "market": {
+            "panel": "market",
+            "scene": "in_market"
+          },
+          "tackle": {
+            "panel": "tackle",
+            "scene": "in_tackle"
+          },
+          "yard": {
+            "panel": "shipyard",
+            "scene": "in_yard"
+          }
+        },
+        "town": {
+          "doors": {
+            "bait": 197.0,
+            "market": 522.0,
+            "tackle": 1068.0,
+            "yard": 825.0
+          },
+          "ground_y": 302.0,
+          "left": 24.0,
+          "pier": 1540.0,
+          "right": 1584.0,
+          "size": [
+            1600,
+            360
+          ]
+        },
+        "x_px": 4.0,
+        "zones": [
+          {
+            "amp": 1.6,
+            "bed": 0,
+            "crest": 0.0,
+            "from": 0,
+            "grade": 0.0,
+            "id": "port",
+            "name": "항구",
+            "to": 300
+          },
+          {
+            "amp": 3.2,
+            "bed": 30,
+            "crest": 6.0,
+            "from": 300,
+            "grade": 1.0,
+            "id": "shallow",
+            "name": "얕은 바다",
+            "to": 900
+          },
+          {
+            "amp": 8.0,
+            "bed": 80,
+            "crest": 18.0,
+            "from": 900,
+            "grade": 2.0,
+            "id": "open",
+            "name": "먼바다",
+            "to": 1800
+          },
+          {
+            "amp": 14.0,
+            "bed": 150,
+            "crest": 28.0,
+            "from": 1800,
+            "grade": 3.0,
+            "id": "deep",
+            "name": "심해 입구",
+            "to": 2400
+          }
+        ]
+      },
+      "dim": "2d",
+      "missing_assets": [
+        "audio/talk.wav",
+        "audio/page.wav",
+        "audio/repair.wav",
+        "audio/pickup.wav",
+        "audio/release.wav"
+      ],
+      "probe": [
+        "down",
+        "up",
+        "action"
+      ]
+    },
+    "seed": 0,
+    "size": [
+      1280,
+      720
+    ],
+    "tick_rate": 60,
+    "type": "header",
+    "version": 1
+  },
+  "shots": [
+    {
+      "t": 1.0,
+      "tick": 60,
+      "file": "captures/assets/ingame1/shot_01_t1.00.png",
+      "state": {
+        "bait": "herb",
+        "baits": {
+          "berry": 0,
+          "bug": 0,
+          "herb": 4,
+          "legend": 0
+        },
+        "bed": 4.1,
+        "boat": {
+          "at_island": false,
+          "at_pier": true,
+          "durability": 30.0,
+          "m": 306.0,
+          "tier": 1,
+          "x": 1224.0
+        },
+        "catches": 0,
+        "caught": 0,
+        "caught_ids": [],
+        "coins": 0,
+        "cursor": 1,
+        "cut_skip": false,
+        "deaths": 0,
+        "debug": false,
+        "denied": 0,
+        "depth": 0.0,
+        "flotsam": [
+          1989.11506934482,
+          7283.59225444184,
+          9560.0,
+          6273.04486554082
+        ],
+        "fps": 1.0,
+        "goal": {
+          "pos": [
+            9000.0,
+            1056.0
+          ],
+          "reached": false
+        },
+        "guide": "gather",
+        "hold": [],
+        "hold_cap": 6,
+        "hold_used": 0,
+        "hooked": "",
+        "hops": 0,
+        "interest": "",
+        "items_ok": [
+          false,
+          true,
+          true
+        ],
+        "jigs": 0,
+        "level": "title",
+        "limit_hits": 0,
+        "mats": {
+          "berry": 0,
+          "bug": 0,
+          "flower": 0,
+          "herb": 0
+        },
+        "missing_count": 5,
+        "mode": "title",
+        "near": "",
+        "nudges": 0,
+        "off": 0.0,
+        "panel": "title",
+        "pending": "",
+        "phase": "",
+        "picked": 0,
+        "player": {
+          "pos": [
+            420.0,
+            0.0
+          ],
+          "vel": [
+            0.0,
+            0.0
+          ]
+        },
+        "reach": 30,
+        "reeling": false,
+        "rod": 1,
+        "scene": "title",
+        "schools": [
+          {
+            "sp": "scad",
+            "x": 1822.63622221993
+          },
+          {
+            "sp": "anchovy",
+            "x": 2663.12406891619
+          },
+          {
+            "sp": "scad",
+            "x": 3546.26670267738
+          },
+          {
+            "sp": "amberjack",
+            "x": 4174.43103830215
+          },
+          {
+            "sp": "bream",
+            "x": 5476.16549157441
+          },
+          {
+            "sp": "hairtail",
+            "x": 7993.41954835359
+          },
+          {
+            "sp": "oarfish",
+            "x": 8498.13110603599
+          }
+        ],
+        "shrugs": 0,
+        "slips": 0,
+        "snaps": 0,
+        "spots": {
+          "berry": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "bug": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "flower": [
+            true
+          ],
+          "herb": [
+            true,
+            true,
+            true,
+            true
+          ]
+        },
+        "stamina": 1.0,
+        "stock": {
+          "berry": 4,
+          "bug": 4,
+          "flower": 1,
+          "herb": 4
+        },
+        "t": 1.0,
+        "talking": false,
+        "taps": 0,
+        "tension": 0.0,
+        "tick": 60,
+        "transition": false
+      }
+    },
+    {
+      "t": 4.0,
+      "tick": 240,
+      "file": "captures/assets/ingame1/shot_02_t4.00.png",
+      "state": {
+        "bait": "herb",
+        "baits": {
+          "berry": 0,
+          "bug": 0,
+          "herb": 4,
+          "legend": 0
+        },
+        "bed": 4.1,
+        "boat": {
+          "at_island": false,
+          "at_pier": true,
+          "durability": 30.0,
+          "m": 306.0,
+          "tier": 1,
+          "x": 1224.0
+        },
+        "catches": 0,
+        "caught": 0,
+        "caught_ids": [],
+        "coins": 0,
+        "cursor": 1,
+        "cut_skip": false,
+        "deaths": 0,
+        "debug": false,
+        "denied": 0,
+        "depth": 0.0,
+        "flotsam": [
+          1989.11506934482,
+          7283.59225444184,
+          9560.0,
+          6273.04486554082
+        ],
+        "fps": 65.0,
+        "goal": {
+          "pos": [
+            9000.0,
+            1056.0
+          ],
+          "reached": false
+        },
+        "guide": "gather",
+        "hold": [],
+        "hold_cap": 6,
+        "hold_used": 0,
+        "hooked": "",
+        "hops": 0,
+        "interest": "",
+        "items_ok": [
+          false,
+          true,
+          true
+        ],
+        "jigs": 0,
+        "level": "title",
+        "limit_hits": 0,
+        "mats": {
+          "berry": 0,
+          "bug": 0,
+          "flower": 0,
+          "herb": 0
+        },
+        "missing_count": 5,
+        "mode": "title",
+        "near": "",
+        "nudges": 0,
+        "off": 0.0,
+        "panel": "title",
+        "pending": "",
+        "phase": "",
+        "picked": 0,
+        "player": {
+          "pos": [
+            420.0,
+            0.0
+          ],
+          "vel": [
+            0.0,
+            0.0
+          ]
+        },
+        "reach": 30,
+        "reeling": false,
+        "rod": 1,
+        "scene": "title",
+        "schools": [
+          {
+            "sp": "scad",
+            "x": 1822.63622221993
+          },
+          {
+            "sp": "anchovy",
+            "x": 2663.12406891619
+          },
+          {
+            "sp": "scad",
+            "x": 3546.26670267738
+          },
+          {
+            "sp": "amberjack",
+            "x": 4174.43103830215
+          },
+          {
+            "sp": "bream",
+            "x": 5476.16549157441
+          },
+          {
+            "sp": "hairtail",
+            "x": 7993.41954835359
+          },
+          {
+            "sp": "oarfish",
+            "x": 8498.13110603599
+          }
+        ],
+        "shrugs": 0,
+        "slips": 0,
+        "snaps": 0,
+        "spots": {
+          "berry": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "bug": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "flower": [
+            true
+          ],
+          "herb": [
+            true,
+            true,
+            true,
+            true
+          ]
+        },
+        "stamina": 1.0,
+        "stock": {
+          "berry": 4,
+          "bug": 4,
+          "flower": 1,
+          "herb": 4
+        },
+        "t": 4.0,
+        "talking": false,
+        "taps": 0,
+        "tension": 0.0,
+        "tick": 240,
+        "transition": false
+      }
+    }
+  ],
+  "inputs": {
+    "pressed": 0,
+    "responded": 0,
+    "unmapped": 0,
+    "unverified": 0,
+    "unresponsive": []
+  },
+  "liveness": {
+    "verified": false,
+    "reason": "보낸 입력이 없다"
+  },
+  "logs": [
+    {
+      "level": "warning",
+      "text": "WARNING: 2 ObjectDB instances were leaked at exit (run with `--verbose` for details). at: cleanup (core/object/object.cpp:2536)"
+    },
+    {
+      "level": "warning",
+      "text": "ERROR: 1 resources still in use at exit (run with --verbose for details). at: clear (core/io/resource.cpp:822)"
+    }
+  ]
+}

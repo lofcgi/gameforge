@@ -2,8 +2,8 @@ class_name Sea
 ## 바다의 모양: 구간, 바닥 깊이, 잔물결. 모두 x(px)와 틱만으로 정해지는 순수 함수다.
 
 const BLEND_M := 50.0
-const TABLE_FROM := -400.0
-const TABLE_STEP := 4.0
+const TABLE_FROM := -800.0
+const TABLE_STEP := 8.0
 const TABLE_SIZE := 1400
 
 static var _tables := {}
@@ -77,7 +77,7 @@ static func _bed_exact(x: float) -> float:
 
 static func ripple_y(x: float, tick: int) -> float:
 	var t := tick / 60.0
-	var wave := 0.55 * sin(x * 0.045 - t * 1.6) + 0.3 * sin(x * 0.021 + t * 1.1 + 1.3) + 0.2 * sin(x * 0.09 - t * 2.3 + 4.0)
+	var wave := 0.55 * sin(x * 0.0225 - t * 1.6) + 0.3 * sin(x * 0.0105 + t * 1.1 + 1.3) + 0.2 * sin(x * 0.045 - t * 2.3 + 4.0)
 	return blend(x, "amp") * wave
 
 

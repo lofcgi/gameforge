@@ -1,0 +1,17 @@
+{
+ "seed": 3,
+ "actions": [
+  {
+   "t": 0.3,
+   "tap": "cancel"
+  },
+  {
+   "t": 1.0,
+   "tap": "right"
+  },
+  {
+   "t": 1.6,
+   "tap": "action"
+  }
+ ]
+}

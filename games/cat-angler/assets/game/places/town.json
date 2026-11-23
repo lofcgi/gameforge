@@ -1,0 +1,12 @@
+{
+ "doors": {
+  "bait": 197,
+  "market": 522,
+  "yard": 825,
+  "tackle": 1068
+ },
+ "pier": 1540,
+ "ground_y": 302,
+ "left": 24,
+ "right": 1584
+}

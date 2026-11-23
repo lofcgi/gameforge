@@ -1,0 +1,795 @@
+{
+  "ok": false,
+  "at": "2026-11-23T09:00:16+09:00",
+  "error": "소리 측정 실패: 반복 지점까지 재지 못했다: assets/game/audio/title.wav, assets/game/cutscenes/audio/cutscene_intro.wav, assets/game/audio/town.wav. --seconds 를 곡 길이보다 길게 준다",
+  "measured": "엔진 안의 최종 신호 (Godot: 마스터 버스, web: destination 직전). 스피커 소리가 아니다",
+  "seconds": 6.24,
+  "peak_db": -2.2,
+  "rms_db": -23.4,
+  "before_first_input": {
+    "seconds": 0.64,
+    "peak_db": -2.2,
+    "sounds": [
+      "assets/game/audio/ui_ok.wav",
+      "assets/game/audio/title.wav"
+    ],
+    "audio_contexts": 0
+  },
+  "sounds": {
+    "assets/game/audio/ui_ok.wav": {
+      "starts": 1,
+      "loop": false,
+      "length_s": 0.48
+    },
+    "assets/game/audio/title.wav": {
+      "starts": 1,
+      "loop": true,
+      "length_s": 29.674
+    },
+    "assets/game/cutscenes/audio/cutscene_intro.wav": {
+      "starts": 1,
+      "loop": true,
+      "length_s": 37.464
+    },
+    "assets/game/cutscenes/audio/bubbles.wav": {
+      "starts": 1,
+      "loop": false,
+      "length_s": 1.917
+    },
+    "assets/game/audio/ui_cancel.wav": {
+      "starts": 1,
+      "loop": false,
+      "length_s": 0.48
+    },
+    "assets/game/audio/town.wav": {
+      "starts": 1,
+      "loop": true,
+      "length_s": 38.406
+    }
+  },
+  "responses": [
+    {
+      "t": 0.833,
+      "kind": "input",
+      "name": "action",
+      "sounds": [],
+      "peak_db_before": -9.3,
+      "peak_db_after": -11.3
+    },
+    {
+      "t": 1.933,
+      "kind": "input",
+      "name": "cancel",
+      "sounds": [
+        "assets/game/audio/ui_cancel.wav"
+      ],
+      "peak_db_before": -17.0,
+      "peak_db_after": -2.6
+    },
+    {
+      "t": 6.333,
+      "kind": "input",
+      "name": "left",
+      "sounds": [],
+      "peak_db_before": -15.6,
+      "peak_db_after": -15.5
+    }
+  ],
+  "loops": [
+    {
+      "sound": "assets/game/audio/title.wav",
+      "length_s": 29.674,
+      "started_t": 0.017,
+      "observed_s": 6.03,
+      "wraps": 0,
+      "continues": null,
+      "peak_db_after_wrap": null,
+      "quiet_ms_at_wrap": null
+    },
+    {
+      "sound": "assets/game/cutscenes/audio/cutscene_intro.wav",
+      "length_s": 37.464,
+      "started_t": 1.1,
+      "observed_s": 5.12,
+      "wraps": 0,
+      "continues": null,
+      "peak_db_after_wrap": null,
+      "quiet_ms_at_wrap": null
+    },
+    {
+      "sound": "assets/game/audio/town.wav",
+      "length_s": 38.406,
+      "started_t": 3.7,
+      "observed_s": 2.56,
+      "wraps": 0,
+      "continues": null,
+      "peak_db_after_wrap": null,
+      "quiet_ms_at_wrap": null
+    }
+  ],
+  "gaps": [
+    {
+      "ms": 3360,
+      "t": 3.36,
+      "quiet_ms": 26.4
+    },
+    {
+      "ms": 3466,
+      "t": 3.47,
+      "quiet_ms": 52.1
+    },
+    {
+      "ms": 3573,
+      "t": 3.57,
+      "quiet_ms": 109.0
+    },
+    {
+      "ms": 3679,
+      "t": 3.68,
+      "quiet_ms": 110.4
+    }
+  ],
+  "checks": {
+    "audible": "ok",
+    "loop_continues": "반복 지점까지 재지 못했다: assets/game/audio/title.wav, assets/game/cutscenes/audio/cutscene_intro.wav, assets/game/audio/town.wav. --seconds 를 곡 길이보다 길게 준다",
+    "no_errors": "ok"
+  },
+  "marks": [
+    {
+      "tick": 50,
+      "kind": "input",
+      "name": "action"
+    },
+    {
+      "tick": 116,
+      "kind": "input",
+      "name": "cancel"
+    },
+    {
+      "tick": 380,
+      "kind": "input",
+      "name": "left"
+    }
+  ],
+  "timeline": [
+    {
+      "bus_peak_db": {
+        "Master": -4.36560297012329
+      },
+      "ms": 213,
+      "peak_db": -3.48080208943639,
+      "quiet_ms": 214.6875,
+      "rms_db": -15.6986771227679,
+      "tick": 22
+    },
+    {
+      "bus_peak_db": {
+        "Master": -3.20334076881409
+      },
+      "ms": 318,
+      "peak_db": -2.1815554020966,
+      "quiet_ms": 0.0,
+      "rms_db": -11.1526153992504,
+      "tick": 28
+    },
+    {
+      "bus_peak_db": {
+        "Master": -9.33080101013184
+      },
+      "ms": 425,
+      "peak_db": -9.33080146984941,
+      "quiet_ms": 0.0,
+      "rms_db": -20.9788589113159,
+      "tick": 35
+    },
+    {
+      "bus_peak_db": {
+        "Master": -9.26198863983154
+      },
+      "ms": 533,
+      "peak_db": -9.26198956961191,
+      "quiet_ms": 0.0,
+      "rms_db": -21.6074480545051,
+      "tick": 41
+    },
+    {
+      "bus_peak_db": {
+        "Master": -13.9551639556885
+      },
+      "ms": 640,
+      "peak_db": -13.9551650561253,
+      "quiet_ms": 0.0,
+      "rms_db": -22.9775444755322,
+      "tick": 48
+    },
+    {
+      "bus_peak_db": {
+        "Master": -15.3514986038208
+      },
+      "ms": 747,
+      "peak_db": -15.3514991511093,
+      "quiet_ms": 0.0,
+      "rms_db": -25.6425615047743,
+      "tick": 54
+    },
+    {
+      "bus_peak_db": {
+        "Master": -11.2504253387451
+      },
+      "ms": 852,
+      "peak_db": -11.2504259012718,
+      "quiet_ms": 0.0,
+      "rms_db": -22.90896409727,
+      "tick": 61
+    },
+    {
+      "bus_peak_db": {
+        "Master": -14.5724306106567
+      },
+      "ms": 959,
+      "peak_db": -14.4679835347326,
+      "quiet_ms": 0.0,
+      "rms_db": -23.7036936485473,
+      "tick": 66
+    },
+    {
+      "bus_peak_db": {
+        "Master": -16.6617946624756
+      },
+      "ms": 1122,
+      "peak_db": -16.6617953584913,
+      "quiet_ms": 0.0,
+      "rms_db": -33.7364613413179,
+      "tick": 77
+    },
+    {
+      "bus_peak_db": {
+        "Master": -30.5538196563721
+      },
+      "ms": 1229,
+      "peak_db": -30.5538208191202,
+      "quiet_ms": 0.0,
+      "rms_db": -38.3125611641822,
+      "tick": 83
+    },
+    {
+      "bus_peak_db": {
+        "Master": -30.7735443115234
+      },
+      "ms": 1332,
+      "peak_db": -30.7735455519454,
+      "quiet_ms": 0.0625,
+      "rms_db": -40.384992545061,
+      "tick": 90
+    },
+    {
+      "bus_peak_db": {
+        "Master": -32.6201171875
+      },
+      "ms": 1445,
+      "peak_db": -32.6201188514271,
+      "quiet_ms": 0.0,
+      "rms_db": -42.6136882526848,
+      "tick": 96
+    },
+    {
+      "bus_peak_db": {
+        "Master": -28.4563179016113
+      },
+      "ms": 1548,
+      "peak_db": -28.4563185834916,
+      "quiet_ms": 0.0,
+      "rms_db": -37.9369176809293,
+      "tick": 103
+    },
+    {
+      "bus_peak_db": {
+        "Master": -16.9974918365479
+      },
+      "ms": 1653,
+      "peak_db": -16.9974933816702,
+      "quiet_ms": 0.0,
+      "rms_db": -26.9968581584359,
+      "tick": 109
+    },
+    {
+      "bus_peak_db": {
+        "Master": -17.3107070922852
+      },
+      "ms": 1761,
+      "peak_db": -17.3107069448214,
+      "quiet_ms": 0.0,
+      "rms_db": -28.4849014604174,
+      "tick": 115
+    },
+    {
+      "bus_peak_db": {
+        "Master": -2.64568257331848
+      },
+      "ms": 1866,
+      "peak_db": -2.64568253559486,
+      "quiet_ms": 0.0,
+      "rms_db": -13.1693597827228,
+      "tick": 122
+    },
+    {
+      "bus_peak_db": {
+        "Master": -7.07323026657104
+      },
+      "ms": 1974,
+      "peak_db": -7.07323060971397,
+      "quiet_ms": 0.0,
+      "rms_db": -17.2390828771882,
+      "tick": 128
+    },
+    {
+      "bus_peak_db": {
+        "Master": -19.5231533050537
+      },
+      "ms": 2081,
+      "peak_db": -19.1797230582573,
+      "quiet_ms": 0.0,
+      "rms_db": -29.2470979440339,
+      "tick": 135
+    },
+    {
+      "bus_peak_db": {
+        "Master": -23.6644592285156
+      },
+      "ms": 2187,
+      "peak_db": -23.6644598521469,
+      "quiet_ms": 0.0208333333333333,
+      "rms_db": -35.0971750074171,
+      "tick": 141
+    },
+    {
+      "bus_peak_db": {
+        "Master": -30.1680583953857
+      },
+      "ms": 2295,
+      "peak_db": -27.5235434628278,
+      "quiet_ms": 0.0,
+      "rms_db": -38.8277352834409,
+      "tick": 147
+    },
+    {
+      "bus_peak_db": {
+        "Master": -21.2100067138672
+      },
+      "ms": 2399,
+      "peak_db": -21.2100072151918,
+      "quiet_ms": 0.0,
+      "rms_db": -32.9752043848761,
+      "tick": 154
+    },
+    {
+      "bus_peak_db": {
+        "Master": -27.5331783294678
+      },
+      "ms": 2512,
+      "peak_db": -27.5331801429525,
+      "quiet_ms": 0.0,
+      "rms_db": -35.1332992654521,
+      "tick": 160
+    },
+    {
+      "bus_peak_db": {
+        "Master": -28.7445602416992
+      },
+      "ms": 2614,
+      "peak_db": -28.7445614515975,
+      "quiet_ms": 0.0,
+      "rms_db": -36.9624617413584,
+      "tick": 167
+    },
+    {
+      "bus_peak_db": {
+        "Master": -28.9750843048096
+      },
+      "ms": 2721,
+      "peak_db": -28.9750849792798,
+      "quiet_ms": 0.0,
+      "rms_db": -39.1343782930198,
+      "tick": 173
+    },
+    {
+      "bus_peak_db": {
+        "Master": -21.1344013214111
+      },
+      "ms": 2827,
+      "peak_db": -21.1344030951161,
+      "quiet_ms": 0.0,
+      "rms_db": -33.4878231420366,
+      "tick": 179
+    },
+    {
+      "bus_peak_db": {
+        "Master": -25.1429004669189
+      },
+      "ms": 2932,
+      "peak_db": -25.1429031475567,
+      "quiet_ms": 0.0,
+      "rms_db": -36.3230827753076,
+      "tick": 186
+    },
+    {
+      "bus_peak_db": {
+        "Master": -31.8044605255127
+      },
+      "ms": 3044,
+      "peak_db": -31.5728316711213,
+      "quiet_ms": 0.0,
+      "rms_db": -42.4373277020131,
+      "tick": 192
+    },
+    {
+      "bus_peak_db": {
+        "Master": -38.8323745727539
+      },
+      "ms": 3152,
+      "peak_db": -38.8323757983392,
+      "quiet_ms": 0.0,
+      "rms_db": -48.2064164900395,
+      "tick": 199
+    },
+    {
+      "bus_peak_db": {
+        "Master": -36.926815032959
+      },
+      "ms": 3258,
+      "peak_db": -36.9268169627651,
+      "quiet_ms": 0.0,
+      "rms_db": -47.2189130290683,
+      "tick": 205
+    },
+    {
+      "bus_peak_db": {
+        "Master": -48.3720512390137
+      },
+      "ms": 3360,
+      "peak_db": -48.3720512611438,
+      "quiet_ms": 26.4375,
+      "rms_db": -62.724486337384,
+      "tick": 211
+    },
+    {
+      "bus_peak_db": {
+        "Master": -75.1163330078125
+      },
+      "ms": 3466,
+      "peak_db": -75.1163405295543,
+      "quiet_ms": 52.0833333333333,
+      "rms_db": -91.6276596078404,
+      "tick": 218
+    },
+    {
+      "bus_peak_db": {
+        "Master": -199.999984741211
+      },
+      "ms": 3573,
+      "peak_db": -200.0,
+      "quiet_ms": 109.0,
+      "rms_db": -200.0,
+      "tick": 222
+    },
+    {
+      "bus_peak_db": {
+        "Master": -21.8575267791748
+      },
+      "ms": 3679,
+      "peak_db": -21.664943866649,
+      "quiet_ms": 110.375,
+      "rms_db": -31.7643523434963,
+      "tick": 230
+    },
+    {
+      "bus_peak_db": {
+        "Master": -18.7314338684082
+      },
+      "ms": 3787,
+      "peak_db": -18.7314336035179,
+      "quiet_ms": 0.0208333333333333,
+      "rms_db": -33.2772991195206,
+      "tick": 237
+    },
+    {
+      "bus_peak_db": {
+        "Master": -15.2324361801147
+      },
+      "ms": 3894,
+      "peak_db": -15.2324365157005,
+      "quiet_ms": 0.0,
+      "rms_db": -23.8538679644542,
+      "tick": 243
+    },
+    {
+      "bus_peak_db": {
+        "Master": -19.3443870544434
+      },
+      "ms": 4000,
+      "peak_db": -19.3443878862473,
+      "quiet_ms": 0.0,
+      "rms_db": -26.6093573942296,
+      "tick": 249
+    },
+    {
+      "bus_peak_db": {
+        "Master": -14.0039157867432
+      },
+      "ms": 4105,
+      "peak_db": -14.0039161778723,
+      "quiet_ms": 0.0,
+      "rms_db": -26.6195957856128,
+      "tick": 256
+    },
+    {
+      "bus_peak_db": {
+        "Master": -16.0071792602539
+      },
+      "ms": 4214,
+      "peak_db": -16.0071798006875,
+      "quiet_ms": 0.0,
+      "rms_db": -26.9714277363504,
+      "tick": 262
+    },
+    {
+      "bus_peak_db": {
+        "Master": -20.4701824188232
+      },
+      "ms": 4319,
+      "peak_db": -20.4701832435888,
+      "quiet_ms": 0.0,
+      "rms_db": -30.8216585575615,
+      "tick": 269
+    },
+    {
+      "bus_peak_db": {
+        "Master": -12.8301973342896
+      },
+      "ms": 4428,
+      "peak_db": -11.557152173792,
+      "quiet_ms": 0.0208333333333333,
+      "rms_db": -23.9177534004402,
+      "tick": 275
+    },
+    {
+      "bus_peak_db": {
+        "Master": -14.9594316482544
+      },
+      "ms": 4535,
+      "peak_db": -14.9594328632521,
+      "quiet_ms": 0.0,
+      "rms_db": -25.5384072019456,
+      "tick": 282
+    },
+    {
+      "bus_peak_db": {
+        "Master": -19.9512729644775
+      },
+      "ms": 4641,
+      "peak_db": -19.2606349166233,
+      "quiet_ms": 0.0,
+      "rms_db": -29.6952829767941,
+      "tick": 288
+    },
+    {
+      "bus_peak_db": {
+        "Master": -20.6049022674561
+      },
+      "ms": 4748,
+      "peak_db": -20.6049026986097,
+      "quiet_ms": 0.0,
+      "rms_db": -31.1359434266147,
+      "tick": 294
+    },
+    {
+      "bus_peak_db": {
+        "Master": -18.0562057495117
+      },
+      "ms": 4853,
+      "peak_db": -18.0562060304864,
+      "quiet_ms": 0.0,
+      "rms_db": -30.4816190992619,
+      "tick": 301
+    },
+    {
+      "bus_peak_db": {
+        "Master": -20.5081405639648
+      },
+      "ms": 4960,
+      "peak_db": -20.5081417333166,
+      "quiet_ms": 0.0,
+      "rms_db": -31.0598824669522,
+      "tick": 307
+    },
+    {
+      "bus_peak_db": {
+        "Master": -16.9220314025879
+      },
+      "ms": 5067,
+      "peak_db": -16.9220326564997,
+      "quiet_ms": 0.0,
+      "rms_db": -26.3103123088411,
+      "tick": 314
+    },
+    {
+      "bus_peak_db": {
+        "Master": -20.7176418304443
+      },
+      "ms": 5180,
+      "peak_db": -19.9975714591293,
+      "quiet_ms": 0.0,
+      "rms_db": -27.7153958969143,
+      "tick": 320
+    },
+    {
+      "bus_peak_db": {
+        "Master": -21.4042911529541
+      },
+      "ms": 5282,
+      "peak_db": -21.3683922302724,
+      "quiet_ms": 0.0,
+      "rms_db": -29.8374567486709,
+      "tick": 326
+    },
+    {
+      "bus_peak_db": {
+        "Master": -14.2950057983398
+      },
+      "ms": 5386,
+      "peak_db": -13.0204059045746,
+      "quiet_ms": 0.0,
+      "rms_db": -24.6207258745338,
+      "tick": 333
+    },
+    {
+      "bus_peak_db": {
+        "Master": -19.6714420318604
+      },
+      "ms": 5494,
+      "peak_db": -19.6714431629847,
+      "quiet_ms": 0.0,
+      "rms_db": -29.9883243462066,
+      "tick": 339
+    },
+    {
+      "bus_peak_db": {
+        "Master": -11.0218410491943
+      },
+      "ms": 5601,
+      "peak_db": -11.0218418465843,
+      "quiet_ms": 0.0,
+      "rms_db": -25.3069090041922,
+      "tick": 346
+    },
+    {
+      "bus_peak_db": {
+        "Master": -11.7656421661377
+      },
+      "ms": 5707,
+      "peak_db": -11.765643039123,
+      "quiet_ms": 0.0,
+      "rms_db": -22.0261836238074,
+      "tick": 352
+    },
+    {
+      "bus_peak_db": {
+        "Master": -16.9635944366455
+      },
+      "ms": 5814,
+      "peak_db": -16.9635960146265,
+      "quiet_ms": 0.0,
+      "rms_db": -27.1579381055076,
+      "tick": 358
+    },
+    {
+      "bus_peak_db": {
+        "Master": -15.550895690918
+      },
+      "ms": 5920,
+      "peak_db": -15.5508960671905,
+      "quiet_ms": 0.0,
+      "rms_db": -28.0925304568732,
+      "tick": 365
+    },
+    {
+      "bus_peak_db": {
+        "Master": -19.4616241455078
+      },
+      "ms": 6027,
+      "peak_db": -18.5607711403817,
+      "quiet_ms": 0.0,
+      "rms_db": -28.7335715285354,
+      "tick": 371
+    },
+    {
+      "bus_peak_db": {
+        "Master": -19.5093669891357
+      },
+      "ms": 6134,
+      "peak_db": -19.5093677319853,
+      "quiet_ms": 0.0,
+      "rms_db": -29.8570405240394,
+      "tick": 378
+    },
+    {
+      "bus_peak_db": {
+        "Master": -15.4753484725952
+      },
+      "ms": 6240,
+      "peak_db": -15.4753495386882,
+      "quiet_ms": 0.0,
+      "rms_db": -27.5166136951666,
+      "tick": 384
+    }
+  ],
+  "events": [
+    {
+      "bus": "Master",
+      "kind": "start",
+      "length_s": 0.480022675736961,
+      "loop": false,
+      "ms": 212,
+      "sound": "res://assets/game/audio/ui_ok.wav",
+      "t": 0.0166666666666667,
+      "tick": 1,
+      "volume_db": 0.0
+    },
+    {
+      "bus": "Master",
+      "kind": "start",
+      "length_s": 29.6744583333333,
+      "loop": true,
+      "ms": 212,
+      "sound": "res://assets/game/audio/title.wav",
+      "t": 0.0166666666666667,
+      "tick": 1,
+      "volume_db": -8.0
+    },
+    {
+      "bus": "Master",
+      "kind": "start",
+      "length_s": 37.4639166666667,
+      "loop": true,
+      "ms": 1123,
+      "sound": "res://assets/game/cutscenes/audio/cutscene_intro.wav",
+      "t": 1.1,
+      "tick": 66,
+      "volume_db": -8.0
+    },
+    {
+      "bus": "Master",
+      "kind": "start",
+      "length_s": 1.91741496598639,
+      "loop": false,
+      "ms": 1652,
+      "sound": "res://assets/game/cutscenes/audio/bubbles.wav",
+      "t": 1.7,
+      "tick": 102,
+      "volume_db": -3.0
+    },
+    {
+      "bus": "Master",
+      "kind": "start",
+      "length_s": 0.480022675736961,
+      "loop": false,
+      "ms": 1919,
+      "sound": "res://assets/game/audio/ui_cancel.wav",
+      "t": 1.96666666666667,
+      "tick": 118,
+      "volume_db": 0.0
+    },
+    {
+      "bus": "Master",
+      "kind": "start",
+      "length_s": 38.4058958333333,
+      "loop": true,
+      "ms": 3680,
+      "sound": "res://assets/game/audio/town.wav",
+      "t": 3.7,
+      "tick": 222,
+      "volume_db": -8.0
+    }
+  ],
+  "logs": []
+}

@@ -1,0 +1,27 @@
+{
+  "image": "keeper_tackle_talk.png",
+  "frame_size": [
+    48,
+    56
+  ],
+  "animations": {
+    "keeper_tackle_talk": {
+      "fps": 6.0,
+      "loop": true,
+      "frames": [
+        {
+          "x": 0,
+          "y": 0,
+          "w": 48,
+          "h": 56
+        },
+        {
+          "x": 48,
+          "y": 0,
+          "w": 48,
+          "h": 56
+        }
+      ]
+    }
+  }
+}

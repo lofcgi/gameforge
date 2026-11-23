@@ -1,0 +1,24 @@
+{"ok": true, "files": ["assets/raw/audio/step.mp3"], "role": "audio.sfx", "endpoint": "elevenlabs/sound-effects/v3", "ar
+{"ok": true, "files": ["assets/raw/audio/pick.mp3"], "role": "audio.sfx", "endpoint": "elevenlabs/sound-effects/v3", "ar
+{"ok": true, "files": ["assets/raw/audio/door.mp3"], "role": "audio.sfx", "endpoint": "elevenlabs/sound-effects/v3", "ar
+{"ok": true, "files": ["assets/raw/audio/coin.mp3"], "role": "audio.sfx", "endpoint": "elevenlabs/sound-effects/v3", "ar
+{"ok": true, "files": ["assets/raw/audio/buy.mp3"], "role": "audio.sfx", "endpoint": "elevenlabs/sound-effects/v3", "arg
+{"ok": true, "files": ["assets/raw/audio/craft.mp3"], "role": "audio.sfx", "endpoint": "elevenlabs/sound-effects/v3", "a
+{"ok": true, "files": ["assets/raw/audio/anchor_down.mp3"], "role": "audio.sfx", "endpoint": "elevenlabs/sound-effects/v
+{"ok": true, "files": ["assets/raw/audio/anchor_up.mp3"], "role": "audio.sfx", "endpoint": "elevenlabs/sound-effects/v3"
+{"ok": true, "files": ["assets/raw/audio/cast.mp3"], "role": "audio.sfx", "endpoint": "elevenlabs/sound-effects/v3", "ar
+{"ok": true, "files": ["assets/raw/audio/nibble.mp3"], "role": "audio.sfx", "endpoint": "elevenlabs/sound-effects/v3", "
+{"ok": true, "files": ["assets/raw/audio/bite.mp3"], "role": "audio.sfx", "endpoint": "elevenlabs/sound-effects/v3", "ar
+{"ok": true, "files": ["assets/raw/audio/reel.mp3"], "role": "audio.sfx", "endpoint": "elevenlabs/sound-effects/v3", "ar
+{"ok": true, "files": ["assets/raw/audio/line_strain.mp3"], "role": "audio.sfx", "endpoint": "elevenlabs/sound-effects/v
+{"ok": true, "files": ["assets/raw/audio/snap.mp3"], "role": "audio.sfx", "endpoint": "elevenlabs/sound-effects/v3", "ar
+{"ok": true, "files": ["assets/raw/audio/slip.mp3"], "role": "audio.sfx", "endpoint": "elevenlabs/sound-effects/v3", "ar
+{"ok": true, "files": ["assets/raw/audio/catch_small.mp3"], "role": "audio.sfx", "endpoint": "elevenlabs/sound-effects/v
+{"ok": true, "files": ["assets/raw/audio/catch_big.mp3"], "role": "audio.sfx", "endpoint": "elevenlabs/sound-effects/v3"
+{"ok": true, "files": ["assets/raw/audio/wave_hit.mp3"], "role": "audio.sfx", "endpoint": "elevenlabs/sound-effects/v3",
+{"ok": true, "files": ["assets/raw/audio/splash.mp3"], "role": "audio.sfx", "endpoint": "elevenlabs/sound-effects/v3", "
+{"ok": true, "files": ["assets/raw/audio/ui_move.mp3"], "role": "audio.sfx", "endpoint": "elevenlabs/sound-effects/v3", 
+{"ok": true, "files": ["assets/raw/audio/ui_ok.mp3"], "role": "audio.sfx", "endpoint": "elevenlabs/sound-effects/v3", "a
+{"ok": true, "files": ["assets/raw/audio/ui_cancel.mp3"], "role": "audio.sfx", "endpoint": "elevenlabs/sound-effects/v3"
+{"ok": true, "files": ["assets/raw/audio/codex_new.mp3"], "role": "audio.sfx", "endpoint": "elevenlabs/sound-effects/v3"
+SFX_DONE

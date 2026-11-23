@@ -1,0 +1,27 @@
+{
+  "image": "cat_sad.png",
+  "frame_size": [
+    80,
+    60
+  ],
+  "animations": {
+    "cat_sad": {
+      "fps": 2.0,
+      "loop": true,
+      "frames": [
+        {
+          "x": 0,
+          "y": 0,
+          "w": 80,
+          "h": 60
+        },
+        {
+          "x": 80,
+          "y": 0,
+          "w": 80,
+          "h": 60
+        }
+      ]
+    }
+  }
+}
