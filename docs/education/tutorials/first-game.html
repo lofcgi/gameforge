@@ -1,0 +1,328 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>첫 게임 실행하고 캐릭터 넣기 · gameforge 교육 자료</title>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<header class="top">
+  <a class="brand" href="../index.html">gameforge 교육 자료</a>
+  <button class="menu" aria-label="목차 열기" onclick="document.body.classList.toggle('nav-open')">목차</button>
+</header>
+<div class="layout">
+<nav class="side" aria-label="문서 목차">
+<p class="group">시작</p><ul>
+<li><a href="../index.html">AI 에이전트로 게임 하네스 만들기</a></li>
+<li><a href="../glossary.html">용어집</a></li>
+</ul>
+<p class="group">설명</p><ul>
+<li><a href="../explanations/why-harness.html">하네스가 필요한 이유</a></li>
+<li><a href="../explanations/harness-structure.html">gameforge 하네스의 구조</a></li>
+<li><a href="../explanations/splitting-work.html">에이전트 작업 분할 원칙</a></li>
+<li><a href="../explanations/three-checks.html">세 가지 검증의 역할</a></li>
+<li><a href="../explanations/cat-angler-case-study.html">cat-angler 제작 과정</a></li>
+</ul>
+<p class="group">학습</p><ul>
+<li><a class="active" aria-current="page" href="../tutorials/first-game.html">첫 게임 실행하고 캐릭터 넣기</a></li>
+</ul>
+<p class="group">문제 해결</p><ul>
+<li><a href="../how-tos/collect-references.html">레퍼런스 모으고 고르기</a></li>
+<li><a href="../how-tos/run-design-interview.html">설계 인터뷰 하기</a></li>
+<li><a href="../how-tos/make-pixel-asset.html">생성 이미지를 픽셀 에셋으로 만들기</a></li>
+<li><a href="../how-tos/make-sprite-animation.html">스프라이트 애니메이션 만들기</a></li>
+<li><a href="../how-tos/run-blind-judge.html">블라인드 심사 돌리기</a></li>
+<li><a href="../how-tos/verify-sound.html">듣지 않고 소리 검증하기</a></li>
+<li><a href="../how-tos/write-agent-brief.html">제작 에이전트 작업 지시서 쓰기</a></li>
+<li><a href="../how-tos/publish-safely.html">공개 저장소에 안전하게 올리기</a></li>
+</ul>
+<p class="group">참조</p><ul>
+<li><a href="../reference/gf-commands.html">gf 명령 모음</a></li>
+<li><a href="../reference/stages-and-outputs.html">단계별 스킬과 산출물</a></li>
+<li><a href="../reference/costs.html">생성 비용표</a></li>
+<li><a href="../reference/failure-catalogue.html">실패 사례 목록</a></li>
+</ul>
+</nav>
+<main>
+<article>
+<p class="badge">학습 (튜토리얼)</p>
+<h1 id="_1">첫 게임 실행하고 캐릭터 넣기</h1>
+<p>이 튜토리얼을 끝내면 gameforge로 만든 작은 게임에 여러분이 후처리한 픽셀 캐릭터가 서 있는 스크린샷을 얻어요. 그 과정에서 하네스의 핵심 흐름인 "실행한다 → 찍는다 → 본다"와 픽셀 에셋의 후처리 사슬을 손으로 한 번 거쳐요.</p>
+<p>코딩 에이전트 없이 터미널에서 <code>gf</code> 명령을 직접 실행해요. 에이전트가 스킬을 읽고 실행하는 명령과 똑같은 명령이에요.</p>
+<h2 id="_2">목표</h2>
+<ul>
+<li>저장소를 내려받고 환경을 점검해요.</li>
+<li>템플릿으로 게임 프로젝트를 만들고 실행해요.</li>
+<li>스모크 테스트, 스크린샷, 플레이 봇으로 게임을 확인해요.</li>
+<li>생성 이미지 한 장을 후처리 사슬에 통과시켜 게임에 넣어요.</li>
+</ul>
+<p><strong>비용</strong>: 7단계에서 "저장소에 든 원본 쓰기"를 고르면 전체가 무료예요. "새로 생성하기"를 고르면 이미지 1장에 약 $0.08이 들어요. 나머지 단계는 모두 무료예요.</p>
+<h2 id="_3">준비하기</h2>
+<p>macOS 기준이에요. 아래 도구를 설치하세요.</p>
+<div class="code"><pre><span></span><code>brew<span class="w"> </span>install<span class="w"> </span>uv<span class="w"> </span>ffmpeg
+brew<span class="w"> </span>install<span class="w"> </span>--cask<span class="w"> </span>godot
+</code></pre></div>
+
+<ul>
+<li>uv는 <code>gf</code>를 실행하고, Godot은 게임을 실행하고, ffmpeg는 영상과 소리를 다뤄요.</li>
+<li>Blender, node, bun은 이 튜토리얼에서 쓰지 않아요.</li>
+<li>모든 명령은 <strong>저장소 루트</strong>에서 실행해요.</li>
+</ul>
+<h2 id="1">1. 저장소 내려받기</h2>
+<p>저장소를 내려받고 <code>gf</code>가 쓰는 Python 패키지를 설치하세요.</p>
+<div class="code"><pre><span></span><code>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/lofcgi/gameforge.git
+<span class="nb">cd</span><span class="w"> </span>gameforge
+<span class="o">(</span><span class="nb">cd</span><span class="w"> </span>harness/tools<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>uv<span class="w"> </span>sync<span class="o">)</span>
+</code></pre></div>
+
+<p>마지막 명령이 <code>Resolved 28 packages</code>와 비슷한 줄로 끝나면 준비됐어요.</p>
+<h2 id="2">2. 환경 점검하기</h2>
+<p><code>gf doctor</code>로 필요한 도구가 있는지 확인하세요.</p>
+<div class="code"><pre><span></span><code>uv<span class="w"> </span>run<span class="w"> </span>-q<span class="w"> </span>--project<span class="w"> </span>harness/tools<span class="w"> </span>gf<span class="w"> </span>doctor
+</code></pre></div>
+
+<p>이런 JSON 한 줄이 나와요. 버전 숫자는 달라도 돼요.</p>
+<div class="code"><pre><span></span><code><span class="p">{</span><span class="nt">"ok"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"> </span><span class="nt">"tools"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">"godot"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4.7.2.stable.official.ed1daf0bf"</span><span class="p">,</span><span class="w"> </span><span class="nt">"blender"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Blender 5.3.0"</span><span class="p">,</span><span class="w"> </span><span class="nt">"ffmpeg"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ffmpeg version 8.1 ..."</span><span class="p">,</span><span class="w"> </span><span class="nt">"node"</span><span class="p">:</span><span class="w"> </span><span class="s2">"v26.13.0"</span><span class="p">,</span><span class="w"> </span><span class="nt">"bun"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1.3.13"</span><span class="p">},</span><span class="w"> </span><span class="nt">"chrome"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"> </span><span class="nt">"fal_key"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"> </span><span class="nt">"missing"</span><span class="p">:</span><span class="w"> </span><span class="p">[]}</span>
+</code></pre></div>
+
+<p>확인할 것은 두 가지예요.</p>
+<ul>
+<li><code>tools</code>의 <code>godot</code>과 <code>ffmpeg</code>에 버전이 들어 있어야 해요. <code>missing</code>에 <code>blender</code>, <code>node</code>, <code>bun</code>이 있어도 이 튜토리얼은 진행할 수 있어요.</li>
+<li><code>fal_key</code>가 <code>false</code>여도 무료 경로는 끝까지 갈 수 있어요.</li>
+</ul>
+<p><code>gf</code>의 모든 명령은 이렇게 마지막 줄에 JSON을 내요. <code>"ok": true</code>면 성공이에요.</p>
+<h2 id="3">3. 게임 프로젝트 만들기</h2>
+<p>명령이 길어서 먼저 짧은 함수를 만들어요. 이 함수는 <code>games/first-game</code> 폴더를 게임 프로젝트로 지정해서 <code>gf</code>를 실행해요.</p>
+<div class="code"><pre><span></span><code>gf<span class="o">()</span><span class="w"> </span><span class="o">{</span><span class="w"> </span>uv<span class="w"> </span>run<span class="w"> </span>-q<span class="w"> </span>--project<span class="w"> </span>harness/tools<span class="w"> </span>gf<span class="w"> </span>--project<span class="w"> </span>games/first-game<span class="w"> </span><span class="s2">"</span><span class="nv">$@</span><span class="s2">"</span><span class="p">;</span><span class="w"> </span><span class="o">}</span>
+</code></pre></div>
+
+<p>템플릿으로 프로젝트를 만드세요. Godot 엔진, 2D, 픽셀 아트 스타일을 골라요.</p>
+<div class="code"><pre><span></span><code>gf<span class="w"> </span>init<span class="w"> </span>--engine<span class="w"> </span>godot<span class="w"> </span>--dim<span class="w"> </span>2d<span class="w"> </span>--style<span class="w"> </span>pixel<span class="w"> </span>--name<span class="w"> </span>first-game
+</code></pre></div>
+
+<div class="code"><pre><span></span><code><span class="p">{</span><span class="nt">"ok"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"> </span><span class="nt">"project"</span><span class="p">:</span><span class="w"> </span><span class="s2">".../games/first-game"</span><span class="p">,</span><span class="w"> </span><span class="nt">"template"</span><span class="p">:</span><span class="w"> </span><span class="s2">"godot-2d"</span><span class="p">,</span><span class="w"> </span><span class="nt">"render"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">"units"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">320</span><span class="p">,</span><span class="w"> </span><span class="mi">180</span><span class="p">],</span><span class="w"> </span><span class="nt">"pixels_per_unit"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="nt">"filter"</span><span class="p">:</span><span class="w"> </span><span class="s2">"nearest"</span><span class="p">,</span><span class="w"> </span><span class="nt">"scaling"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">},</span><span class="w"> </span><span class="nt">"state"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"first-game"</span><span class="p">,</span><span class="w"> </span><span class="nt">"engine"</span><span class="p">:</span><span class="w"> </span><span class="s2">"godot"</span><span class="p">,</span><span class="w"> </span><span class="nt">"dim"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2d"</span><span class="p">,</span><span class="w"> </span><span class="nt">"style"</span><span class="p">:</span><span class="w"> </span><span class="s2">"pixel"</span><span class="p">,</span><span class="w"> </span><span class="nt">"stage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"plan"</span><span class="p">,</span><span class="w"> </span><span class="nt">"approvals"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w"> </span><span class="nt">"created"</span><span class="p">:</span><span class="w"> </span><span class="s2">"..."</span><span class="p">}}</span>
+</code></pre></div>
+
+<p><code>render</code>를 보면 이 게임은 320×180 해상도로 그리고 정수배로만 확대해요. 픽셀 아트가 흐려지지 않게 하는 설정이에요. <code>stage</code>는 첫 단계인 <code>plan</code>이에요.</p>
+<p><code>games/first-game</code> 안에 <code>.gf</code>, <code>gf</code>, <code>scenes</code>, <code>scripts</code>, <code>assets</code>, <code>bot</code>, <code>captures</code>, <code>design</code>, <code>references</code> 폴더가 생겼는지 확인하세요.</p>
+<h2 id="4">4. 게임 실행하기</h2>
+<p>스모크 테스트로 게임이 뜨는지 확인하세요. 창이 잠깐 열렸다 닫혀요.</p>
+<div class="code"><pre><span></span><code>gf<span class="w"> </span>engine<span class="w"> </span><span class="nb">test</span>
+</code></pre></div>
+
+<div class="code"><pre><span></span><code><span class="p">{</span><span class="nt">"ok"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"> </span><span class="nt">"files"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"captures/test/first_frame.png"</span><span class="p">,</span><span class="w"> </span><span class="s2">"captures/test/result.json"</span><span class="p">],</span><span class="w"> </span><span class="nt">"checks"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">"boot"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ok"</span><span class="p">,</span><span class="w"> </span><span class="nt">"contract"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ok"</span><span class="p">,</span><span class="w"> </span><span class="nt">"first_frame"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ok"</span><span class="p">,</span><span class="w"> </span><span class="nt">"input_liveness"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ok"</span><span class="p">,</span><span class="w"> </span><span class="nt">"no_errors"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ok"</span><span class="p">},</span><span class="w"> </span><span class="nt">"load_s"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.746</span><span class="p">,</span><span class="w"> </span><span class="nt">"logs"</span><span class="p">:</span><span class="w"> </span><span class="p">[]}</span>
+</code></pre></div>
+
+<p><code>checks</code>의 다섯 항목이 모두 <code>ok</code>여야 해요. 부팅, 브리지 계약, 첫 화면, 입력 반응, 콘솔 오류 없음을 뜻해요.</p>
+<p>직접 플레이해 보세요. 창을 닫으면 명령이 끝나요.</p>
+<div class="code"><pre><span></span><code>gf<span class="w"> </span>engine<span class="w"> </span>run
+</code></pre></div>
+
+<div class="table"><table>
+<thead>
+<tr>
+<th>키</th>
+<th>동작</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>← → 또는 A D</td>
+<td>좌우 이동</td>
+</tr>
+<tr>
+<td>Space 또는 ↑</td>
+<td>점프</td>
+</tr>
+</tbody>
+</table></div>
+<p>노란 네모가 플레이어이고 오른쪽 끝의 빨간 네모가 목표예요. 아직 그림이 없는 그레이박스 상태예요.</p>
+<h2 id="5">5. 스크린샷 찍기</h2>
+<p>실행 1초와 3초 시점의 화면을 찍으세요. 에이전트가 "화면을 직접 본다"고 할 때 쓰는 명령이에요.</p>
+<div class="code"><pre><span></span><code>gf<span class="w"> </span>engine<span class="w"> </span>capture<span class="w"> </span>--out<span class="w"> </span>captures/first<span class="w"> </span>--at<span class="w"> </span><span class="m">1</span>,3
+</code></pre></div>
+
+<div class="code"><pre><span></span><code><span class="p">{</span><span class="nt">"ok"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"> </span><span class="nt">"files"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"captures/first/shot_01_t1.00.png"</span><span class="p">,</span><span class="w"> </span><span class="s2">"captures/first/shot_02_t3.00.png"</span><span class="p">,</span><span class="w"> </span><span class="s2">"captures/first/capture.json"</span><span class="p">],</span><span class="w"> </span><span class="nt">"shots"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="err">...</span><span class="p">}</span>
+</code></pre></div>
+
+<p><code>games/first-game/captures/first/shot_01_t1.00.png</code>를 열어 보세요. 아래와 같은 화면이에요.</p>
+<p><img alt="도형만 있는 첫 화면" src="../images/tutorial-graybox.png" /></p>
+<h2 id="6">6. 플레이 봇으로 끝까지 가기</h2>
+<p>템플릿에는 레벨을 깨는 고정 입력(<code>bot/clear.json</code>)이 들어 있어요. 플레이 봇에게 이 입력으로 목표까지 가게 하세요.</p>
+<div class="code"><pre><span></span><code>gf<span class="w"> </span>engine<span class="w"> </span>bot<span class="w"> </span>--policy<span class="w"> </span>bot/clear.json<span class="w"> </span>--require-goal
+</code></pre></div>
+
+<div class="code"><pre><span></span><code><span class="p">{</span><span class="nt">"ok"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"> </span><span class="nt">"files"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"captures/bot/clear-.../shot_001.png"</span><span class="p">,</span><span class="w"> </span><span class="s2">"..."</span><span class="p">,</span><span class="w"> </span><span class="s2">"captures/bot/clear-.../result.json"</span><span class="p">],</span><span class="w"> </span><span class="nt">"reached_goal"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"> </span><span class="nt">"time_s"</span><span class="p">:</span><span class="w"> </span><span class="mf">6.6</span><span class="p">,</span><span class="w"> </span><span class="nt">"deaths"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="nt">"liveness"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">"verified"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"> </span><span class="err">...</span><span class="p">},</span><span class="w"> </span><span class="nt">"inputs"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">"pressed"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="nt">"responded"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="nt">"unmapped"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="nt">"unverified"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="nt">"unresponsive"</span><span class="p">:</span><span class="w"> </span><span class="p">[]},</span><span class="w"> </span><span class="nt">"errors"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="nt">"warnings"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">}</span>
+</code></pre></div>
+
+<p><code>reached_goal</code>이 <code>true</code>이고 <code>inputs.unresponsive</code>가 비어 있어야 해요. 봇이 누른 입력 4개에 게임이 모두 반응했다는 뜻이에요. 하네스는 반응 없는 입력을 버그로 다뤄요.</p>
+<h2 id="7">7. 원본 이미지 준비하기</h2>
+<p>이제 노란 네모를 캐릭터로 바꿔요. 먼저 생성 모델이 만든 원본 한 장이 필요해요. 두 방법 중 하나를 고르세요.</p>
+<h3 id="_4">저장소에 든 원본 쓰기 (무료)</h3>
+<p>하네스를 검증할 때 생성한 로봇 그림이 저장소에 있어요. 게임 폴더의 원본 자리로 복사하세요.</p>
+<div class="code"><pre><span></span><code>mkdir<span class="w"> </span>-p<span class="w"> </span>games/first-game/assets/raw/pix
+cp<span class="w"> </span>demo-check/pixel-godot/assets/raw/pix/player.png<span class="w"> </span>games/first-game/assets/raw/pix/player.png
+</code></pre></div>
+
+<h3 id="008">새로 생성하기 (유료, 약 $0.08)</h3>
+<p>fal 계정의 <code>FAL_KEY</code>가 필요해요. 저장소 루트에서 <code>.env.example</code>을 <code>.env</code>로 복사한 뒤 여러분의 키를 넣으세요. 그다음 <code>--dry-run</code>으로 추정 비용부터 확인하세요. 이 명령은 돈이 들지 않아요.</p>
+<div class="code"><pre><span></span><code>gf<span class="w"> </span>gen<span class="w"> </span>image<span class="w"> </span><span class="s2">"a single game sprite: a small round delivery robot with an orange body, one big round visor eye, two short legs, standing, full body, strict side view facing right, pixel art, chunky large pixels, limited 16 colour palette, hard pixel edges, dark outline, single subject centered with margin, flat solid pure magenta #FF00FF background, no shadow, no ground, no text"</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--aspect<span class="w"> </span><span class="m">1</span>:1<span class="w"> </span>--resolution<span class="w"> </span><span class="m">0</span>.5K<span class="w"> </span>--out<span class="w"> </span>assets/raw/pix<span class="w"> </span>--name<span class="w"> </span>player<span class="w"> </span>--dry-run
+</code></pre></div>
+
+<div class="code"><pre><span></span><code><span class="p">{</span><span class="nt">"ok"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"> </span><span class="nt">"files"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w"> </span><span class="nt">"dry_run"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"> </span><span class="nt">"role"</span><span class="p">:</span><span class="w"> </span><span class="s2">"image.concept"</span><span class="p">,</span><span class="w"> </span><span class="nt">"endpoint"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fal-ai/nano-banana-2"</span><span class="p">,</span><span class="w"> </span><span class="err">...</span><span class="p">,</span><span class="w"> </span><span class="nt">"cost_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.08</span><span class="p">,</span><span class="w"> </span><span class="nt">"cost_note"</span><span class="p">:</span><span class="w"> </span><span class="s2">"해상도·옵션에 따른 배수는 단가 API 에 없어 기본 단가로만 계산했다."</span><span class="p">}</span>
+</code></pre></div>
+
+<p><code>cost_usd</code>를 확인했으면 같은 명령에서 <code>--dry-run</code>만 빼고 실행하세요. <code>assets/raw/pix/player.png</code>가 생기고, 호출 내용이 <code>games/first-game/.gf/ledger.jsonl</code>에 한 줄 남아요. 새로 생성하면 그림이 달라서 아래 단계의 숫자도 달라져요.</p>
+<h3 id="_5">원본 검사하기</h3>
+<p>어느 쪽을 골랐든 원본을 검사해 보세요.</p>
+<div class="code"><pre><span></span><code>gf<span class="w"> </span>post<span class="w"> </span>inspect<span class="w"> </span>assets/raw/pix/player.png
+</code></pre></div>
+
+<div class="code"><pre><span></span><code><span class="p">{</span><span class="nt">"ok"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"> </span><span class="err">...</span><span class="p">,</span><span class="w"> </span><span class="nt">"images"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="nt">"file"</span><span class="p">:</span><span class="w"> </span><span class="s2">"assets/raw/pix/player.png"</span><span class="p">,</span><span class="w"> </span><span class="nt">"size"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">512</span><span class="p">,</span><span class="w"> </span><span class="mi">512</span><span class="p">],</span><span class="w"> </span><span class="err">...</span><span class="p">,</span><span class="w"> </span><span class="nt">"unique_colours"</span><span class="p">:</span><span class="w"> </span><span class="mi">24970</span><span class="p">,</span><span class="w"> </span><span class="nt">"integer_scale"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="nt">"pixel_art"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w"> </span><span class="nt">"reasons"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"색이 24970개로 한도 64개를 넘는다"</span><span class="p">]}]}</span>
+</code></pre></div>
+
+<p><code>pixel_art</code>가 <code>false</code>예요. 이 그림은 픽셀 아트처럼 보이지만 512×512 크기에 색이 24,970개인 평범한 그림이에요. 이대로 게임에 넣으면 크기도 맞지 않고 흐려져요.</p>
+<p><img alt="생성 원본" src="../images/tutorial-raw.png" /></p>
+<h2 id="8">8. 후처리 사슬 통과시키기</h2>
+<p>원본을 네 단계로 게임용 에셋으로 바꿔요. 한 줄씩 실행하고 출력을 확인하세요.</p>
+<p><strong>배경을 빼요.</strong> <code>--key auto</code>가 테두리 색을 배경으로 판단하고, <code>--hard</code>가 반투명 가장자리를 남기지 않아요.</p>
+<div class="code"><pre><span></span><code>gf<span class="w"> </span>post<span class="w"> </span>chroma<span class="w"> </span>assets/raw/pix/player.png<span class="w"> </span>--key<span class="w"> </span>auto<span class="w"> </span>--hard<span class="w"> </span>--out<span class="w"> </span>assets/raw/keyed
+</code></pre></div>
+
+<div class="code"><pre><span></span><code><span class="p">{</span><span class="nt">"ok"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"> </span><span class="nt">"files"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"assets/raw/keyed/player.png"</span><span class="p">],</span><span class="w"> </span><span class="err">...</span><span class="p">,</span><span class="w"> </span><span class="nt">"images"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="nt">"file"</span><span class="p">:</span><span class="w"> </span><span class="s2">"assets/raw/keyed/player.png"</span><span class="p">,</span><span class="w"> </span><span class="nt">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"#FB05FA"</span><span class="p">,</span><span class="w"> </span><span class="nt">"alpha_coverage"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.2354</span><span class="p">}]}</span>
+</code></pre></div>
+
+<p><code>key</code>가 마젠타에 가까운 색(<code>#FB05FA</code>)이면 배경을 제대로 찾은 거예요. 캐릭터는 그림 전체의 약 24%만 차지했어요.</p>
+<p><strong>격자에 맞춰 줄여요.</strong> <code>--trim</code>이 캐릭터만 잘라 내고, <code>--height 24</code>가 세로를 24픽셀로 맞춰요.</p>
+<div class="code"><pre><span></span><code>gf<span class="w"> </span>post<span class="w"> </span>pixel-snap<span class="w"> </span>assets/raw/keyed/player.png<span class="w"> </span>--trim<span class="w"> </span>--height<span class="w"> </span><span class="m">24</span><span class="w"> </span>--out<span class="w"> </span>assets/raw/pixel
+</code></pre></div>
+
+<div class="code"><pre><span></span><code><span class="p">{</span><span class="nt">"ok"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"> </span><span class="nt">"files"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"assets/raw/pixel/player.png"</span><span class="p">],</span><span class="w"> </span><span class="nt">"previews"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"captures/inspect/pixel/pixel/player_x14.png"</span><span class="p">],</span><span class="w"> </span><span class="err">...</span><span class="p">,</span><span class="w"> </span><span class="nt">"images"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="err">...</span><span class="p">,</span><span class="w"> </span><span class="nt">"cell"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mf">13.583</span><span class="p">,</span><span class="w"> </span><span class="mf">13.583</span><span class="p">],</span><span class="w"> </span><span class="err">...</span><span class="p">,</span><span class="w"> </span><span class="nt">"size"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">20</span><span class="p">,</span><span class="w"> </span><span class="mi">24</span><span class="p">],</span><span class="w"> </span><span class="nt">"unique_colours"</span><span class="p">:</span><span class="w"> </span><span class="mi">260</span><span class="p">}]}</span>
+</code></pre></div>
+
+<p>512픽셀짜리 그림이 20×24가 됐어요. <code>cell</code>은 원본의 약 13.58픽셀이 게임의 1픽셀이 됐다는 뜻이에요.</p>
+<p><strong>팔레트를 뽑아 입혀요.</strong> 12색 팔레트를 만들고 그 색으로만 칠해요.</p>
+<div class="code"><pre><span></span><code>gf<span class="w"> </span>post<span class="w"> </span>palette<span class="w"> </span>extract<span class="w"> </span>assets/raw/pixel/player.png<span class="w"> </span>--colors<span class="w"> </span><span class="m">12</span><span class="w"> </span>--out<span class="w"> </span>design/palette.json
+gf<span class="w"> </span>post<span class="w"> </span>palette<span class="w"> </span>apply<span class="w"> </span>assets/raw/pixel/player.png<span class="w"> </span>--palette<span class="w"> </span>design/palette.json<span class="w"> </span>--out<span class="w"> </span>assets/game/sprites
+</code></pre></div>
+
+<div class="code"><pre><span></span><code><span class="p">{</span><span class="nt">"ok"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"> </span><span class="nt">"files"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"assets/game/sprites/player.png"</span><span class="p">],</span><span class="w"> </span><span class="err">...</span><span class="p">,</span><span class="w"> </span><span class="nt">"palette_size"</span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span><span class="w"> </span><span class="nt">"images"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="nt">"file"</span><span class="p">:</span><span class="w"> </span><span class="s2">"assets/game/sprites/player.png"</span><span class="p">,</span><span class="w"> </span><span class="nt">"colours_before"</span><span class="p">:</span><span class="w"> </span><span class="mi">260</span><span class="p">,</span><span class="w"> </span><span class="nt">"colours_after"</span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="p">}]}</span>
+</code></pre></div>
+
+<p>색이 260개에서 12개로 줄었어요. 결과는 게임용 에셋 자리인 <code>assets/game/sprites/</code>에 들어갔어요.</p>
+<p><strong>검사해요.</strong> 밝은 배경과 어두운 배경에 8배로 올린 확인 이미지도 함께 만들어요.</p>
+<div class="code"><pre><span></span><code>gf<span class="w"> </span>post<span class="w"> </span>inspect<span class="w"> </span>assets/game/sprites/player.png<span class="w"> </span>--check<span class="w"> </span>captures/inspect/player.png<span class="w"> </span>--check-scale<span class="w"> </span><span class="m">8</span>
+</code></pre></div>
+
+<div class="code"><pre><span></span><code><span class="p">{</span><span class="nt">"ok"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"> </span><span class="nt">"files"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"captures/inspect/player.png"</span><span class="p">],</span><span class="w"> </span><span class="err">...</span><span class="p">,</span><span class="w"> </span><span class="nt">"images"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="nt">"file"</span><span class="p">:</span><span class="w"> </span><span class="s2">"assets/game/sprites/player.png"</span><span class="p">,</span><span class="w"> </span><span class="nt">"size"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">20</span><span class="p">,</span><span class="w"> </span><span class="mi">24</span><span class="p">],</span><span class="w"> </span><span class="err">...</span><span class="p">,</span><span class="w"> </span><span class="nt">"partial_alpha"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0</span><span class="p">,</span><span class="w"> </span><span class="nt">"unique_colours"</span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span><span class="w"> </span><span class="nt">"integer_scale"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="nt">"pixel_art"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"> </span><span class="nt">"reasons"</span><span class="p">:</span><span class="w"> </span><span class="p">[]}]}</span>
+</code></pre></div>
+
+<p><code>pixel_art</code>가 <code>true</code>로 바뀌었어요. <code>games/first-game/captures/inspect/player.png</code>를 열어 양쪽 배경 모두에서 테두리에 마젠타가 남지 않았는지 눈으로 확인하세요.</p>
+<p><img alt="밝은 배경과 어두운 배경에 올린 확인 이미지" src="../images/tutorial-sprite-check.png" /></p>
+<h2 id="9">9. 게임에 넣기</h2>
+<p>Godot 2D 템플릿은 <code>assets/game/sprites/player_walk.tres</code> 파일이 있으면 플레이어 그림으로 써요. 방금 만든 한 장으로 1프레임짜리 스프라이트 시트를 만드세요.</p>
+<div class="code"><pre><span></span><code>gf<span class="w"> </span>post<span class="w"> </span>sheet<span class="w"> </span>assets/game/sprites/player.png<span class="w"> </span>--name<span class="w"> </span>player_walk<span class="w"> </span>--fps<span class="w"> </span><span class="m">12</span><span class="w"> </span>--out<span class="w"> </span>assets/game/sprites
+</code></pre></div>
+
+<div class="code"><pre><span></span><code><span class="p">{</span><span class="nt">"ok"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"> </span><span class="nt">"files"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"assets/game/sprites/player_walk.png"</span><span class="p">,</span><span class="w"> </span><span class="s2">"assets/game/sprites/player_walk.json"</span><span class="p">,</span><span class="w"> </span><span class="s2">"assets/game/sprites/player_walk.tres"</span><span class="p">],</span><span class="w"> </span><span class="err">...</span><span class="p">,</span><span class="w"> </span><span class="nt">"frames"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="nt">"sheet_size"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">20</span><span class="p">,</span><span class="w"> </span><span class="mi">24</span><span class="p">],</span><span class="w"> </span><span class="nt">"frame_size"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">20</span><span class="p">,</span><span class="w"> </span><span class="mi">24</span><span class="p">],</span><span class="w"> </span><span class="nt">"texture"</span><span class="p">:</span><span class="w"> </span><span class="s2">"res://assets/game/sprites/player_walk.png"</span><span class="p">}</span>
+</code></pre></div>
+
+<p>에셋을 넣었으니 다시 확인해요. 게임 코드가 가리키는 에셋이 모두 있는지 검사하고, 스모크 테스트를 돌리고, 같은 시점의 화면을 찍으세요.</p>
+<div class="code"><pre><span></span><code>gf<span class="w"> </span>check<span class="w"> </span>assets
+gf<span class="w"> </span>engine<span class="w"> </span><span class="nb">test</span>
+gf<span class="w"> </span>engine<span class="w"> </span>capture<span class="w"> </span>--out<span class="w"> </span>captures/with-sprite<span class="w"> </span>--at<span class="w"> </span><span class="m">1</span>,3
+</code></pre></div>
+
+<p><code>gf check assets</code>는 <code>"ok": true</code>와 <code>"problems": []</code>를, <code>gf engine test</code>는 4단계와 같은 다섯 항목 <code>ok</code>를 내야 해요.</p>
+<h2 id="_6">최종 결과 확인하기</h2>
+<p><code>games/first-game/captures/with-sprite/shot_01_t1.00.png</code>를 열어 보세요. 노란 네모가 있던 자리에 로봇이 서 있으면 성공이에요.</p>
+<p><img alt="캐릭터가 들어간 화면" src="../images/tutorial-with-sprite.png" /></p>
+<p>5단계의 스크린샷과 나란히 놓고 보세요. 같은 명령, 같은 시점으로 찍었기 때문에 달라진 것은 플레이어 그림뿐이에요. 하네스에서 화면 변경을 확인하는 방법이 바로 이 전후 비교예요.</p>
+<p>여기까지 한 일을 정리하면 이래요.</p>
+<div class="table"><table>
+<thead>
+<tr>
+<th>한 일</th>
+<th>쓴 명령</th>
+<th>하네스에서의 의미</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>게임이 뜨는지 확인</td>
+<td><code>gf engine test</code></td>
+<td>자가 실행. 변경할 때마다 돌려요</td>
+</tr>
+<tr>
+<td>화면을 직접 봄</td>
+<td><code>gf engine capture</code></td>
+<td>근거 규칙. 본 것만 말해요</td>
+</tr>
+<tr>
+<td>끝까지 깰 수 있는지 확인</td>
+<td><code>gf engine bot</code></td>
+<td>반응 없는 입력을 찾아요</td>
+</tr>
+<tr>
+<td>원본을 게임용 에셋으로</td>
+<td><code>gf post chroma → pixel-snap → palette → inspect</code></td>
+<td>후처리 사슬. 원본은 게임에 바로 들어가지 않아요</td>
+</tr>
+</tbody>
+</table></div>
+<p>실습 폴더가 필요 없으면 <code>games/first-game</code>을 지우세요.</p>
+<h2 id="_7">자주 막히는 곳</h2>
+<p><strong><code>no such file or directory: uv run -q ...</code> 오류가 나요.</strong>
+zsh에서 명령을 변수에 담으면(<code>GF="uv run ..."; $GF doctor</code>) 변수 전체를 파일 이름 하나로 읽어서 실패해요. 3단계처럼 함수로 만드세요.</p>
+<p><strong><code>gf doctor</code>의 <code>godot</code>이 <code>null</code>이에요.</strong>
+터미널에서 <code>godot --version</code>이 실행되는지 확인하세요. <code>brew install --cask godot</code>으로 설치하면 <code>godot</code> 명령이 생겨요.</p>
+<p><strong><code>gf gen image</code>가 키 오류로 실패해요.</strong>
+<code>.env</code> 파일이 저장소 루트(게임 폴더나 그 위 폴더)에 있고 <code>FAL_KEY</code>가 들어 있는지 확인하세요. 무료 경로에서는 이 명령을 쓰지 않아요.</p>
+<p><strong><code>gf post pixel-snap</code>을 옵션 없이 실행했더니 실패해요.</strong>
+옵션이 없으면 격자를 자동으로 찾는데, 생성 그림의 격자는 정수가 아니라서 신뢰도가 낮으면 실패해요. 캐릭터와 소품에는 <code>--trim --height &lt;픽셀 수&gt;</code>를 주세요. 이유는 <a href="../how-tos/make-pixel-asset.html">생성 이미지를 픽셀 에셋으로 만들기</a>에 있어요.</p>
+<p><strong>실행 결과의 <code>logs</code>에 "눌러 둔 키가 풀렸다"는 오류가 있어요.</strong>
+자동 실행 중에 게임 창을 클릭해 활성화하면 생겨요. 그 실행은 버리고 다시 돌리세요.</p>
+<h2 id="_8">다음에 읽을 문서</h2>
+<ul>
+<li>캐릭터를 걷게 만들기: <a href="../how-tos/make-sprite-animation.html">스프라이트 애니메이션 만들기</a></li>
+<li>화면이 나아졌는지 판정받기: <a href="../how-tos/run-blind-judge.html">블라인드 심사 돌리기</a></li>
+<li>에이전트와 함께 단계별로 진행하기: 게임 폴더에서 <code>claude --plugin-dir &lt;저장소 경로&gt;/harness</code>를 실행하고 세션 안에서 <code>/gameforge:gf-start</code>를 입력하세요(<code>harness/README.md</code>).</li>
+<li>전체 명령: <a href="../reference/gf-commands.html"><code>gf</code> 명령 모음</a></li>
+</ul>
+</article>
+<footer class="pager">
+<a class="prev" href="../explanations/harness-structure.html"><small>이전</small>gameforge 하네스의 구조</a>
+<a class="next" href="../explanations/splitting-work.html"><small>다음</small>에이전트 작업 분할 원칙</a>
+</footer>
+</main>
+<aside class="toc" aria-label="이 문서의 목차">
+<p>이 문서에서</p><div class="toc">
+<ul>
+<li><a href="#_2">목표</a></li>
+<li><a href="#_3">준비하기</a></li>
+<li><a href="#1">1. 저장소 내려받기</a></li>
+<li><a href="#2">2. 환경 점검하기</a></li>
+<li><a href="#3">3. 게임 프로젝트 만들기</a></li>
+<li><a href="#4">4. 게임 실행하기</a></li>
+<li><a href="#5">5. 스크린샷 찍기</a></li>
+<li><a href="#6">6. 플레이 봇으로 끝까지 가기</a></li>
+<li><a href="#7">7. 원본 이미지 준비하기</a><ul>
+<li><a href="#_4">저장소에 든 원본 쓰기 (무료)</a></li>
+<li><a href="#008">새로 생성하기 (유료, 약 $0.08)</a></li>
+<li><a href="#_5">원본 검사하기</a></li>
+</ul>
+</li>
+<li><a href="#8">8. 후처리 사슬 통과시키기</a></li>
+<li><a href="#9">9. 게임에 넣기</a></li>
+<li><a href="#_6">최종 결과 확인하기</a></li>
+<li><a href="#_7">자주 막히는 곳</a></li>
+<li><a href="#_8">다음에 읽을 문서</a></li>
+</ul>
+</div>
+
+</aside>
+</div>
+</body>
+</html>

@@ -1,0 +1,320 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>gf 명령 모음 · gameforge 교육 자료</title>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<header class="top">
+  <a class="brand" href="../index.html">gameforge 교육 자료</a>
+  <button class="menu" aria-label="목차 열기" onclick="document.body.classList.toggle('nav-open')">목차</button>
+</header>
+<div class="layout">
+<nav class="side" aria-label="문서 목차">
+<p class="group">시작</p><ul>
+<li><a href="../index.html">AI 에이전트로 게임 하네스 만들기</a></li>
+<li><a href="../glossary.html">용어집</a></li>
+</ul>
+<p class="group">설명</p><ul>
+<li><a href="../explanations/why-harness.html">하네스가 필요한 이유</a></li>
+<li><a href="../explanations/harness-structure.html">gameforge 하네스의 구조</a></li>
+<li><a href="../explanations/splitting-work.html">에이전트 작업 분할 원칙</a></li>
+<li><a href="../explanations/three-checks.html">세 가지 검증의 역할</a></li>
+<li><a href="../explanations/cat-angler-case-study.html">cat-angler 제작 과정</a></li>
+</ul>
+<p class="group">학습</p><ul>
+<li><a href="../tutorials/first-game.html">첫 게임 실행하고 캐릭터 넣기</a></li>
+</ul>
+<p class="group">문제 해결</p><ul>
+<li><a href="../how-tos/collect-references.html">레퍼런스 모으고 고르기</a></li>
+<li><a href="../how-tos/run-design-interview.html">설계 인터뷰 하기</a></li>
+<li><a href="../how-tos/make-pixel-asset.html">생성 이미지를 픽셀 에셋으로 만들기</a></li>
+<li><a href="../how-tos/make-sprite-animation.html">스프라이트 애니메이션 만들기</a></li>
+<li><a href="../how-tos/run-blind-judge.html">블라인드 심사 돌리기</a></li>
+<li><a href="../how-tos/verify-sound.html">듣지 않고 소리 검증하기</a></li>
+<li><a href="../how-tos/write-agent-brief.html">제작 에이전트 작업 지시서 쓰기</a></li>
+<li><a href="../how-tos/publish-safely.html">공개 저장소에 안전하게 올리기</a></li>
+</ul>
+<p class="group">참조</p><ul>
+<li><a class="active" aria-current="page" href="../reference/gf-commands.html">gf 명령 모음</a></li>
+<li><a href="../reference/stages-and-outputs.html">단계별 스킬과 산출물</a></li>
+<li><a href="../reference/costs.html">생성 비용표</a></li>
+<li><a href="../reference/failure-catalogue.html">실패 사례 목록</a></li>
+</ul>
+</nav>
+<main>
+<article>
+<p class="badge">참조</p>
+<h1 id="gf">gf 명령 모음</h1>
+<p><code>gf</code>의 명령 그룹과 하위 명령을 한 표로 정리했어요. <code>gf</code>는 gameforge 하네스의 CLI예요. 생성, 후처리, 엔진 실행, 레퍼런스, 심사, 검사를 맡아요. 이 표는 2026-11-23에 <code>gf --help</code>와 각 그룹의 <code>--help</code> 출력을 대조해서 만들었어요. 옵션 전체는 <code>gf &lt;그룹&gt; &lt;명령&gt; --help</code>로 확인하세요.</p>
+<h2 id="_1">부르는 형태</h2>
+<div class="code"><pre><span></span><code>uv<span class="w"> </span>run<span class="w"> </span>-q<span class="w"> </span>--project<span class="w"> </span>&lt;저장소&gt;/harness/tools<span class="w"> </span>gf<span class="w"> </span>--project<span class="w"> </span>&lt;게임<span class="w"> </span>폴더&gt;<span class="w"> </span>&lt;그룹&gt;<span class="w"> </span>&lt;명령&gt;<span class="w"> </span><span class="o">[</span>옵션<span class="o">]</span>
+</code></pre></div>
+
+<ul>
+<li><code>--project &lt;게임 폴더&gt;</code>는 <code>gf</code> 바로 뒤, 그룹 앞에 와요. 생략하면 현재 폴더예요.</li>
+<li>명령에 주는 상대 경로(입력과 출력 모두)는 현재 폴더가 아니라 <strong>게임 폴더 기준</strong>이에요.</li>
+<li>zsh에서는 변수 대신 함수로 줄이세요. 변수에 담으면 명령 전체를 파일 이름 하나로 읽어서 실패해요.</li>
+</ul>
+<div class="code"><pre><span></span><code>gf<span class="o">()</span><span class="w"> </span><span class="o">{</span><span class="w"> </span>uv<span class="w"> </span>run<span class="w"> </span>-q<span class="w"> </span>--project<span class="w"> </span>harness/tools<span class="w"> </span>gf<span class="w"> </span>--project<span class="w"> </span>&lt;게임<span class="w"> </span>폴더&gt;<span class="w"> </span><span class="s2">"</span><span class="nv">$@</span><span class="s2">"</span><span class="p">;</span><span class="w"> </span><span class="o">}</span>
+</code></pre></div>
+
+<h2 id="_2">출력 형식</h2>
+<div class="table"><table>
+<thead>
+<tr>
+<th>결과</th>
+<th>종료 코드</th>
+<th>표준 출력의 마지막 줄</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>성공</td>
+<td>0</td>
+<td><code>{"ok": true, "files": [...], "cost_usd": 0.0, ...}</code></td>
+</tr>
+<tr>
+<td>실패</td>
+<td>0이 아님</td>
+<td><code>{"ok": false, "error": "..."}</code></td>
+</tr>
+</tbody>
+</table></div>
+<p><code>files</code>는 그 명령이 만든 파일이고 게임 폴더 기준 경로예요.</p>
+<h2 id="_3">명령 그룹</h2>
+<div class="table"><table>
+<thead>
+<tr>
+<th>그룹</th>
+<th>하위 명령</th>
+<th>하는 일</th>
+<th>비용</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>(루트)</td>
+<td><code>init</code></td>
+<td>템플릿으로 게임 프로젝트를 만들어요. <code>--engine {godot,web}</code>, <code>--dim {2d,3d}</code>, <code>--style {pixel,2d,3d-code,3d-gen}</code> 필수</td>
+<td>무료</td>
+</tr>
+<tr>
+<td>(루트)</td>
+<td><code>doctor</code></td>
+<td>필요한 도구와 <code>FAL_KEY</code>가 있는지 점검해요</td>
+<td>무료</td>
+</tr>
+<tr>
+<td><code>state</code></td>
+<td><code>show</code>, <code>set</code>, <code>approve</code></td>
+<td>단계 상태를 보고, 현재 단계를 승인해 다음 단계로 넘어가요</td>
+<td>무료</td>
+</tr>
+<tr>
+<td><code>fal</code></td>
+<td><code>search</code>, <code>price</code>, <code>schema</code>, <code>run</code></td>
+<td>모델 검색, 단가 조회, 입력 스키마 조회, 임의 모델 호출</td>
+<td><code>run</code>만 유료</td>
+</tr>
+<tr>
+<td><code>gen</code></td>
+<td><code>image</code>, <code>edit</code>, <code>rembg</code>, <code>video</code>, <code>model3d</code>, <code>rig</code>, <code>sfx</code>, <code>tts</code>, <code>music</code></td>
+<td>역할 이름으로 이미지, 영상, 3D 모델, 소리를 생성해요</td>
+<td>유료 (<code>--dry-run</code>은 무료)</td>
+</tr>
+<tr>
+<td><code>post</code></td>
+<td><code>chroma</code>, <code>pixel-snap</code>, <code>resize</code>, <code>palette extract</code>, <code>palette apply</code>, <code>frames</code>, <code>align</code>, <code>loop</code>, <code>audio-loop</code>, <code>sheet</code>, <code>contact</code>, <code>inspect</code></td>
+<td>생성물을 후처리하고 숫자로 검사해요. 네트워크를 쓰지 않아요</td>
+<td>무료</td>
+</tr>
+<tr>
+<td><code>blender</code></td>
+<td><code>info</code>, <code>clean</code>, <code>decimate</code>, <code>rescale</code>, <code>turntable</code>, <code>run</code></td>
+<td>3D 모델을 정리하고 미리보기를 렌더해요</td>
+<td>무료</td>
+</tr>
+<tr>
+<td><code>engine</code></td>
+<td><code>run</code>, <code>record</code>, <code>capture</code>, <code>bot</code>, <code>replay</code>, <code>perf</code>, <code>audio</code>, <code>test</code></td>
+<td>게임을 실행하고, 스크린샷을 찍고, 플레이 봇을 돌리고, 입력을 기록·재생하고, 성능과 소리를 재요</td>
+<td>무료</td>
+</tr>
+<tr>
+<td><code>ref</code></td>
+<td><code>steam</code>, <code>frames</code>, <code>add</code>, <code>sheet</code>, <code>pick</code>, <code>unpick</code>, <code>traits</code>, <code>status</code></td>
+<td>레퍼런스를 모으고, 모음판을 만들고, 고르고, 측정해요</td>
+<td>무료</td>
+</tr>
+<tr>
+<td><code>judge</code></td>
+<td><code>pair</code>, <code>record</code>, <code>history</code></td>
+<td>블라인드 심사용 쌍을 만들고 결과를 기록해요</td>
+<td>무료</td>
+</tr>
+<tr>
+<td><code>check</code></td>
+<td><code>evidence</code>, <code>assets</code>, <code>audio</code></td>
+<td>단계 승인 근거, 에셋 참조, 소리 파일을 검사해요</td>
+<td>무료</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="_4">자주 쓰는 명령</h2>
+<h3 id="engine">실행과 확인 (<code>engine</code>)</h3>
+<div class="table"><table>
+<thead>
+<tr>
+<th>명령</th>
+<th>하는 일</th>
+<th>결과가 남는 곳</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>gf engine test</code></td>
+<td>스모크 테스트: 부팅, 브리지 계약, 첫 화면, 입력 반응, 콘솔 오류</td>
+<td><code>captures/test/result.json</code></td>
+</tr>
+<tr>
+<td><code>gf engine capture --out &lt;폴더&gt; --at 1,3 [--script &lt;액션.json&gt;]</code></td>
+<td>지정한 시점의 실제 화면과 상태를 저장해요</td>
+<td><code>&lt;폴더&gt;/shot_*.png</code>, <code>capture.json</code></td>
+</tr>
+<tr>
+<td><code>gf engine bot --policy &lt;파일 또는 goal\|random\|idle&gt; [--require-goal]</code></td>
+<td>플레이 봇이 실제 입력 경로로 플레이해요</td>
+<td><code>captures/bot/&lt;id&gt;/</code></td>
+</tr>
+<tr>
+<td><code>gf engine run [--record]</code></td>
+<td>사람이 플레이하도록 게임을 띄워요. <code>--record</code>는 입력을 기록해요</td>
+<td><code>captures/sessions/&lt;id&gt;.jsonl</code></td>
+</tr>
+<tr>
+<td><code>gf engine replay &lt;id&gt;</code></td>
+<td>기록한 입력을 재생하고 반응 없는 입력 후보를 보고해요</td>
+<td><code>captures/replays/&lt;id&gt;/</code></td>
+</tr>
+<tr>
+<td><code>gf engine perf --seconds 5 [--out &lt;파일.json&gt;]</code></td>
+<td>프레임 시간, 드로우 콜, 메모리, 로딩 시간을 재요</td>
+<td><code>--out</code>으로 지정한 파일 (예: <code>captures/perf/base.json</code>)</td>
+</tr>
+<tr>
+<td><code>gf engine audio [--expect 입력=소리]</code></td>
+<td>실시간으로 돌리며 소리가 실제로 나는지 재요</td>
+<td><code>captures/audio/result.json</code></td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="post">픽셀 후처리 (<code>post</code>)</h3>
+<div class="table"><table>
+<thead>
+<tr>
+<th>명령</th>
+<th>하는 일</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>gf post chroma &lt;입력&gt; --key auto --hard --out &lt;폴더&gt;</code></td>
+<td>단색 배경을 투명하게 빼요</td>
+</tr>
+<tr>
+<td><code>gf post pixel-snap &lt;입력&gt; --trim --height &lt;픽셀&gt; --out &lt;폴더&gt;</code></td>
+<td>격자에 맞춰 1배 픽셀 아트로 줄여요</td>
+</tr>
+<tr>
+<td><code>gf post palette extract &lt;입력&gt; --colors &lt;수&gt; --out &lt;팔레트.json&gt;</code></td>
+<td>그림에서 팔레트를 뽑아요</td>
+</tr>
+<tr>
+<td><code>gf post palette apply &lt;입력&gt; --palette &lt;팔레트.json&gt; --out &lt;폴더&gt;</code></td>
+<td>팔레트의 색으로만 칠해요</td>
+</tr>
+<tr>
+<td><code>gf post inspect &lt;입력&gt; [--check &lt;확인 이미지&gt;]</code></td>
+<td>크기, 투명도, 색 수, 픽셀 아트 여부를 보고해요</td>
+</tr>
+<tr>
+<td><code>gf post sheet &lt;입력&gt; --name &lt;이름&gt; --fps &lt;수&gt; --out &lt;폴더&gt;</code></td>
+<td>스프라이트 시트 PNG, JSON, Godot <code>.tres</code>를 만들어요</td>
+</tr>
+<tr>
+<td><code>gf post audio-loop &lt;입력&gt; --out &lt;파일.wav&gt;</code></td>
+<td>음악의 앞뒤 무음을 자르고 꼬리를 머리에 섞어요</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="gen">생성 (<code>gen</code>) 공통 옵션</h3>
+<div class="table"><table>
+<thead>
+<tr>
+<th>옵션</th>
+<th>뜻</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>--dry-run</code></td>
+<td>호출하지 않고 추정 비용과 보낼 인자만 보여 줘요</td>
+</tr>
+<tr>
+<td><code>--max-usd &lt;값&gt;</code></td>
+<td>추정 비용이 이 값을 넘으면 실행하지 않아요. 기본 한도는 호출당 $3이에요</td>
+</tr>
+<tr>
+<td><code>--estimate-usd &lt;값&gt;</code></td>
+<td>단가로 계산할 수 없는 모델에 대략의 비용을 알려 주고 한도와 비교하게 해요</td>
+</tr>
+<tr>
+<td><code>--allow-unknown-cost</code></td>
+<td>비용을 모르는 채로 호출해요(한도 확인 없음)</td>
+</tr>
+<tr>
+<td><code>--keep</code></td>
+<td>채택한 프롬프트를 <code>.gf/prompts.jsonl</code>에 남겨요</td>
+</tr>
+<tr>
+<td><code>--out &lt;폴더&gt;</code>, <code>--name &lt;이름&gt;</code></td>
+<td>결과 폴더와 파일 이름</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="_5">더 보기</h2>
+<ul>
+<li>단계마다 어떤 명령이 쓰이는지: <a href="../reference/stages-and-outputs.html">단계별 스킬과 산출물</a></li>
+<li>생성 단가: <a href="../reference/costs.html">생성 비용표</a></li>
+<li>직접 실행해 보기: <a href="../tutorials/first-game.html">첫 게임 실행하고 캐릭터 넣기</a></li>
+<li>원문: <code>harness/AGENTS.md</code>의 "명령 규약"</li>
+</ul>
+</article>
+<footer class="pager">
+<a class="prev" href="../how-tos/publish-safely.html"><small>이전</small>공개 저장소에 안전하게 올리기</a>
+<a class="next" href="../reference/stages-and-outputs.html"><small>다음</small>단계별 스킬과 산출물</a>
+</footer>
+</main>
+<aside class="toc" aria-label="이 문서의 목차">
+<p>이 문서에서</p><div class="toc">
+<ul>
+<li><a href="#_1">부르는 형태</a></li>
+<li><a href="#_2">출력 형식</a></li>
+<li><a href="#_3">명령 그룹</a></li>
+<li><a href="#_4">자주 쓰는 명령</a><ul>
+<li><a href="#engine">실행과 확인 (engine)</a></li>
+<li><a href="#post">픽셀 후처리 (post)</a></li>
+<li><a href="#gen">생성 (gen) 공통 옵션</a></li>
+</ul>
+</li>
+<li><a href="#_5">더 보기</a></li>
+</ul>
+</div>
+
+</aside>
+</div>
+</body>
+</html>

@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>스프라이트 애니메이션 만들기 · gameforge 교육 자료</title>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<header class="top">
+  <a class="brand" href="../index.html">gameforge 교육 자료</a>
+  <button class="menu" aria-label="목차 열기" onclick="document.body.classList.toggle('nav-open')">목차</button>
+</header>
+<div class="layout">
+<nav class="side" aria-label="문서 목차">
+<p class="group">시작</p><ul>
+<li><a href="../index.html">AI 에이전트로 게임 하네스 만들기</a></li>
+<li><a href="../glossary.html">용어집</a></li>
+</ul>
+<p class="group">설명</p><ul>
+<li><a href="../explanations/why-harness.html">하네스가 필요한 이유</a></li>
+<li><a href="../explanations/harness-structure.html">gameforge 하네스의 구조</a></li>
+<li><a href="../explanations/splitting-work.html">에이전트 작업 분할 원칙</a></li>
+<li><a href="../explanations/three-checks.html">세 가지 검증의 역할</a></li>
+<li><a href="../explanations/cat-angler-case-study.html">cat-angler 제작 과정</a></li>
+</ul>
+<p class="group">학습</p><ul>
+<li><a href="../tutorials/first-game.html">첫 게임 실행하고 캐릭터 넣기</a></li>
+</ul>
+<p class="group">문제 해결</p><ul>
+<li><a href="../how-tos/collect-references.html">레퍼런스 모으고 고르기</a></li>
+<li><a href="../how-tos/run-design-interview.html">설계 인터뷰 하기</a></li>
+<li><a href="../how-tos/make-pixel-asset.html">생성 이미지를 픽셀 에셋으로 만들기</a></li>
+<li><a class="active" aria-current="page" href="../how-tos/make-sprite-animation.html">스프라이트 애니메이션 만들기</a></li>
+<li><a href="../how-tos/run-blind-judge.html">블라인드 심사 돌리기</a></li>
+<li><a href="../how-tos/verify-sound.html">듣지 않고 소리 검증하기</a></li>
+<li><a href="../how-tos/write-agent-brief.html">제작 에이전트 작업 지시서 쓰기</a></li>
+<li><a href="../how-tos/publish-safely.html">공개 저장소에 안전하게 올리기</a></li>
+</ul>
+<p class="group">참조</p><ul>
+<li><a href="../reference/gf-commands.html">gf 명령 모음</a></li>
+<li><a href="../reference/stages-and-outputs.html">단계별 스킬과 산출물</a></li>
+<li><a href="../reference/costs.html">생성 비용표</a></li>
+<li><a href="../reference/failure-catalogue.html">실패 사례 목록</a></li>
+</ul>
+</nav>
+<main>
+<article>
+<p class="badge">문제 해결 (How-to 가이드)</p>
+<h1 id="_1">스프라이트 애니메이션 만들기</h1>
+<p>이 가이드를 따라 하면 정지 스프라이트 한 장에서 걷기 같은 짧은 반복 동작의 스프라이트 시트를 얻을 수 있어요. 영상을 한 번만 생성하고 나머지는 무료 후처리 명령으로 처리해요.</p>
+<h2 id="_2">이럴 때 쓰세요</h2>
+<ul>
+<li>캐릭터가 미끄러지듯 움직여서 걷는 동작이 필요할 때</li>
+<li>프레임을 한 장씩 생성했더니 장마다 캐릭터가 달라질 때</li>
+</ul>
+<p>프레임을 따로따로 생성하면 모델이 매번 다른 캐릭터를 그려요. 정지 스프라이트를 첫 프레임으로 영상을 <strong>한 번</strong> 만들고, 그 영상을 프레임으로 나누면 같은 캐릭터가 유지돼요.</p>
+<div class="code"><pre><span></span><code> 정지 원본 ─► 영상(유료) ─► 프레임 ─► 크로마 ─► 정렬 ─► 반복 구간 ─► 격자 맞춤 ─► 팔레트 ─► 시트
+</code></pre></div>
+
+<h2 id="_3">준비하기</h2>
+<ul>
+<li><a href="../how-tos/make-pixel-asset.html">생성 이미지를 픽셀 에셋으로 만들기</a>를 끝낸 정지 스프라이트가 있어야 해요. 그때 나온 <code>cell</code> 값과 팔레트(<code>design/palette.json</code>)를 써요.</li>
+<li>ffmpeg가 설치돼 있어야 해요.</li>
+<li><strong>비용</strong>: 1단계의 영상 생성만 유료예요. 하네스 검증에서는 3초 영상 한 번에 약 $0.34였어요(<code>demo-check/pixel-godot/.gf/ledger.jsonl</code>). 2단계부터는 무료예요.</li>
+<li><strong>무료로 연습하기</strong>: 저장소에 검증 때 만든 영상이 있어요(<code>demo-check/pixel-godot/assets/raw/video/player-walk.mp4</code>). <code>demo-check/pixel-godot</code> 폴더를 다른 곳에 복사한 뒤 그 사본을 게임 폴더로 지정하면 2단계부터 그대로 따라 할 수 있어요. 아래 예시 출력은 그렇게 실행한 결과예요.</li>
+</ul>
+<h2 id="1">1. 영상 한 번 생성하기</h2>
+<p>첫 프레임으로 <strong>후처리 전의 큰 원본</strong>(단색 배경 그대로)을 주세요. 1배로 줄인 그림을 넣으면 영상 모델이 뭉개요. 먼저 <code>--dry-run</code>으로 추정 비용을 확인하세요.</p>
+<div class="code"><pre><span></span><code>gf<span class="w"> </span>gen<span class="w"> </span>video<span class="w"> </span>assets/raw/pix/&lt;이름&gt;.png<span class="w"> </span>--role<span class="w"> </span>video.sprite<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--prompt<span class="w"> </span><span class="s2">"side view walk cycle animation loop of &lt;캐릭터&gt; walking in place toward the right, legs alternate stepping with clear big steps, knees lifting, body bobs up and down slightly, stays in the center of the frame and does not travel, static locked camera, background stays flat solid magenta"</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--duration<span class="w"> </span><span class="m">3</span><span class="w"> </span>--out<span class="w"> </span>assets/raw/video<span class="w"> </span>--name<span class="w"> </span>&lt;이름&gt;-walk<span class="w"> </span>--dry-run
+</code></pre></div>
+
+<p><code>cost_usd</code>를 본 뒤 <code>--dry-run</code>을 빼고 실행하세요. 프롬프트에는 제자리 걷기, 옆모습, 다리가 번갈아 크게 움직임, 화면 가운데에 머묾, 배경색 유지를 모두 적으세요. <code>--end-image</code>는 쓰지 마세요. 기본 <code>video.sprite</code> 모델이 받지 않아서 실패해요.</p>
+<h2 id="2">2. 프레임으로 나누고 배경 빼기</h2>
+<p>영상을 초당 12장으로 나누고 배경을 빼세요.</p>
+<div class="code"><pre><span></span><code>gf<span class="w"> </span>post<span class="w"> </span>frames<span class="w"> </span>assets/raw/video/&lt;이름&gt;-walk.mp4<span class="w"> </span>--fps<span class="w"> </span><span class="m">12</span><span class="w"> </span>--out<span class="w"> </span>assets/raw/frames/&lt;이름&gt;-walk
+gf<span class="w"> </span>post<span class="w"> </span>chroma<span class="w"> </span>assets/raw/frames/&lt;이름&gt;-walk<span class="w"> </span>--key<span class="w"> </span>auto<span class="w"> </span>--despill<span class="w"> </span><span class="m">5</span><span class="w"> </span>--erode<span class="w"> </span><span class="m">2</span><span class="w"> </span>--hard<span class="w"> </span>--out<span class="w"> </span>assets/raw/keyed/&lt;이름&gt;-walk
+</code></pre></div>
+
+<p>3초 영상에서 프레임 37장이 나와요. <code>--despill 5 --erode 2</code>가 중요해요. 영상은 압축 때문에 배경색이 캐릭터 외곽선으로 번져요. 정지 그림에 쓰는 기본값(3, 1)으로는 테두리에 배경색이 남아요.</p>
+<h2 id="3">3. 정렬하고 반복 구간 고르기</h2>
+<p>프레임마다 캐릭터의 위치가 조금씩 달라요. 발 기준선을 맞춘 뒤, 처음과 끝이 가장 매끄럽게 이어지는 구간을 고르세요.</p>
+<div class="code"><pre><span></span><code>gf<span class="w"> </span>post<span class="w"> </span>align<span class="w"> </span>assets/raw/keyed/&lt;이름&gt;-walk<span class="w"> </span>--anchor<span class="w"> </span>bbox<span class="w"> </span>--out<span class="w"> </span>assets/raw/aligned/&lt;이름&gt;-walk
+gf<span class="w"> </span>post<span class="w"> </span>loop<span class="w"> </span>assets/raw/aligned/&lt;이름&gt;-walk<span class="w"> </span>--min-length<span class="w"> </span><span class="m">6</span><span class="w"> </span>--max-length<span class="w"> </span><span class="m">12</span><span class="w"> </span>--out<span class="w"> </span>assets/raw/loop/&lt;이름&gt;-walk
+</code></pre></div>
+
+<p><code>gf post loop</code>의 결과예요. 37장 가운데 7번부터 12장을 골랐어요.</p>
+<div class="code"><pre><span></span><code><span class="p">{</span><span class="nt">"ok"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"> </span><span class="nt">"files"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"..."</span><span class="p">],</span><span class="w"> </span><span class="nt">"cost_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0</span><span class="p">,</span><span class="w"> </span><span class="nt">"total_frames"</span><span class="p">:</span><span class="w"> </span><span class="mi">37</span><span class="p">,</span><span class="w"> </span><span class="nt">"start"</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w"> </span><span class="nt">"end"</span><span class="p">:</span><span class="w"> </span><span class="mi">19</span><span class="p">,</span><span class="w"> </span><span class="nt">"length"</span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span><span class="w"> </span><span class="nt">"seam"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.00973</span><span class="p">,</span><span class="w"> </span><span class="nt">"mean_step"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.05144</span><span class="p">}</span>
+</code></pre></div>
+
+<p><code>seam</code>은 마지막 프레임과 첫 프레임의 차이예요. <code>mean_step</code>(이웃한 프레임 사이의 평균 차이)보다 작으면 이음매가 눈에 띄지 않아요.</p>
+<p>고른 프레임을 모음판으로 만들어 눈으로 확인하세요.</p>
+<div class="code"><pre><span></span><code>gf<span class="w"> </span>post<span class="w"> </span>contact<span class="w"> </span>assets/raw/loop/&lt;이름&gt;-walk<span class="w"> </span>--out<span class="w"> </span>captures/inspect/&lt;이름&gt;-walk-loop.png<span class="w"> </span>--columns<span class="w"> </span><span class="m">8</span>
+</code></pre></div>
+
+<p><img alt="반복 구간으로 고른 12프레임" src="../images/animation-loop-frames.png" /></p>
+<p>다리가 번갈아 움직이는지, 프레임 사이에 색이나 소품이 바뀌지 않는지 보세요. 영상 모델은 소품을 흔히 바꿔요. 바뀐 프레임은 빼세요.</p>
+<h2 id="4">4. 모든 프레임을 같은 격자로 줄이기</h2>
+<p><code>--cell</code>을 <strong>모든 프레임에 똑같이</strong> 주세요. 프레임마다 <code>--trim --height</code>를 쓰면 프레임마다 크기가 달라져요. 값은 이렇게 계산해요.</p>
+<div class="code"><pre><span></span><code>--cell = 정지 스프라이트의 cell × (영상 가로 ÷ 정지 원본 가로)
+예: 13.58 × (960 ÷ 512) = 25.47
+</code></pre></div>
+
+<div class="code"><pre><span></span><code>gf<span class="w"> </span>post<span class="w"> </span>pixel-snap<span class="w"> </span>assets/raw/loop/&lt;이름&gt;-walk<span class="w"> </span>--cell<span class="w"> </span><span class="m">25</span>.47<span class="w"> </span>--out<span class="w"> </span>assets/raw/pixel/&lt;이름&gt;-walk
+gf<span class="w"> </span>post<span class="w"> </span>palette<span class="w"> </span>apply<span class="w"> </span>assets/raw/pixel/&lt;이름&gt;-walk<span class="w"> </span>--palette<span class="w"> </span>design/palette.json<span class="w"> </span>--out<span class="w"> </span>assets/raw/paletted/&lt;이름&gt;-walk
+</code></pre></div>
+
+<p>예시에서는 프레임 12장이 모두 21×25가 됐고, 색은 303개에서 11개로 줄었어요.</p>
+<h2 id="5">5. 시트로 묶기</h2>
+<p>프레임을 스프라이트 시트로 묶으세요. 시트 PNG, 프레임 좌표가 든 JSON, Godot용 <code>.tres</code>가 함께 생겨요.</p>
+<div class="code"><pre><span></span><code>gf<span class="w"> </span>post<span class="w"> </span>sheet<span class="w"> </span>assets/raw/paletted/&lt;이름&gt;-walk<span class="w"> </span>--name<span class="w"> </span>&lt;이름&gt;_walk<span class="w"> </span>--fps<span class="w"> </span><span class="m">12</span><span class="w"> </span>--out<span class="w"> </span>assets/game/sprites
+</code></pre></div>
+
+<div class="code"><pre><span></span><code><span class="p">{</span><span class="nt">"ok"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"> </span><span class="nt">"files"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">".../player_walk.png"</span><span class="p">,</span><span class="w"> </span><span class="s2">".../player_walk.json"</span><span class="p">,</span><span class="w"> </span><span class="s2">".../player_walk.tres"</span><span class="p">],</span><span class="w"> </span><span class="nt">"cost_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0</span><span class="p">,</span><span class="w"> </span><span class="nt">"frames"</span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span><span class="w"> </span><span class="nt">"sheet_size"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">84</span><span class="p">,</span><span class="w"> </span><span class="mi">75</span><span class="p">],</span><span class="w"> </span><span class="nt">"frame_size"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">21</span><span class="p">,</span><span class="w"> </span><span class="mi">25</span><span class="p">],</span><span class="w"> </span><span class="nt">"texture"</span><span class="p">:</span><span class="w"> </span><span class="s2">"res://.../player_walk.png"</span><span class="p">}</span>
+</code></pre></div>
+
+<p>반복하지 않는 동작(공격, 사망)에는 <code>--no-loop</code>을 붙이세요. Godot 2D 템플릿은 <code>--name player_walk --out assets/game/sprites</code>로 만든 시트를 플레이어에 바로 써요.</p>
+<h2 id="_4">결과 확인하기</h2>
+<ul>
+<li><code>gf post inspect assets/game/sprites/&lt;이름&gt;_walk.png</code>가 <code>pixel_art: true</code>를 내요.</li>
+<li>게임에서 걷는 동안의 연속 화면을 찍어 발이 미끄러지지 않는지, 기준선이 튀지 않는지 보세요.</li>
+</ul>
+<div class="code"><pre><span></span><code>gf<span class="w"> </span>engine<span class="w"> </span>capture<span class="w"> </span>--out<span class="w"> </span>captures/anim-&lt;이름&gt;<span class="w"> </span>--script<span class="w"> </span>bot/clear.json<span class="w"> </span>--at<span class="w"> </span><span class="m">0</span>.5,0.6,0.7,0.8
+</code></pre></div>
+
+<ul>
+<li>움직임의 느낌은 사람이 봐야 해요. <code>gf engine run</code>으로 사용자에게 보여 주고 물으세요.</li>
+</ul>
+<h2 id="_5">알아 둘 한계</h2>
+<ul>
+<li><strong>대기 자세가 따로 없어요.</strong> 영상 모델은 걷기 시작하면서 자세를 바꿔요. 그래서 정지 스프라이트와 걷기 프레임을 섞으면 튀어요. 템플릿은 걷기 시트의 첫 프레임을 대기 자세로 쓰는데, 한 발을 든 자세라 멈춰 있어도 걷는 것처럼 보일 수 있어요(<code>demo-check/EVIDENCE.md</code> D절에서 "약함"으로 판정했어요).</li>
+<li><strong>두 번 다시 만들어도 어색하면 동작을 단순하게 바꾸세요.</strong> 같은 영상을 계속 다시 뽑지 마세요. cat-angler의 고양이는 영상 대신 자세 시트를 편집 생성하고, 숨쉬기와 깜박임은 픽셀을 옮겨서 만들었어요(<code>games/cat-angler/design/asset-status.md</code>).</li>
+</ul>
+<h2 id="_6">더 보기</h2>
+<ul>
+<li>비픽셀 2D 스타일의 같은 절차: <code>harness/skills/gf-assets-2d/SKILL.md</code></li>
+<li>원문: <code>harness/skills/gf-assets-pixel/animation.md</code></li>
+</ul>
+</article>
+<footer class="pager">
+<a class="prev" href="../how-tos/make-pixel-asset.html"><small>이전</small>생성 이미지를 픽셀 에셋으로 만들기</a>
+<a class="next" href="../how-tos/run-blind-judge.html"><small>다음</small>블라인드 심사 돌리기</a>
+</footer>
+</main>
+<aside class="toc" aria-label="이 문서의 목차">
+<p>이 문서에서</p><div class="toc">
+<ul>
+<li><a href="#_2">이럴 때 쓰세요</a></li>
+<li><a href="#_3">준비하기</a></li>
+<li><a href="#1">1. 영상 한 번 생성하기</a></li>
+<li><a href="#2">2. 프레임으로 나누고 배경 빼기</a></li>
+<li><a href="#3">3. 정렬하고 반복 구간 고르기</a></li>
+<li><a href="#4">4. 모든 프레임을 같은 격자로 줄이기</a></li>
+<li><a href="#5">5. 시트로 묶기</a></li>
+<li><a href="#_4">결과 확인하기</a></li>
+<li><a href="#_5">알아 둘 한계</a></li>
+<li><a href="#_6">더 보기</a></li>
+</ul>
+</div>
+
+</aside>
+</div>
+</body>
+</html>

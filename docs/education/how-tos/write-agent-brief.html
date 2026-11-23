@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>제작 에이전트 작업 지시서 쓰기 · gameforge 교육 자료</title>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<header class="top">
+  <a class="brand" href="../index.html">gameforge 교육 자료</a>
+  <button class="menu" aria-label="목차 열기" onclick="document.body.classList.toggle('nav-open')">목차</button>
+</header>
+<div class="layout">
+<nav class="side" aria-label="문서 목차">
+<p class="group">시작</p><ul>
+<li><a href="../index.html">AI 에이전트로 게임 하네스 만들기</a></li>
+<li><a href="../glossary.html">용어집</a></li>
+</ul>
+<p class="group">설명</p><ul>
+<li><a href="../explanations/why-harness.html">하네스가 필요한 이유</a></li>
+<li><a href="../explanations/harness-structure.html">gameforge 하네스의 구조</a></li>
+<li><a href="../explanations/splitting-work.html">에이전트 작업 분할 원칙</a></li>
+<li><a href="../explanations/three-checks.html">세 가지 검증의 역할</a></li>
+<li><a href="../explanations/cat-angler-case-study.html">cat-angler 제작 과정</a></li>
+</ul>
+<p class="group">학습</p><ul>
+<li><a href="../tutorials/first-game.html">첫 게임 실행하고 캐릭터 넣기</a></li>
+</ul>
+<p class="group">문제 해결</p><ul>
+<li><a href="../how-tos/collect-references.html">레퍼런스 모으고 고르기</a></li>
+<li><a href="../how-tos/run-design-interview.html">설계 인터뷰 하기</a></li>
+<li><a href="../how-tos/make-pixel-asset.html">생성 이미지를 픽셀 에셋으로 만들기</a></li>
+<li><a href="../how-tos/make-sprite-animation.html">스프라이트 애니메이션 만들기</a></li>
+<li><a href="../how-tos/run-blind-judge.html">블라인드 심사 돌리기</a></li>
+<li><a href="../how-tos/verify-sound.html">듣지 않고 소리 검증하기</a></li>
+<li><a class="active" aria-current="page" href="../how-tos/write-agent-brief.html">제작 에이전트 작업 지시서 쓰기</a></li>
+<li><a href="../how-tos/publish-safely.html">공개 저장소에 안전하게 올리기</a></li>
+</ul>
+<p class="group">참조</p><ul>
+<li><a href="../reference/gf-commands.html">gf 명령 모음</a></li>
+<li><a href="../reference/stages-and-outputs.html">단계별 스킬과 산출물</a></li>
+<li><a href="../reference/costs.html">생성 비용표</a></li>
+<li><a href="../reference/failure-catalogue.html">실패 사례 목록</a></li>
+</ul>
+</nav>
+<main>
+<article>
+<p class="badge">문제 해결 (How-to 가이드)</p>
+<h1 id="_1">제작 에이전트 작업 지시서 쓰기</h1>
+<p>이 가이드를 따라 하면 제작 에이전트에게 줄 작업 지시서를 쓸 수 있어요. 이 지시서를 받은 제작 에이전트는 자기 범위 안에서만 일하고, 실제로 실행해서 확인하고, 확인하지 못한 것을 따로 보고해요.</p>
+<h2 id="_2">이럴 때 쓰세요</h2>
+<ul>
+<li>제작 에이전트가 "완료"라고 보고했는데 합쳐 보니 돌아가지 않을 때</li>
+<li>여러 제작 에이전트가 같은 파일을 고쳐 서로의 작업을 덮어쓸 때</li>
+<li>보고서의 어느 문장이 실행 결과이고 어느 문장이 추측인지 구분할 수 없을 때</li>
+</ul>
+<p>제작 에이전트는 지시서에 적힌 것만 알아요. 메인 세션이 대화에서 쌓은 맥락은 넘어가지 않아요. 그리고 메인 세션은 제작 에이전트의 작업 과정을 보지 못하고 마지막 보고만 받아요. 지시서는 이 두 번의 전달에서 빠지는 것을 줄이는 유일한 수단이에요.</p>
+<h2 id="_3">준비하기</h2>
+<p>지시서를 쓰기 전에 두 가지가 있어야 해요.</p>
+<ul>
+<li><strong>계약 문서</strong>: 경로, 크기, 출력 형식, 폴더별 소유권을 적은 문서예요. 없으면 먼저 쓰세요. 예시는 <code>harness/AGENTS.md</code>(하네스)와 <code>games/cat-angler/design/asset-spec.md</code>(게임)예요.</li>
+<li><strong>돌아가는 공용 부분</strong>: 모든 제작 에이전트가 기대는 코드는 메인 세션이 먼저 만들고 실행해 두세요.</li>
+</ul>
+<p>gameforge를 만들 때 쓴 지시서 원문은 저장소에 없어요. 아래 틀은 그때 지시서에 넣은 항목(세션 기록)을 저장소 문서의 내용으로 채운 예시예요.</p>
+<h2 id="1">1. 목표를 한 문단으로 쓰기</h2>
+<p>무엇을 만드는지, 끝났을 때 어떤 상태인지 쓰세요. "생성기를 만들어 줘"가 아니라 완료 상태를 적어요.</p>
+<div class="code"><pre><span></span><code>목표: gf/post/ 아래에 픽셀 후처리 명령(chroma, pixel-snap, palette extract/apply, inspect)을 만든다.
+끝났을 때: 생성 모델이 만든 512px 그림 한 장이 이 명령들을 차례로 거쳐
+`gf post inspect` 에서 pixel_art: true 가 나와야 한다.
+</code></pre></div>
+
+<h2 id="2">2. 읽을 문서를 가리키기</h2>
+<p>규칙을 지시서에 다시 타이핑하지 말고 파일을 가리키세요. 옮겨 적다가 달라지면 제작 에이전트마다 다른 규칙을 따르게 돼요.</p>
+<div class="code"><pre><span></span><code>먼저 읽을 것:
+- harness/AGENTS.md  (디렉터리와 소유권, 명령 규약, 출력 JSON 규약)
+- harness/tools/gf/core/  (공용 코드. 출력은 여기 있는 함수로 낸다)
+</code></pre></div>
+
+<h2 id="3">3. 소유 범위를 적기</h2>
+<p>쓸 수 있는 곳과 쓸 수 없는 곳을 둘 다 적으세요. 공용 부분에 필요한 것이 없을 때 어떻게 할지도 정해 주세요.</p>
+<div class="code"><pre><span></span><code>소유: harness/tools/gf/post/ 와 그 테스트(tests/test_post_*.py).
+쓰지 않는 곳: gf/core/, gf/gen/, gf/engine/, templates/.
+gf/core/ 에 필요한 것이 없으면 직접 고치지 말고 보고에 적는다.
+</code></pre></div>
+
+<p><code>harness/AGENTS.md</code>의 코드 규칙이 같은 내용이에요: "다른 소유자의 디렉터리는 수정하지 않는다. 공용으로 필요한 것은 <code>gf/core/</code>에 있고, 없으면 보고한다."</p>
+<h2 id="4">4. 실행해서 확인할 것을 적기</h2>
+<p>"테스트를 작성하라"로 끝내지 마세요. <strong>진짜 입력으로 실제로 돌려 볼 것</strong>을 명령 수준으로 적으세요. 합성 입력으로 만든 테스트는 진짜 입력의 성질을 몰라요.</p>
+<div class="code"><pre><span></span><code>실행해서 확인할 것:
+1. 단위 테스트: uv run --project tools pytest -q tools/tests
+2. 진짜 입력: 실제 생성 이미지 한 장(가장 싼 설정, 비용을 ledger 에 남긴다)으로
+   chroma → pixel-snap → palette apply → inspect 를 끝까지 돌린다.
+3. 결과 PNG 를 직접 열어 본다. 숫자가 통과해도 그림이 틀릴 수 있다.
+</code></pre></div>
+
+<p>이 항목이 왜 필요한지는 실제 사례가 보여 줘요. 격자 감지는 정수 격자를 가정한 테스트를 통과했지만, 진짜 생성 이미지의 격자는 5.12픽셀이어서 실패했어요(실패한 경위는 세션 기록, 5.12픽셀이라는 실측값은 <code>harness/tools/gf/post/pixel.py</code>의 주석과 <code>harness/skills/gf-assets-pixel/SKILL.md</code>).</p>
+<p>돈이 드는 확인에는 한도를 적으세요. 저장소의 규칙은 "시험 호출은 가장 싼 설정으로 하고 <code>.gf/ledger.jsonl</code>에 남긴다"예요(<code>AGENTS.md</code>).</p>
+<h2 id="5">5. 보고 형식을 정하기</h2>
+<p>보고를 세 칸으로 나눠 달라고 하세요. 세 번째 칸이 가장 중요해요.</p>
+<div class="code"><pre><span></span><code>보고 형식:
+A. 실행해서 확인한 것 — 돌린 명령과 결과 파일의 경로를 함께 적는다.
+B. 만들었지만 실행하지 못한 것 — 왜 못 했는지 적는다.
+C. 확인하지 못한 것 — 추측한 것, 가정한 것, 사람이 봐야 하는 것.
+"완료"라고만 쓰지 않는다. C 가 비어 있으면 정말 비어 있는지 한 번 더 본다.
+</code></pre></div>
+
+<p>미확인 목록을 요구하면 이런 문장을 받게 돼요. 저장소에 남은 실제 예시예요(<code>demo-check/EVIDENCE.md</code>).</p>
+<ul>
+<li>"소리는 길이와 음량만 쟀다. 듣지 못했다."</li>
+<li>"두 번째 때는 뒤이은 점프 입력도 먹지 않았는데 이 부분은 설명하지 못했다."</li>
+</ul>
+<h2 id="6">6. 하지 말 것을 적기</h2>
+<p>검사를 통과시키려고 검사를 약하게 만드는 행동을 미리 막으세요. 하네스의 검증 스킬이 금지하는 것들이에요(<code>harness/skills/gf-verify/SKILL.md</code>).</p>
+<div class="code"><pre><span></span><code>하지 말 것:
+- 실패한 검사를 통과시키려고 검사를 고치지 않는다. 대상을 고친다.
+- 에러를 삼키거나 조용히 다른 방법으로 빠지지 않는다. 실패하면 {"ok": false, "error": ...} 를 낸다.
+- 결과 파일이나 기록을 지우거나 골라서 보고하지 않는다.
+</code></pre></div>
+
+<h2 id="_4">결과 확인하기</h2>
+<p>지시서를 보내기 전에 점검하세요.</p>
+<ul>
+<li>[ ] 이 지시서만 읽은 사람이 무엇을 만들어야 하는지 알 수 있나요?</li>
+<li>[ ] 쓸 수 있는 폴더와 쓸 수 없는 폴더가 둘 다 적혀 있나요?</li>
+<li>[ ] "진짜 입력으로 끝까지 돌린다"가 명령 수준으로 적혀 있나요?</li>
+<li>[ ] 보고 형식에 "확인하지 못한 것" 칸이 있나요?</li>
+<li>[ ] 메인 세션의 가설("아마 X가 원인일 것이다")을 사실처럼 적지 않았나요? 가설을 받은 에이전트는 그 가설을 확인해 주는 쪽으로 기울어요.</li>
+</ul>
+<p>보고를 받은 뒤에도 할 일이 있어요.</p>
+<ul>
+<li>A칸의 결과 파일을 메인 세션이 직접 열어 보세요.</li>
+<li>C칸을 다음 작업 목록으로 옮기세요.</li>
+<li>여러 제작 에이전트의 결과를 <strong>합쳐서</strong> 처음부터 끝까지 돌려 보세요. 각자의 보고가 모두 A칸이어도 합친 것은 확인된 적이 없어요.</li>
+</ul>
+<h2 id="_5">더 보기</h2>
+<ul>
+<li>이 원칙이 나온 배경과 실제 결함: <a href="../explanations/splitting-work.html">에이전트 작업 분할 원칙</a></li>
+<li>계약 문서 예시: <code>harness/AGENTS.md</code>, <code>games/cat-angler/design/asset-spec.md</code></li>
+</ul>
+</article>
+<footer class="pager">
+<a class="prev" href="../how-tos/verify-sound.html"><small>이전</small>듣지 않고 소리 검증하기</a>
+<a class="next" href="../how-tos/publish-safely.html"><small>다음</small>공개 저장소에 안전하게 올리기</a>
+</footer>
+</main>
+<aside class="toc" aria-label="이 문서의 목차">
+<p>이 문서에서</p><div class="toc">
+<ul>
+<li><a href="#_2">이럴 때 쓰세요</a></li>
+<li><a href="#_3">준비하기</a></li>
+<li><a href="#1">1. 목표를 한 문단으로 쓰기</a></li>
+<li><a href="#2">2. 읽을 문서를 가리키기</a></li>
+<li><a href="#3">3. 소유 범위를 적기</a></li>
+<li><a href="#4">4. 실행해서 확인할 것을 적기</a></li>
+<li><a href="#5">5. 보고 형식을 정하기</a></li>
+<li><a href="#6">6. 하지 말 것을 적기</a></li>
+<li><a href="#_4">결과 확인하기</a></li>
+<li><a href="#_5">더 보기</a></li>
+</ul>
+</div>
+
+</aside>
+</div>
+</body>
+</html>

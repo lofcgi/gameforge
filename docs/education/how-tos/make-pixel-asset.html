@@ -1,0 +1,233 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>생성 이미지를 픽셀 에셋으로 만들기 · gameforge 교육 자료</title>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<header class="top">
+  <a class="brand" href="../index.html">gameforge 교육 자료</a>
+  <button class="menu" aria-label="목차 열기" onclick="document.body.classList.toggle('nav-open')">목차</button>
+</header>
+<div class="layout">
+<nav class="side" aria-label="문서 목차">
+<p class="group">시작</p><ul>
+<li><a href="../index.html">AI 에이전트로 게임 하네스 만들기</a></li>
+<li><a href="../glossary.html">용어집</a></li>
+</ul>
+<p class="group">설명</p><ul>
+<li><a href="../explanations/why-harness.html">하네스가 필요한 이유</a></li>
+<li><a href="../explanations/harness-structure.html">gameforge 하네스의 구조</a></li>
+<li><a href="../explanations/splitting-work.html">에이전트 작업 분할 원칙</a></li>
+<li><a href="../explanations/three-checks.html">세 가지 검증의 역할</a></li>
+<li><a href="../explanations/cat-angler-case-study.html">cat-angler 제작 과정</a></li>
+</ul>
+<p class="group">학습</p><ul>
+<li><a href="../tutorials/first-game.html">첫 게임 실행하고 캐릭터 넣기</a></li>
+</ul>
+<p class="group">문제 해결</p><ul>
+<li><a href="../how-tos/collect-references.html">레퍼런스 모으고 고르기</a></li>
+<li><a href="../how-tos/run-design-interview.html">설계 인터뷰 하기</a></li>
+<li><a class="active" aria-current="page" href="../how-tos/make-pixel-asset.html">생성 이미지를 픽셀 에셋으로 만들기</a></li>
+<li><a href="../how-tos/make-sprite-animation.html">스프라이트 애니메이션 만들기</a></li>
+<li><a href="../how-tos/run-blind-judge.html">블라인드 심사 돌리기</a></li>
+<li><a href="../how-tos/verify-sound.html">듣지 않고 소리 검증하기</a></li>
+<li><a href="../how-tos/write-agent-brief.html">제작 에이전트 작업 지시서 쓰기</a></li>
+<li><a href="../how-tos/publish-safely.html">공개 저장소에 안전하게 올리기</a></li>
+</ul>
+<p class="group">참조</p><ul>
+<li><a href="../reference/gf-commands.html">gf 명령 모음</a></li>
+<li><a href="../reference/stages-and-outputs.html">단계별 스킬과 산출물</a></li>
+<li><a href="../reference/costs.html">생성 비용표</a></li>
+<li><a href="../reference/failure-catalogue.html">실패 사례 목록</a></li>
+</ul>
+</nav>
+<main>
+<article>
+<p class="badge">문제 해결 (How-to 가이드)</p>
+<h1 id="_1">생성 이미지를 픽셀 에셋으로 만들기</h1>
+<p>이 가이드를 따라 하면 이미지 모델이 그린 "픽셀 아트처럼 보이는 그림"을 게임 해상도에 정확히 맞는 진짜 픽셀 에셋으로 바꿀 수 있어요. 게임 안에서 흐려지거나 에셋마다 픽셀 크기가 달라 보이는 문제를 없애요.</p>
+<h2 id="_2">이럴 때 쓰세요</h2>
+<ul>
+<li>생성한 픽셀 아트를 게임에 넣었더니 흐리거나 뭉개질 때</li>
+<li>에셋마다 픽셀 한 칸의 크기가 달라 보일 때</li>
+<li>스프라이트 테두리에 배경색이 남을 때</li>
+</ul>
+<p>원인은 이미지 모델이 픽셀 아트를 그리지 못하기 때문이에요. 모델은 픽셀 아트의 <strong>모양을 흉내 낸 고해상도 그림</strong>을 내놓아요. 하네스가 실제로 잰 값이에요(<code>harness/skills/gf-assets-pixel/SKILL.md</code>).</p>
+<div class="table"><table>
+<thead>
+<tr>
+<th>기대한 것</th>
+<th>실제로 받은 것</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>정수 픽셀 격자</td>
+<td>512픽셀 그림에 칸 하나가 5.12픽셀</td>
+</tr>
+<tr>
+<td>색 십여 개</td>
+<td>색 22,180개</td>
+</tr>
+<tr>
+<td>요청한 32×32</td>
+<td>100×100칸</td>
+</tr>
+</tbody>
+</table></div>
+<p>그래서 생성물은 원본으로만 다루고, 아래 후처리 사슬을 통과한 것만 게임에 넣어요.</p>
+<div class="code"><pre><span></span><code> 원본 ──► 크로마 ──► 격자 맞춤 ──► 팔레트 적용 ──► 검사 ──► 게임용 에셋
+ assets/raw/pix     keyed        pixel          assets/game     captures/inspect
+</code></pre></div>
+
+<h2 id="_3">준비하기</h2>
+<ul>
+<li>게임 프로젝트의 스타일이 <code>pixel</code>이어야 해요.</li>
+<li>아트 디렉션에서 캐릭터의 세로 크기(예: 24픽셀)와 색 수를 정해 두세요.</li>
+<li>아래 명령의 <code>gf</code>는 게임 폴더를 지정한 함수예요. 경로는 모두 게임 폴더 기준이에요.</li>
+<li><strong>비용</strong>: 1단계의 생성만 유료예요(이미지 1장 약 $0.08). 2단계부터는 무료예요.</li>
+</ul>
+<p>에셋이 여러 개라면 가장 눈에 띄는 <strong>하나</strong>로 사슬 전체를 먼저 통과시키고, 사용자가 그 결과를 승인한 뒤에 나머지를 만드세요.</p>
+<h2 id="1">1. 단색 배경에 생성하기</h2>
+<p>배경색은 그림에 없는 색으로 정하세요. 보통 마젠타(<code>#FF00FF</code>)를 쓰고, 그림에 분홍이나 보라가 있으면 초록(<code>#00FF00</code>)을 쓰세요. 먼저 <code>--dry-run</code>으로 추정 비용을 확인하세요.</p>
+<div class="code"><pre><span></span><code>gf<span class="w"> </span>gen<span class="w"> </span>image<span class="w"> </span><span class="s2">"&lt;대상&gt;, pixel art, chunky large pixels, limited 16 colour palette, hard pixel edges, dark outline, side view, single subject centered with margin, flat solid pure magenta #FF00FF background, no shadow, no ground, no text"</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--aspect<span class="w"> </span><span class="m">1</span>:1<span class="w"> </span>--resolution<span class="w"> </span><span class="m">0</span>.5K<span class="w"> </span>--out<span class="w"> </span>assets/raw/pix<span class="w"> </span>--name<span class="w"> </span>&lt;이름&gt;<span class="w"> </span>--dry-run
+</code></pre></div>
+
+<p><code>cost_usd</code>를 본 뒤 <code>--dry-run</code>을 빼고 실행하세요. 기준 화면을 참조 이미지로 주려면 <code>gf gen image</code> 대신 <code>gf gen edit "&lt;프롬프트&gt;" --image &lt;기준 화면&gt;</code>을 쓰세요. 기본 <code>image.concept</code> 모델은 이미지 입력을 받지 않아요.</p>
+<p><strong>처음부터 단순하게 요청하세요.</strong> 주름이나 무늬가 많은 그림은 24픽셀로 줄이면 얼룩이 돼요. 하네스 검증에서 통한 문구예요: <code>big flat colour areas with only one shadow tone, no small details, thick dark outline, very chunky huge pixels</code>.</p>
+<h2 id="2">2. 배경 빼기</h2>
+<p><code>--hard</code>를 주면 투명도가 0 아니면 255로만 나와요. 픽셀 아트에는 반투명 가장자리가 없어야 해요.</p>
+<div class="code"><pre><span></span><code>gf<span class="w"> </span>post<span class="w"> </span>chroma<span class="w"> </span>assets/raw/pix/&lt;이름&gt;.png<span class="w"> </span>--key<span class="w"> </span>auto<span class="w"> </span>--hard<span class="w"> </span>--out<span class="w"> </span>assets/raw/keyed
+</code></pre></div>
+
+<p>결과의 <code>key</code>가 의도한 배경색과 비슷한지 확인하세요. 다르면 <code>--key '#FF00FF'</code>처럼 직접 주세요.</p>
+<h2 id="3">3. 격자에 맞춰 줄이기</h2>
+<p>대상의 종류에 따라 옵션이 달라요.</p>
+<div class="table"><table>
+<thead>
+<tr>
+<th>대상</th>
+<th>옵션</th>
+<th>이유</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>캐릭터, 소품</td>
+<td><code>--trim --height &lt;세로 픽셀&gt;</code></td>
+<td>모델은 요청한 크기를 지키지 않아요. 보이는 부분만 잘라 세로를 맞추고 가로는 비율대로 둬요</td>
+</tr>
+<tr>
+<td>화면을 꽉 채우는 타일</td>
+<td><code>--size 32x32</code></td>
+<td>크기를 고정해요. 비율이 다르면 그림이 늘어나므로 캐릭터에는 쓰지 마세요</td>
+</tr>
+<tr>
+<td>애니메이션 프레임</td>
+<td><code>--cell &lt;칸 크기&gt;</code></td>
+<td>모든 프레임에 같은 값을 줘야 크기가 흔들리지 않아요</td>
+</tr>
+</tbody>
+</table></div>
+<div class="code"><pre><span></span><code>gf<span class="w"> </span>post<span class="w"> </span>pixel-snap<span class="w"> </span>assets/raw/keyed/&lt;이름&gt;.png<span class="w"> </span>--trim<span class="w"> </span>--height<span class="w"> </span><span class="m">24</span><span class="w"> </span>--out<span class="w"> </span>assets/raw/pixel
+</code></pre></div>
+
+<p>결과의 <code>cell</code>(원본 몇 픽셀이 한 칸이 됐는지)을 적어 두세요. 같은 캐릭터의 애니메이션을 만들 때 써요.</p>
+<p>옵션 없이 실행하면 격자를 자동으로 찾아요. 생성 그림의 격자는 정수가 아니어서 신뢰도가 0.25 미만이면 실패해요. 자동 감지에 기대지 마세요.</p>
+<h2 id="4">4. 공용 팔레트 입히기</h2>
+<p>게임의 모든 에셋이 같은 팔레트를 써야 한 게임처럼 보여요. 팔레트가 아직 없으면 채택한 그림들에서 함께 뽑으세요.</p>
+<div class="code"><pre><span></span><code>gf<span class="w"> </span>post<span class="w"> </span>palette<span class="w"> </span>extract<span class="w"> </span>assets/raw/pixel<span class="w"> </span>--colors<span class="w"> </span><span class="m">16</span><span class="w"> </span>--out<span class="w"> </span>design/palette.json
+gf<span class="w"> </span>post<span class="w"> </span>palette<span class="w"> </span>apply<span class="w"> </span>assets/raw/pixel/&lt;이름&gt;.png<span class="w"> </span>--palette<span class="w"> </span>design/palette.json<span class="w"> </span>--out<span class="w"> </span>assets/game/sprites
+</code></pre></div>
+
+<ul>
+<li>그림을 바꾸면 팔레트를 다시 뽑고 <strong>전부</strong>에 다시 입히세요.</li>
+<li>작은 스프라이트에는 <code>--dither</code>를 쓰지 마세요. 지저분해져요.</li>
+</ul>
+<h2 id="5">5. 검사하기</h2>
+<p>숫자 검사와 눈 검사를 함께 하세요.</p>
+<div class="code"><pre><span></span><code>gf<span class="w"> </span>post<span class="w"> </span>inspect<span class="w"> </span>assets/game/sprites/&lt;이름&gt;.png<span class="w"> </span>--check<span class="w"> </span>captures/inspect/&lt;이름&gt;.png<span class="w"> </span>--check-scale<span class="w"> </span><span class="m">8</span>
+</code></pre></div>
+
+<div class="code"><pre><span></span><code><span class="p">{</span><span class="nt">"ok"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"> </span><span class="nt">"files"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"captures/inspect/player.png"</span><span class="p">],</span><span class="w"> </span><span class="nt">"cost_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0</span><span class="p">,</span><span class="w"> </span><span class="nt">"images"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="nt">"file"</span><span class="p">:</span><span class="w"> </span><span class="s2">"assets/game/sprites/player.png"</span><span class="p">,</span><span class="w"> </span><span class="nt">"size"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">20</span><span class="p">,</span><span class="w"> </span><span class="mi">24</span><span class="p">],</span><span class="w"> </span><span class="nt">"alpha_coverage"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.7083</span><span class="p">,</span><span class="w"> </span><span class="nt">"partial_alpha"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0</span><span class="p">,</span><span class="w"> </span><span class="nt">"unique_colours"</span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span><span class="w"> </span><span class="nt">"integer_scale"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="nt">"pixel_art"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"> </span><span class="nt">"reasons"</span><span class="p">:</span><span class="w"> </span><span class="p">[]}]}</span>
+</code></pre></div>
+
+<p><code>pixel_art</code>가 <code>true</code>여야 해요. <code>false</code>면 <code>reasons</code>가 원인을 말해 줘요. 그다음 확인 이미지(<code>captures/inspect/&lt;이름&gt;.png</code>)를 직접 열어 보세요.</p>
+<p><img alt="확인 이미지 예시" src="../images/tutorial-sprite-check.png" /></p>
+<h2 id="_4">결과 확인하기</h2>
+<p>네 가지가 모두 맞으면 통과예요(<code>harness/skills/gf-assets-pixel/SKILL.md</code>의 통과 기준).</p>
+<ol>
+<li><code>gf post inspect</code>가 <code>pixel_art: true</code>를 내요.</li>
+<li>확인 이미지의 밝은 쪽과 어두운 쪽 <strong>모두에서</strong> 테두리에 배경색이 없고, 외곽선이 끊기지 않고, 형태가 읽혀요.</li>
+<li>1배 크기에서 무엇인지 알아볼 수 있어요. 확대해야만 알아볼 수 있으면 더 단순한 형태로 다시 생성하세요.</li>
+<li>기준 화면 옆에 놓았을 때 같은 게임의 그림으로 보여요.</li>
+</ol>
+<p>게임에 넣은 뒤에는 <code>gf check assets</code>, <code>gf engine test</code>, <code>gf engine capture</code>로 게임 안에서도 흐려지지 않는지 확인하세요.</p>
+<h2 id="_5">잘 안 될 때</h2>
+<div class="table"><table>
+<thead>
+<tr>
+<th>증상</th>
+<th>원인</th>
+<th>해결</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>줄이니 얼룩이 됐다</td>
+<td>원본에 주름, 패널, 명암 줄이 많다</td>
+<td>큰 색면과 음영 한 단계로 다시 생성</td>
+</tr>
+<tr>
+<td>가는 가시나 줄무늬가 사라지고 갈색으로 뭉쳤다</td>
+<td>1배에서 살아남지 못하는 형태다</td>
+<td>굵은 덩어리와 뚜렷한 색면으로 다시 생성</td>
+</tr>
+<tr>
+<td>다른 그림의 색이 엉뚱한 곳에 박혔다</td>
+<td>팔레트를 여러 그림에서 뽑았다</td>
+<td>확인 이미지에서 찾아 그 그림을 고치거나 팔레트의 색 수를 조정</td>
+</tr>
+<tr>
+<td>눈의 흰자처럼 작은 밝은 면이 사라졌다</td>
+<td>팔레트를 뽑을 때 면적이 작은 색이 밀려났다</td>
+<td>하네스를 만들 때 겪은 문제예요(세션 기록). 지금의 <code>gf post palette extract</code>는 넓게 퍼진 색 무리부터 나누는 방식이에요(<code>harness/tools/gf/post/palette.py</code>). 그래도 사라지면 <code>--colors</code>를 늘리세요</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="_6">더 보기</h2>
+<ul>
+<li>처음부터 끝까지 따라 하기: <a href="../tutorials/first-game.html">첫 게임 실행하고 캐릭터 넣기</a></li>
+<li>걷는 동작 만들기: <a href="../how-tos/make-sprite-animation.html">스프라이트 애니메이션 만들기</a></li>
+<li>원문: <code>harness/skills/gf-assets-pixel/SKILL.md</code></li>
+</ul>
+</article>
+<footer class="pager">
+<a class="prev" href="../how-tos/run-design-interview.html"><small>이전</small>설계 인터뷰 하기</a>
+<a class="next" href="../how-tos/make-sprite-animation.html"><small>다음</small>스프라이트 애니메이션 만들기</a>
+</footer>
+</main>
+<aside class="toc" aria-label="이 문서의 목차">
+<p>이 문서에서</p><div class="toc">
+<ul>
+<li><a href="#_2">이럴 때 쓰세요</a></li>
+<li><a href="#_3">준비하기</a></li>
+<li><a href="#1">1. 단색 배경에 생성하기</a></li>
+<li><a href="#2">2. 배경 빼기</a></li>
+<li><a href="#3">3. 격자에 맞춰 줄이기</a></li>
+<li><a href="#4">4. 공용 팔레트 입히기</a></li>
+<li><a href="#5">5. 검사하기</a></li>
+<li><a href="#_4">결과 확인하기</a></li>
+<li><a href="#_5">잘 안 될 때</a></li>
+<li><a href="#_6">더 보기</a></li>
+</ul>
+</div>
+
+</aside>
+</div>
+</body>
+</html>

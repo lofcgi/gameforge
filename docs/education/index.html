@@ -1,0 +1,299 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI 에이전트로 게임 하네스 만들기 · gameforge 교육 자료</title>
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<header class="top">
+  <a class="brand" href="index.html">gameforge 교육 자료</a>
+  <button class="menu" aria-label="목차 열기" onclick="document.body.classList.toggle('nav-open')">목차</button>
+</header>
+<div class="layout">
+<nav class="side" aria-label="문서 목차">
+<p class="group">시작</p><ul>
+<li><a class="active" aria-current="page" href="index.html">AI 에이전트로 게임 하네스 만들기</a></li>
+<li><a href="glossary.html">용어집</a></li>
+</ul>
+<p class="group">설명</p><ul>
+<li><a href="explanations/why-harness.html">하네스가 필요한 이유</a></li>
+<li><a href="explanations/harness-structure.html">gameforge 하네스의 구조</a></li>
+<li><a href="explanations/splitting-work.html">에이전트 작업 분할 원칙</a></li>
+<li><a href="explanations/three-checks.html">세 가지 검증의 역할</a></li>
+<li><a href="explanations/cat-angler-case-study.html">cat-angler 제작 과정</a></li>
+</ul>
+<p class="group">학습</p><ul>
+<li><a href="tutorials/first-game.html">첫 게임 실행하고 캐릭터 넣기</a></li>
+</ul>
+<p class="group">문제 해결</p><ul>
+<li><a href="how-tos/collect-references.html">레퍼런스 모으고 고르기</a></li>
+<li><a href="how-tos/run-design-interview.html">설계 인터뷰 하기</a></li>
+<li><a href="how-tos/make-pixel-asset.html">생성 이미지를 픽셀 에셋으로 만들기</a></li>
+<li><a href="how-tos/make-sprite-animation.html">스프라이트 애니메이션 만들기</a></li>
+<li><a href="how-tos/run-blind-judge.html">블라인드 심사 돌리기</a></li>
+<li><a href="how-tos/verify-sound.html">듣지 않고 소리 검증하기</a></li>
+<li><a href="how-tos/write-agent-brief.html">제작 에이전트 작업 지시서 쓰기</a></li>
+<li><a href="how-tos/publish-safely.html">공개 저장소에 안전하게 올리기</a></li>
+</ul>
+<p class="group">참조</p><ul>
+<li><a href="reference/gf-commands.html">gf 명령 모음</a></li>
+<li><a href="reference/stages-and-outputs.html">단계별 스킬과 산출물</a></li>
+<li><a href="reference/costs.html">생성 비용표</a></li>
+<li><a href="reference/failure-catalogue.html">실패 사례 목록</a></li>
+</ul>
+</nav>
+<main>
+<article>
+<p class="badge">개요</p>
+<h1 id="ai">AI 에이전트로 게임 하네스 만들기</h1>
+<p>이 자료를 읽으면 AI 코딩 에이전트에게 "만들어 줘"라고 말하는 수준을 넘어, 에이전트가 스스로 실행하고 확인하며 일하도록 틀을 짜는 방법을 배울 수 있어요. 교재는 이 저장소 자체예요. 하네스 gameforge(<code>harness/</code>)와 그것으로 만든 2D 픽셀 낚시 게임 cat-angler(<code>games/cat-angler/</code>)를 어떻게 만들었는지, 잘된 것과 반려당한 것을 함께 다뤄요.</p>
+<h2 id="_1">이 자료가 맞는 사람</h2>
+<ul>
+<li>Claude Code 같은 코딩 에이전트를 써 봤고, 더 큰 결과물(게임, 도구, 파이프라인)을 맡기고 싶은 개발자</li>
+<li>코드를 직접 쓰지 않지만 에이전트와 함께 게임이나 창작물을 만들고 싶은 기획자, 디자이너</li>
+</ul>
+<p>Claude Code가 무엇인지는 안다고 가정해요. 이 저장소, 게임 엔진, 이미지 생성 모델은 몰라도 돼요.</p>
+<h2 id="_2">읽고 나면 할 수 있는 일</h2>
+<ul>
+<li>조사 결과를 "에이전트가 어길 수 없는 장치"로 바꾸는 방법을 설명할 수 있어요.</li>
+<li>저장소를 내려받아 하네스로 작은 게임을 실행하고, 생성 이미지 한 장을 게임 속 픽셀 캐릭터로 바꿀 수 있어요.</li>
+<li>여러 에이전트에게 일을 나눠 줄 때 계약 문서와 작업 지시서를 쓸 수 있어요.</li>
+<li>에이전트가 "됐다"고 말할 때 무엇으로 확인해야 하는지 고를 수 있어요.</li>
+</ul>
+<h2 id="_3">학습 경로</h2>
+<p>처음이라면 위에서 아래로 읽으세요. 시간은 읽기만 할 때의 어림값이에요.</p>
+<h3 id="1">1. 먼저 이해하기</h3>
+<div class="table"><table>
+<thead>
+<tr>
+<th>문서</th>
+<th>유형</th>
+<th>내용</th>
+<th>시간</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="explanations/why-harness.html">하네스가 필요한 이유</a></td>
+<td>설명</td>
+<td>조사에서 찾은 사실이 각각 어떤 장치가 됐는지</td>
+<td>10분</td>
+</tr>
+<tr>
+<td><a href="explanations/harness-structure.html">gameforge 하네스의 구조</a></td>
+<td>설명</td>
+<td>플러그인, CLI, 템플릿 세 층과 단계 승인</td>
+<td>10분</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="2">2. 직접 해 보기</h3>
+<div class="table"><table>
+<thead>
+<tr>
+<th>문서</th>
+<th>유형</th>
+<th>내용</th>
+<th>시간</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="tutorials/first-game.html">첫 게임 실행하고 캐릭터 넣기</a></td>
+<td>학습</td>
+<td>내려받기부터 픽셀 캐릭터가 게임에 나오기까지. 돈이 들지 않는 경로로 끝까지 갈 수 있어요</td>
+<td>실습 30~40분</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="3">3. 원리 더 깊이 이해하기</h3>
+<div class="table"><table>
+<thead>
+<tr>
+<th>문서</th>
+<th>유형</th>
+<th>내용</th>
+<th>시간</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="explanations/splitting-work.html">에이전트 작업 분할 원칙</a></td>
+<td>설명</td>
+<td>계약 문서 먼저, 소유 범위, 일찍 합치기</td>
+<td>10분</td>
+</tr>
+<tr>
+<td><a href="explanations/three-checks.html">세 가지 검증의 역할</a></td>
+<td>설명</td>
+<td>자가 실행, 블라인드 심사, 사람 플레이가 각각 잡는 것</td>
+<td>10분</td>
+</tr>
+<tr>
+<td><a href="explanations/cat-angler-case-study.html">cat-angler 제작 과정</a></td>
+<td>설명</td>
+<td>두 번의 반려와 그 뒤에 바뀐 것</td>
+<td>15분</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="4">4. 필요할 때 찾아 쓰기</h3>
+<p>한 가지 작업을 끝내는 방법이에요. 순서 없이 필요한 것만 읽으세요.</p>
+<div class="table"><table>
+<thead>
+<tr>
+<th>문서</th>
+<th>유형</th>
+<th>끝내는 작업</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="how-tos/collect-references.html">레퍼런스 모으고 고르기</a></td>
+<td>문제 해결</td>
+<td>여러 출처의 참고 이미지에서 특성만 뽑기</td>
+</tr>
+<tr>
+<td><a href="how-tos/run-design-interview.html">설계 인터뷰 하기</a></td>
+<td>문제 해결</td>
+<td>너무 단순한 게임이 나오지 않게 기획 잡기</td>
+</tr>
+<tr>
+<td><a href="how-tos/make-pixel-asset.html">생성 이미지를 픽셀 에셋으로 만들기</a></td>
+<td>문제 해결</td>
+<td>"픽셀 아트처럼 보이는 그림"을 진짜 픽셀 에셋으로 바꾸기</td>
+</tr>
+<tr>
+<td><a href="how-tos/make-sprite-animation.html">스프라이트 애니메이션 만들기</a></td>
+<td>문제 해결</td>
+<td>영상 한 번으로 걷기 동작 시트 얻기</td>
+</tr>
+<tr>
+<td><a href="how-tos/run-blind-judge.html">블라인드 심사 돌리기</a></td>
+<td>문제 해결</td>
+<td>화면이 나아졌는지 편견 없이 판정받기</td>
+</tr>
+<tr>
+<td><a href="how-tos/verify-sound.html">듣지 않고 소리 검증하기</a></td>
+<td>문제 해결</td>
+<td>소리가 실제로 나는지, 음악이 끊기지 않는지 재기</td>
+</tr>
+<tr>
+<td><a href="how-tos/write-agent-brief.html">제작 에이전트 작업 지시서 쓰기</a></td>
+<td>문제 해결</td>
+<td>실행 확인과 미확인 목록을 요구하는 지시서 쓰기</td>
+</tr>
+<tr>
+<td><a href="how-tos/publish-safely.html">공개 저장소에 안전하게 올리기</a></td>
+<td>문제 해결</td>
+<td>비밀 값, 남의 이미지, 큰 파일을 빼고 올리기</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="5">5. 찾아보기</h3>
+<div class="table"><table>
+<thead>
+<tr>
+<th>문서</th>
+<th>유형</th>
+<th>내용</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="reference/gf-commands.html"><code>gf</code> 명령 모음</a></td>
+<td>참조</td>
+<td>명령 그룹과 하위 명령, 출력 형식</td>
+</tr>
+<tr>
+<td><a href="reference/stages-and-outputs.html">단계별 스킬과 산출물</a></td>
+<td>참조</td>
+<td>단계 → 스킬 → 생기는 파일</td>
+</tr>
+<tr>
+<td><a href="reference/costs.html">생성 비용표</a></td>
+<td>참조</td>
+<td>저장소에 기록된 단가와 지출</td>
+</tr>
+<tr>
+<td><a href="reference/failure-catalogue.html">실패 사례 목록</a></td>
+<td>참조</td>
+<td>증상 → 원인 → 고친 방법 → 저장소 위치</td>
+</tr>
+<tr>
+<td><a href="glossary.html">용어집</a></td>
+<td>참조</td>
+<td>이 자료에서 쓰는 용어</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="_4">실습 준비물</h2>
+<p>읽기만 한다면 준비물이 없어요. <a href="tutorials/first-game.html">튜토리얼</a>을 따라 하려면 아래가 필요해요. 저장소가 확인한 환경은 macOS예요(<code>harness/README.md</code>). 다른 운영체제에서는 확인하지 않았어요.</p>
+<div class="table"><table>
+<thead>
+<tr>
+<th>도구</th>
+<th>쓰는 곳</th>
+<th>설치</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>uv (Python 3.12 이상)</td>
+<td><code>gf</code> 실행</td>
+<td><code>brew install uv</code></td>
+</tr>
+<tr>
+<td>Godot 4</td>
+<td>게임 실행</td>
+<td><code>brew install --cask godot</code></td>
+</tr>
+<tr>
+<td>ffmpeg</td>
+<td>영상 프레임, 소리 측정</td>
+<td><code>brew install ffmpeg</code></td>
+</tr>
+<tr>
+<td>fal 계정과 <code>FAL_KEY</code></td>
+<td>이미지·영상·소리 생성(유료 단계에서만)</td>
+<td>https://fal.ai</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="_5">이 자료를 읽는 법</h2>
+<ul>
+<li><strong>출처 표시</strong>: 저장소 파일로 확인한 내용에는 <code>harness/README.md</code>처럼 저장소 루트 기준 경로를 붙였어요. 저장소에는 없고 작업 세션의 기록으로만 전해지는 내용은 "(세션 기록)"이라고 적었어요.</li>
+<li><strong>날짜</strong>: 이 자료의 숫자는 2026-11-23 기준이에요. cat-angler는 그 시점에도 다듬는 중이어서 에셋 수, 비용, 심사 결과는 지금 저장소와 다를 수 있어요.</li>
+<li><strong>절대 경로</strong>: 저장소 문서 안의 <code>/Users/iyeonsang/Desktop/game/...</code>은 처음 작업한 컴퓨터의 경로예요. 여러분이 내려받은 위치로 바꿔 읽으세요.</li>
+<li><strong>작성 기준</strong>: 이 자료는 토스 테크니컬 라이팅 가이드를 따라 썼어요. 적용한 원칙은 <a href="_writing-notes.md">작성 기준 메모</a>에 있어요.</li>
+</ul>
+</article>
+<footer class="pager">
+<span></span>
+<a class="next" href="explanations/why-harness.html"><small>다음</small>하네스가 필요한 이유</a>
+</footer>
+</main>
+<aside class="toc" aria-label="이 문서의 목차">
+<p>이 문서에서</p><div class="toc">
+<ul>
+<li><a href="#_1">이 자료가 맞는 사람</a></li>
+<li><a href="#_2">읽고 나면 할 수 있는 일</a></li>
+<li><a href="#_3">학습 경로</a><ul>
+<li><a href="#1">1. 먼저 이해하기</a></li>
+<li><a href="#2">2. 직접 해 보기</a></li>
+<li><a href="#3">3. 원리 더 깊이 이해하기</a></li>
+<li><a href="#4">4. 필요할 때 찾아 쓰기</a></li>
+<li><a href="#5">5. 찾아보기</a></li>
+</ul>
+</li>
+<li><a href="#_4">실습 준비물</a></li>
+<li><a href="#_5">이 자료를 읽는 법</a></li>
+</ul>
+</div>
+
+</aside>
+</div>
+</body>
+</html>

@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>듣지 않고 소리 검증하기 · gameforge 교육 자료</title>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<header class="top">
+  <a class="brand" href="../index.html">gameforge 교육 자료</a>
+  <button class="menu" aria-label="목차 열기" onclick="document.body.classList.toggle('nav-open')">목차</button>
+</header>
+<div class="layout">
+<nav class="side" aria-label="문서 목차">
+<p class="group">시작</p><ul>
+<li><a href="../index.html">AI 에이전트로 게임 하네스 만들기</a></li>
+<li><a href="../glossary.html">용어집</a></li>
+</ul>
+<p class="group">설명</p><ul>
+<li><a href="../explanations/why-harness.html">하네스가 필요한 이유</a></li>
+<li><a href="../explanations/harness-structure.html">gameforge 하네스의 구조</a></li>
+<li><a href="../explanations/splitting-work.html">에이전트 작업 분할 원칙</a></li>
+<li><a href="../explanations/three-checks.html">세 가지 검증의 역할</a></li>
+<li><a href="../explanations/cat-angler-case-study.html">cat-angler 제작 과정</a></li>
+</ul>
+<p class="group">학습</p><ul>
+<li><a href="../tutorials/first-game.html">첫 게임 실행하고 캐릭터 넣기</a></li>
+</ul>
+<p class="group">문제 해결</p><ul>
+<li><a href="../how-tos/collect-references.html">레퍼런스 모으고 고르기</a></li>
+<li><a href="../how-tos/run-design-interview.html">설계 인터뷰 하기</a></li>
+<li><a href="../how-tos/make-pixel-asset.html">생성 이미지를 픽셀 에셋으로 만들기</a></li>
+<li><a href="../how-tos/make-sprite-animation.html">스프라이트 애니메이션 만들기</a></li>
+<li><a href="../how-tos/run-blind-judge.html">블라인드 심사 돌리기</a></li>
+<li><a class="active" aria-current="page" href="../how-tos/verify-sound.html">듣지 않고 소리 검증하기</a></li>
+<li><a href="../how-tos/write-agent-brief.html">제작 에이전트 작업 지시서 쓰기</a></li>
+<li><a href="../how-tos/publish-safely.html">공개 저장소에 안전하게 올리기</a></li>
+</ul>
+<p class="group">참조</p><ul>
+<li><a href="../reference/gf-commands.html">gf 명령 모음</a></li>
+<li><a href="../reference/stages-and-outputs.html">단계별 스킬과 산출물</a></li>
+<li><a href="../reference/costs.html">생성 비용표</a></li>
+<li><a href="../reference/failure-catalogue.html">실패 사례 목록</a></li>
+</ul>
+</nav>
+<main>
+<article>
+<p class="badge">문제 해결 (How-to 가이드)</p>
+<h1 id="_1">듣지 않고 소리 검증하기</h1>
+<p>이 가이드를 따라 하면 소리를 듣지 못하는 에이전트가 "소리 파일이 멀쩡한가", "음악이 끊기지 않고 반복되는가", "게임을 돌렸을 때 실제로 소리가 나는가"를 숫자로 확인할 수 있어요. 귀로만 판정할 수 있는 것은 따로 남겨 사람에게 넘겨요.</p>
+<h2 id="_2">이럴 때 쓰세요</h2>
+<ul>
+<li>에이전트가 소리를 넣었다고 하는데 정말 나는지 확인할 방법이 없을 때</li>
+<li>배경음악이 반복될 때마다 "뚝" 끊길 때</li>
+<li>효과음이 음악에 묻히거나 너무 클 때</li>
+</ul>
+<p>에이전트는 소리를 듣지 못해요. 그래서 측정할 수 있는 것과 없는 것을 먼저 나눠요.</p>
+<div class="table"><table>
+<thead>
+<tr>
+<th>측정으로 확인하는 것</th>
+<th>사람이 들어야 하는 것</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>파일의 길이, 음량, 잘림, 앞뒤 무음</td>
+<td>듣기 좋은가, 게임과 어울리는가</td>
+</tr>
+<tr>
+<td>음악 이음매의 무음과 파형 꺾임</td>
+<td>이음매에서 박자가 자연스러운가</td>
+</tr>
+<tr>
+<td>실행 중 엔진이 내보내는 신호의 크기</td>
+<td>스피커로 실제로 들리는가</td>
+</tr>
+<tr>
+<td>입력 직후 어떤 소리가 시작됐는가</td>
+<td>그 소리의 느낌이 맞는가</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="_3">준비하기</h2>
+<ul>
+<li>ffmpeg가 설치돼 있어야 해요.</li>
+<li>게임 코드가 소리 파일을 <code>assets/game/audio/</code> 경로로 가리키고 있어야 해요.</li>
+<li>아래 명령의 <code>gf</code>는 게임 폴더를 지정한 함수예요.</li>
+<li>이 가이드의 명령은 모두 무료예요. 소리를 새로 생성하는 <code>gf gen sfx</code>와 <code>gf gen music</code>만 유료예요(효과음 초당 약 $0.002, 음악 분당 약 $0.6. <code>harness/README.md</code>).</li>
+<li><strong>무료로 연습하기</strong>: <code>demo-check/pixel-godot</code> 폴더를 다른 곳에 복사해 게임 폴더로 지정하면 그대로 따라 할 수 있어요. 아래 예시 출력은 그렇게 실행한 결과예요.</li>
+</ul>
+<h2 id="1">1. 소리 파일 재기</h2>
+<p>게임 코드가 가리키는 소리 파일이 모두 있고 소리가 들어 있는지 검사하세요.</p>
+<div class="code"><pre><span></span><code>gf<span class="w"> </span>check<span class="w"> </span>audio<span class="w"> </span>--require
+</code></pre></div>
+
+<p>파일마다 이런 값이 나와요.</p>
+<div class="code"><pre><span></span><code><span class="p">{</span><span class="nt">"file"</span><span class="p">:</span><span class="w"> </span><span class="s2">"assets/game/audio/jump.mp3"</span><span class="p">,</span><span class="w"> </span><span class="nt">"exists"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"> </span><span class="nt">"duration_s"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.48</span><span class="p">,</span><span class="w"> </span><span class="nt">"mean_db"</span><span class="p">:</span><span class="w"> </span><span class="mf">-19.2</span><span class="p">,</span><span class="w"> </span><span class="nt">"max_db"</span><span class="p">:</span><span class="w"> </span><span class="mf">-1.2</span><span class="p">,</span><span class="w"> </span><span class="nt">"clipped_runs"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="nt">"dc_offset"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0003</span><span class="p">,</span><span class="w"> </span><span class="nt">"lead_silence_ms"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0</span><span class="p">,</span><span class="w"> </span><span class="nt">"tail_silence_ms"</span><span class="p">:</span><span class="w"> </span><span class="mf">243.2</span><span class="p">,</span><span class="w"> </span><span class="nt">"lufs"</span><span class="p">:</span><span class="w"> </span><span class="mf">-15.6</span><span class="p">,</span><span class="w"> </span><span class="nt">"loop"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">}</span>
+</code></pre></div>
+
+<div class="table"><table>
+<thead>
+<tr>
+<th>값</th>
+<th>보는 것</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>exists</code>, <code>duration_s</code></td>
+<td>파일이 있고 길이가 0이 아닌가</td>
+</tr>
+<tr>
+<td><code>max_db</code>, <code>clipped_runs</code></td>
+<td>소리가 넘쳐서 잘린 곳이 있는가(0이어야 해요)</td>
+</tr>
+<tr>
+<td><code>lead_silence_ms</code></td>
+<td>앞에 무음이 길면 입력보다 소리가 늦게 나요</td>
+</tr>
+<tr>
+<td><code>mean_db</code></td>
+<td>효과음끼리 차이가 6 dB 안쪽이면 고른 편이에요</td>
+</tr>
+</tbody>
+</table></div>
+<p>결과 끝의 <code>problems</code>와 <code>warnings</code>가 비어 있는지 확인하세요.</p>
+<h2 id="2">2. 음악의 이음매 재기</h2>
+<p>반복 재생할 음악은 끝과 처음이 만나는 이음매를 재야 해요. 생성한 원본 파일을 <code>--loop</code>로 지정해 검사하세요.</p>
+<div class="code"><pre><span></span><code>gf<span class="w"> </span>check<span class="w"> </span>audio<span class="w"> </span>--loop<span class="w"> </span>assets/raw/audio/theme.mp3<span class="w"> </span>assets/raw/audio/theme.mp3
+</code></pre></div>
+
+<p>검증용 데모의 원본 음악은 이렇게 나와요.</p>
+<div class="code"><pre><span></span><code><span class="p">{</span><span class="nt">"file"</span><span class="p">:</span><span class="w"> </span><span class="s2">"assets/raw/audio/theme.mp3"</span><span class="p">,</span><span class="w"> </span><span class="nt">"duration_s"</span><span class="p">:</span><span class="w"> </span><span class="mf">10.03</span><span class="p">,</span><span class="w"> </span><span class="nt">"lead_silence_ms"</span><span class="p">:</span><span class="w"> </span><span class="mf">7.6</span><span class="p">,</span><span class="w"> </span><span class="nt">"tail_silence_ms"</span><span class="p">:</span><span class="w"> </span><span class="mf">3.7</span><span class="p">,</span><span class="w"> </span><span class="nt">"loop"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"> </span><span class="nt">"seam"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">"edge_silence_ms"</span><span class="p">:</span><span class="w"> </span><span class="mf">11.2</span><span class="p">,</span><span class="w"> </span><span class="nt">"click_db"</span><span class="p">:</span><span class="w"> </span><span class="mf">-99.0</span><span class="p">,</span><span class="w"> </span><span class="nt">"spectral_ratio"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.84</span><span class="p">,</span><span class="w"> </span><span class="nt">"seamless"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w"> </span><span class="nt">"problems"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"앞뒤 무음 11.2ms (기준 10.0ms 이하): 반복마다 끊긴다"</span><span class="p">]}}</span>
+</code></pre></div>
+
+<p><code>seam.seamless</code>가 <code>false</code>예요. 앞뒤 무음을 합치면 11.2ms라서 반복할 때마다 짧게 끊겨요. 하네스 검증에서 데모 음악 네 곡이 모두 이 검사에 걸렸어요(<code>demo-check/EVIDENCE.md</code> H절).</p>
+<h2 id="3">3. 이음매 다듬기</h2>
+<p><code>gf post audio-loop</code>는 앞뒤 무음을 자르고 곡의 꼬리를 머리에 겹쳐 섞어요. 결과는 <code>.wav</code>로 쓰세요. mp3는 압축이 이음매를 다시 흐트러뜨릴 수 있어요.</p>
+<div class="code"><pre><span></span><code>gf<span class="w"> </span>post<span class="w"> </span>audio-loop<span class="w"> </span>assets/raw/audio/theme.mp3<span class="w"> </span>--out<span class="w"> </span>assets/game/audio/theme.wav
+</code></pre></div>
+
+<div class="code"><pre><span></span><code><span class="p">{</span><span class="nt">"ok"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"> </span><span class="nt">"files"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"assets/game/audio/theme.wav"</span><span class="p">],</span><span class="w"> </span><span class="nt">"cost_usd"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0</span><span class="p">,</span><span class="w"> </span><span class="nt">"trimmed_lead_ms"</span><span class="p">:</span><span class="w"> </span><span class="mf">7.6</span><span class="p">,</span><span class="w"> </span><span class="nt">"trimmed_tail_ms"</span><span class="p">:</span><span class="w"> </span><span class="mf">3.7</span><span class="p">,</span><span class="w"> </span><span class="nt">"fade_s"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.52</span><span class="p">,</span><span class="w"> </span><span class="nt">"beat_match"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.782</span><span class="p">,</span><span class="w"> </span><span class="nt">"duration_s"</span><span class="p">:</span><span class="w"> </span><span class="mf">8.501</span><span class="p">,</span><span class="w"> </span><span class="nt">"source_duration_s"</span><span class="p">:</span><span class="w"> </span><span class="mf">10.032</span><span class="p">,</span><span class="w"> </span><span class="nt">"before"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">"edge_silence_ms"</span><span class="p">:</span><span class="w"> </span><span class="mf">11.2</span><span class="p">,</span><span class="w"> </span><span class="nt">"seamless"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w"> </span><span class="nt">"..."</span><span class="p">:</span><span class="w"> </span><span class="s2">"..."</span><span class="p">},</span><span class="w"> </span><span class="nt">"after"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">"edge_silence_ms"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0</span><span class="p">,</span><span class="w"> </span><span class="nt">"click_db"</span><span class="p">:</span><span class="w"> </span><span class="mf">-61.1</span><span class="p">,</span><span class="w"> </span><span class="nt">"seamless"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"> </span><span class="nt">"problems"</span><span class="p">:</span><span class="w"> </span><span class="p">[]}}</span>
+</code></pre></div>
+
+<p><code>after.seamless</code>가 <code>true</code>로 바뀌었어요. 1.52초를 겹쳤기 때문에 곡이 10.03초에서 8.50초로 짧아졌어요. <code>beat_match</code>는 겹친 구간의 박자가 얼마나 맞는지예요. 이 값이 낮으면(다른 데모에서는 0.39) 이음매가 숫자로는 통과해도 박자가 어긋나게 들릴 수 있으니 사람에게 들어 보라고 하세요.</p>
+<h2 id="4">4. 실행 중에 소리가 나는지 재기</h2>
+<p>파일이 멀쩡해도 게임이 그 파일을 재생하지 않을 수 있어요. 게임을 실시간으로 돌리면서 엔진이 내보내는 신호를 재세요. <code>--expect 입력=소리</code>는 "이 입력 직후에 이 소리가 시작돼야 한다"는 조건이에요.</p>
+<div class="code"><pre><span></span><code>gf<span class="w"> </span>engine<span class="w"> </span>audio<span class="w"> </span>--script<span class="w"> </span>bot/clear.json<span class="w"> </span>--expect<span class="w"> </span><span class="nv">jump</span><span class="o">=</span>jump
+</code></pre></div>
+
+<div class="code"><pre><span></span><code><span class="p">{</span><span class="nt">"ok"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"> </span><span class="nt">"files"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"captures/audio/result.json"</span><span class="p">],</span><span class="w"> </span><span class="nt">"measured"</span><span class="p">:</span><span class="w"> </span><span class="s2">"엔진 안의 최종 신호 (Godot: 마스터 버스, web: destination 직전). 스피커 소리가 아니다"</span><span class="p">,</span><span class="w"> </span><span class="nt">"seconds"</span><span class="p">:</span><span class="w"> </span><span class="mf">10.32</span><span class="p">,</span><span class="w"> </span><span class="nt">"peak_db"</span><span class="p">:</span><span class="w"> </span><span class="mf">-6.8</span><span class="p">,</span><span class="w"> </span><span class="nt">"rms_db"</span><span class="p">:</span><span class="w"> </span><span class="mf">-25.6</span><span class="p">,</span><span class="w"> </span><span class="nt">"sounds"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">"assets/game/audio/theme.wav"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">"starts"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="nt">"loop"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"> </span><span class="nt">"length_s"</span><span class="p">:</span><span class="w"> </span><span class="mf">8.501</span><span class="p">},</span><span class="w"> </span><span class="nt">"assets/game/audio/jump.mp3"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">"starts"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="nt">"loop"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w"> </span><span class="nt">"length_s"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.48</span><span class="p">},</span><span class="w"> </span><span class="nt">"assets/game/audio/goal.mp3"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">"starts"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="nt">"loop"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w"> </span><span class="nt">"length_s"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.2</span><span class="p">}},</span><span class="w"> </span><span class="nt">"responses"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="nt">"t"</span><span class="p">:</span><span class="w"> </span><span class="mf">2.417</span><span class="p">,</span><span class="w"> </span><span class="nt">"kind"</span><span class="p">:</span><span class="w"> </span><span class="s2">"input"</span><span class="p">,</span><span class="w"> </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"jump"</span><span class="p">,</span><span class="w"> </span><span class="nt">"sounds"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"assets/game/audio/jump.mp3"</span><span class="p">],</span><span class="w"> </span><span class="nt">"peak_db_before"</span><span class="p">:</span><span class="w"> </span><span class="mf">-16.2</span><span class="p">,</span><span class="w"> </span><span class="nt">"peak_db_after"</span><span class="p">:</span><span class="w"> </span><span class="mf">-9.0</span><span class="p">},</span><span class="w"> </span><span class="s2">"..."</span><span class="p">],</span><span class="w"> </span><span class="nt">"loops"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="nt">"sound"</span><span class="p">:</span><span class="w"> </span><span class="s2">"assets/game/audio/theme.wav"</span><span class="p">,</span><span class="w"> </span><span class="nt">"wraps"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="nt">"continues"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"> </span><span class="nt">"quiet_ms_at_wrap"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0</span><span class="p">}],</span><span class="w"> </span><span class="nt">"checks"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">"audible"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ok"</span><span class="p">,</span><span class="w"> </span><span class="nt">"loop_continues"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ok"</span><span class="p">,</span><span class="w"> </span><span class="nt">"..."</span><span class="p">:</span><span class="w"> </span><span class="s2">"..."</span><span class="p">}}</span>
+</code></pre></div>
+
+<p>읽는 법이에요.</p>
+<ul>
+<li><code>sounds</code>: 점프 소리가 3번 시작됐어요. 스크립트의 점프 입력도 3번이에요.</li>
+<li><code>responses</code>: 점프 입력 직후 신호의 피크가 −16.2 dB에서 −9.0 dB로 올라갔어요. 효과음이 음악 위로 들릴 만큼 커요.</li>
+<li><code>loops</code>: 음악이 반복 지점을 한 번 넘었고(<code>wraps: 1</code>) 계속 재생됐고, 그 지점의 무음은 0.0ms예요.</li>
+<li><code>measured</code>: 이 값은 엔진 안의 신호예요. <strong>스피커에서 난 소리가 아니에요.</strong></li>
+</ul>
+<h2 id="_4">결과 확인하기</h2>
+<ul>
+<li><code>gf check audio --require</code>의 <code>problems</code>와 <code>warnings</code>가 비어 있어요.</li>
+<li>반복하는 음악의 <code>seam.seamless</code>가 <code>true</code>예요.</li>
+<li><code>gf engine audio</code>의 <code>checks</code>가 모두 <code>ok</code>이고, 기대한 입력마다 소리가 시작됐어요.</li>
+<li>보고에 "소리는 측정만 했고 사람이 듣지 않았다"를 적었어요.</li>
+</ul>
+<p>마지막 줄이 가장 중요해요. 저장소의 문서들은 소리를 다룰 때마다 이 문장을 적어요(<code>harness/README.md</code>, <code>games/cat-angler/SCREENSHOTS.md</code>, <code>games/cat-angler/design/asset-status.md</code>). cat-angler의 음악 다섯 곡은 박이 또렷하지 않아 이음매에서 박자가 밀리는지 잴 수 없었고, 상태 문서는 그 칸에 "모름. 들어 봐야 안다"고 적었어요.</p>
+<h2 id="_5">사람에게 넘기기</h2>
+<p>측정이 끝나면 <code>gf engine run</code>으로 게임을 띄워 사용자에게 들려주고, 무엇을 들어 달라는지 좁혀서 물으세요.</p>
+<ul>
+<li>음악이 반복되는 순간이 거슬리는가</li>
+<li>가장 자주 나는 효과음이 거슬리는가</li>
+<li>효과음이 음악에 묻히는가</li>
+</ul>
+<h2 id="_6">더 보기</h2>
+<ul>
+<li>검증을 셋으로 나눈 이유: <a href="../explanations/three-checks.html">세 가지 검증의 역할</a></li>
+<li>원문: <code>harness/skills/gf-audio/SKILL.md</code></li>
+</ul>
+</article>
+<footer class="pager">
+<a class="prev" href="../how-tos/run-blind-judge.html"><small>이전</small>블라인드 심사 돌리기</a>
+<a class="next" href="../how-tos/write-agent-brief.html"><small>다음</small>제작 에이전트 작업 지시서 쓰기</a>
+</footer>
+</main>
+<aside class="toc" aria-label="이 문서의 목차">
+<p>이 문서에서</p><div class="toc">
+<ul>
+<li><a href="#_2">이럴 때 쓰세요</a></li>
+<li><a href="#_3">준비하기</a></li>
+<li><a href="#1">1. 소리 파일 재기</a></li>
+<li><a href="#2">2. 음악의 이음매 재기</a></li>
+<li><a href="#3">3. 이음매 다듬기</a></li>
+<li><a href="#4">4. 실행 중에 소리가 나는지 재기</a></li>
+<li><a href="#_4">결과 확인하기</a></li>
+<li><a href="#_5">사람에게 넘기기</a></li>
+<li><a href="#_6">더 보기</a></li>
+</ul>
+</div>
+
+</aside>
+</div>
+</body>
+</html>

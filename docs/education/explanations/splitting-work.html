@@ -1,0 +1,241 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>에이전트 작업 분할 원칙 · gameforge 교육 자료</title>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<header class="top">
+  <a class="brand" href="../index.html">gameforge 교육 자료</a>
+  <button class="menu" aria-label="목차 열기" onclick="document.body.classList.toggle('nav-open')">목차</button>
+</header>
+<div class="layout">
+<nav class="side" aria-label="문서 목차">
+<p class="group">시작</p><ul>
+<li><a href="../index.html">AI 에이전트로 게임 하네스 만들기</a></li>
+<li><a href="../glossary.html">용어집</a></li>
+</ul>
+<p class="group">설명</p><ul>
+<li><a href="../explanations/why-harness.html">하네스가 필요한 이유</a></li>
+<li><a href="../explanations/harness-structure.html">gameforge 하네스의 구조</a></li>
+<li><a class="active" aria-current="page" href="../explanations/splitting-work.html">에이전트 작업 분할 원칙</a></li>
+<li><a href="../explanations/three-checks.html">세 가지 검증의 역할</a></li>
+<li><a href="../explanations/cat-angler-case-study.html">cat-angler 제작 과정</a></li>
+</ul>
+<p class="group">학습</p><ul>
+<li><a href="../tutorials/first-game.html">첫 게임 실행하고 캐릭터 넣기</a></li>
+</ul>
+<p class="group">문제 해결</p><ul>
+<li><a href="../how-tos/collect-references.html">레퍼런스 모으고 고르기</a></li>
+<li><a href="../how-tos/run-design-interview.html">설계 인터뷰 하기</a></li>
+<li><a href="../how-tos/make-pixel-asset.html">생성 이미지를 픽셀 에셋으로 만들기</a></li>
+<li><a href="../how-tos/make-sprite-animation.html">스프라이트 애니메이션 만들기</a></li>
+<li><a href="../how-tos/run-blind-judge.html">블라인드 심사 돌리기</a></li>
+<li><a href="../how-tos/verify-sound.html">듣지 않고 소리 검증하기</a></li>
+<li><a href="../how-tos/write-agent-brief.html">제작 에이전트 작업 지시서 쓰기</a></li>
+<li><a href="../how-tos/publish-safely.html">공개 저장소에 안전하게 올리기</a></li>
+</ul>
+<p class="group">참조</p><ul>
+<li><a href="../reference/gf-commands.html">gf 명령 모음</a></li>
+<li><a href="../reference/stages-and-outputs.html">단계별 스킬과 산출물</a></li>
+<li><a href="../reference/costs.html">생성 비용표</a></li>
+<li><a href="../reference/failure-catalogue.html">실패 사례 목록</a></li>
+</ul>
+</nav>
+<main>
+<article>
+<p class="badge">설명</p>
+<h1 id="_1">에이전트 작업 분할 원칙</h1>
+<p>이 문서를 읽으면 큰 작업을 여러 에이전트에게 나눠 줄 때 무엇을 먼저 정해야 하는지, 그리고 나눠 만든 것이 왜 합치는 순간에 깨지는지 설명할 수 있어요. gameforge 하네스와 cat-angler는 둘 다 여러 제작 에이전트가 동시에 만들었어요. 그때 쓴 네 가지 원칙과, 원칙을 지켰는데도 생긴 결함을 실제 사례로 다뤄요.</p>
+<p>지시서를 실제로 쓰는 절차는 <a href="../how-tos/write-agent-brief.html">제작 에이전트 작업 지시서 쓰기</a>에 따로 있어요.</p>
+<h2 id="_2">나눠 만들면 생기는 문제</h2>
+<p>제작 에이전트는 자기 맥락만 알아요. 메인 세션이 "생성기를 만들어 줘"라고만 하면 에이전트마다 출력 형식, 경로, 좌표 기준을 각자 정해요. 각자의 테스트는 통과하지만 합치면 맞물리지 않아요.</p>
+<p>보고에도 문제가 있어요. 제작 에이전트의 보고는 성공한 일과 추측한 일을 같은 말투로 전해요. 메인 세션은 제작 에이전트가 일하는 모습을 보지 못하고 요약만 받기 때문에 둘을 구분할 수 없어요.</p>
+<p>네 가지 원칙은 이 두 문제를 줄이려는 거예요.</p>
+<div class="code"><pre><span></span><code> 1. 계약 문서를 먼저 쓴다 ──► 2. 공용 부분을 메인 세션이 먼저 만든다
+                                          │
+        ┌─────────────────────────────────┼──────────────────────────────┐
+        ▼                                 ▼                              ▼
+   제작 에이전트 A                   제작 에이전트 B                 제작 에이전트 C
+   (자기 폴더만 쓴다)                (자기 폴더만 쓴다)              (자기 폴더만 쓴다)
+        │                                 │                              │
+        └────── 3. 실행해서 확인한 것과 미확인 목록을 나눠 보고한다 ───────┘
+                                          │
+                                          ▼
+                       4. 일찍 합쳐서 처음부터 끝까지 돌려 본다
+</code></pre></div>
+
+<h2 id="1">원칙 1. 계약 문서를 먼저 쓴다</h2>
+<p>계약 문서는 따로 만든 결과가 맞물리도록 미리 정해 둔 약속이에요. 하네스의 계약 문서는 <code>harness/AGENTS.md</code>예요. 제작 에이전트를 띄우기 전에 세 가지를 정했어요.</p>
+<ul>
+<li><strong>디렉터리와 소유권</strong>: <code>gf/gen/</code>은 생성기, <code>gf/post/</code>는 후처리, <code>gf/engine/</code>은 엔진 어댑터처럼 폴더마다 주인을 정했어요. "다른 소유자의 디렉터리는 수정하지 않는다. 공용으로 필요한 것은 <code>gf/core/</code>에 있고, 없으면 보고한다"는 규칙도 함께 적었어요.</li>
+<li><strong>명령 규약</strong>: 모든 명령이 <code>gf --project &lt;게임 폴더&gt; &lt;그룹&gt; &lt;명령&gt;</code> 형태를 따라요.</li>
+<li><strong>출력 규약</strong>: 성공하면 마지막 줄에 <code>{"ok": true, "files": [...]}</code>를, 실패하면 <code>{"ok": false, "error": "..."}</code>를 내요.</li>
+</ul>
+<p>cat-angler를 다시 만들 때의 계약 문서는 <code>games/cat-angler/design/asset-spec.md</code>예요. 첫 문단이 목적을 그대로 말해요.</p>
+<blockquote>
+<p>코드와 그림을 따로 만들어도 맞물리게 하는 계약이다. 그림은 이 경로와 크기로 만들고, 코드는 이 경로에서 읽는다. 바꿔야 하면 이 문서를 먼저 고친다.</p>
+</blockquote>
+<p>이 문서에는 파일 경로(<code>assets/game/chars/cat_idle.tres</code>), 캔버스 크기(고양이 80×60), 기준점(발밑 가운데), 프레임 수가 적혀 있어요. 그림 담당과 코드 담당은 서로의 작업을 보지 않고 이 문서만 보고 일했어요.</p>
+<h2 id="2">원칙 2. 공용 부분은 메인 세션이 먼저 만든다</h2>
+<p>모두가 기대는 부분을 제작 에이전트에게 나눠 맡기면 서로 다른 버전이 생겨요. 하네스에서는 메인 세션이 공용 코어(<code>gf/core/</code>: 설정, 단계 상태, 비용 기록, fal 클라이언트, 출력 규약)를 먼저 쓰고 실제로 돌려 본 뒤에 제작 에이전트를 띄웠어요(세션 기록).</p>
+<p>그다음 작업을 이렇게 나눴어요(세션 기록).</p>
+<div class="table"><table>
+<thead>
+<tr>
+<th>제작 에이전트</th>
+<th>맡은 범위</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A</td>
+<td>생성기, 후처리, Blender</td>
+</tr>
+<tr>
+<td>B</td>
+<td>엔진 어댑터, 플레이 봇, 템플릿 네 개</td>
+</tr>
+<tr>
+<td>C</td>
+<td>레퍼런스, 블라인드 심사 준비</td>
+</tr>
+<tr>
+<td>D (마지막)</td>
+<td>플러그인 층(스킬, 서브에이전트, 훅)</td>
+</tr>
+</tbody>
+</table></div>
+<p>플러그인 층을 마지막에 둔 이유는 스킬이 <code>gf</code> 명령을 인용하기 때문이에요. CLI가 완성된 뒤에 실제 <code>--help</code> 출력을 보고 써야 없는 옵션을 적지 않아요.</p>
+<h2 id="3">원칙 3. 실행한 것과 미확인 목록을 나눠 보고받는다</h2>
+<p>각 작업 지시서에는 세 가지를 적었어요(세션 기록).</p>
+<ul>
+<li>무엇을 소유하는지</li>
+<li>무엇을 <strong>실제로 실행해서</strong> 확인해야 하는지</li>
+<li>확인하지 못한 것을 따로 적어 보고할 것</li>
+</ul>
+<p>세 번째가 핵심이에요. 미확인 목록을 요구하지 않으면 제작 에이전트는 "완료"라고만 보고해요. 요구하면 이런 문장이 돌아와요. 아래는 저장소에 남아 있는 실제 미확인 목록이에요(<code>demo-check/EVIDENCE.md</code>).</p>
+<ul>
+<li>"소리는 길이와 음량만 쟀다. 듣지 못했다. 음악이 매끄럽게 반복되는지도 모른다."</li>
+<li>"움직임의 느낌(걷기 속도와 이동 속도의 어울림, 발 미끄러짐)은 정지 화면으로만 봤다."</li>
+<li>"키보드를 손으로 누르지 않았다. 보낸 키는 프로세스의 이벤트 큐에 직접 넣은 것이라 키보드 하드웨어와 창 포커스 판단을 거치지 않는다."</li>
+</ul>
+<p>이 목록이 다음 작업의 출발점이 됐어요. 예를 들어 "음악이 매끄럽게 반복되는지 모른다"는 한 줄이 뒤에 이음매를 재는 검사와 고치는 명령으로 이어졌어요.</p>
+<h2 id="4">원칙 4. 일찍 합쳐서 끝까지 돌려 본다</h2>
+<p>각 부분이 자기 테스트를 통과해도 함께 돌려 본 적이 없으면 통과한 것이 아니에요. 하네스에서는 이 사실을 세 번 확인했어요.</p>
+<h3 id="_3">통합 점검: 모듈 사이의 틈</h3>
+<p>부분들을 처음 함께 돌린 통합 점검에서 모듈 사이의 틈 일곱 개를 고쳤어요. 개수와 "합치기 전"의 모습은 세션 기록이고, "합친 뒤"의 모습은 표에 적은 저장소 위치에서 확인할 수 있어요. 두 가지 예시예요.</p>
+<div class="table"><table>
+<thead>
+<tr>
+<th>틈</th>
+<th>합치기 전</th>
+<th>합친 뒤 고친 것</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>3D 모델의 정면 방향</td>
+<td>생성 모델, Blender 정리, 두 엔진 템플릿이 "앞"을 서로 다르게 가정했어요</td>
+<td>규약을 한 곳(<code>harness/templates/README.md</code> 7절)에만 적었어요: GLB의 정면은 +Z, 생성 모델은 정면이 +X로 나오므로 <code>gf blender rescale --turn -90</code>으로 돌려요</td>
+</tr>
+<tr>
+<td>비용 한도</td>
+<td>단가를 계산할 수 없는 모델의 호출이 한도 검사를 그냥 통과했어요</td>
+<td><code>--estimate-usd</code>나 <code>--allow-unknown-cost</code>를 명시해야만 호출돼요(<code>harness/tools/gf/core/fal.py</code>)</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="_4">조합 점검: 돌려 보지 않은 조합</h3>
+<p>엔진과 스타일의 조합 가운데 세 가지(Godot + 비픽셀 2D, 웹 + 픽셀 2D, 웹 + 비픽셀 2D)는 끝까지 돌려 본 적이 없었어요. 실제 생성물로 돌리자 결함 아홉 개가 더 나왔어요(개수는 세션 기록, 점검 결과는 <code>demo-check/EVIDENCE.md</code> D~G절). 두 가지 예시예요.</p>
+<ul>
+<li>비픽셀 스타일 프로젝트가 픽셀 아트용 화면 설정을 그대로 썼어요. 지금은 <code>gf init --style 2d</code>가 템플릿을 복사한 뒤 고해상도 2D용 설정으로 고쳐요(<code>harness/templates/README.md</code> 8절).</li>
+<li>웹 템플릿이 하네스가 만든 스프라이트 시트를 읽지 못했고 소리를 재생할 길이 없었어요.</li>
+</ul>
+<h3 id="_5">미확인 전수 점검: 진짜 환경에서 써 보기</h3>
+<p>마지막으로 "확인하지 못한 것"을 전부 모아 하나씩 실제로 확인했어요. 가장 뼈아픈 결과는 스킬이었어요. 플러그인을 실제 Claude Code 세션에 불러와 평범한 말로 요청해 보니 스킬 13개 중 12개가 발동하지 않았어요(세션 기록). 스킬 설명이 "이 스킬은 무엇을 한다"만 말하고 "어떤 요청에 써야 하는지"를 말하지 않았기 때문이에요. 설명을 다시 썼고, 지금의 설명은 이런 형태예요(<code>harness/skills/gf-assets-pixel/SKILL.md</code>).</p>
+<blockquote>
+<p>픽셀 아트 스프라이트, 도트, 타일셋, 픽셀 캐릭터 걷기 애니메이션을 만들어 달라거나 "픽셀이 뭉개진다/흐리다/크기가 안 맞는다"를 고쳐 달라는 요청에는, 직접 그리거나(SVG, Pillow, 코드) 생성 명령을 바로 부르기 전에 먼저 이 스킬을 쓴다.</p>
+</blockquote>
+<p>이것도 끝난 일이 아니에요. 인계 기록은 "스킬 13개 중 자연어 발동을 실제 세션에서 다시 확인한 것은 3개"라고 적어요(<code>.claude/handoffs/2026-11-23-gameforge-cat-angler.md</code>).</p>
+<h2 id="_6">합성 테스트와 실제 실행의 차이</h2>
+<p>세 번의 점검에서 공통으로 드러난 것은 <strong>가짜 입력으로 만든 테스트는 진짜 입력의 성질을 모른다</strong>는 점이에요. 단위 테스트는 사람이 예상한 입력으로 만들어요. 생성 모델과 운영체제는 예상하지 않은 입력을 줘요.</p>
+<div class="table"><table>
+<thead>
+<tr>
+<th>테스트가 가정한 것</th>
+<th>실제로 온 것</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>픽셀 아트의 격자는 정수 픽셀이다</td>
+<td>512픽셀 그림에 100칸, 칸 하나가 5.12픽셀</td>
+</tr>
+<tr>
+<td>영상 프레임의 가장자리는 정지 그림과 같다</td>
+<td>압축 때문에 배경의 초록이 외곽선으로 번짐</td>
+</tr>
+<tr>
+<td>3D 모델의 면은 이어져 있다</td>
+<td>면이 떨어져 있어서 삼각형 수를 줄이자 구멍이 남</td>
+</tr>
+<tr>
+<td>눌러 둔 키는 계속 눌려 있다</td>
+<td>앱이 포커스를 잃으면 Godot이 눌린 키를 전부 뗌</td>
+</tr>
+</tbody>
+</table></div>
+<p>이 사례들의 원인과 고친 방법은 <a href="../reference/failure-catalogue.html">실패 사례 목록</a>에 있어요.</p>
+<h2 id="cat-angler">cat-angler에서 달라진 점</h2>
+<p>cat-angler를 다시 만들 때는 세 제작 에이전트가 화면 구조, 그림과 소리, 컷신을 나눠 맡았어요(<code>.claude/handoffs/2026-11-23-gameforge-cat-angler.md</code>). 하네스를 만들 때 배운 것을 두 가지 반영했어요.</p>
+<ul>
+<li><strong>계약 문서에 "없을 때의 동작"을 넣었어요.</strong> 코드는 그림 파일이 없으면 도형으로 그린 임시 그림을 쓰고, 빠진 파일 이름을 목록(F3 키)에 올려요. 파일을 넣으면 코드 수정 없이 다음 실행부터 쓰여요(<code>games/cat-angler/design/asset-spec.md</code>). 그래서 코드 담당과 그림 담당이 서로를 기다리지 않았어요.</li>
+<li><strong>계약을 고친 쪽이 문서에 흔적을 남겼어요.</strong> <code>asset-spec.md</code>에는 "(코드 쪽에서 추가)", "(코드 쪽에서 정함)" 표시가 있어요. 일하다가 약속을 바꿔야 하면 문서를 먼저 고쳤어요.</li>
+</ul>
+<p>그래도 틈은 남았어요. 그림 담당의 상태 문서(<code>games/cat-angler/design/asset-status.md</code>)는 고양이 캔버스가 규격(48×56)과 다른 80×60이 됐다고 적고, 여러 에셋에 "게임 화면에서 확인하지 못했다"고 적어요.</p>
+<h2 id="_7">정리</h2>
+<ul>
+<li>계약 문서(경로, 크기, 출력 형식, 소유권)를 제작 에이전트보다 먼저 만들어요.</li>
+<li>모두가 기대는 부분은 메인 세션이 먼저 만들고 실행해 봐요.</li>
+<li>보고는 "실행해서 확인한 것"과 "미확인 목록"으로 나눠 받아요.</li>
+<li>부분의 테스트 통과를 믿지 말고, 일찍 합쳐서 진짜 입력으로 끝까지 돌려요.</li>
+</ul>
+<h2 id="_8">더 보기</h2>
+<ul>
+<li>지시서 쓰는 절차: <a href="../how-tos/write-agent-brief.html">제작 에이전트 작업 지시서 쓰기</a></li>
+<li>실제 실행으로 드러난 결함: <a href="../reference/failure-catalogue.html">실패 사례 목록</a></li>
+<li>계약 문서 원문: <code>harness/AGENTS.md</code>, <code>games/cat-angler/design/asset-spec.md</code></li>
+</ul>
+</article>
+<footer class="pager">
+<a class="prev" href="../tutorials/first-game.html"><small>이전</small>첫 게임 실행하고 캐릭터 넣기</a>
+<a class="next" href="../explanations/three-checks.html"><small>다음</small>세 가지 검증의 역할</a>
+</footer>
+</main>
+<aside class="toc" aria-label="이 문서의 목차">
+<p>이 문서에서</p><div class="toc">
+<ul>
+<li><a href="#_2">나눠 만들면 생기는 문제</a></li>
+<li><a href="#1">원칙 1. 계약 문서를 먼저 쓴다</a></li>
+<li><a href="#2">원칙 2. 공용 부분은 메인 세션이 먼저 만든다</a></li>
+<li><a href="#3">원칙 3. 실행한 것과 미확인 목록을 나눠 보고받는다</a></li>
+<li><a href="#4">원칙 4. 일찍 합쳐서 끝까지 돌려 본다</a><ul>
+<li><a href="#_3">통합 점검: 모듈 사이의 틈</a></li>
+<li><a href="#_4">조합 점검: 돌려 보지 않은 조합</a></li>
+<li><a href="#_5">미확인 전수 점검: 진짜 환경에서 써 보기</a></li>
+</ul>
+</li>
+<li><a href="#_6">합성 테스트와 실제 실행의 차이</a></li>
+<li><a href="#cat-angler">cat-angler에서 달라진 점</a></li>
+<li><a href="#_7">정리</a></li>
+<li><a href="#_8">더 보기</a></li>
+</ul>
+</div>
+
+</aside>
+</div>
+</body>
+</html>

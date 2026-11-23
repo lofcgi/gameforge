@@ -1,0 +1,281 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>생성 비용표 · gameforge 교육 자료</title>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<header class="top">
+  <a class="brand" href="../index.html">gameforge 교육 자료</a>
+  <button class="menu" aria-label="목차 열기" onclick="document.body.classList.toggle('nav-open')">목차</button>
+</header>
+<div class="layout">
+<nav class="side" aria-label="문서 목차">
+<p class="group">시작</p><ul>
+<li><a href="../index.html">AI 에이전트로 게임 하네스 만들기</a></li>
+<li><a href="../glossary.html">용어집</a></li>
+</ul>
+<p class="group">설명</p><ul>
+<li><a href="../explanations/why-harness.html">하네스가 필요한 이유</a></li>
+<li><a href="../explanations/harness-structure.html">gameforge 하네스의 구조</a></li>
+<li><a href="../explanations/splitting-work.html">에이전트 작업 분할 원칙</a></li>
+<li><a href="../explanations/three-checks.html">세 가지 검증의 역할</a></li>
+<li><a href="../explanations/cat-angler-case-study.html">cat-angler 제작 과정</a></li>
+</ul>
+<p class="group">학습</p><ul>
+<li><a href="../tutorials/first-game.html">첫 게임 실행하고 캐릭터 넣기</a></li>
+</ul>
+<p class="group">문제 해결</p><ul>
+<li><a href="../how-tos/collect-references.html">레퍼런스 모으고 고르기</a></li>
+<li><a href="../how-tos/run-design-interview.html">설계 인터뷰 하기</a></li>
+<li><a href="../how-tos/make-pixel-asset.html">생성 이미지를 픽셀 에셋으로 만들기</a></li>
+<li><a href="../how-tos/make-sprite-animation.html">스프라이트 애니메이션 만들기</a></li>
+<li><a href="../how-tos/run-blind-judge.html">블라인드 심사 돌리기</a></li>
+<li><a href="../how-tos/verify-sound.html">듣지 않고 소리 검증하기</a></li>
+<li><a href="../how-tos/write-agent-brief.html">제작 에이전트 작업 지시서 쓰기</a></li>
+<li><a href="../how-tos/publish-safely.html">공개 저장소에 안전하게 올리기</a></li>
+</ul>
+<p class="group">참조</p><ul>
+<li><a href="../reference/gf-commands.html">gf 명령 모음</a></li>
+<li><a href="../reference/stages-and-outputs.html">단계별 스킬과 산출물</a></li>
+<li><a class="active" aria-current="page" href="../reference/costs.html">생성 비용표</a></li>
+<li><a href="../reference/failure-catalogue.html">실패 사례 목록</a></li>
+</ul>
+</nav>
+<main>
+<article>
+<p class="badge">참조</p>
+<h1 id="_1">생성 비용표</h1>
+<p>저장소에 기록된 생성 단가와 실제 지출을 모았어요. 비슷한 프로젝트의 예산을 어림할 때 쓰세요. 모든 금액은 <strong>추정 비용</strong>이에요. 호출 전에 단가로 계산한 값이고 fal 계정의 실제 청구액과 다를 수 있어요. 코딩 에이전트(Claude Code) 사용량은 이 표에 들어 있지 않아요.</p>
+<h2 id="_2">읽기 전에 알아 둘 것</h2>
+<ul>
+<li>단가는 2026-11-22 기준이에요. 모델과 가격은 자주 바뀌어요. 지금 값은 <code>gf fal price &lt;모델 ID&gt;</code>나 <code>gf gen ... --dry-run</code>으로 확인하세요.</li>
+<li>일부 모델은 단가 단위(tokens, credits, compute seconds) 때문에 비용을 미리 계산할 수 없어요. 인계 기록은 Tripo와 Seedance 호출의 실제 청구액은 fal 대시보드에서 확인해야 한다고 적어요(<code>.claude/handoffs/2026-11-23-gameforge-cat-angler.md</code>).</li>
+<li>지출 합계는 각 프로젝트의 비용 기록(<code>.gf/ledger.jsonl</code>)을 2026-11-23에 직접 더한 값이에요.</li>
+</ul>
+<h2 id="_3">종류별 단가</h2>
+<p><code>harness/README.md</code>가 2026-11-22 실측으로 적은 값이에요.</p>
+<div class="table"><table>
+<thead>
+<tr>
+<th>만드는 것</th>
+<th>역할</th>
+<th>단가</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>이미지 1장</td>
+<td><code>image.concept</code>, <code>image.edit</code></td>
+<td>$0.08</td>
+</tr>
+<tr>
+<td>스프라이트 영상 3초</td>
+<td><code>video.sprite</code></td>
+<td>약 $0.34</td>
+</tr>
+<tr>
+<td>룩 영상 4초</td>
+<td><code>video.look</code></td>
+<td>약 $0.9</td>
+</tr>
+<tr>
+<td>3D 모델 1개</td>
+<td><code>model3d.gen</code></td>
+<td>약 $0.5</td>
+</tr>
+<tr>
+<td>리깅 1회</td>
+<td><code>model3d.rig</code></td>
+<td>$0.8</td>
+</tr>
+<tr>
+<td>효과음</td>
+<td><code>audio.sfx</code></td>
+<td>초당 $0.002</td>
+</tr>
+<tr>
+<td>음악</td>
+<td><code>audio.music</code></td>
+<td>분당 $0.6</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="_4">비용 한도</h2>
+<div class="table"><table>
+<thead>
+<tr>
+<th>설정</th>
+<th>값</th>
+<th>위치</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>호출당 기본 한도</td>
+<td>$3</td>
+<td><code>harness/tools/gf/core/defaults.toml</code>의 <code>[budget] max_usd_per_call</code>. 게임 폴더의 <code>.gf/config.toml</code>이 덮어써요</td>
+</tr>
+<tr>
+<td>명령별 한도</td>
+<td><code>--max-usd &lt;값&gt;</code></td>
+<td>설정보다 우선해요</td>
+</tr>
+<tr>
+<td>비용을 계산할 수 없는 호출</td>
+<td><code>--estimate-usd &lt;값&gt;</code> 또는 <code>--allow-unknown-cost</code>가 있어야 실행돼요</td>
+<td><code>harness/AGENTS.md</code></td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="_5">검증용 데모 여섯 개의 지출</h2>
+<p><code>demo-check/</code> 아래 프로젝트의 비용 기록을 더한 값이에요. <code>demo-check/EVIDENCE.md</code>의 표와 같아요.</p>
+<div class="table"><table>
+<thead>
+<tr>
+<th>프로젝트</th>
+<th>내용</th>
+<th>호출 수</th>
+<th>추정 지출</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>pixel-godot</code></td>
+<td>Godot 2D 픽셀. 이미지 5, 스프라이트 영상 1, 효과음 2, 음악 1</td>
+<td>9</td>
+<td>$0.84</td>
+</tr>
+<tr>
+<td><code>flat2d-godot</code></td>
+<td>Godot 비픽셀 2D. 이미지 4, 스프라이트 영상 1, 효과음 2, 음악 1</td>
+<td>8</td>
+<td>$0.74</td>
+</tr>
+<tr>
+<td><code>pixel-web</code></td>
+<td>웹 2D 픽셀. 이미지 5, 스프라이트 영상 2, 효과음 2, 음악 1</td>
+<td>10</td>
+<td>$1.16</td>
+</tr>
+<tr>
+<td><code>flat2d-web</code></td>
+<td>웹 비픽셀 2D. 이미지 4, 스프라이트 영상 1, 효과음 2, 음악 1</td>
+<td>8</td>
+<td>$0.74</td>
+</tr>
+<tr>
+<td><code>model-godot</code></td>
+<td>Godot 3D. 이미지 1, 3D 모델 1, 리깅 1</td>
+<td>3</td>
+<td>$1.38</td>
+</tr>
+<tr>
+<td><code>model-web</code></td>
+<td>three.js 3D. <code>model-godot</code>의 모델을 그대로 사용</td>
+<td>0</td>
+<td>$0</td>
+</tr>
+</tbody>
+</table></div>
+<p>작은 2D 데모 하나(스프라이트 4종, 걷기 애니메이션, 효과음 2개, 음악 1곡)가 $1 안팎이었어요. <code>pixel-web</code>이 더 비싼 것은 플레이어 그림과 영상을 한 번 다시 만들었기 때문이에요.</p>
+<h2 id="cat-angler">cat-angler의 지출</h2>
+<p><code>games/cat-angler/.gf/ledger.jsonl</code>을 2026-11-23 오전에 더한 값이에요. 게임을 다듬는 중이라 이 문서를 쓰는 동안에도 늘고 있었어요.</p>
+<div class="table"><table>
+<thead>
+<tr>
+<th>역할</th>
+<th>호출 수</th>
+<th>추정 지출</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>image.edit</code></td>
+<td>103</td>
+<td>$8.32</td>
+</tr>
+<tr>
+<td><code>audio.music</code></td>
+<td>12</td>
+<td>$4.00</td>
+</tr>
+<tr>
+<td><code>video.sprite</code></td>
+<td>1</td>
+<td>$0.34</td>
+</tr>
+<tr>
+<td><code>image.concept</code></td>
+<td>1</td>
+<td>$0.08</td>
+</tr>
+<tr>
+<td><code>audio.sfx</code></td>
+<td>39</td>
+<td>$0.06</td>
+</tr>
+<tr>
+<td>합계</td>
+<td>156</td>
+<td>$12.80</td>
+</tr>
+</tbody>
+</table></div>
+<p>이미지의 대부분이 <code>image.edit</code>인 이유는 기준이 되는 그림 한 장을 참조로 주고 다른 자세와 대상을 만들었기 때문이에요. 그래야 같은 캐릭터와 같은 화풍이 유지돼요.</p>
+<p>인계 기록에 남은 다른 숫자예요. 비용 기록의 합과 일치하지 않고, 차이를 설명하는 기록은 저장소에서 찾지 못했어요.</p>
+<div class="table"><table>
+<thead>
+<tr>
+<th>인계 기록의 문장</th>
+<th>시점</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>"fal 추정 누적 약 $9 (하네스 시험 약 $8, cat-angler 약 $0.7)"</td>
+<td>그레이박스까지</td>
+</tr>
+<tr>
+<td>"cat-angler 데모 전체의 생성 비용은 $13~17로 가늠했다"</td>
+<td>재제작 전의 예상</td>
+</tr>
+<tr>
+<td>"cat-angler 누적 생성 비용 약 $16"</td>
+<td>재제작 뒤</td>
+</tr>
+</tbody>
+</table></div>
+<p>인계 기록은 fal 잔액이 작업 중에 두 번 바닥났고 사용자가 두 번 충전했다고도 적어요.</p>
+<h2 id="_6">조사에서 본 다른 사람들의 비용</h2>
+<p>최종 조사 보고서는 다른 1인 제작자들의 비용을 <strong>자가 보고</strong> 기준으로 8시간·약 550달러부터 15주·약 1,100~1,150달러까지라고 적어요. 보고서의 표를 보면 이 값은 주로 코딩 에이전트의 토큰·구독 비용이고, 독립적으로 검증되지 않았어요. 위 표의 생성 비용과 직접 비교할 수 없어요.</p>
+<h2 id="_7">더 보기</h2>
+<ul>
+<li>호출 전에 비용을 확인하는 방법: <a href="../reference/gf-commands.html"><code>gf</code> 명령 모음</a>의 생성 공통 옵션</li>
+<li>원문: <code>harness/README.md</code>의 "비용", <code>demo-check/EVIDENCE.md</code>, <a href="../../../reports/AI%20풀제작%20고퀄%201인%20게임%20방법론%202.md">최종 보고서</a></li>
+</ul>
+</article>
+<footer class="pager">
+<a class="prev" href="../reference/stages-and-outputs.html"><small>이전</small>단계별 스킬과 산출물</a>
+<a class="next" href="../reference/failure-catalogue.html"><small>다음</small>실패 사례 목록</a>
+</footer>
+</main>
+<aside class="toc" aria-label="이 문서의 목차">
+<p>이 문서에서</p><div class="toc">
+<ul>
+<li><a href="#_2">읽기 전에 알아 둘 것</a></li>
+<li><a href="#_3">종류별 단가</a></li>
+<li><a href="#_4">비용 한도</a></li>
+<li><a href="#_5">검증용 데모 여섯 개의 지출</a></li>
+<li><a href="#cat-angler">cat-angler의 지출</a></li>
+<li><a href="#_6">조사에서 본 다른 사람들의 비용</a></li>
+<li><a href="#_7">더 보기</a></li>
+</ul>
+</div>
+
+</aside>
+</div>
+</body>
+</html>

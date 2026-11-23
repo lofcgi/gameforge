@@ -1,0 +1,227 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>세 가지 검증의 역할 · gameforge 교육 자료</title>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<header class="top">
+  <a class="brand" href="../index.html">gameforge 교육 자료</a>
+  <button class="menu" aria-label="목차 열기" onclick="document.body.classList.toggle('nav-open')">목차</button>
+</header>
+<div class="layout">
+<nav class="side" aria-label="문서 목차">
+<p class="group">시작</p><ul>
+<li><a href="../index.html">AI 에이전트로 게임 하네스 만들기</a></li>
+<li><a href="../glossary.html">용어집</a></li>
+</ul>
+<p class="group">설명</p><ul>
+<li><a href="../explanations/why-harness.html">하네스가 필요한 이유</a></li>
+<li><a href="../explanations/harness-structure.html">gameforge 하네스의 구조</a></li>
+<li><a href="../explanations/splitting-work.html">에이전트 작업 분할 원칙</a></li>
+<li><a class="active" aria-current="page" href="../explanations/three-checks.html">세 가지 검증의 역할</a></li>
+<li><a href="../explanations/cat-angler-case-study.html">cat-angler 제작 과정</a></li>
+</ul>
+<p class="group">학습</p><ul>
+<li><a href="../tutorials/first-game.html">첫 게임 실행하고 캐릭터 넣기</a></li>
+</ul>
+<p class="group">문제 해결</p><ul>
+<li><a href="../how-tos/collect-references.html">레퍼런스 모으고 고르기</a></li>
+<li><a href="../how-tos/run-design-interview.html">설계 인터뷰 하기</a></li>
+<li><a href="../how-tos/make-pixel-asset.html">생성 이미지를 픽셀 에셋으로 만들기</a></li>
+<li><a href="../how-tos/make-sprite-animation.html">스프라이트 애니메이션 만들기</a></li>
+<li><a href="../how-tos/run-blind-judge.html">블라인드 심사 돌리기</a></li>
+<li><a href="../how-tos/verify-sound.html">듣지 않고 소리 검증하기</a></li>
+<li><a href="../how-tos/write-agent-brief.html">제작 에이전트 작업 지시서 쓰기</a></li>
+<li><a href="../how-tos/publish-safely.html">공개 저장소에 안전하게 올리기</a></li>
+</ul>
+<p class="group">참조</p><ul>
+<li><a href="../reference/gf-commands.html">gf 명령 모음</a></li>
+<li><a href="../reference/stages-and-outputs.html">단계별 스킬과 산출물</a></li>
+<li><a href="../reference/costs.html">생성 비용표</a></li>
+<li><a href="../reference/failure-catalogue.html">실패 사례 목록</a></li>
+</ul>
+</nav>
+<main>
+<article>
+<p class="badge">설명</p>
+<h1 id="_1">세 가지 검증의 역할</h1>
+<p>이 문서를 읽으면 에이전트가 "됐어요"라고 할 때 그 말이 무엇을 보장하고 무엇을 보장하지 않는지 구분할 수 있어요. gameforge는 검증을 자가 실행, 블라인드 심사, 사람 플레이 세 가지로 나눠요. 하나로 합치지 않은 이유는 세 가지가 서로 다른 종류의 잘못을 잡고, 어느 하나도 나머지를 대신하지 못하기 때문이에요.</p>
+<h2 id="_2">한눈에 보기</h2>
+<div class="table"><table>
+<thead>
+<tr>
+<th>검증</th>
+<th>확인하는 것</th>
+<th>잡는 것</th>
+<th>잡지 못하는 것</th>
+<th>하는 때</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>자가 실행</td>
+<td>동작</td>
+<td>부팅 실패, 콘솔 오류, 반응 없는 입력, 깰 수 없는 레벨, 느린 프레임</td>
+<td>화면이 좋은지, 재미있는지</td>
+<td>코드를 바꿀 때마다</td>
+</tr>
+<tr>
+<td>블라인드 심사</td>
+<td>화면</td>
+<td>화면이 목표에 가까워졌는지, 변경이 나아졌는지</td>
+<td>재미, 조작감, 소리</td>
+<td>화면에 영향을 주는 변경마다</td>
+</tr>
+<tr>
+<td>사람 플레이</td>
+<td>감각</td>
+<td>재미, 손맛, 헷갈림, 소리</td>
+<td>(사람의 시간이 들어요)</td>
+<td>빌드가 달라질 때마다, 단계 승인 전</td>
+</tr>
+</tbody>
+</table></div>
+<p>표는 <code>harness/skills/gf-verify/SKILL.md</code>에서 가져왔어요. 그 문서는 표 아래에 한 줄을 덧붙여요: "사람의 판정은 모든 자동 통과보다 우선한다."</p>
+<div class="code"><pre><span></span><code> 코드 변경 ─► 자가 실행 ─────► 블라인드 심사 ────► 사람 플레이
+              "돌아가는가"      "목표처럼 보이는가"   "하고 싶은가"
+              에이전트가 실행    맥락 없는 심사자      사용자
+</code></pre></div>
+
+<h2 id="_3">자가 실행이 잡는 것</h2>
+<p>자가 실행은 에이전트가 추측하지 않고 실행 결과를 보게 해요. 에이전트는 코드를 읽고 "이렇게 동작할 것이다"라고 말하기 쉬운데, 게임을 실제로 띄워 스크린샷을 찍으면 그 말이 맞는지 바로 드러나요.</p>
+<p>핵심 명령은 네 가지예요.</p>
+<div class="table"><table>
+<thead>
+<tr>
+<th>명령</th>
+<th>확인하는 것</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>gf engine test</code></td>
+<td>부팅, 브리지 계약, 첫 화면, 입력 반응, 콘솔 오류</td>
+</tr>
+<tr>
+<td><code>gf engine capture</code></td>
+<td>지정한 시점의 실제 화면과 게임 상태</td>
+</tr>
+<tr>
+<td><code>gf engine bot</code></td>
+<td>플레이 봇이 실제 입력으로 목표까지 가는지</td>
+</tr>
+<tr>
+<td><code>gf engine perf</code></td>
+<td>프레임 시간, 드로우 콜, 메모리</td>
+</tr>
+</tbody>
+</table></div>
+<p>자가 실행은 테스트만으로는 볼 수 없는 것도 잡았어요. Godot에서 자동 실행 중에 눌러 둔 키가 저절로 풀리는 문제가 있었는데, 포커스를 일부러 흔드는 반복 실행으로 원인을 찾았어요. 앱이 포커스를 잃으면 Godot이 눌린 키를 전부 떼는 것이었어요. 같은 45회 반복에서 고치기 전에는 39회, 고친 뒤에는 0회 발생했어요(<code>demo-check/EVIDENCE.md</code> H절).</p>
+<h3 id="_4">자가 실행의 한계</h3>
+<p>자가 실행이 통과해도 <strong>화면이 맞다는 뜻은 아니에요</strong>. 하네스의 그레이박스 스킬은 이렇게 적어요(<code>harness/skills/gf-graybox/SKILL.md</code>): "테스트 통과는 '화면이 맞다'는 뜻이 아니다. 검은 화면, 화면 밖 플레이어, 겹친 도형은 눈으로만 잡힌다." 그래서 에이전트는 찍은 PNG를 직접 열어 봐야 해요.</p>
+<p><strong>재미가 있다는 뜻은 더더욱 아니에요.</strong> cat-angler의 그레이박스에서 플레이 봇은 게임을 처음부터 엔딩까지 깼어요(게임 시간 약 27분, 출항 14번). 같은 빌드를 사용자는 63초 플레이하고 그만뒀어요(<code>.claude/handoffs/2026-11-23-gameforge-cat-angler.md</code>). 봇이 깰 수 있다는 사실은 "막히는 곳이 없다"만 말해 줘요.</p>
+<h2 id="_5">블라인드 심사가 잡는 것</h2>
+<p>에이전트가 자기가 고친 화면을 스스로 평가하면 거의 언제나 "좋아졌다"고 답해요. 블라인드 심사는 이 자기 칭찬을 구조로 막아요.</p>
+<ol>
+<li><code>gf judge pair</code>가 두 화면을 <code>X.png</code>, <code>Y.png</code>로 무작위로 섞어 심사 폴더에 넣어요. 어느 쪽이 무엇인지는 <code>.gf/judge/</code>의 정답 대응표에만 남아요.</li>
+<li>메인 세션이 맥락 없는 새 심사자(<code>blind-judge</code>)에게 심사 폴더의 파일 경로만 줘요. 무엇을 고쳤는지, 어느 쪽이 수정 후인지는 알려 주지 않아요.</li>
+<li>심사자가 항목별 점수와 승자를 JSON으로 답해요.</li>
+<li><code>gf judge record</code>가 정답 대응표로 승자를 풀어 기록해요.</li>
+</ol>
+<p>심사에는 두 방식이 있어요.</p>
+<div class="table"><table>
+<thead>
+<tr>
+<th>방식</th>
+<th>비교하는 것</th>
+<th>결과를 쓰는 법</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>change</code></td>
+<td>수정 전 대 수정 후</td>
+<td>수정 전이 이기면 변경을 되돌려요</td>
+</tr>
+<tr>
+<td><code>target</code></td>
+<td>기준 화면 대 게임 화면</td>
+<td>게임 화면이 목표를 2번 이기면 그 방향은 그만 다듬어요</td>
+</tr>
+</tbody>
+</table></div>
+<p>두 번째 줄의 멈춤 규칙이 중요해요. 멈추는 조건이 없으면 에이전트는 끝없이 다듬어요. 반대로 "목표 그림에 없다는 이유만으로 게임 화면의 요소를 지우지 않는다"는 규칙도 있어요. UI와 캐릭터는 게임에 필요해서 있는 것이기 때문이에요.</p>
+<p>cat-angler의 실제 기록이에요(<code>games/cat-angler/.gf/judge/history.jsonl</code>, 2026-11-23 기준).</p>
+<ul>
+<li>그레이박스 대 새 화면(<code>sea-art-02</code>): 새 화면이 이겼어요.</li>
+<li>기준 화면 대 게임 화면(<code>sea-art-01</code>): 기준 화면이 이겼어요. 심사자는 고양이가 작고 물고기가 옅다고 지적했어요.</li>
+<li>이어진 다듬기 묶음(<code>sea-polish</code>)에서는 기준 화면이 다섯 번 연속 이긴 뒤 여섯 번째에 게임 화면이 근소하게 이겼어요. 이 문서를 쓰는 시점에도 다듬기가 진행 중이어서 기록은 더 늘었을 수 있어요.</li>
+</ul>
+<h3 id="_6">블라인드 심사의 한계</h3>
+<p>심사자는 <strong>정지 화면만 봐요</strong>. 움직임, 조작감, 소리는 판정하지 못해요. 점수의 절대값도 믿을 것이 못 돼요. 엄격한 심사에서는 좋은 화면도 5~6점이 나와요. 그래서 점수가 아니라 승패와 이유를 써요(<code>harness/skills/gf-verify/SKILL.md</code>).</p>
+<h2 id="_7">사람 플레이가 잡는 것</h2>
+<p>재미, 손맛, 헷갈림, 소리의 느낌은 사람만 판정할 수 있어요. 하네스는 사람의 플레이를 "느낌"으로 흘려보내지 않고 기록으로 남겨요.</p>
+<div class="code"><pre><span></span><code>gf<span class="w"> </span>engine<span class="w"> </span>run<span class="w"> </span>--record<span class="w">                 </span><span class="c1"># 사용자가 플레이한다. captures/sessions/&lt;id&gt;.jsonl 에 입력이 남는다</span>
+gf<span class="w"> </span>engine<span class="w"> </span>replay<span class="w"> </span>&lt;id&gt;<span class="w"> </span>--shot-every<span class="w"> </span><span class="m">1</span><span class="w">   </span><span class="c1"># 같은 입력을 재생하고 반응 없는 입력 후보를 보고한다</span>
+</code></pre></div>
+
+<p>사용자가 "느낌이 이상하다"고 하면 에이전트는 추측으로 고치지 않아요. 기록을 재생해 그 순간의 화면과 상태를 보고 원인을 찾아요.</p>
+<p>cat-angler의 첫 사람 플레이 기록에는 이런 내용이 남았어요(<code>.claude/handoffs/2026-11-23-gameforge-cat-angler.md</code>): 63초 동안 멸치 한 마리를 낚고 팔지 않은 채 종료, "할 일 없는 키" 반응 3번, "안 됨" 3번. 자가 실행과 봇이 전부 통과한 빌드였어요.</p>
+<h3 id="_8">사람 플레이의 한계</h3>
+<p>사람의 시간은 비싸고, 사람은 한 번에 문제를 전부 말해 주지 않아요. 인계 기록은 사용자가 왜 그만뒀는지 "아직 답을 받지 못했다"고 적어요. 그래서 플레이를 부탁할 때는 무엇을 봐 달라는지 한두 가지로 좁혀요.</p>
+<h2 id="_9">소리처럼 확인할 길이 없는 것</h2>
+<p>에이전트는 소리를 듣지 못해요. 이런 영역에서는 "잴 수 있는 것은 재고, 재지 못한 것은 재지 못했다고 말한다"가 규칙이에요.</p>
+<ul>
+<li><strong>잰 것</strong>: 파일의 길이와 음량, 실행 중 엔진이 내보내는 신호의 크기, 입력 직후 어떤 소리가 시작됐는지, 음악의 이음매에 무음이 있는지</li>
+<li><strong>재지 못한 것</strong>: 스피커로 실제로 들리는지, 듣기 좋은지, 박자가 자연스럽게 이어지는지</li>
+</ul>
+<p>측정은 쓸모가 있었어요. 데모 네 곡의 음악을 재 보니 네 곡 모두 이음매가 기준을 넘었고, 이음매를 다듬는 명령(<code>gf post audio-loop</code>)을 만든 뒤 전부 통과했어요(<code>demo-check/EVIDENCE.md</code> H절). 그래도 저장소의 문서들은 소리를 다룰 때마다 같은 문장을 적어요: "소리는 측정만 했고 사람이 듣지 않았다"(<code>harness/README.md</code>, <code>games/cat-angler/SCREENSHOTS.md</code>).</p>
+<h2 id="_10">정리</h2>
+<ul>
+<li>자가 실행은 "돌아가는가", 블라인드 심사는 "목표처럼 보이는가", 사람 플레이는 "하고 싶은가"를 답해요.</li>
+<li>앞의 검증이 통과했다고 뒤의 검증을 건너뛸 수 없어요. 봇이 깬 게임을 사람은 63초 만에 그만뒀어요.</li>
+<li>심사에는 멈추는 조건이 있어야 해요.</li>
+<li>확인하지 못한 것은 확인하지 못했다고 적어요.</li>
+</ul>
+<h2 id="_11">더 보기</h2>
+<ul>
+<li>심사를 직접 돌리는 방법: <a href="../how-tos/run-blind-judge.html">블라인드 심사 돌리기</a></li>
+<li>소리를 재는 방법: <a href="../how-tos/verify-sound.html">듣지 않고 소리 검증하기</a></li>
+<li>조사에서 본 근거: <a href="../explanations/why-harness.html">하네스가 필요한 이유</a></li>
+<li>원문: <code>harness/skills/gf-verify/SKILL.md</code>, <code>harness/agents/blind-judge.md</code></li>
+</ul>
+</article>
+<footer class="pager">
+<a class="prev" href="../explanations/splitting-work.html"><small>이전</small>에이전트 작업 분할 원칙</a>
+<a class="next" href="../explanations/cat-angler-case-study.html"><small>다음</small>cat-angler 제작 과정</a>
+</footer>
+</main>
+<aside class="toc" aria-label="이 문서의 목차">
+<p>이 문서에서</p><div class="toc">
+<ul>
+<li><a href="#_2">한눈에 보기</a></li>
+<li><a href="#_3">자가 실행이 잡는 것</a><ul>
+<li><a href="#_4">자가 실행의 한계</a></li>
+</ul>
+</li>
+<li><a href="#_5">블라인드 심사가 잡는 것</a><ul>
+<li><a href="#_6">블라인드 심사의 한계</a></li>
+</ul>
+</li>
+<li><a href="#_7">사람 플레이가 잡는 것</a><ul>
+<li><a href="#_8">사람 플레이의 한계</a></li>
+</ul>
+</li>
+<li><a href="#_9">소리처럼 확인할 길이 없는 것</a></li>
+<li><a href="#_10">정리</a></li>
+<li><a href="#_11">더 보기</a></li>
+</ul>
+</div>
+
+</aside>
+</div>
+</body>
+</html>

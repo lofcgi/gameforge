@@ -1,0 +1,293 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>단계별 스킬과 산출물 · gameforge 교육 자료</title>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<header class="top">
+  <a class="brand" href="../index.html">gameforge 교육 자료</a>
+  <button class="menu" aria-label="목차 열기" onclick="document.body.classList.toggle('nav-open')">목차</button>
+</header>
+<div class="layout">
+<nav class="side" aria-label="문서 목차">
+<p class="group">시작</p><ul>
+<li><a href="../index.html">AI 에이전트로 게임 하네스 만들기</a></li>
+<li><a href="../glossary.html">용어집</a></li>
+</ul>
+<p class="group">설명</p><ul>
+<li><a href="../explanations/why-harness.html">하네스가 필요한 이유</a></li>
+<li><a href="../explanations/harness-structure.html">gameforge 하네스의 구조</a></li>
+<li><a href="../explanations/splitting-work.html">에이전트 작업 분할 원칙</a></li>
+<li><a href="../explanations/three-checks.html">세 가지 검증의 역할</a></li>
+<li><a href="../explanations/cat-angler-case-study.html">cat-angler 제작 과정</a></li>
+</ul>
+<p class="group">학습</p><ul>
+<li><a href="../tutorials/first-game.html">첫 게임 실행하고 캐릭터 넣기</a></li>
+</ul>
+<p class="group">문제 해결</p><ul>
+<li><a href="../how-tos/collect-references.html">레퍼런스 모으고 고르기</a></li>
+<li><a href="../how-tos/run-design-interview.html">설계 인터뷰 하기</a></li>
+<li><a href="../how-tos/make-pixel-asset.html">생성 이미지를 픽셀 에셋으로 만들기</a></li>
+<li><a href="../how-tos/make-sprite-animation.html">스프라이트 애니메이션 만들기</a></li>
+<li><a href="../how-tos/run-blind-judge.html">블라인드 심사 돌리기</a></li>
+<li><a href="../how-tos/verify-sound.html">듣지 않고 소리 검증하기</a></li>
+<li><a href="../how-tos/write-agent-brief.html">제작 에이전트 작업 지시서 쓰기</a></li>
+<li><a href="../how-tos/publish-safely.html">공개 저장소에 안전하게 올리기</a></li>
+</ul>
+<p class="group">참조</p><ul>
+<li><a href="../reference/gf-commands.html">gf 명령 모음</a></li>
+<li><a class="active" aria-current="page" href="../reference/stages-and-outputs.html">단계별 스킬과 산출물</a></li>
+<li><a href="../reference/costs.html">생성 비용표</a></li>
+<li><a href="../reference/failure-catalogue.html">실패 사례 목록</a></li>
+</ul>
+</nav>
+<main>
+<article>
+<p class="badge">참조</p>
+<h1 id="_1">단계별 스킬과 산출물</h1>
+<p>gameforge의 여섯 단계마다 어떤 스킬이 쓰이고 어떤 파일이 생기는지 정리했어요. "지금 단계에서 무엇이 나와야 하는가"와 "이 파일은 어느 단계에서 만들어지는가"를 찾을 때 쓰세요. 스킬 13개와 서브에이전트 2개의 원문은 <code>harness/skills/</code>와 <code>harness/agents/</code>에 있어요.</p>
+<h2 id="_2">단계 순서</h2>
+<div class="code"><pre><span></span><code>plan → look → graybox → assets → polish → publish
+</code></pre></div>
+
+<p>현재 단계는 <code>gf state show</code>로 확인하고, 사용자가 승인한 뒤 <code>gf state approve</code>로 넘어가요. 승인 전에 <code>gf check evidence</code>가 근거를 검사해요.</p>
+<h2 id="_3">단계별 표</h2>
+<div class="table"><table>
+<thead>
+<tr>
+<th>단계</th>
+<th>스킬</th>
+<th>하는 일</th>
+<th>생기는 파일 (게임 폴더 기준)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>(시작)</td>
+<td><code>gf-start</code></td>
+<td>환경 점검, 엔진·차원·스타일 선택, 프로젝트 생성, 지금 단계 안내</td>
+<td><code>.gf/state.json</code>, <code>.gf/config.toml</code>, 템플릿 파일 전체</td>
+</tr>
+<tr>
+<td><code>plan</code></td>
+<td><code>gf-plan</code></td>
+<td>한 문장 훅, 설계 요약, 범위 점검</td>
+<td><code>design/brief.md</code></td>
+</tr>
+<tr>
+<td><code>look</code> (앞)</td>
+<td><code>gf-reference</code></td>
+<td>레퍼런스 수집, 모음판, 사용자 선택, 측정, 글로 정리</td>
+<td><code>references/inbox/</code>, <code>references/sheets/</code>, <code>references/picked/</code>, <code>references/picked/traits.json</code>, <code>traits-palette.png</code>, <code>analysis.md</code></td>
+</tr>
+<tr>
+<td><code>look</code> (뒤)</td>
+<td><code>gf-look</code></td>
+<td>기준 화면 후보 생성, 사용자 선택, 팔레트, 아트 디렉션</td>
+<td><code>design/look/</code>(후보와 기준 화면), <code>design/palette.json</code>, <code>design/art-direction.md</code></td>
+</tr>
+<tr>
+<td><code>graybox</code></td>
+<td><code>gf-graybox</code></td>
+<td>도형만으로 핵심 반복 구현, 자가 실행, 사람이 재미 판정</td>
+<td>게임 코드, <code>bot/clear.json</code>, <code>captures/</code></td>
+</tr>
+<tr>
+<td><code>assets</code></td>
+<td><code>gf-assets-pixel</code></td>
+<td>픽셀 스타일: 생성 → 크로마 → 격자 맞춤 → 팔레트 → 검사</td>
+<td><code>assets/raw/</code>, <code>assets/game/</code>, <code>captures/inspect/</code></td>
+</tr>
+<tr>
+<td><code>assets</code></td>
+<td><code>gf-assets-2d</code></td>
+<td>비픽셀 2D 스타일: 기준 화면을 참조로 생성 → 배경 제거 → 줄이기</td>
+<td><code>assets/raw/</code>, <code>assets/game/</code></td>
+</tr>
+<tr>
+<td><code>assets</code></td>
+<td><code>gf-assets-3d</code></td>
+<td>3D 스타일: 코드로 그리거나, 컨셉 이미지 → 3D 모델 → Blender 정리</td>
+<td><code>assets/raw/</code>, <code>assets/game/</code>, <code>captures/turntable/</code></td>
+</tr>
+<tr>
+<td><code>assets</code></td>
+<td><code>gf-ui</code></td>
+<td>기준 화면의 룩으로 패널·버튼·아이콘 텍스처를 생성해 입히기</td>
+<td><code>assets/game/</code> 아래 UI 텍스처</td>
+</tr>
+<tr>
+<td><code>assets</code>, <code>polish</code></td>
+<td><code>gf-audio</code></td>
+<td>효과음·음성·음악 생성, 측정, 사람에게 들려 묻기</td>
+<td><code>assets/raw/audio/</code>, <code>assets/game/audio/</code>, <code>captures/audio/result.json</code></td>
+</tr>
+<tr>
+<td><code>polish</code></td>
+<td><code>gf-polish</code></td>
+<td>손맛, 가독성, 첫 1분, 성능을 작은 변경 하나씩 고치기</td>
+<td><code>design/polish-list.md</code>, <code>design/playtest-notes.md</code>, <code>captures/perf/</code></td>
+</tr>
+<tr>
+<td><code>publish</code></td>
+<td><code>gf-publish</code></td>
+<td>빌드, 플레이 링크 점검, 공개 글 초안</td>
+<td><code>build/</code>, <code>design/publish-post.md</code></td>
+</tr>
+<tr>
+<td>(모든 단계)</td>
+<td><code>gf-verify</code></td>
+<td>자가 실행, 블라인드 심사, 사람 플레이, 단계 승인 절차</td>
+<td><code>captures/test/result.json</code>, <code>captures/judge/&lt;id&gt;/</code>, <code>.gf/judge/</code>, <code>captures/sessions/</code></td>
+</tr>
+</tbody>
+</table></div>
+<p>cat-angler는 기준 화면을 <code>design/look/target.png</code>에, 팔레트를 <code>design/look/palette.json</code>에 뒀어요. 스킬 문서의 예시 경로(<code>design/look/frame.png</code>, <code>design/palette.json</code>)와 달라요.</p>
+<h2 id="_4">스킬과 함께 있는 보조 문서</h2>
+<p>스킬 폴더에는 <code>SKILL.md</code> 외에 세부 절차 문서가 있어요.</p>
+<div class="table"><table>
+<thead>
+<tr>
+<th>스킬</th>
+<th>보조 문서</th>
+<th>내용</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>gf-start</code></td>
+<td><code>conventions.md</code></td>
+<td>결과 보여 주기, 승인, 비용, 금지 사항의 공통 규약</td>
+</tr>
+<tr>
+<td><code>gf-plan</code></td>
+<td><code>brief-template.md</code></td>
+<td>설계 요약의 틀</td>
+</tr>
+<tr>
+<td><code>gf-reference</code></td>
+<td><code>browser-collect.md</code></td>
+<td>사용자의 Chrome에서 레퍼런스를 읽는 절차</td>
+</tr>
+<tr>
+<td><code>gf-look</code></td>
+<td><code>art-direction-template.md</code></td>
+<td>아트 디렉션의 틀</td>
+</tr>
+<tr>
+<td><code>gf-graybox</code></td>
+<td><code>bridge-rules.md</code></td>
+<td>브리지 계약의 요점</td>
+</tr>
+<tr>
+<td><code>gf-assets-pixel</code></td>
+<td><code>animation.md</code></td>
+<td>픽셀 애니메이션 절차</td>
+</tr>
+<tr>
+<td><code>gf-assets-3d</code></td>
+<td><code>blender-build.md</code></td>
+<td>Blender 스크립트로 모델 만들기</td>
+</tr>
+<tr>
+<td><code>gf-polish</code></td>
+<td><code>feel-checklist.md</code></td>
+<td>손맛 점검표</td>
+</tr>
+<tr>
+<td><code>gf-publish</code></td>
+<td><code>build.md</code>, <code>posting.md</code></td>
+<td>빌드 절차, 공개 글 틀</td>
+</tr>
+<tr>
+<td><code>gf-verify</code></td>
+<td><code>blind-judging.md</code></td>
+<td>블라인드 심사 절차와 해석</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="_5">서브에이전트</h2>
+<div class="table"><table>
+<thead>
+<tr>
+<th>이름</th>
+<th>읽는 것</th>
+<th>돌려주는 것</th>
+<th>쓸 수 있는 도구</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>blind-judge</code></td>
+<td>심사 폴더의 <code>rubric.md</code>, <code>X.png</code>, <code>Y.png</code>, (있으면) <code>target.png</code>만</td>
+<td>승자, 항목별 점수, 이유가 든 JSON 하나</td>
+<td>Read</td>
+</tr>
+<tr>
+<td><code>playtest-reviewer</code></td>
+<td>봇·캡처·재생이 남긴 결과 폴더, 설계 요약</td>
+<td>플레이어 입장에서 본 문제 목록과 근거. 코드를 고치지 않아요</td>
+<td>Read, Glob, Grep</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="_6">단계 승인에 필요한 근거</h2>
+<p>훅이 <code>gf state approve</code>를 막을 때 보는 것이에요(<code>harness/README.md</code>).</p>
+<div class="table"><table>
+<thead>
+<tr>
+<th>단계</th>
+<th>필요한 근거</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>plan</code></td>
+<td>내용이 있는 <code>design/brief.md</code></td>
+</tr>
+<tr>
+<td><code>graybox</code> 이후</td>
+<td>마지막 변경 뒤에 통과한 스모크 테스트(<code>captures/test/result.json</code>)와 스크린샷</td>
+</tr>
+<tr>
+<td><code>assets</code> 이후</td>
+<td>위에 더해, 없는 에셋이나 빈 에셋을 가리키는 참조가 없을 것. 픽셀 프로젝트는 후처리 안 된 그림이 없을 것</td>
+</tr>
+<tr>
+<td><code>polish</code> 이후</td>
+<td>위에 더해, 없는 소리나 무음인 소리가 없을 것</td>
+</tr>
+</tbody>
+</table></div>
+<p><code>look</code> 단계의 근거 조건은 이 표에 없어요. 저장소 문서에서 명시된 문장을 찾지 못했어요. <code>gf check evidence</code>를 실행하면 그 단계에서 모자란 것을 알려 줘요.</p>
+<h2 id="_7">더 보기</h2>
+<ul>
+<li>단계를 나눈 이유: <a href="../explanations/harness-structure.html">gameforge 하네스의 구조</a></li>
+<li>명령 목록: <a href="../reference/gf-commands.html"><code>gf</code> 명령 모음</a></li>
+<li>원문: <code>harness/skills/gf-start/SKILL.md</code>의 단계 표, <code>harness/AGENTS.md</code></li>
+</ul>
+</article>
+<footer class="pager">
+<a class="prev" href="../reference/gf-commands.html"><small>이전</small>gf 명령 모음</a>
+<a class="next" href="../reference/costs.html"><small>다음</small>생성 비용표</a>
+</footer>
+</main>
+<aside class="toc" aria-label="이 문서의 목차">
+<p>이 문서에서</p><div class="toc">
+<ul>
+<li><a href="#_2">단계 순서</a></li>
+<li><a href="#_3">단계별 표</a></li>
+<li><a href="#_4">스킬과 함께 있는 보조 문서</a></li>
+<li><a href="#_5">서브에이전트</a></li>
+<li><a href="#_6">단계 승인에 필요한 근거</a></li>
+<li><a href="#_7">더 보기</a></li>
+</ul>
+</div>
+
+</aside>
+</div>
+</body>
+</html>

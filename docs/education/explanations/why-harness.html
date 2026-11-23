@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>하네스가 필요한 이유 · gameforge 교육 자료</title>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<header class="top">
+  <a class="brand" href="../index.html">gameforge 교육 자료</a>
+  <button class="menu" aria-label="목차 열기" onclick="document.body.classList.toggle('nav-open')">목차</button>
+</header>
+<div class="layout">
+<nav class="side" aria-label="문서 목차">
+<p class="group">시작</p><ul>
+<li><a href="../index.html">AI 에이전트로 게임 하네스 만들기</a></li>
+<li><a href="../glossary.html">용어집</a></li>
+</ul>
+<p class="group">설명</p><ul>
+<li><a class="active" aria-current="page" href="../explanations/why-harness.html">하네스가 필요한 이유</a></li>
+<li><a href="../explanations/harness-structure.html">gameforge 하네스의 구조</a></li>
+<li><a href="../explanations/splitting-work.html">에이전트 작업 분할 원칙</a></li>
+<li><a href="../explanations/three-checks.html">세 가지 검증의 역할</a></li>
+<li><a href="../explanations/cat-angler-case-study.html">cat-angler 제작 과정</a></li>
+</ul>
+<p class="group">학습</p><ul>
+<li><a href="../tutorials/first-game.html">첫 게임 실행하고 캐릭터 넣기</a></li>
+</ul>
+<p class="group">문제 해결</p><ul>
+<li><a href="../how-tos/collect-references.html">레퍼런스 모으고 고르기</a></li>
+<li><a href="../how-tos/run-design-interview.html">설계 인터뷰 하기</a></li>
+<li><a href="../how-tos/make-pixel-asset.html">생성 이미지를 픽셀 에셋으로 만들기</a></li>
+<li><a href="../how-tos/make-sprite-animation.html">스프라이트 애니메이션 만들기</a></li>
+<li><a href="../how-tos/run-blind-judge.html">블라인드 심사 돌리기</a></li>
+<li><a href="../how-tos/verify-sound.html">듣지 않고 소리 검증하기</a></li>
+<li><a href="../how-tos/write-agent-brief.html">제작 에이전트 작업 지시서 쓰기</a></li>
+<li><a href="../how-tos/publish-safely.html">공개 저장소에 안전하게 올리기</a></li>
+</ul>
+<p class="group">참조</p><ul>
+<li><a href="../reference/gf-commands.html">gf 명령 모음</a></li>
+<li><a href="../reference/stages-and-outputs.html">단계별 스킬과 산출물</a></li>
+<li><a href="../reference/costs.html">생성 비용표</a></li>
+<li><a href="../reference/failure-catalogue.html">실패 사례 목록</a></li>
+</ul>
+</nav>
+<main>
+<article>
+<p class="badge">설명</p>
+<h1 id="_1">하네스가 필요한 이유</h1>
+<p>이 문서를 읽으면 "프롬프트를 잘 쓰면 되지 않나"라는 질문에 답할 수 있어요. gameforge는 처음부터 하네스를 만들려고 시작한 프로젝트가 아니에요. 최근 한 달 동안 혼자서 AI로 게임을 만든 사람들이 실제로 무엇을 했는지 조사했고, 품질을 가른 행동이 전부 "에이전트가 스스로는 하지 않는 일"이었기 때문에 그 일을 장치로 고정했어요. 조사에서 찾은 사실과 그 사실이 어떤 장치가 됐는지를 차례로 설명해요.</p>
+<p>용어가 낯설면 <a href="../glossary.html">용어집</a>을 먼저 보세요.</p>
+<h2 id="_2">조사한 방법</h2>
+<p>사용자의 첫 질문은 "혼자서 AI로 품질 좋은 게임을 만드는 사람들은 실제로 어떻게 하는가"였고, 조건은 최근 한 달(2026-10-22 ~ 2026-11-22) 자료만 쓰는 것이었어요. 조사는 세 가지 규칙으로 진행했어요.</p>
+<ul>
+<li><strong>주제별로 나눠 동시에 조사했어요.</strong> 조사 노트가 주제별 파일로 남아 있어요(<code>research_notes/AI 1인 게임 개발 방법론/01_검증된_성공사례.md</code> ~ <code>14_Reddit_데스크톱조사.md</code>). 주제별 조사자를 따로 띄우고 보고서 작성자가 합쳤어요(세션 기록).</li>
+<li><strong>기간 밖 자료와 검증되지 않은 수치에 표시를 붙였어요.</strong> 보고서는 [1차], [자가 보고], [추정], [배경·기간 외] 같은 표기 규칙을 맨 앞에 정의해요.</li>
+<li><strong>읽지 못한 것은 읽지 못했다고 적었어요.</strong> Reddit과 X는 평범한 방법으로는 읽히지 않았어요. 공개 API, 영상 자막, 사용자가 로그인한 브라우저를 차례로 시도했고(노트 07~14번 파일 이름에 그 경로가 남아 있어요), 끝까지 읽지 못한 것은 보고서의 "확인하지 못한 것" 절에 적었어요. 예를 들어 최종 보고서는 Reddit 스레드를 직접 연 것이 5건뿐이라고 밝히고, 나머지에는 링크를 지어내지 않았어요.</li>
+</ul>
+<p>조사 도중 사용자가 선정 기준을 바꿨어요. 첫 보고서(<code>reports/AI 1인 게임 개발 방법론.md</code>)의 기준은 "AI 중심 + 1인 + 수치로 검증된 흥행"이었고, 최종 보고서(<code>reports/AI 풀제작 고퀄 1인 게임 방법론 2.md</code>)의 기준은 "플레이 가능 + 1인 기획 + AI 풀 제작 + 관찰되는 품질"이에요. 판매 실적은 조건에서 뺐어요. 기준이 바뀌자 보고서를 다시 썼어요.</p>
+<h2 id="_3">조사에서 찾은 사실</h2>
+<p>두 보고서의 결론을 줄이면 다섯 가지예요.</p>
+<ol>
+<li><strong>상업적으로 검증된 사례는 한 건뿐이었어요.</strong> 첫 보고서의 기준을 모두 충족한 것은 Steam 게임 한 건이었고, 그 제작자는 약 1년 동안 직접 플레이하며 갈아엎기를 반복했어요.</li>
+<li><strong>화제가 된 3D 시연은 전부 무료 브라우저 빌드였어요.</strong> 판매나 플레이어 수치가 없었어요.</li>
+<li><strong>제작자들은 생성 도구보다 검증 장치를 설명했어요.</strong> 최종 보고서는 여러 사람의 방법을 겹쳐 "룩 고정 → 설계 → 자가 실행 → 블라인드 심사 → 사람 플레이"라는 공통 흐름을 뽑았어요.</li>
+<li><strong>테스트 통과는 화면이 맞다는 뜻이 아니었어요.</strong> 보고서가 인용한 게임잼 기록에는 테스트가 전부 통과했는데 첫 프레임이 검은 화면이었던 사례, 에이전트가 고치지 않은 것을 "fixed"라고 보고한 사례가 있어요.</li>
+<li><strong>넓은 범위와 높은 충실도를 함께 갖춘 1인 AI 제작물은 찾지 못했어요.</strong> 캐릭터 애니메이션, 소리, UI는 제작자 본인들이 약점으로 꼽았어요.</li>
+</ol>
+<p>이 조사에도 한계가 있어요. 최종 보고서는 어떤 게임도 직접 플레이하지 않았고 플레이 링크를 한 건도 열어 보지 않았다고 적어요. 그래서 "품질이 높다"는 판단은 게시물, 참여 수치, 답글을 읽은 것이에요.</p>
+<h2 id="_4">프롬프트만으로 부족한 까닭</h2>
+<p>위 다섯 가지를 다시 보면 품질을 만든 행동은 모두 에이전트에게 불편한 일이에요.</p>
+<ul>
+<li>기준 화면을 먼저 고정하면 에이전트는 "대충 예쁜 그림"으로 넘어갈 수 없어요.</li>
+<li>게임을 실제로 실행해 스크린샷을 보면 "코드상으로는 맞다"는 말이 통하지 않아요.</li>
+<li>맥락 없는 심사자가 평가하면 자기가 고친 화면을 스스로 칭찬할 수 없어요.</li>
+<li>사람이 플레이하면 "봇이 깼으니 완성"이라고 할 수 없어요.</li>
+</ul>
+<p>프롬프트에 "꼭 실행해서 확인해"라고 적는 것은 부탁이에요. 대화가 길어지거나 작업이 급해지면 에이전트는 부탁을 건너뛰어요. 하네스는 같은 내용을 <strong>건너뛸 수 없는 구조</strong>로 바꿔요. 절차는 스킬 문서로 주고, 실행과 측정은 명령으로 만들고, 증거 없이 다음 단계로 가는 행동은 훅이 막아요.</p>
+<h2 id="_5">사실이 장치가 된 과정</h2>
+<p>조사에서 찾은 사실마다 하네스에 대응하는 장치가 있어요.</p>
+<div class="table"><table>
+<thead>
+<tr>
+<th>조사에서 찾은 사실</th>
+<th>하네스의 장치</th>
+<th>저장소 위치</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>룩을 먼저 고정한 제작자의 결과가 일관됐다</td>
+<td><code>look</code> 단계. 후보 여러 장 중 사용자가 고른 한 장을 기준 화면으로 고정하고 아트 디렉션을 쓴다</td>
+<td><code>harness/skills/gf-look/SKILL.md</code></td>
+</tr>
+<tr>
+<td>설계 문서는 양보다 순서가 문제다</td>
+<td><code>plan</code> 단계. 구현 전에 결정을 닫고 설계 요약을 승인받는다</td>
+<td><code>harness/skills/gf-plan/SKILL.md</code></td>
+</tr>
+<tr>
+<td>에이전트가 게임을 실행해 실제 화면을 봐야 한다</td>
+<td><code>gf engine test/capture/bot/perf</code>. 게임 안의 브리지가 입력을 받고 상태를 돌려준다</td>
+<td><code>harness/tools/gf/engine/</code>, <code>harness/templates/README.md</code></td>
+</tr>
+<tr>
+<td>테스트 통과는 화면이 맞다는 뜻이 아니다</td>
+<td>근거 규칙. 변경 뒤에 찍은 스크린샷과 통과 기록이 없으면 훅이 단계 승인을 막는다</td>
+<td><code>harness/skills/gf-verify/SKILL.md</code>, <code>harness/hooks/guard.py</code></td>
+</tr>
+<tr>
+<td>섞인 화면을 맥락 없는 심사자가 비교해야 자기 칭찬이 사라진다</td>
+<td><code>gf judge pair</code>와 <code>blind-judge</code> 서브에이전트. 훅이 심사자가 심사 폴더 밖을 읽지 못하게 막는다</td>
+<td><code>harness/tools/gf/judge/</code>, <code>harness/agents/blind-judge.md</code></td>
+</tr>
+<tr>
+<td>과하게 다듬지 않으려면 멈추는 조건이 필요하다</td>
+<td>멈춤 규칙. 게임 화면이 목표를 2번 이기면 그 방향은 끝낸다</td>
+<td><code>harness/skills/gf-verify/SKILL.md</code></td>
+</tr>
+<tr>
+<td>재미와 조작감은 사람만 판정했다</td>
+<td><code>gf engine run --record</code>와 <code>replay</code>. 사용자의 플레이를 기록해 "느낌이 이상하다"를 재현한다</td>
+<td><code>harness/tools/gf/play/</code></td>
+</tr>
+<tr>
+<td>캐릭터 애니메이션, 소리, UI가 약점이다</td>
+<td>설계 단계의 범위 점검표, UI와 소리 전용 스킬</td>
+<td><code>harness/skills/gf-plan/SKILL.md</code>, <code>gf-ui</code>, <code>gf-audio</code></td>
+</tr>
+<tr>
+<td>비용 수치는 자가 보고이고 편차가 크다</td>
+<td>호출 전에 추정 비용을 계산하고 호출마다 비용 기록을 남긴다</td>
+<td><code>harness/tools/gf/core/</code>, 게임 폴더의 <code>.gf/ledger.jsonl</code></td>
+</tr>
+<tr>
+<td>특정 게임을 따라 만든 사례는 경계선에 있다</td>
+<td>레퍼런스는 여러 출처에서 특성만 가져오고, 한 작품에 쏠리면 경고한다</td>
+<td><code>harness/skills/gf-reference/SKILL.md</code></td>
+</tr>
+</tbody>
+</table></div>
+<p>조사에 없던 장치도 있어요. 생성 모델을 <strong>역할</strong> 이름으로 부르는 규칙은 설계할 때 정했어요. 모델은 자주 은퇴하기 때문에 코드에 모델 ID를 적지 않고 설정 파일(<code>harness/tools/gf/core/defaults.toml</code>)에만 둬요.</p>
+<h2 id="_6">하네스가 해 주지 못하는 일</h2>
+<p>하네스는 품질을 보장하지 않아요. 저장소가 직접 적은 한계예요(<code>harness/README.md</code>의 "알려진 한계").</p>
+<ul>
+<li>재미, 조작감, 소리의 느낌은 사람만 판정할 수 있어요. 에이전트는 실행하고, 찍고, 재고, 물어요.</li>
+<li>가까이서 보는 3D 인물 애니메이션은 여러 번 다시 만들어도 어색할 수 있어요.</li>
+<li>이 방법이 확인된 범위는 작은 레벨, 짧은 한 판, 스타일이 뚜렷한 게임이에요.</li>
+</ul>
+<p>cat-angler도 이 한계를 그대로 겪었어요. 하네스의 절차를 모두 따랐는데도 사용자에게 두 번 반려당했어요. 그 과정은 <a href="../explanations/cat-angler-case-study.html">cat-angler 제작 과정</a>에 있어요.</p>
+<h2 id="_7">정리</h2>
+<ul>
+<li>조사가 먼저였고, 하네스는 조사 결과를 강제하는 수단이에요.</li>
+<li>품질을 가른 것은 생성 모델의 성능보다 "실행해서 보고, 남이 심사하고, 사람이 플레이한다"는 검증 순서였어요.</li>
+<li>프롬프트는 부탁이고 하네스는 구조예요. 건너뛰면 안 되는 일은 명령과 훅으로 만들어요.</li>
+</ul>
+<h2 id="_8">더 보기</h2>
+<ul>
+<li>장치들이 어떻게 맞물리는지: <a href="../explanations/harness-structure.html">gameforge 하네스의 구조</a></li>
+<li>세 가지 검증이 각각 잡는 것: <a href="../explanations/three-checks.html">세 가지 검증의 역할</a></li>
+<li>조사 원문: <a href="../../../reports/AI%20풀제작%20고퀄%201인%20게임%20방법론%202.md">최종 보고서</a>, <a href="../../../reports/AI%201인%20게임%20개발%20방법론.md">첫 보고서</a></li>
+</ul>
+</article>
+<footer class="pager">
+<a class="prev" href="../index.html"><small>이전</small>AI 에이전트로 게임 하네스 만들기</a>
+<a class="next" href="../explanations/harness-structure.html"><small>다음</small>gameforge 하네스의 구조</a>
+</footer>
+</main>
+<aside class="toc" aria-label="이 문서의 목차">
+<p>이 문서에서</p><div class="toc">
+<ul>
+<li><a href="#_2">조사한 방법</a></li>
+<li><a href="#_3">조사에서 찾은 사실</a></li>
+<li><a href="#_4">프롬프트만으로 부족한 까닭</a></li>
+<li><a href="#_5">사실이 장치가 된 과정</a></li>
+<li><a href="#_6">하네스가 해 주지 못하는 일</a></li>
+<li><a href="#_7">정리</a></li>
+<li><a href="#_8">더 보기</a></li>
+</ul>
+</div>
+
+</aside>
+</div>
+</body>
+</html>
